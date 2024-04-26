@@ -1,6 +1,7 @@
 package game;
 
 import io.Input;
+import io.Output;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -10,14 +11,18 @@ import java.util.stream.Collectors;
 
 public class RandomGame implements Game {
     private Input input;
+    private Output output;
 
-    public RandomGame(Input input) {
+    public RandomGame(Input input, Output output) {
         this.input = input;
+        this.output = output;
     }
     @Override
     public void play() {
-        String playerNumber = input.getNumberFromPlayer();
         String computerNumber = makeRandomNumber();
+        while (true) {
+            String playerNumber = input.getNumberFromPlayer();
+        }
     }
 
     private String makeRandomNumber() {

@@ -1,6 +1,7 @@
 package game;
 
 import io.ConsoleInput;
+import io.ConsoleOutput;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -44,7 +45,7 @@ public class GameTest {
     void testShowInputHelp() {
         System.setIn(generateUserInput("123"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new RandomGame(new ConsoleInput(scanner));
+        Game game = new RandomGame(new ConsoleInput(scanner), new ConsoleOutput());
         game.play();
         assertEquals("숫자를 입력해 주세요 : ", outputStream.toString());
     }
@@ -54,7 +55,7 @@ public class GameTest {
     void testWrongBiggerInput() {
         System.setIn(generateUserInput("1234"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new RandomGame(new ConsoleInput(scanner));
+        Game game = new RandomGame(new ConsoleInput(scanner), new ConsoleOutput());
         assertThrows(IllegalArgumentException.class, () -> {
             game.play();
         });
@@ -65,7 +66,7 @@ public class GameTest {
     void testWrongSmallerInput() {
         System.setIn(generateUserInput("12"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new RandomGame(new ConsoleInput(scanner));
+        Game game = new RandomGame(new ConsoleInput(scanner), new ConsoleOutput());
         assertThrows(IllegalArgumentException.class, () -> {
             game.play();
         });
@@ -76,7 +77,7 @@ public class GameTest {
     void testNotNumberInput() {
         System.setIn(generateUserInput("a78"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new RandomGame(new ConsoleInput(scanner));
+        Game game = new RandomGame(new ConsoleInput(scanner), new ConsoleOutput());
         assertThrows(IllegalArgumentException.class, () -> {
             game.play();
         });
@@ -87,7 +88,7 @@ public class GameTest {
     void testOneStrike() {
         System.setIn(generateUserInput("123"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 156);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),156);
         game.play();
         assertTrue(outputStream.toString().contains("1스트라이크"));
     }
@@ -97,7 +98,7 @@ public class GameTest {
     void testOneStrikeOneBall() {
         System.setIn(generateUserInput("152"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 126);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),126);
         game.play();
         assertTrue(outputStream.toString().contains("1볼 1스트라이크"));
     }
@@ -107,7 +108,7 @@ public class GameTest {
     void testOneStrikeTwoBall() {
         System.setIn(generateUserInput("162"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 126);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),126);
         game.play();
         assertTrue(outputStream.toString().contains("2볼 1스트라이크"));
     }
@@ -117,7 +118,7 @@ public class GameTest {
     void testTwoStrike() {
         System.setIn(generateUserInput("739"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),738);
         game.play();
         assertTrue(outputStream.toString().contains("2스트라이크"));
     }
@@ -127,7 +128,7 @@ public class GameTest {
     void testThreeStrike() {
         System.setIn(generateUserInput("738"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),738);
         game.play();
         assertTrue(outputStream.toString().contains("3스트라이크\n3개의 숫자를 모두 맞히셨습니다! " +
                 "게임 종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."));
@@ -138,7 +139,7 @@ public class GameTest {
     void testNothing() {
         System.setIn(generateUserInput("126"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),738);
         game.play();
         assertTrue(outputStream.toString().contains("낫싱"));
     }
@@ -148,7 +149,7 @@ public class GameTest {
     void testWrongNewStartInput() {
         System.setIn(generateUserInputs("738\n/3\n"));
         Scanner scanner = new Scanner(System.in);
-        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), new ConsoleOutput(),738);
         assertThrows(IllegalArgumentException.class, () -> {
             game.play();
         });
