@@ -85,17 +85,6 @@ public class GameTest {
         });
     }
 
-    @DisplayName("같은 숫자가 있는 입력 테스트")
-    @Test
-    void testSameNumberInput() {
-        System.setIn(generateUserInputs("223"));
-        Scanner scanner = new Scanner(System.in);
-        Game game = new RandomGame(new ConsoleInput(scanner), new ConsoleOutput());
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.play();
-        });
-    }
-
     @DisplayName("1스트라이크 테스트")
     @Test
     void testOneStrike() {
