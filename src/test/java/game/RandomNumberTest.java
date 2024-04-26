@@ -1,6 +1,6 @@
 package game;
 
-import io.Input;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,16 +8,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class RandomGame implements Game {
-    private Input input;
+import static org.junit.jupiter.api.Assertions.*;
 
-    public RandomGame(Input input) {
-        this.input = input;
-    }
-    @Override
-    public void play() {
-        String playerNumber = input.getNumberFromPlayer();
-        String computerNumber = makeRandomNumber();
+public class RandomNumberTest {
+    @Test
+    void testThreeRandomNumber() {
+        for (int i=0; i<100; i++) {
+            String randomNumber = makeRandomNumber();
+            assertNotEquals(randomNumber.charAt(0), randomNumber.charAt(1));
+            assertNotEquals(randomNumber.charAt(1), randomNumber.charAt(2));
+            assertNotEquals(randomNumber.charAt(0), randomNumber.charAt(2));
+            assertEquals(3, randomNumber.length());
+        }
     }
 
     private String makeRandomNumber() {
