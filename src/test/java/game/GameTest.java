@@ -1,5 +1,6 @@
 package game;
 
+import io.ConsoleInput;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +10,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,7 +42,9 @@ public class GameTest {
     @DisplayName("입력 도움말 출력 테스트")
     @Test
     void testShowInputHelp() {
-        Game game = new RandomGame();
+        System.setIn(generateUserInput("123"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new RandomGame(new ConsoleInput(scanner));
         game.play();
         assertEquals("숫자를 입력해 주세요 : ", outputStream.toString());
     }
@@ -48,86 +52,105 @@ public class GameTest {
     @DisplayName("잘못된 더 큰 입력 테스트")
     @Test
     void testWrongBiggerInput() {
-        Game game = new RandomGame();
-        game.play();
+        System.setIn(generateUserInput("1234"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new RandomGame(new ConsoleInput(scanner));
         assertThrows(IllegalArgumentException.class, () -> {
-            System.setIn(generateUserInput("1234"));
+            game.play();
         });
     }
 
     @DisplayName("잘못된 더 작은 입력 테스트")
     @Test
     void testWrongSmallerInput() {
-        Game game = new RandomGame();
-        game.play();
+        System.setIn(generateUserInput("12"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new RandomGame(new ConsoleInput(scanner));
         assertThrows(IllegalArgumentException.class, () -> {
-            System.setIn(generateUserInput("12"));
+            game.play();
         });
     }
 
     @DisplayName("숫자가 아닌 입력 테스트")
     @Test
     void testNotNumberInput() {
-        Game game = new RandomGame();
-        game.play();
+        System.setIn(generateUserInput("a78"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new RandomGame(new ConsoleInput(scanner));
         assertThrows(IllegalArgumentException.class, () -> {
-            System.setIn(generateUserInput("a78"));
+            game.play();
         });
     }
 
     @DisplayName("1스트라이크 테스트")
     @Test
     void testOneStrike() {
-        Game game = new DeterminedGame(145);
-        game.play();
         System.setIn(generateUserInput("123"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 156);
+        game.play();
         assertTrue(outputStream.toString().contains("1스트라이크"));
     }
 
     @DisplayName("1스트라이크 1볼 테스트")
     @Test
     void testOneStrikeOneBall() {
-        Game game = new DeterminedGame(126);
-        game.play();
         System.setIn(generateUserInput("152"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 126);
+        game.play();
         assertTrue(outputStream.toString().contains("1볼 1스트라이크"));
     }
 
     @DisplayName("1스트라이크 2볼 테스트")
     @Test
     void testOneStrikeTwoBall() {
-        Game game = new DeterminedGame(126);
-        game.play();
         System.setIn(generateUserInput("162"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 126);
+        game.play();
         assertTrue(outputStream.toString().contains("2볼 1스트라이크"));
     }
 
     @DisplayName("2스트라이크 테스트")
     @Test
     void testTwoStrike() {
-        Game game = new DeterminedGame(738);
-        game.play();
         System.setIn(generateUserInput("739"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        game.play();
         assertTrue(outputStream.toString().contains("2스트라이크"));
     }
 
     @DisplayName("3스트라이크 테스트")
     @Test
     void testThreeStrike() {
-        Game game = new DeterminedGame(738);
-        game.play();
         System.setIn(generateUserInput("738"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        game.play();
         assertTrue(outputStream.toString().contains("3스트라이크\n3개의 숫자를 모두 맞히셨습니다! " +
                 "게임 종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."));
+    }
+
+    @DisplayName("낫싱 테스트")
+    @Test
+    void testNothing() {
+        System.setIn(generateUserInput("126"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
+        game.play();
+        assertTrue(outputStream.toString().contains("낫싱"));
     }
 
     @DisplayName("잘못된 새로 시작 입력 테스트")
     @Test
     void testWrongNewStartInput() {
-        Game game = new DeterminedGame(738);
-        game.play();
+        System.setIn(generateUserInputs("738\n/3\n"));
+        Scanner scanner = new Scanner(System.in);
+        Game game = new DeterminedGame(new ConsoleInput(scanner), 738);
         assertThrows(IllegalArgumentException.class, () -> {
-            System.setIn(generateUserInputs("738\n/3\n"));
+            game.play();
         });
     }
 }
