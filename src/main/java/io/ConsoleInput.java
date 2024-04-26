@@ -17,4 +17,11 @@ public class ConsoleInput implements Input {
         Validator.validateNumberInput(input);
         return input;
     }
+
+    @Override
+    public String getRestartNumberFromPlayer() {
+        String input = scanner.next();
+        Validator.validateRestartInput(input);
+        return input;
+    }
 }
