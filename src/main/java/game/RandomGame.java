@@ -62,13 +62,11 @@ public class RandomGame implements Game {
 
     private int checkBall() {
         int result = 0;
-        for (int i=0; i<3; i++) {
-            for (int j=0; j<3; j++) {
-                if (i != j && computerNumber.charAt(i) == playerNumber.charAt(j))
-                    result += 1;
-            }
+        for (char num : computerNumber.toCharArray()) {
+            if (playerNumber.contains(String.valueOf(num)))
+                result += 1;
         }
-        return result;
+        return result - (checkStrike() / 10);
     }
 
     private String makeRandomNumber() {

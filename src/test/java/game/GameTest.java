@@ -17,16 +17,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
     private static ByteArrayOutputStream outputStream;
+    private PrintStream originStdout;
 
     @BeforeEach
     void setUpStreams() {
+        originStdout = System.out;
         outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
     }
 
     @AfterEach
     void restoreStreams() {
-        System.setOut(System.out);
+        System.setOut(originStdout);
     }
 
     private static InputStream generateUserInput(String input) {
@@ -95,6 +97,7 @@ public class GameTest {
             game.play();
         });
         assertTrue(outputStream.toString().contains("1스트라이크"));
+
     }
 
     @DisplayName("1스트라이크 1볼 테스트")
