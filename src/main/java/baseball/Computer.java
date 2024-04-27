@@ -15,6 +15,10 @@ public class Computer {
         return 111 + random.nextInt(889);
     }
 
+    public void reInitProblemNum() {
+        this.problemNum = makeRandomNum();
+    }
+
     public int getProblemNum() {
         return problemNum;
     }
