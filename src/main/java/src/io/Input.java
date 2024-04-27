@@ -11,7 +11,7 @@ public class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int getGuessNumberFromUser() {
-        System.out.println("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력해주세요 : ");
 
         String userInputStr = scanner.nextLine();
         return validateGuessNumber(userInputStr);
