@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class Computer {
     private int problemNum;
-    private static final Random random = new Random();
+    private final Random random;
 
-    public Computer() {
+    public Computer(Random random) {
+        this.random = random;
         this.problemNum = makeRandomNum();
     }
 
