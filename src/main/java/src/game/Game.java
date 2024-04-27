@@ -1,22 +1,25 @@
 package src.game;
 
+import static src.game.NumberComparator.*;
+import static src.game.RandomNumberGenerator.generateRandomNumber;
 import static src.io.Input.*;
 
 public class Game {
 
     private Boolean run = true;
-    private Integer userInput = null;
+    private int randomNumber = generateRandomNumber();
 
     public void start() {
-        System.out.println("Game Start!");
-
         while (run) {
             try {
-                userInput = getGuessNumberFromUser();
+                int userInput = getGuessNumberFromUser();
 
-                //TODO: 게임 로직 구현
+                boolean isCorrect = compareNumber(randomNumber, userInput);
 
-                run = restartOrExit();
+                if (isCorrect) {
+                    System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                    run = restartOrExit();
+                }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 run = false;
@@ -27,12 +30,10 @@ public class Game {
     public boolean restartOrExit() {
         switch (getGameOptionFromUser()) {
             case RESTART -> {
-                System.out.println("RESTART");
-                //TODO: 초기화 코드
+                randomNumber = generateRandomNumber();  // 새로운 난수 생성
                 return true;
             }
             case EXIT -> {
-                System.out.println("EXIT");
                 return false;
             }
         }
