@@ -1,7 +1,10 @@
 package Controller;
 
-public class Application {
-    public static void main(String[] args) {
+import java.io.IOException;
 
+public class Application {
+    public static void main(String[] args)throws IOException {
+        Game game = new Game();
+        game.run();
     }
 }

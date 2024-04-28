@@ -2,7 +2,30 @@ package Utility;
 
 public class CheckValidity {
     private CheckValidity(){}
-    public boolean totalValidity(String number){//서로다른 3자리 수를 검사하는 메소드
+    public static void playerNumbervalidity(String number){
+        if(totalValidity(number)){
+            return;
+        }else {
+            throw new IllegalArgumentException();
+        }
+    }
+    public static void playerRestartNnumbervalidity(String number){
+        if(totalRestartValidity(number)){
+            return;
+        }else {
+            throw new IllegalArgumentException("올바른 입력이 아닙니다. 게임을 종료합니다.\n");
+        }
+    }
+    private static boolean totalRestartValidity(String number){//서로다른 3자리 수를 검사하는 메소드
+        if(!numberValidity(number)){
+            return false;
+        }
+        if(!oneTwoValidity(number)){
+            return false;
+        }
+        return true;
+    }
+    private static boolean totalValidity(String number){//서로다른 3자리 수를 검사하는 메소드
         if(!numberValidity(number)){
             return false;
         }
@@ -17,7 +40,7 @@ public class CheckValidity {
         }
         return true;
     }
-    public boolean numberValidity(String number){//숫자로 변환이 가능한지 검사하는 메소드
+    private static boolean numberValidity(String number){//숫자로 변환이 가능한지 검사하는 메소드
         try {
             Integer.parseInt(number);
             return true;
@@ -25,17 +48,17 @@ public class CheckValidity {
             return false;
         }
     }
-    public boolean digitValidity(String number){//3자리수인지 확인하는 메소드
+    private static boolean digitValidity(String number){//3자리수인지 확인하는 메소드
         if(number.length() != 3) return false;
         return true;
     }
-    public boolean zeroValidity(String number){//0을 포함하는지 확인하는 메소드
+    private static boolean zeroValidity(String number){//0을 포함하는지 확인하는 메소드
         for(int i = 0; i < 3; i++){
             if(number.charAt(i) == '0') return false;
         }
         return true;
     }
-    public boolean sameValidity(String number){//중복된 수를 가지고 있는지 확인하는 메소드
+    private static boolean sameValidity(String number){//중복된 수를 가지고 있는지 확인하는 메소드
         boolean[] visited = new boolean[10];
         for(int i = 0; i < 3; i++){
             int nowNumber = number.charAt(i) - '0';
@@ -43,5 +66,10 @@ public class CheckValidity {
             visited[nowNumber] = true;
         }
         return true;
+    }
+    private static boolean oneTwoValidity(String number){
+        int nowNumber = Integer.parseInt(number);
+        if(nowNumber == 1 || nowNumber == 2) return true;
+        return false;
     }
 }

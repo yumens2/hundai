@@ -1,11 +1,11 @@
 package Model;
 
 public class Player {
-    private int playerNum;//입력 받은 숫자
-    public Player(int playerNum){
+    private String playerNum;//입력 받은 숫자
+    public Player(String playerNum){
         this.playerNum = playerNum;
     }
-    public int getPlayerNum() {//입력받은 숫자의 getter
+    public String getPlayerNum() {//입력받은 숫자의 getter
         return playerNum;
     }
 }
