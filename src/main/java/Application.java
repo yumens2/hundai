@@ -28,6 +28,19 @@ public class Application {
         System.out.println("게임이 종료되었습니다.");
     }
 
+    public void generateComputerNumbers() {
+        Random random = new Random();
+        for (int i = 0; i < NUM_DIGITS; i++) {
+            computerNumbers[i] = random.nextInt(9) + 1;
+            for (int j = 0; j < i; j++) {
+                if (computerNumbers[i] == computerNumbers[j]) {
+                    i--; // regenerate this number
+                    break;
+                }
+            }
+        }
+    }
+
 
 
     public static void main(String[] args) {
