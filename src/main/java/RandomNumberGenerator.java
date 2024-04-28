@@ -14,7 +14,7 @@ public class RandomNumberGenerator {
 
     public void appendRandomSingleDigit(List<String> numberList) {
         Random randomGenerator = new Random();
-        String  randomSingleDigit = Integer.toString(randomGenerator.nextInt(9) + 1);
+        String randomSingleDigit = Integer.toString(randomGenerator.nextInt(9) + 1);
         if (!numberList.contains(randomSingleDigit)){
             numberList.add(randomSingleDigit);
         }
