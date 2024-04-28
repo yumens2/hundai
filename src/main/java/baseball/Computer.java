@@ -1,0 +1,26 @@
+package baseball;
+
+import java.util.Random;
+
+public class Computer {
+    private int problemNum;
+    private final Random random;
+
+    public Computer(Random random) {
+        this.random = random;
+        this.problemNum = makeRandomNum();
+    }
+
+    private int makeRandomNum() {
+        // 111 + random 값을 통해 111 ~ 999 숫자 중 0이 포함된 값을 제외한다
+        return 111 + random.nextInt(889);
+    }
+
+    public void reInitProblemNum() {
+        this.problemNum = makeRandomNum();
+    }
+
+    public int getProblemNum() {
+        return problemNum;
+    }
+}
