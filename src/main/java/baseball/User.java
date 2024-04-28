@@ -18,8 +18,8 @@ public class User {
         return guessNum;
     }
 
-    public int setUserGuessAndReturn() {
-        this.guessNum = scanner.nextInt();;
+    public int makeGuess() {
+        this.guessNum = scanner.nextInt();
         return guessNum;
     }
 }
