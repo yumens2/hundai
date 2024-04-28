@@ -17,4 +17,9 @@ public class User {
     public int getGuessNum() {
         return guessNum;
     }
+
+    public int setUserGuessAndReturn() {
+        this.guessNum = scanner.nextInt();;
+        return guessNum;
+    }
 }
