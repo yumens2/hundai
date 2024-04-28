@@ -3,14 +3,14 @@ package baseball;
 import java.util.Scanner;
 
 public class User {
-    private int guessNum;
+    private String guessNum;
     private final Scanner scanner;
 
     public User(Scanner scanner) {
         this.scanner = scanner;
     }
-    public int makeGuess() {
-        this.guessNum = scanner.nextInt();
+    public String makeGuess() {
+        this.guessNum = scanner.nextLine();
         return guessNum;
     }
 }
