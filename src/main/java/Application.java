@@ -60,6 +60,31 @@ public class Application {
         return numbers;
     }
 
+    public boolean checkAndDisplayResult(int[] userNumbers) {
+        int strikes = 0;
+        int balls = 0;
+        for (int i = 0; i < NUM_DIGITS; i++) {
+            for (int j = 0; j < NUM_DIGITS; j++) {
+                if (userNumbers[i] == computerNumbers[j]) {
+                    if (i == j) {
+                        strikes++;
+                    } else {
+                        balls++;
+                    }
+                }
+            }
+        }
+        if (strikes == NUM_DIGITS) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        } else if (strikes > 0 || balls > 0) {
+            System.out.println(balls + "볼 " + strikes + "스트라이크");
+        } else {
+            System.out.println("낫싱");
+        }
+        return false;
+    }
+
 
 
     public static void main(String[] args) {
