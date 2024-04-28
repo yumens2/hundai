@@ -3,12 +3,12 @@ package baseball;
 import java.util.Random;
 
 public class Computer {
-    private int problemNum;
+    private String problemNum;
     private final Random random;
 
     public Computer(Random random) {
         this.random = random;
-        this.problemNum = makeRandomNum();
+        initProblemNum();
     }
 
     private int makeRandomNum() {
@@ -16,11 +16,11 @@ public class Computer {
         return 111 + random.nextInt(889);
     }
 
-    public void reInitProblemNum() {
-        this.problemNum = makeRandomNum();
+    public void initProblemNum() {
+        this.problemNum = String.valueOf(makeRandomNum());
     }
 
-    public int getProblemNum() {
+    public String getProblemNum() {
         return problemNum;
     }
 }
