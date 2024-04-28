@@ -1,20 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RandomNumberGenerator {
 
     public String getRandomNumber() {
-        String randomNumber = new String("");
-        while (randomNumber.length() < 3) {
-            appendRandomSingleDigit(randomNumber);
+        List<String> randomNumberList = new ArrayList<>();
+        while (randomNumberList.size() < 3) {
+            appendRandomSingleDigit(randomNumberList);
         }
-        return randomNumber;
+        return String.join("", randomNumberList);
     }
 
-    public void appendRandomSingleDigit(String number) {
+    public void appendRandomSingleDigit(List<String> numberList) {
         Random randomGenerator = new Random();
-        String randomSingleDigit = Integer.toString(randomGenerator.nextInt(9) + 1);
-        if (!number.contains(randomSingleDigit)){
-            number += randomSingleDigit;
+        String  randomSingleDigit = Integer.toString(randomGenerator.nextInt(9) + 1);
+        if (!numberList.contains(randomSingleDigit)){
+            numberList.add(randomSingleDigit);
         }
     }
 }
