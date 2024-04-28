@@ -4,7 +4,7 @@ import static src.util.Validator.validateGuessNumber;
 import static src.util.Validator.validateOptionNumber;
 
 import java.util.Scanner;
-import src.game.GameOption;
+import src.game.GameState;
 
 public class Input {
 
@@ -17,7 +17,7 @@ public class Input {
         return validateGuessNumber(userInputStr);
     }
 
-    public static GameOption getGameOptionFromUser() {
+    public static GameState getGameStateFromUser() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
         String userInputStr = scanner.nextLine();

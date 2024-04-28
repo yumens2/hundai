@@ -2,7 +2,7 @@ package src.util;
 
 import java.util.HashSet;
 import java.util.Set;
-import src.game.GameOption;
+import src.game.GameState;
 
 public class Validator {
 
@@ -39,11 +39,11 @@ public class Validator {
         return set.size() < 3;  // 중복을 허용하지 않으므로 숫자가 줄어들면 중복 존재
     }
 
-    public static GameOption validateOptionNumber(String userInput) {
+    public static GameState validateOptionNumber(String userInput) {
         try {
             int parsedUserInput = Integer.parseInt(userInput);
 
-            return GameOption.valueOf(parsedUserInput);
+            return GameState.valueOf(parsedUserInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닌 값이 입력되었습니다.");
         }

@@ -1,20 +1,26 @@
 package src.game;
 
-public enum GameOption {
-    RESTART(1), EXIT(2);
+public enum GameState {
+    RESTART(1, true), EXIT(2, false);
 
     private final int value;
+    private final boolean continueGame;
 
-    GameOption(int value) {
+    GameState(int value, boolean continueGame) {
         this.value = value;
+        this.continueGame = continueGame;
     }
 
     public int getValue() {
         return value;
     }
 
-    public static GameOption valueOf(int value) {
-        for (GameOption option : GameOption.values()) {
+    public boolean isContinueGame() {
+        return continueGame;
+    }
+
+    public static GameState valueOf(int value) {
+        for (GameState option : GameState.values()) {
             if (option.getValue() == value) {
                 return option;
             }
