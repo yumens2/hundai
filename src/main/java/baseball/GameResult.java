@@ -9,6 +9,10 @@ public class GameResult {
         this.strikeCount = strikeCount;
     }
 
+    public boolean isCorrect() {
+        return strikeCount == 3;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
