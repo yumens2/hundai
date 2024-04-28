@@ -13,4 +13,8 @@ public class User {
     public void setGuessNum() {
         this.guessNum = scanner.nextInt();
     }
+
+    public int getGuessNum() {
+        return guessNum;
+    }
 }
