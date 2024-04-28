@@ -40,6 +40,25 @@ public class Application {
             }
         }
     }
+    public int[] parseInput(String input) throws IllegalArgumentException {
+        if (input.length() != NUM_DIGITS) {
+            throw new IllegalArgumentException("입력 값은 " + NUM_DIGITS + "자리 숫자여야 합니다.");
+        }
+        int[] numbers = new int[NUM_DIGITS];
+        for (int i = 0; i < NUM_DIGITS; i++) {
+            char c = input.charAt(i);
+            if (!Character.isDigit(c) || c == '0') {
+                throw new IllegalArgumentException("1부터 9까지의 서로 다른 수를 입력해야 합니다.");
+            }
+            numbers[i] = c - '0';
+            for (int j = 0; j < i; j++) {
+                if (numbers[i] == numbers[j]) {
+                    throw new IllegalArgumentException("중복된 숫자가 있습니다.");
+                }
+            }
+        }
+        return numbers;
+    }
 
 
 
