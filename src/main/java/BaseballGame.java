@@ -14,6 +14,7 @@ public class BaseballGame {
         do {
             setPlayerNumberWithInput();
             umpire.setBaseballCountWithCalculator(player, computer);
+            printBallCountHint(umpire.getBaseballCount());
         } while (isGameOver());
     }
 
@@ -21,7 +22,6 @@ public class BaseballGame {
         String inputNumber = InputNumberReceiver.getInputNumber();
         InputNumberValidator.isPlayerNumberCorrect(inputNumber);
         player.setPlayerNumber(inputNumber);
-        printBallCountHint();
     }
 
     public boolean isGameOver() {
@@ -32,8 +32,7 @@ public class BaseballGame {
         return false;
     }
 
-    public void printBallCountHint() {
-        BaseballCount baseballCount = umpire.getBaseballCount();
+    public void printBallCountHint(BaseballCount baseballCount) {
         printBallHint(baseballCount.getBallCount());
         printStrikeHint(baseballCount.getStrikeCount());
         printNothingHint(baseballCount.isNothingCount());
