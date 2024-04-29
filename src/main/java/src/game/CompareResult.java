@@ -17,11 +17,11 @@ public class CompareResult {
         }
 
         if (strikes > 0) {
-            resultStr += String.format("%d스트라이크", strikes);
+            resultStr += String.format("%d스트라이크 ", strikes);
         }
 
         if (balls + strikes == 0) {
-            resultStr = "낫싱";
+            resultStr = "낫싱 ";
         }
 
         System.out.println(resultStr);
