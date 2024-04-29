@@ -53,7 +53,7 @@ class ValidatorTest {
 
     @Test
     @DisplayName("게임 추가진행 여부 입력 예외처리 - 문자열")
-    void invalidUserInput_GameState_String_Exception() throws Exception {
+    void invalidUserInput_GameState_String_Exception() {
         //given
         String userInputStr = "abc";
 
@@ -67,7 +67,7 @@ class ValidatorTest {
 
     @Test
     @DisplayName("게임 추가진행 여부 입력 예외처리 - 범위 벗어남")
-    void invalidUserInput_GameState_OutOfBoundary_Exception() throws Exception {
+    void invalidUserInput_GameState_OutOfBoundary_Exception() {
         //given
         String userInputStr = "3";
 

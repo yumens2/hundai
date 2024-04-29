@@ -1,8 +1,7 @@
 package src.game;
 
-import static src.game.NumberComparator.*;
+import static src.game.NumberComparator.compareNumber;
 import static src.game.RandomNumberGenerator.generateRandomNumber;
-import static src.io.Input.*;
 
 import src.io.Input;
 

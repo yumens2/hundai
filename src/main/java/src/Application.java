@@ -1,6 +1,5 @@
 package src;
 
-import java.util.Scanner;
 import src.game.Game;
 import src.io.Input;
 

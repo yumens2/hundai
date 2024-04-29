@@ -15,7 +15,7 @@ class RandomNumberGeneratorTest {
 
     @Test
     @DisplayName("난수 생성 테스트")
-    void generateRandomNumberTest() throws Exception {
+    void generateRandomNumberTest() {
         //given
         int randomNumber = RandomNumberGenerator.generateRandomNumber();
         String randomNumberStr = String.valueOf(randomNumber);
