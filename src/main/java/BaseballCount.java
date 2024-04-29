@@ -3,7 +3,7 @@ public class BaseballCount {
     private int ballCount;
     private int strikeCount;
 
-    public void saveBaseballCount(int ballCount, int strikeCount) {
+    public void setBaseballCount(int ballCount, int strikeCount) {
         this.ballCount = ballCount;
         this.strikeCount = strikeCount;
     }
@@ -14,5 +14,9 @@ public class BaseballCount {
 
     public int getStrikeCount() {
         return strikeCount;
+    }
+
+    public boolean isNothingCount() {
+        return ballCount == 0 && strikeCount == 0;
     }
 }
