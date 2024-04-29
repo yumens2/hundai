@@ -15,7 +15,7 @@ public class BaseballGame {
             setPlayerNumberWithInput();
             umpire.setBaseballCountWithCalculator(player, computer);
             printBallCountHint(umpire.getBaseballCount());
-        } while (isGameOver());
+        } while (!isGameOver());
     }
 
     private void setPlayerNumberWithInput() {
