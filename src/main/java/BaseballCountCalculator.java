@@ -13,7 +13,7 @@ public class BaseballCountCalculator {
     public static int countStrike(String playerNumber, String answerNumber) {
         int strikeCount = 0;
         for (int i = 0; i < playerNumber.length(); i++) {
-            if (answerNumber.indexOf(i) == playerNumber.indexOf(i)) {
+            if (answerNumber.charAt(i) == playerNumber.charAt(i)) {
                 strikeCount++;
             }
         }
