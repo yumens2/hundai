@@ -9,10 +9,10 @@ public class Hint {
         this.strike = strike;
     }
     //값만 확인할 수 있게 getter사용
-    public int getBall() {
+    public int getBall() {//ball 값 접근 가능
         return ball;
     }
-    public int getStrike() {//strike
+    public int getStrike() {//strike 값 접근 가능
         return strike;
     }
 

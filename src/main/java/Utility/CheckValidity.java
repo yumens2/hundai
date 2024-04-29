@@ -1,75 +1,40 @@
 package Utility;
 
-public class CheckValidity {
+public class CheckValidity {//유효한 입력인지 검사하는 클래스
     private CheckValidity(){}
-    public static void playerNumbervalidity(String number)throws IllegalArgumentException{
-        if(totalValidity(number)){
-            return;
-        }else {
-            throw new IllegalArgumentException("올바른 입력이 아닙니다.");
-        }
-    }
-    public static void playerRestartNumbervalidity(String number)throws IllegalArgumentException{
-        if(totalRestartValidity(number)){
-            return;
-        }else {
-            throw new IllegalArgumentException("올바른 입력이 아닙니다.");
-        }
-    }
-    private static boolean totalRestartValidity(String number){//서로다른 3자리 수를 검사하는 메소드
-        if(!numberValidity(number)){
-            return false;
-        }
-        if(!oneTwoValidity(number)){
-            return false;
-        }
-        return true;
-    }
-    private static boolean totalValidity(String number){//서로다른 3자리 수를 검사하는 메소드
-        if(!numberValidity(number)){
-            return false;
-        }
-        if(!digitValidity(number)){
-            return false;
-        }
-        if(!zeroValidity(number)){
-            return false;
-        }
-        if(!sameValidity(number)){
-            return false;
-        }
-        return true;
-    }
-    private static boolean numberValidity(String number){//숫자로 변환이 가능한지 검사하는 메소드
-        try {
+
+    public static boolean numberValidity(String number){//정수로 변환이 가능한지 검사하는 메소드
+        try {//정수로 변환 가능
             Integer.parseInt(number);
             return true;
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {// 정수로 변환 불가능
             return false;
         }
     }
-    private static boolean digitValidity(String number){//3자리수인지 확인하는 메소드
+    
+    public static boolean digitValidity(String number){//3자리수인지 확인하는 메소드
         if(number.length() != 3) return false;
         return true;
     }
-    private static boolean zeroValidity(String number){//0을 포함하는지 확인하는 메소드
+
+    public static boolean zeroValidity(String number){//0을 포함하는지 확인하는 메소드
         for(int i = 0; i < 3; i++){
-            if(number.charAt(i) == '0') return false;
+            if(number.charAt(i) == '0') return false;//0을 포함하면 false
         }
-        return true;
+        return true;//0이 포함되지 않음
     }
-    private static boolean sameValidity(String number){//중복된 수를 가지고 있는지 확인하는 메소드
+    public static boolean sameValidity(String number){//중복된 수를 가지고 있는지 확인하는 메소드
         boolean[] visited = new boolean[10];
         for(int i = 0; i < 3; i++){
-            int nowNumber = number.charAt(i) - '0';
-            if(visited[nowNumber]) return false;
-            visited[nowNumber] = true;
+            int nowNumber = number.charAt(i) - '0';//왼쪽부터 i+1번째 의 수
+            if(visited[nowNumber]) return false;//visited가 true라는 것은 이미 썻던 수라는 것이므로 false 리턴
+            visited[nowNumber] = true;//방문 처리
         }
-        return true;
+        return true;//중복된 수가 아니라는 것
     }
-    private static boolean oneTwoValidity(String number){
+    public static boolean oneTwoValidity(String number){//1또는 2인지 검사하는 메소드
         int nowNumber = Integer.parseInt(number);
-        if(nowNumber == 1 || nowNumber == 2) return true;
-        return false;
+        if(nowNumber == 1 || nowNumber == 2) return true;//1 또는 2면 true
+        return false;//아니면 false
     }
 }
