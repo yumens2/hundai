@@ -6,7 +6,7 @@ public class InputNumberValidator {
         isDifferentDigitNumber(inputNumber);
     }
 
-    public static void isStringLengthCorrect(String string) throws IllegalStateException {
+    public static void isStringLengthCorrect(String string) {
         if (string.length() != 3) {
             throw new IllegalStateException();
         }
