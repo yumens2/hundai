@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 public class BaseballGame{
     public int isGameOver = 0;
@@ -27,7 +28,7 @@ public class BaseballGame{
             if(this.strike == 3){
                 System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
                 System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-                choiceRestartGame();
+                choiceRestartOrGameOver();
             }
         }
         else{
@@ -35,12 +36,27 @@ public class BaseballGame{
         }
 
     }
+
     public void isValidRestartOrGameOverNum(int input) throws IllegalArgumentException {
 
         if(input != 1 && input != 2){
             throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
         }
 
+    }
+    public void choiceRestartOrGameOver(){
+        int inp;
+        Scanner sc = new Scanner(System.in);
+        inp = sc.nextInt();
+        isValidRestartOrGameOverNum(inp);
+        if(inp == 2){
+            isGameOver = 1;
+        }
+        else{
+            isRestart = 1;
+            strike = 0;
+            ball = 0;
+        }
     }
     public void gameStart(){
 
