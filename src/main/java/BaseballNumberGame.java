@@ -60,4 +60,16 @@ public class BaseballNumberGame extends Game {
         if(sel1 == this.random10 || sel1 == this.random100 ) ball += 1;
         return ball;
     }
+    private void printFeedback(int strike, int ball) {
+        if(ball ==0 && strike ==0)
+            System.out.println("낫싱");
+        else{
+            if(ball>0)
+                System.out.printf(ball+"볼 ");
+            if(strike>0)
+                System.out.printf(strike+"스트라이크");
+            System.out.println();
+        }
+
+    }
 }
