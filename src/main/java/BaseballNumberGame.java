@@ -7,7 +7,24 @@ public class BaseballNumberGame extends Game {
 
     @Override
     public void play() {
+        int newGame=0;
+        do{
+            this.answer = createRandomNumber();
+            int select=0,strike=0,ball=0;
 
+            try {
+                while(strike<3){
+                    select = selectNumber();
+                    strike = checkStrike(select);
+                    ball = checkBall(select);
+                    printFeedback(strike,ball);
+                }
+                printEndGame();
+                newGame = askNewGame();
+            }catch (IllegalArgumentException e){
+                e.printStackTrace();
+            }
+        }while(newGame !=2);
     }
 
     @Override
