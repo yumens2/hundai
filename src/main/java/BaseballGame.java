@@ -62,6 +62,7 @@ public class BaseballGame{
         List<Integer> cpunum = Computer.createRandomNum();
         List<Integer> userInput;
         while(true){
+            System.out.println(cpunum);
             System.out.print("숫자를 입력해 주세요 :");
             userInput = User.createInputNum();
             compareNum(userInput,cpunum);
