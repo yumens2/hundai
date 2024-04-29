@@ -4,13 +4,21 @@ import static src.game.NumberComparator.*;
 import static src.game.RandomNumberGenerator.generateRandomNumber;
 import static src.io.Input.*;
 
+import src.io.Input;
+
 public class Game {
 
+    private final Input input;
     private GameState state;
     private int randomNumber;
 
-    public Game() {
+    public Game(Input input) {
+        this.input = input;
         resetGame();
+    }
+
+    public GameState getState() {
+        return state;
     }
 
     private void resetGame() {
@@ -26,7 +34,7 @@ public class Game {
 
     private void playRound() {
         try {
-            int userInput = getGuessNumberFromUser();
+            int userInput = input.getGuessNumberFromUser();
 
             boolean isCorrect = compareNumber(randomNumber, userInput);
 
@@ -41,6 +49,6 @@ public class Game {
     }
 
     public void updateGameState() {
-        state = getGameStateFromUser();
+        state = input.getGameStateFromUser();
     }
 }

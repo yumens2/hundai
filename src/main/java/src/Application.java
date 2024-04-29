@@ -1,10 +1,12 @@
 package src;
 
+import java.util.Scanner;
 import src.game.Game;
+import src.io.Input;
 
 public class Application {
 
     public static void main(String[] args) {
-        new Game().start();
+        new Game(new Input(System.in)).start();
     }
 }
