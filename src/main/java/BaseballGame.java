@@ -59,7 +59,21 @@ public class BaseballGame{
         }
     }
     public void gameStart(){
-
+        List<Integer> cpunum = Computer.createRandomNum();
+        List<Integer> userInput;
+        while(true){
+            System.out.println(cpunum);
+            System.out.print("숫자를 입력해 주세요 : ");
+            userInput = User.createInputNum();
+            compareNum(userInput,cpunum);
+            if(isGameOver == 1){
+                break;
+            }
+            if(isRestart == 1){
+                cpunum = Computer.createRandomNum();
+                isRestart = 0;
+            }
+        }
     }
 
 }
