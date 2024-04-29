@@ -17,4 +17,11 @@ public class Score {
         return new Score(strike, ball);
     }
 
+    public Strike getStrke() {
+        return strke;
+    }
+
+    public Ball getBall() {
+        return ball;
+    }
 }

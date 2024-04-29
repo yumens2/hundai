@@ -1,6 +1,6 @@
 package domain;
 
-public class Player {
+public final class Player {
 
     private final String playerAnswer;
 

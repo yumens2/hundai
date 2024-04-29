@@ -1,5 +1,9 @@
 package view;
 
+import domain.dto.ScoreDto;
+import domain.wrapper.Ball;
+import domain.wrapper.Strike;
+
 public class OutputView {
 
     private static final String GAME_SCORE_ONLY_BALL_FORMAT = "%d볼";
@@ -14,5 +18,18 @@ public class OutputView {
 
     public static void printWithNoEnter(String message) {
         System.out.print(message);
+    }
+
+    public void showGameScore(Strike strike, Ball ball) {
+        if (strike.getCount() == 0 && ball.getCount() == 0) {
+            print(GAME_SCORE_WITH_NO_BALL_STRIKE_MESSAGE);
+        }
+        if (strike.getCount() == 0) {
+            print(String.format(GAME_SCORE_ONLY_BALL_FORMAT, ball));
+        }
+        if (ball.getCount() == 0) {
+            print(String.format(GAME_SCORE_ONLY_STRIKE_FORMAT, strike));
+        }
+        print(String.format(GAME_SCORE_FORMAT, ball, strike));
     }
 }

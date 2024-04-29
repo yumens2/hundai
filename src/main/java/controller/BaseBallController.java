@@ -1,6 +1,8 @@
 package controller;
 
 import domain.Player;
+import domain.Score;
+import domain.dto.ScoreDto;
 import domain.service.BaseBallService;
 import util.RandomNumberGenerator;
 import view.InputView;
@@ -26,6 +28,11 @@ public class BaseBallController {
     private void inputOneAnswer(BaseBallService baseBallService) {
         String playerAnswer = inputView.getPlayerAnswer();
         final Player player = Player.create(playerAnswer);
-        baseBallService.startOneGame(player);
+        Score score = baseBallService.startOneGame(player);
+        ScoreDto scoreDto = new ScoreDto(score);
+        outputView.showGameScore(scoreDto.getStrike(), scoreDto.getBall());
+        if (baseBallService.checkGameEnd(player)) {
+
+        }
     }
 }

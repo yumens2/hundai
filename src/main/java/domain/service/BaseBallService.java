@@ -36,4 +36,11 @@ public class BaseBallService {
 
         return new Ball(balls);
     }
+
+    public boolean checkGameEnd(Player player) {
+        if (randomNumber.equals(player.getPlayerAnswer())) {
+            return true;
+        }
+        return false;
+    }
 }
