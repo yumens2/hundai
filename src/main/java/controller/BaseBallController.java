@@ -21,18 +21,33 @@ public class BaseBallController {
 
     public void start() {
         RandomNumberGenerator randomNumberGenerator = RandomNumberGenerator.create();
-        BaseBallService baseBallService = new BaseBallService(randomNumberGenerator.createRandomNumber());
-        inputOneAnswer(baseBallService);
+        this.baseBallService = new BaseBallService(randomNumberGenerator.createRandomNumber());
+        inputOneAnswer();
     }
 
-    private void inputOneAnswer(BaseBallService baseBallService) {
+    private void inputOneAnswer() {
         String playerAnswer = inputView.getPlayerAnswer();
         final Player player = Player.create(playerAnswer);
         Score score = baseBallService.startOneGame(player);
         ScoreDto scoreDto = new ScoreDto(score);
         outputView.showGameScore(scoreDto.getStrike(), scoreDto.getBall());
         if (baseBallService.checkGameEnd(player)) {
-
+            askRestartOrExit();
+            return;
         }
+        inputOneAnswer();
+    }
+
+    private void askRestartOrExit() {
+        outputView.showGameEnd();
+        int condition = inputView.getRestartCondition();
+        if (condition == 1) {
+            start();
+            return;
+        }
+        if (condition == 2) {
+            return;
+        }
+        askRestartOrExit();
     }
 }

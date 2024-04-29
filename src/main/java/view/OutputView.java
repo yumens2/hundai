@@ -1,6 +1,5 @@
 package view;
 
-import domain.dto.ScoreDto;
 import domain.wrapper.Ball;
 import domain.wrapper.Strike;
 
@@ -31,5 +30,9 @@ public class OutputView {
             print(String.format(GAME_SCORE_ONLY_STRIKE_FORMAT, strike));
         }
         print(String.format(GAME_SCORE_FORMAT, ball, strike));
+    }
+
+    public void showGameEnd() {
+        print(GAME_END_MESSAGE);
     }
 }
