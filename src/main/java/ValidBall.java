@@ -10,7 +10,7 @@ public class ValidBall implements Valid {
 
         HashSet<Integer> set = new HashSet<>();
 
-        if (number < 111 && number > 999) {
+        if ((number < 111) || (number > 999)) {
             throw new IllegalArgumentException("잘못된 범위의 입력입니다");
         }
 
