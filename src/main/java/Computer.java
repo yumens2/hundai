@@ -1,12 +1,12 @@
 public class Computer {
 
-    private String computerNumber;
+    private String answerNumber;
 
-    public void setComputerNumber(String computerNumber) {
-        this.computerNumber = computerNumber;
+    public void setAnswerNumber(String answerNumber) {
+        this.answerNumber = answerNumber;
     }
 
-    public String getComputerNumber() {
-        return computerNumber;
+    public String getAnswerNumber() {
+        return answerNumber;
     }
 }
