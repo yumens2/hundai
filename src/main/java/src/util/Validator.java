@@ -28,7 +28,7 @@ public class Validator {
         }
     }
 
-    private static boolean checkDuplicatedDigits(String userInput) {
+    public static boolean checkDuplicatedDigits(String userInput) {
         Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < 3; i++) {
