@@ -3,7 +3,7 @@ public class BaseballCountCalculator {
     public static int countBall(String playerNumber, String answerNumber) {
         int ballCount = 0;
         for (int i = 0; i < playerNumber.length(); i++) {
-            if (answerNumber.contains(Character.toString(playerNumber.charAt(i)))) {
+            if (answerNumber.contains(Character.toString(playerNumber.charAt(i))) ) {
                 ballCount++;
             }
         }
@@ -18,5 +18,9 @@ public class BaseballCountCalculator {
             }
         }
         return strikeCount;
+    }
+
+    public static int countBallExceptForStrike(int ballCount, int strikeCount) {
+        return ballCount - strikeCount;
     }
 }
