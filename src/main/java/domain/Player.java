@@ -11,4 +11,8 @@ public class Player {
     public static Player create(String playerAnswer) {
         return new Player(playerAnswer);
     }
+
+    public String getPlayerAnswer() {
+        return playerAnswer;
+    }
 }
