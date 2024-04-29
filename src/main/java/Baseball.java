@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Baseball {
   private static final Integer NUM_LEN = 3;
@@ -48,5 +49,49 @@ public class Baseball {
       return true;
     }
     return false;
+  }
+
+  public static Integer[] parseGuess(String input) {
+    try {
+      Integer guessIntegers[] = new Integer[NUM_LEN];
+      int parsedInput = Integer.parseInt(input);
+      if (parsedInput < 100 || parsedInput > 999) {
+        throw new IllegalArgumentException("세 자리 숫자를 입력해주세요.");
+      }
+      for (int index = 0; index < NUM_LEN; index++) {
+        guessIntegers[index] = parsedInput / (int) Math.pow(10, NUM_LEN - index - 1) % 10;
+      }
+
+      return guessIntegers;
+    } catch (Error e) {
+      throw new IllegalArgumentException("잘못된 입력입니다.");
+    }
+  }
+
+  public void execute() {
+    Scanner scanner = new Scanner(System.in);
+    Integer answerNums[] = initAnswerNums();
+    while (true) {
+      System.out.print("숫자를 입력해주세요 : ");
+      String input = scanner.next();
+      try {
+        Integer guessNums[] = parseGuess(input);
+
+        boolean canEndGame = guess(guessNums, answerNums);
+        if (canEndGame) {
+          System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+          Integer restartOrEnd = scanner.nextInt();
+          if (restartOrEnd == 1) {
+            answerNums = initAnswerNums();
+          } else {
+            break;
+          }
+        }
+      } catch (IllegalArgumentException e) {
+        scanner.close();
+        return;
+      }
+    }
+    scanner.close();
   }
 }
