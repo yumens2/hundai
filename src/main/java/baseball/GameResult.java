@@ -23,6 +23,9 @@ public class GameResult {
         if (strikeCount != 0)
             stringBuilder.append(strikeCount).append("스트라이크");
 
+        if (ballCount == 0 && strikeCount == 0)
+            stringBuilder.append("낫싱");
+
         return stringBuilder.toString();
     }
 }
