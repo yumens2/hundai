@@ -35,6 +35,13 @@ public class BaseballGame{
         }
 
     }
+    public void isValidRestartOrGameOverNum(int input) throws IllegalArgumentException {
+
+        if(input != 1 && input != 2){
+            throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
+        }
+
+    }
     public void gameStart(){
 
     }
