@@ -6,9 +6,12 @@ public class BaseballGame{
     public int isRestart = 0;
     public int strike = 0;
     public int ball = 0;
-    public void compareNum(List<Integer> inputnum, List<Integer> cpunum){
+    public void resetStrikeAndBall(){
         this.strike = 0;
-        this.ball = 0;
+        this.ball =0;
+    }
+    public void compareNum(List<Integer> inputnum, List<Integer> cpunum){
+        resetStrikeAndBall();
         for (int num : inputnum) {
             if (inputnum.indexOf(num) == cpunum.indexOf(num)) {
                 strike++;
@@ -54,8 +57,7 @@ public class BaseballGame{
         }
         else{
             isRestart = 1;
-            strike = 0;
-            ball = 0;
+            resetStrikeAndBall();
         }
     }
     public void gameStart(){
