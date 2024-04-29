@@ -14,6 +14,20 @@ class RandomNumberGeneratorTest {
     }
 
     @Test
+    void getRandomNumber() {
+        String randomNumber = randomNumberGenerator.getRandomNumber();
+        org.assertj.core.api.Assertions.assertThat(randomNumber.length()).isEqualTo(3);
+        Assertions.assertDoesNotThrow(() -> (Integer.parseInt(randomNumber)));
+        for (int i = 0; i < randomNumber.length(); i++) {
+            char currentDigit = randomNumber.charAt(i);
+            int digitCount = Math.toIntExact(randomNumber.chars()
+                    .filter((ch) -> (ch == currentDigit))
+                    .count());
+            org.assertj.core.api.Assertions.assertThat(digitCount).isEqualTo(1);
+        }
+    }
+
+    @Test
     void appendRandomSingleDigit() {
         List<String> randomNumberList = new ArrayList<>();
         randomNumberGenerator.appendRandomSingleDigit(randomNumberList);
