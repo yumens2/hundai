@@ -38,7 +38,7 @@ public class InputNumberValidator {
                 .count());
     }
 
-    public static void isSelectionNumberCorrect(String selectionNumber) {
+    public static void isRetryNumberCorrect(String selectionNumber) {
         if (!selectionNumber.equals("1") && !selectionNumber.equals("2")) {
             throw new IllegalStateException();
         }
