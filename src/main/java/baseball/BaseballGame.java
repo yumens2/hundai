@@ -64,6 +64,7 @@ public class BaseballGame {
             }
         }
     }
+
     private void inputToInt(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
@@ -132,6 +133,7 @@ public class BaseballGame {
             }
         }
     }
+
     private boolean isEndGame(Scanner input) {
         boolean endGame = false;
         int i = input.nextInt();
