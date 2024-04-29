@@ -41,4 +41,23 @@ public class BaseballNumberGame extends Game {
         }
         return select;
     }
+    private int checkStrike(int select) {
+        int strike = 0;
+
+        int sel100 = select / 100, sel10 = select % 100 / 10, sel1 = select % 10;
+        if(sel100 == this.random100 ) strike += 1;
+        if(sel10 == this.random10 ) strike += 1;
+        if(sel1 == this.random1 ) strike += 1;
+
+        return strike;
+    }
+
+    private int checkBall(int select) {
+        int ball = 0;
+        int sel100 = select / 100, sel10 = select % 100 / 10, sel1 = select % 10;
+        if(sel100 == this.random10 || sel100 == this.random1 ) ball += 1;
+        if(sel10 == this.random100|| sel10 == this.random1 ) ball += 1;
+        if(sel1 == this.random10 || sel1 == this.random100 ) ball += 1;
+        return ball;
+    }
 }
