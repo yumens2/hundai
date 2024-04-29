@@ -2,9 +2,8 @@ public class Player {
 
     private String playerNumber;
 
-    public void setPlayerNumber() throws IllegalStateException {
-        InputNumberReceiver inputNumberReceiver = new InputNumberReceiver();
-        this.playerNumber = inputNumberReceiver.getInputNumber();
+    public void setPlayerNumber(String number) {
+        this.playerNumber = number;
     }
 
     public String getPlayerNumber() {
