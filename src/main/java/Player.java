@@ -2,8 +2,8 @@ public class Player {
 
     private String playerNumber;
 
-    public void setPlayerNumber(String number) {
-        this.playerNumber = number;
+    public void setPlayerNumber(String playerNumber) {
+        this.playerNumber = playerNumber;
     }
 
     public String getPlayerNumber() {
