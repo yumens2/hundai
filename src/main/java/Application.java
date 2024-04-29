@@ -8,5 +8,6 @@ public class Application {
         final InputView inputView = new InputView();
         final OutputView outputView = new OutputView();
         final BaseBallController baseBallController = new BaseBallController(inputView, outputView);
+        baseBallController.start();
     }
 }

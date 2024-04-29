@@ -29,6 +29,6 @@ public class RandomNumberGenerator {
     }
 
     private String getRandomNumber() {
-        return Integer.toString(random.nextInt() * END_DIGIT + START_DIGIT);
+        return Integer.toString(random.nextInt(END_DIGIT) + START_DIGIT);
     }
 }
