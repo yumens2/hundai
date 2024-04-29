@@ -1,6 +1,6 @@
 public class BaseballPrinter {
 
-    public static void printNumericInputMessage() {
+    public static void printPlayerNumberInputMessage() {
         System.out.print("숫자를 입력해 주세요 : ");
     }
 
