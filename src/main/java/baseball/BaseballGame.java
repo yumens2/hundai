@@ -3,7 +3,6 @@ package baseball;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class BaseballGame {
 
@@ -58,6 +57,7 @@ public class BaseballGame {
         threeNum[0] = (int) (Math.random() * 9 + 1);
         for (int index = 1; index < 3; ) {
             int randomInt = (int) (Math.random() * 9 + 1);
+
             if (!haveSameElement(threeNum, randomInt, index)) { // 랜덤 수는 서로 다른수여야 함
                 threeNum[index] = randomInt;
                 index++;
@@ -107,10 +107,9 @@ public class BaseballGame {
         int strike = 0;
         int ball = 0;
         for (int i = 0; i < 3; i++) {
-            int userIth = userThreeNum[i];
-            if (computerThreeNum[i] == userIth) {
+            if (computerThreeNum[i] == userThreeNum[i]) {
                 strike++;
-            } else if (IntStream.of(computerThreeNum).anyMatch(x -> x == userIth)) { //스트라이크가 아니면서 매치되는 것이 하나라도 있을 때
+            } else if (haveSameElement(computerThreeNum, userThreeNum[i], 3)) { //스트라이크가 아니면서 매치되는 것이 하나라도 있을 때
                 ball++;
             }
         }
