@@ -12,7 +12,7 @@ public class RandomNumberGenerator {
         return String.join("", randomNumberList);
     }
 
-    public static void appendRandomSingleDigit(List<String> numberList) {
+    private static void appendRandomSingleDigit(List<String> numberList) {
         Random randomGenerator = new Random();
         String randomSingleDigit = Integer.toString(randomGenerator.nextInt(9) + 1);
         if (!numberList.contains(randomSingleDigit)){
