@@ -8,5 +8,5 @@
 6. answer와 입력받은 숫자를 토대로 strike와 ball을 체크하는 checkStrike, checkBall 메서드 생성
 7. strike, ball에 대한 정보를 출력하는 printFeedback 메서드 생성
 8. 게임종료 메시지를 출력할 printEndGame메서드 재정의
-9. 다시 시작할지 물어보는 askNewGame메서드 재정의
+9. play메서드 재정의
 10. Application의 main에서 BaseballNumberGame객체 생성 후 play
