@@ -36,6 +36,7 @@ public class BaseballGame {
         printBallHint(baseballCount.getBallCount());
         printStrikeHint(baseballCount.getStrikeCount());
         printNothingHint(baseballCount.isNothingCount());
+        BaseballPrinter.printLineBreak();
     }
 
     public void printBallHint(int ballCount) {
