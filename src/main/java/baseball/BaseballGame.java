@@ -1,5 +1,6 @@
 package baseball;
 
+import baseball.domain.GameCommand;
 import baseball.domain.Hint;
 import baseball.domain.Opponent;
 import baseball.domain.RandomAnswerGenerator;
@@ -58,13 +59,7 @@ public class BaseballGame {
 
     private boolean isRestarting() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-        final String inputCommand = scanner.nextLine();
-        if (inputCommand.equals("1")) {
-            return true;
-        }
-        if (inputCommand.equals("2")) {
-            return false;
-        }
-        throw new IllegalArgumentException("올바른 게임 커맨드를 입력해주세요.");
+        final String waitingCommand = scanner.nextLine();
+        return GameCommand.isRestarting(waitingCommand);
     }
 }
