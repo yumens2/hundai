@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +8,7 @@ public class InputValidator {
     private InputValidator() {
     }
 
-    static public void validateThreeUniqueNumbers(String input) {
+    static public ArrayList<Integer> validateThreeUniqueNumbers(String input) {
         //3개
         if (!isThreeLength(input)) {
             throw new IllegalArgumentException();
@@ -20,19 +21,25 @@ public class InputValidator {
         if (!isAllUniqueNumber(input)) {
             throw new IllegalArgumentException();
         }
+        ArrayList<Integer> userNumbers = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            userNumbers.add(Character.getNumericValue(input.charAt(i)));
+        }
+        return userNumbers;
     }
 
-    static public void validateZeroOrOne(String input) {
+    static public int validateOneOrTwo(String input) {
         if (!isOneLength(input)) {
             throw new IllegalArgumentException();
         }
-        if (!isZeroOrOne(input)) {
+        if (!isOneOrTwo(input)) {
             throw new IllegalArgumentException();
         }
+        return Integer.parseInt(input);
     }
 
-    private static boolean isZeroOrOne(String input) {
-        if ('0' <= input.charAt(0) && input.charAt(0) <= '1') {
+    private static boolean isOneOrTwo(String input) {
+        if ('1' <= input.charAt(0) && input.charAt(0) <= '2') {
             return true;
         } else {
             return false;
