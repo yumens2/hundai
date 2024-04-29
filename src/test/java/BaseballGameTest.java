@@ -44,6 +44,15 @@ public class BaseballGameTest {
         assertEquals(1, game.strike);
         assertEquals(1, game.ball);
     }
+    @Test
+    @DisplayName("낫싱 확인")
+    public void testCompareNum_checkNothing() {
+        List<Integer> userNum = Arrays.asList(1, 2, 3);
+        List<Integer> cpuNum = Arrays.asList(4, 5, 6);
+        game.compareNum(userNum, cpuNum);
+        assertEquals(0, game.strike);
+        assertEquals(0, game.ball);
+    }
 
     @Test
     @DisplayName("게임 재시작 혹은 게임 종료 선택 시 1,2 외의 숫자가 들어갔을때 확인")
