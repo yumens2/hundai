@@ -15,7 +15,6 @@ public class Game {
 
     public void play() {
         boolean option = true;
-        computer.initProblemNum();
 
         while (option) {
             System.out.print("숫자를 입력해 주세요 : ");
