@@ -9,6 +9,7 @@ public class Umpire {
     public void setBaseballCountWithCalculator(Player player, Computer computer) {
         int ballCount = BaseballCountCalculator.countBall(player.getPlayerNumber(), computer.getAnswerNumber());
         int strikeCount = BaseballCountCalculator.countStrike(player.getPlayerNumber(), computer.getAnswerNumber());
+        ballCount = BaseballCountCalculator.countBallExceptForStrike(ballCount, strikeCount);
         baseballCount.setBaseballCount(ballCount, strikeCount);
     }
 
