@@ -1,23 +1,35 @@
 package baseball;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Computer {
     private String problemNum;
     private final Random random;
+    private static final int DIGIT_COUNT = 3;
 
     public Computer(Random random) {
         this.random = random;
         initProblemNum();
     }
 
-    private int makeRandomNum() {
-        // 111 + random 값을 통해 111 ~ 999 숫자 중 0이 포함된 값을 제외한다
-        return 111 + random.nextInt(889);
+    private String makeRandomNum() {
+        List<String> numberList = new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9"));
+        StringBuilder randomNum = new StringBuilder();
+
+        for (int i = 0; i < DIGIT_COUNT; ++i) {
+            int idx = random.nextInt(numberList.size());
+            randomNum.append(numberList.get(idx));
+            // i와 numberList 는 관계가 없다. 무시 해도 되는 Warning 이다
+            numberList.remove(idx);
+        }
+
+        return randomNum.toString();
     }
 
     public void initProblemNum() {
-        this.problemNum = String.valueOf(makeRandomNum());
+        this.problemNum = makeRandomNum();
     }
 
     public String getProblemNum() {
