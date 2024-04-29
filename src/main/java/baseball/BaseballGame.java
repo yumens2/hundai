@@ -34,7 +34,7 @@ public class BaseballGame {
                     throw new IllegalArgumentException(); //예외 던지기
                 }
 
-                inputToInt(userThreeNum, s); //인풋을 하나씩 잘라서 각각을 int 배열로 변경
+                inputToIntArr(userThreeNum, s); //인풋을 하나씩 잘라서 각각을 int 배열로 변경
                 countStkAndBall(stkAndBall, computerThreeNum, userThreeNum); //컴퓨터의 랜덤 수, 유저의 수를 비교해서 스트라이크, 볼 개수를 기록함
 
                 if (stkAndBall.get("스트라이크") == 3) { //3 스트라이크 라면
@@ -65,7 +65,7 @@ public class BaseballGame {
         }
     }
 
-    private void inputToInt(int[] userThreeNum, String s) {
+    private void inputToIntArr(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
         for (int index = 1; index < 3; index++) {
