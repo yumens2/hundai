@@ -2,18 +2,18 @@ package Utility;
 
 public class CheckValidity {
     private CheckValidity(){}
-    public static void playerNumbervalidity(String number){
+    public static void playerNumbervalidity(String number)throws IllegalArgumentException{
         if(totalValidity(number)){
             return;
         }else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("올바른 입력이 아닙니다.");
         }
     }
-    public static void playerRestartNnumbervalidity(String number){
+    public static void playerRestartNumbervalidity(String number)throws IllegalArgumentException{
         if(totalRestartValidity(number)){
             return;
         }else {
-            throw new IllegalArgumentException("올바른 입력이 아닙니다. 게임을 종료합니다.\n");
+            throw new IllegalArgumentException("올바른 입력이 아닙니다.");
         }
     }
     private static boolean totalRestartValidity(String number){//서로다른 3자리 수를 검사하는 메소드

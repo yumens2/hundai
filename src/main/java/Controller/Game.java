@@ -19,13 +19,10 @@ public class Game {
         while(startGame()){
             OutputView.outputRestart();
             String inputNext = InputView.Input();
-            try {
-                CheckValidity.playerRestartNnumbervalidity(inputNext);
-                if(inputNext.equals("2")){
-                    return;
-                }
-            }catch (IllegalArgumentException e){
-                OutputView.outputLine("올바른 입력이 아닙니다. 프로그램을 종료합니다.");
+
+            CheckValidity.playerRestartNumbervalidity(inputNext);
+            if(inputNext.equals("2")) {
+                OutputView.outputLine("프로그램을 종료합니다.");
                 return;
             }
 
@@ -37,22 +34,19 @@ public class Game {
         while(true){
             OutputView.outputInputNumber();
             Player player = new Player(InputView.Input());
-            try {
-                CheckValidity.playerNumbervalidity(player.getPlayerNum());
-                int ball = CalculateScore.ballCount(answer.getAnswerNum(), player.getPlayerNum());
-                int strike = CalculateScore.strikeCount(answer.getAnswerNum(), player.getPlayerNum());
-                if(strike == 3){
-                    OutputView.outputFinish();
-                    return true;
-                }
-                if(ball > 0) OutputView.output(ball+"볼 ");
-                if(strike > 0) OutputView.output(strike+"스트라이크");
-                if(ball == 0 && strike == 0) OutputView.outputLine("낫싱");
-                OutputView.outputLine("");
-            }catch( IllegalArgumentException e) {
-                OutputView.outputLine("올바른 입력이 아닙니다. 프로그램을 종료합니다.");
-                return false;
+
+            CheckValidity.playerNumbervalidity(player.getPlayerNum());
+            int ball = CalculateScore.ballCount(answer.getAnswerNum(), player.getPlayerNum());
+            int strike = CalculateScore.strikeCount(answer.getAnswerNum(), player.getPlayerNum());
+            if(strike == 3){
+                OutputView.outputFinish();
+                return true;
             }
+            if(ball > 0) OutputView.output(ball+"볼 ");
+            if(strike > 0) OutputView.output(strike+"스트라이크");
+            if(ball == 0 && strike == 0) OutputView.outputLine("낫싱");
+            OutputView.outputLine("");
+
         }
     }
 }
