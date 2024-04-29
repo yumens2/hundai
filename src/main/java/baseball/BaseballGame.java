@@ -72,7 +72,7 @@ public class BaseballGame {
         for (int index = 1; index < 3; index++) {
             int usersIthInt = Integer.parseInt(String.valueOf(s.charAt(index)));
 
-            if (haveSameElement(userThreeNum, usersIthInt, index)) {
+            if (haveSameElement(userThreeNum, usersIthInt, index)) { //인풋은 서로 다른수여야 함
                 throw new IllegalArgumentException();
             } else {
                 userThreeNum[index] = usersIthInt;
@@ -134,7 +134,7 @@ public class BaseballGame {
         threeNum[0] = (int) (Math.random() * 9 + 1);
         for (int index = 1; index < 3; ) {
             int randomInt = (int) (Math.random() * 9 + 1);
-            if (!haveSameElement(threeNum, randomInt, index)) { //같은 원소가 없을 때 할당
+            if (!haveSameElement(threeNum, randomInt, index)) { // 랜덤 수는 서로 다른수여야 함
                 threeNum[index] = randomInt;
                 index++;
             }
