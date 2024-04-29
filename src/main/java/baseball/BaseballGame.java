@@ -78,7 +78,7 @@ public class BaseballGame {
         }
     }
 
-    private boolean isIllegalArgument(String str) {
+    public boolean isIllegalArgument(String str) {
         try {
             if (str.length() != 3) { //인풋의 길이는 3이여야 함
                 return true;
@@ -148,5 +148,8 @@ public class BaseballGame {
             endGame = true;
         }
         return endGame;
+    }
+    public int[] getComputerThreeNum() {
+        return computerThreeNum;
     }
 }
