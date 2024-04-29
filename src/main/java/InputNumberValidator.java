@@ -1,9 +1,9 @@
 public class InputNumberValidator {
 
-    public static void isInputNumberCorrect(String inputNumber) throws IllegalStateException {
-        isStringLengthCorrect(inputNumber);
-        isStringNumeric(inputNumber);
-        isDifferentDigitNumber(inputNumber);
+    public static void isPlayerNumberCorrect(String playerNumber) throws IllegalStateException {
+        isStringLengthCorrect(playerNumber);
+        isStringNumeric(playerNumber);
+        isDifferentDigitNumber(playerNumber);
     }
 
     public static void isStringLengthCorrect(String string) {
@@ -36,5 +36,11 @@ public class InputNumberValidator {
         return Math.toIntExact(number.chars()
                 .filter((ch) -> (ch == digit))
                 .count());
+    }
+
+    public static void isSelectionNumberCorrect(String selectionNumber) {
+        if (!selectionNumber.equals("1") && !selectionNumber.equals("2")) {
+            throw new IllegalStateException();
+        }
     }
 }
