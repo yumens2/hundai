@@ -1,9 +1,6 @@
 import java.util.HashSet;
 
 public class ValidBall implements Valid {
-    public ValidBall() {
-        super();
-    }
 
     @Override
     public void valid(int number) {
@@ -21,8 +18,5 @@ public class ValidBall implements Valid {
             }
             number /= 10;
         }
-
-
-
     }
 }
