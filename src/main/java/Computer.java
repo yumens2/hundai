@@ -3,8 +3,6 @@ import java.util.List;
 
 public class Computer {
 
-    private int computerNumber;
-
     public List<Integer> makeRandomNumber() {
         List<Integer> randomNumberList = new ArrayList<>();
         while (randomNumberList.size() < 3) {
