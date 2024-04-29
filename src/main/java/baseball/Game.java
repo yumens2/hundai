@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Game {
-    private User user;
-    private Computer computer;
+    private final User user;
+    private final Computer computer;
     private final Scanner scanner;
 
     public Game(User user, Computer computer, Scanner scanner) {
