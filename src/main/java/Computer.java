@@ -1,9 +1,14 @@
+
 public class Computer {
 
     private String answerNumber;
 
-    public void setAnswerNumber(String answerNumber) {
-        this.answerNumber = answerNumber;
+    public Computer() {
+        setAnswerNumberByRandomNumber();
+    }
+
+    private void setAnswerNumberByRandomNumber() {
+        this.answerNumber = RandomNumberGenerator.getRandomNumber();
     }
 
     public String getAnswerNumber() {
