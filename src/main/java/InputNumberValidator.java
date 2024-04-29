@@ -1,6 +1,6 @@
 public class InputNumberValidator {
 
-    public static void isInputNumberCorrect(String inputNumber) {
+    public static void isInputNumberCorrect(String inputNumber) throws IllegalStateException {
         isStringLengthCorrect(inputNumber);
         isStringNumeric(inputNumber);
         isDifferentDigitNumber(inputNumber);
@@ -12,13 +12,13 @@ public class InputNumberValidator {
         }
     }
 
-    public static void isStringNumeric(String string) {
+    public static void isStringNumeric(String string) throws IllegalStateException {
         for (int i = 0; i < string.length(); i++) {
             isCharacterNumeric(string, i);
         }
     }
 
-    public static void isCharacterNumeric(String string, int index) throws IllegalStateException {
+    public static void isCharacterNumeric(String string, int index) {
         if (!Character.isDigit(string.charAt(index))) {
             throw new IllegalStateException();
         }
