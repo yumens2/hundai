@@ -18,7 +18,7 @@ public class BaseballGame {
         } while (isGameOver());
     }
 
-    private void setPlayerNumberWithInput() throws IllegalStateException {
+    private void setPlayerNumberWithInput() {
         BaseballPrinter.printPlayerNumberInputMessage();
         String inputNumber = InputNumberReceiver.getInputNumber();
         InputNumberValidator.isPlayerNumberCorrect(inputNumber);
