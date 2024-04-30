@@ -1,3 +1,6 @@
+package domain;
+
+import utility.RandomNumberGenerator;
 
 public class Computer {
 

@@ -1,3 +1,5 @@
+package domain;
+
 public class BaseballCount {
 
     private int ballCount;
