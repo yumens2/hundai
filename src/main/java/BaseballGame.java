@@ -1,3 +1,11 @@
+import domain.BaseballCount;
+import domain.Computer;
+import domain.Player;
+import domain.Umpire;
+import utility.BaseballPrinter;
+import utility.InputNumberValidator;
+import utility.InputStringReceiver;
+
 public class BaseballGame {
 
     private final Player player;
@@ -20,7 +28,7 @@ public class BaseballGame {
 
     private void setPlayerNumberWithInput() {
         BaseballPrinter.printPlayerNumberInputMessage();
-        String inputNumber = InputNumberReceiver.getInputNumber();
+        String inputNumber = InputStringReceiver.getInputString();
         InputNumberValidator.isPlayerNumberCorrect(inputNumber);
         player.setPlayerNumber(inputNumber);
     }
