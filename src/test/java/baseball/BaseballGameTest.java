@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -105,6 +106,32 @@ class BaseballGameTest {
             }
             System.setOut(System.out); // 원상복귀
         }
+
+    }
+
+    @DisplayName("요구사항 7에 대한 테스트")
+    @Test
+    void req7Test(){
+        Scanner input;
+
+        input = new Scanner("1\n");
+        assertFalse(baseballGame.isEndGame(input));
+
+        input = new Scanner("2\n");
+        assertTrue(baseballGame.isEndGame(input));
+
+        input = new Scanner("asdf\n");
+        Scanner finalInput = input;
+        assertThrows(IllegalArgumentException.class, () -> {
+            baseballGame.isEndGame(finalInput);
+        });
+
+        input = new Scanner("123412\n");
+        Scanner finalInput2 = input;
+        assertThrows(IllegalArgumentException.class, () -> {
+            baseballGame.isEndGame(finalInput);
+        });
+
 
     }
 
