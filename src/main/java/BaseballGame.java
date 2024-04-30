@@ -55,5 +55,21 @@ public class BaseballGame {
     }
 
 
+    private int[] getUserNumbers() {
+        int[] userNumbers = new int[3];
+
+        while (true) {
+            try {
+                String userInput = readUserInput();
+                userNumbers = parseUserInput(userInput);
+                return userNumbers;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                throw e; // 예외를 다시 던져서 상위 호출자로 전달
+                // System.exit(0);
+            }
+        }
+    }
+
 
 }
