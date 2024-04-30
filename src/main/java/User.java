@@ -3,7 +3,7 @@ public class User {
     private Scanner scanner;
     private String useNumbers;
     public User(){
-        scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
     public String getUserInputNumbers(){

@@ -7,7 +7,7 @@ public class Computer {
     private List<Integer> numbers;
 
     public Computer(){
-        numbers = computerRandomNumbers();
+        this.numbers = computerRandomNumbers();
     }
     // 1~9 범위의 중복되지 않는 수 3개를 뽑아내는 함수
     private List<Integer> computerRandomNumbers(){
