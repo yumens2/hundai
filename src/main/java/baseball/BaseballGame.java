@@ -65,7 +65,7 @@ public class BaseballGame {
         }
     }
 
-    private void inputToIntArr(int[] userThreeNum, String s) {
+    public void inputToIntArr(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
         for (int index = 1; index < 3; index++) {
@@ -118,7 +118,7 @@ public class BaseballGame {
         return false;
     }
 
-    private void countStkAndBall(Map<String, Integer> map, int[] computerThreeNum, int[] userThreeNum) {
+    public void countStkAndBall(Map<String, Integer> map, int[] computerThreeNum, int[] userThreeNum) {
         int strike = 0;
         int ball = 0;
         for (int i = 0; i < 3; i++) {
@@ -132,7 +132,7 @@ public class BaseballGame {
         map.put("볼", ball);
     }
 
-    private void printSBmap(Map<String, Integer> map) {
+    public void printSBmap(Map<String, Integer> map) {
         if (map.get("스트라이크") == 0) {
             if (map.get("볼") == 0) {
                 System.out.println("낫싱");
