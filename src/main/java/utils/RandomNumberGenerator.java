@@ -10,7 +10,7 @@ public class RandomNumberGenerator {
      *
      * @return 1~9 사이의 서로 다른 세 자리로 이루어진 정수
      */
-    public static Integer generateRandomNumber() {
+    public static String generateRandomNumber() {
         int num = 0;
         String numStr = "";
 
@@ -23,7 +23,7 @@ public class RandomNumberGenerator {
             numStr += String.valueOf(num);
         }
 
-        return Integer.parseInt(numStr);
+        return numStr;
     }
 
     /**
