@@ -1,19 +1,22 @@
 package baseball;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BaseballGameTest {
+    private BaseballGame baseballGame = new BaseballGame();
+
 
     @Test
     @DisplayName("요구사항 1에 대한 테스트")
     void req1Test() {
-        BaseballGame baseballGame = new BaseballGame();
         int[] randomComNumbers = baseballGame.getComputerThreeNum();
 
         assertEquals(3, randomComNumbers.length);
@@ -26,8 +29,6 @@ class BaseballGameTest {
     void req23Test(){
         String[] normalArgs = {"123", "915"};
         String[] illegalArgs = {"111", "1837", "abc"};
-
-        BaseballGame baseballGame = new BaseballGame();
 
         for(String normalArg : normalArgs){
             assertFalse(baseballGame.isIllegalArgument(normalArg));
@@ -43,9 +44,8 @@ class BaseballGameTest {
     }
 
     @Test
-    @DisplayName("요구사항 4에 대한 테스트")
-    void req4Test(){
-        BaseballGame baseballGame = new BaseballGame();
+    @DisplayName("요구사항 4, 5, 6에 대한 테스트")
+    void req456Test(){
 
         Map<String, Integer> stkAndBall = new HashMap<>(); //strike와 ball count를 저장할 map
         stkAndBall.put("스트라이크", 0);
@@ -62,31 +62,50 @@ class BaseballGameTest {
         int[] userInput = new int[3];
 
         for (cases c : cases.values()) {
+
+            // 참고 : https://velog.io/@rudnf003/Java-콘솔창-출력-테스트하기
+
+            ByteArrayOutputStream outputMsg = new ByteArrayOutputStream(); // OutputStream 생성
+            System.setOut(new PrintStream(outputMsg)); // 생성한 OutputStream 으로 설정
+
             baseballGame.inputToIntArr(computerThreeNum, computerThreeNumStr[c.ordinal()]);
             baseballGame.inputToIntArr(userInput, userInputStr[c.ordinal()]);
             baseballGame.countStkAndBall(stkAndBall, computerThreeNum, userInput);
 
             switch (c){
+
                 case ALLSTK -> {
                     assertEquals(0, (int) stkAndBall.get("볼"));
                     assertEquals(3, (int) stkAndBall.get("스트라이크"));
+                    System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                    assertEquals("3개의 숫자를 모두 맞히셨습니다! 게임 종료", outputMsg.toString().trim());
                 }
+
                 case BALLANDSTK -> {
                     assertEquals(2, (int) stkAndBall.get("볼"));
                     assertEquals(1, (int) stkAndBall.get("스트라이크"));
+                    baseballGame.printSBmap(stkAndBall);
+                    assertEquals("2볼 1스트라이크", outputMsg.toString().trim());
                 }
+
                 case ALLBALL -> {
                     assertEquals(3, (int) stkAndBall.get("볼"));
                     assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                    baseballGame.printSBmap(stkAndBall);
+                    assertEquals("3볼", outputMsg.toString().trim());
                 }
+
                 case NOTHING -> {
                     assertEquals(0, (int) stkAndBall.get("볼"));
                     assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                    baseballGame.printSBmap(stkAndBall);
+                    assertEquals("낫싱", outputMsg.toString().trim());
                 }
 
             }
-
+            System.setOut(System.out); // 원상복귀
         }
+
     }
 
 }
