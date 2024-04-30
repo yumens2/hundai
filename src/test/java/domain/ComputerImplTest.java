@@ -1,10 +1,10 @@
 package domain;
 
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ComputerImplTest {
 
@@ -16,9 +16,9 @@ public class ComputerImplTest {
         // when then
         for (int i = 0; i < 1000; i++) {
             List<Integer> randomNums = computer.generateRandomNumbers();
-            assertNotEquals(randomNums.get(0), randomNums.get(1));
-            assertNotEquals(randomNums.get(0), randomNums.get(2));
-            assertNotEquals(randomNums.get(1), randomNums.get(2));
+            assertThat(randomNums.get(0)).isNotEqualTo(randomNums.get(1));
+            assertThat(randomNums.get(0)).isNotEqualTo(randomNums.get(2));
+            assertThat(randomNums.get(1)).isNotEqualTo(randomNums.get(2));
         }
     }
 
@@ -40,9 +40,9 @@ public class ComputerImplTest {
         String resultD = computer.checkStrike(randomNums, userNumsD);
 
         // then
-        assertEquals(resultA, "3스트라이크");
-        assertEquals(resultB, "낫싱");
-        assertEquals(resultC, "2볼 1스트라이크");
-        assertEquals(resultD, "2볼");
+        assertThat(resultA).isEqualTo("3스트라이크");
+        assertThat(resultB).isEqualTo("낫싱");
+        assertThat(resultC).isEqualTo("2볼 1스트라이크");
+        assertThat(resultD).isEqualTo("2볼");
     }
 }
