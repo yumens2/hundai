@@ -2,6 +2,6 @@ package view;
 
 public interface Input {
 
-    int endInput();
+    String endInput();
     String baseballInput();
 }
