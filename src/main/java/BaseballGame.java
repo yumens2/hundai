@@ -96,6 +96,21 @@ public class BaseballGame {
     }
 
 
+    private int[] calculateResult(int[] computerNumbers, int[] userNumbers) {
+        int strikes = 0;
+        int balls = 0;
+
+        for (int i = 0; i < 3; i++) {
+            if (computerNumbers[i] == userNumbers[i]) {
+                strikes++;
+            } else if (containsNumber(computerNumbers[i], userNumbers)) {
+                balls++;
+            }
+        }
+
+        return new int[]{strikes, balls};
+    }
+
 
 
 }
