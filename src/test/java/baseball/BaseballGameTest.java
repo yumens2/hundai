@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 
 class BaseballGameTest {
 
-    @Test //요구사항 1. 컴퓨터는 1~9 까지의 서로 다르면서, 랜덤한 수를 3개 뽑아야 한다.
+    @Test
+    @DisplayName("요구사항 1에 대한 테스트")
     void req1Test() {
         BaseballGame baseballGame = new BaseballGame();
         int[] randomComNumbers = baseballGame.getComputerThreeNum();
@@ -21,10 +22,7 @@ class BaseballGameTest {
     }
 
     @Test
-    /*
-    * 요구사항 2. 유저는 1~9 까지의 서로 다르면서, 랜덤한 수를 3개 입력 한다.
-    * 요구사항 3. 2번에 대한 유효성 검사를 하고, 잘못된 값이 입력 되었을 경우 IllegalArgumentException 을 발생시킨 후 애플리케이션은 종료되어야 하고, 정상적인 값일 경우 입력값을 저장한다.
-    */
+    @DisplayName("요구사항 2, 3에 대한 테스트")
     void req23Test(){
         String[] normalArgs = {"123", "915"};
         String[] illegalArgs = {"111", "1837", "abc"};
