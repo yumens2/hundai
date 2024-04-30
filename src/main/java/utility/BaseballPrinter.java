@@ -1,3 +1,5 @@
+package utility;
+
 public class BaseballPrinter {
 
     public static void printPlayerNumberInputMessage() {

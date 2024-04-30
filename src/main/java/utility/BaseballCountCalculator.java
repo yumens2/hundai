@@ -1,3 +1,5 @@
+package utility;
+
 public class BaseballCountCalculator {
 
     public static int countBall(String playerNumber, String answerNumber) {

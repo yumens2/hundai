@@ -1,3 +1,5 @@
+package utility;
+
 public class InputNumberValidator {
 
     public static void isPlayerNumberCorrect(String playerNumber) throws IllegalArgumentException {
