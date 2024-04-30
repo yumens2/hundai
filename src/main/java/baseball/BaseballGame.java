@@ -148,7 +148,7 @@ public class BaseballGame {
         }
     }
 
-    private boolean isEndGame(Scanner input) {
+    public boolean isEndGame(Scanner input) {
         boolean endGame = false;
         int i = input.nextInt();
         input.nextLine();
