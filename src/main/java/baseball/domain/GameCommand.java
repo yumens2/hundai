@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public enum GameCommand {
+
     RESTART("1"),
     EXIT("2"),
     ;
