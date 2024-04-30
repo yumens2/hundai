@@ -1,4 +1,6 @@
-
+import java.util.LinkedHashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class BaseballGame {
     public void startGame() {
@@ -30,6 +32,26 @@ public class BaseballGame {
 
             attempts++;
         }
+    }
+
+
+    private int[] generateComputerNumbers() {
+        Random random = new Random();
+        Set<Integer> numbers = new LinkedHashSet<>();
+
+        while (numbers.size() < 3) {
+            int randomNumber = random.nextInt(9) + 1; // 1부터 9 사이의 난수 생성
+            numbers.add(randomNumber);
+        }
+
+        int[] result = new int[3];
+        int i = 0;
+
+        for (int number : numbers) {
+            result[i] = number;
+            i++;
+        }
+        return result;
     }
 
 
