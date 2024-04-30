@@ -27,7 +27,7 @@ public class BaseballGame {
             printResult(result);
 
             if (result[0] == 3) {
-                System.out.println("승리! " + (attempts + 1) + "번 만에 정답을 맞췄습니다.");
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! " + (attempts + 1) + "번 만에 정답을 맞췄습니다.");
                 break;
             }
 
@@ -86,6 +86,7 @@ public class BaseballGame {
         }
 
         int[] userNumbers = new int[3];
+
         for (int i = 0; i < 3; i++) {
             userNumbers[i] = userInput.charAt(i) - '0';
             if (userNumbers[i] < 1 || userNumbers[i] > 9) {
