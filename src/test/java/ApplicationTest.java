@@ -1,30 +1,26 @@
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import Model.Answer;
-import Model.Player;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import Model.Answer;
+import Model.Computer;
+import Model.Player;
+
+import utility.CalculateScore;
+import utility.CheckPlayerNumberValidity;
+import utility.CheckPlayerRestartNumberValidity;
+import utility.CheckValidity;
+
 
 public class ApplicationTest {
-    /*
-        1.
-        2.
-        3.
-        4.
-        5.
-        6.
-        7.
-        8.
-        유효성 검사(정수가 맞는지, 3자가 맞는지, 0이 있는지, 중복되진 않는지
 
-
-
-     */
     @Test
     @DisplayName("Player클래스에 수가 저장이 잘 되는지 테스트")
     void Player검사() {
         Player player = new Player("123");
+
         assertThat(player.getPlayerNum()).isEqualTo("123");
     }
 
@@ -32,17 +28,73 @@ public class ApplicationTest {
     @DisplayName("Answer클래스에 수가 저장이 잘 되는지 테스트")
     void Answer검사() {
         Answer answer = new Answer("123");
+
         assertThat(answer.getAnswerNum()).isEqualTo("123");
     }
 
+    //유효성 정수가 맞는지, 3자리가 맞는지, 0을 포함했는지, 중복이 됐는지, 1또는2인지
+    @Test
+    @DisplayName("숫자가 맞는지 유효성 검사 테스트")
+    void 숫자유효성검사정수변환(){
+        assertThat(CheckValidity.numberValidity("123")).isEqualTo(true);
+        assertThat(CheckValidity.numberValidity("abc")).isEqualTo(false);
+    }
 
-    //컴퓨터 랜덤숫자 만드는지 (보류)
-    //answer에 저장(저장이 잘되는지)
-    //Player예 입력된 수 저장(저장이 잘되는지)
-    //입력된 수 유효성 검사(정수가 맞는지, 3자가 맞는지, 0이 있는지, 중복되진 않는지)
-    //힌트 계산
-    //계산된 힌트 출력문구
-    //3스트라이크면 게임종료 아니면 반복
-    //재시학할지 종료할지 입력( 유효성검사, 1,2아니면 싹다 아님)
-    //startGame이 true를 리턴하는지
+    @Test
+    @DisplayName("3자리의 정수이면서 양수인지 테스트")
+    void 숫자유효성검사3자리수(){
+        assertThat(CheckValidity.digitValidity("123")).isEqualTo(true);
+        assertThat(CheckValidity.digitValidity("1234")).isEqualTo(false);
+
+    }
+
+    @Test
+    @DisplayName("0을 포함한 수를 올바르게 검사하는지 테스트")
+    void 숫자유효성검사0을포함(){
+        assertThat(CheckValidity.zeroValidity("123")).isEqualTo(true);
+        assertThat(CheckValidity.zeroValidity("204")).isEqualTo(false);
+
+    }
+
+    @Test
+    @DisplayName("즁복된 수를 올바르게 검사하는지 테스트")
+    void 숫자유효성검사중복(){
+        assertThat(CheckValidity.sameValidity("123")).isEqualTo(true);
+        assertThat(CheckValidity.sameValidity("112")).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("1 또는 2가 맞는지 테스트")
+    void 숫자유효성검사1또는2(){
+        assertThat(CheckValidity.oneTwoValidity("1")).isEqualTo(true);
+        assertThat(CheckValidity.oneTwoValidity("2")).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("올바르지 않은 입력이 IllegalArgumentException을 일으키는지 테스트")
+    void 올바르지않은입력에러테스트(){
+        assertThatThrownBy(() -> CheckPlayerNumberValidity.playerNumberValidity("a1002"))
+                .isInstanceOf(RuntimeException.class);
+        assertThatThrownBy(() -> CheckPlayerRestartNumberValidity.playerRestartNumberValidity("3"))
+                .isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    @DisplayName("Computer가 올바른 수를 생성하는지 테스트")
+    void Computer검사(){
+        String testNumber = Computer.makeRandomNumber();
+        assertThat(CheckValidity.sameValidity(testNumber)).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("힌트를 제대로 계산하지는 테스트")
+    void 힌트검사(){
+        String answer = "574";
+        String player = "548";
+        assertThat(CalculateScore.ballCount(answer,player)).isEqualTo(1);
+        assertThat(CalculateScore.strikeCount(answer,player)).isEqualTo(1);
+
+    }
+
+
 }
