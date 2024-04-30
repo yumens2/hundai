@@ -45,6 +45,7 @@ public class Main {
         int ContinueUserSet = YES;
 
         BaseballNumber baseballNumber;
+        Hint hint = new Hint();
 
         while (ContinueGameSet == YES) {
             baseballNumber = new BaseballNumber();
@@ -58,6 +59,10 @@ public class Main {
 
                 numberOfStrike = baseballNumber.countStrike();
                 numberOfBall = baseballNumber.countBall();
+                hint.setNumberOfStrike(numberOfStrike);
+                hint.setNumberOfBall(numberOfBall);
+
+                ContinueUserSet = hint.printAnswer();
             }
 
         }
