@@ -1,8 +1,11 @@
 package baseball;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BaseballGameTest {
@@ -40,4 +43,52 @@ class BaseballGameTest {
             assertTrue(true);
         }
     }
+
+    @Test
+    @DisplayName("요구사항 4에 대한 테스트")
+    void req4Test(){
+        BaseballGame baseballGame = new BaseballGame();
+
+        Map<String, Integer> stkAndBall = new HashMap<>(); //strike와 ball count를 저장할 map
+        stkAndBall.put("스트라이크", 0);
+        stkAndBall.put("볼", 0);
+
+        String[] computerThreeNumStr = {"123", "467", "345", "456"};
+        String[] userInputStr = {"123", "476", "534", "987"};
+
+        enum cases{
+            ALLSTK, BALLANDSTK, ALLBALL, NOTHING
+        }
+
+        int[] computerThreeNum = new int[3];
+        int[] userInput = new int[3];
+
+        for (cases c : cases.values()) {
+            baseballGame.inputToIntArr(computerThreeNum, computerThreeNumStr[c.ordinal()]);
+            baseballGame.inputToIntArr(userInput, userInputStr[c.ordinal()]);
+            baseballGame.countStkAndBall(stkAndBall, computerThreeNum, userInput);
+
+            switch (c){
+                case ALLSTK -> {
+                    assertEquals(0, (int) stkAndBall.get("볼"));
+                    assertEquals(3, (int) stkAndBall.get("스트라이크"));
+                }
+                case BALLANDSTK -> {
+                    assertEquals(2, (int) stkAndBall.get("볼"));
+                    assertEquals(1, (int) stkAndBall.get("스트라이크"));
+                }
+                case ALLBALL -> {
+                    assertEquals(3, (int) stkAndBall.get("볼"));
+                    assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                }
+                case NOTHING -> {
+                    assertEquals(0, (int) stkAndBall.get("볼"));
+                    assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                }
+
+            }
+
+        }
+    }
+
 }
