@@ -4,6 +4,8 @@ import java.util.*;
 public class Main {
     private static final int YES = 1;
     private static final int NO = 0;
+    public static final int USER_WANT_CONTINUE = 1;
+    public static final int USER_WANT_FINISH = 2;
 
     public static final int NUMBER_OF_CASE = 3;
 
@@ -28,7 +30,6 @@ public class Main {
         userNum.add(Integer.parseInt(userArr[0]));
         userNum.add(Integer.parseInt(userArr[1]));
         userNum.add(Integer.parseInt(userArr[2]));
-        System.out.println(userNum);
         return userNum;
     }
 
@@ -38,7 +39,25 @@ public class Main {
         }
     }
 
+    private static int askFinish() throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        return Integer.parseInt(br.readLine());
+    }
 
+    private static int endOrAgain(int again) {
+        int continueGameSet = YES;
+        if (again == USER_WANT_CONTINUE) {
+            continueGameSet = YES;
+        } else if (again == USER_WANT_FINISH) {
+            System.out.println("게임종료");
+            continueGameSet = NO;
+        } else {
+            throw new IllegalArgumentException();
+        }
+        return continueGameSet;
+    }
 
     public static void main(String[] args) throws IOException {
         int ContinueGameSet = YES;
@@ -64,6 +83,9 @@ public class Main {
 
                 ContinueUserSet = hint.printAnswer();
             }
+            int again = askFinish();
+            ContinueGameSet = endOrAgain(again);
+            ContinueUserSet = YES;
 
         }
     }
