@@ -2,6 +2,10 @@ package baseball.domain;
 
 public class Hint {
 
+    private static final int STRIKE_OUT_COUNT = 3;
+    private static final int INITIAL_STRIKE_COUNT = 0;
+    private static final int INITIAL_BALL_COUNT = 0;
+
     private int strike;
     private int ball;
 
@@ -19,19 +23,19 @@ public class Hint {
     }
 
     public boolean isStrikeOut() {
-        return strike == 3;
+        return strike == STRIKE_OUT_COUNT;
     }
 
     public boolean hasStrike() {
-        return strike > 0;
+        return strike > INITIAL_STRIKE_COUNT;
     }
 
     public boolean hasBall() {
-        return ball > 0;
+        return ball > INITIAL_BALL_COUNT;
     }
 
     public boolean isNothing() {
-        return strike == 0 && ball == 0;
+        return strike == INITIAL_STRIKE_COUNT && ball == INITIAL_BALL_COUNT;
     }
 
     public int getStrike() {
