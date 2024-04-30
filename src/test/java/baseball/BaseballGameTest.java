@@ -77,24 +77,24 @@ class BaseballGameTest {
             switch (c){
 
                 case ALLSTK -> {
-                    assertEquals(0, (int) stkAndBall.get("볼"));
-                    assertEquals(3, (int) stkAndBall.get("스트라이크"));
+                    assertThat((int) stkAndBall.get("볼")).isEqualTo(0);
+                    assertThat((int) stkAndBall.get("스트라이크")).isEqualTo(3);
                     System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-                    assertEquals("3개의 숫자를 모두 맞히셨습니다! 게임 종료", outputMsg.toString().trim());
+                    assertThat(outputMsg.toString().trim()).isEqualTo("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
                 }
 
                 case BALLANDSTK -> {
-                    assertEquals(2, (int) stkAndBall.get("볼"));
-                    assertEquals(1, (int) stkAndBall.get("스트라이크"));
+                    assertThat((int) stkAndBall.get("볼")).isEqualTo(2);
+                    assertThat((int) stkAndBall.get("스트라이크")).isEqualTo(1);
                     baseballGame.printSBmap(stkAndBall);
-                    assertEquals("2볼 1스트라이크", outputMsg.toString().trim());
+                    assertThat(outputMsg.toString().trim()).isEqualTo("2볼 1스트라이크");
                 }
 
                 case ALLBALL -> {
-                    assertEquals(3, (int) stkAndBall.get("볼"));
-                    assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                    assertThat((int) stkAndBall.get("볼")).isEqualTo(3);
+                    assertThat((int) stkAndBall.get("스트라이크")).isEqualTo(0);
                     baseballGame.printSBmap(stkAndBall);
-                    assertEquals("3볼", outputMsg.toString().trim());
+                    assertThat(outputMsg.toString().trim()).isEqualTo("3볼");
                 }
 
                 case NOTHING -> {
