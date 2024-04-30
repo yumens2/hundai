@@ -1,6 +1,7 @@
 import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.*;
 
 public class BaseballGame {
     public void startGame() {
@@ -70,6 +71,16 @@ public class BaseballGame {
             }
         }
     }
+
+
+    private String readUserInput() {
+        System.out.print("세 자리 숫자를 입력하세요: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+
+
 
 
 }
