@@ -21,7 +21,8 @@ public class baseball_game {
             System.out.println("숫자를 입력해 주세요: ");
 
             String guess = scanner.nextLine();
-            if(guess.length() != 3) throw new IllegalArgumentException();
+            //if(guess.length() != 3) throw new IllegalArgumentException();
+            checkInput(guess);
             int result = score(number, guess);
             if(result == 1 || result == 2) return result;
             else if(result == 0) continue;
@@ -45,6 +46,14 @@ public class baseball_game {
         }
         number = num1*100 + num2*10 + num3;
         return number + "";
+    }
+
+    public static void checkInput(String guess){
+        if(guess.length() != 3) throw new IllegalArgumentException();
+        for(int i=0; i<3; i++){
+            char c = guess.charAt(i);
+            if(c < '1' || c > '9') throw new IllegalArgumentException();
+        }
     }
 
     public static int printResult(int strike, int ball){
