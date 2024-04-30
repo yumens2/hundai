@@ -21,7 +21,7 @@ public class baseball_game {
             System.out.println("숫자를 입력해 주세요: ");
 
             String guess = scanner.nextLine();
-            //if(guess.length() != 3) throw new IllegalArgumentException();
+            
             checkInput(guess);
             int result = score(number, guess);
             if(result == 1 || result == 2) return result;
