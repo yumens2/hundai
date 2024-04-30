@@ -98,10 +98,10 @@ class BaseballGameTest {
                 }
 
                 case NOTHING -> {
-                    assertEquals(0, (int) stkAndBall.get("볼"));
-                    assertEquals(0, (int) stkAndBall.get("스트라이크"));
+                    assertThat((int) stkAndBall.get("볼")).isEqualTo(0);
+                    assertThat((int) stkAndBall.get("스트라이크")).isEqualTo(0);
                     baseballGame.printSBmap(stkAndBall);
-                    assertEquals("낫싱", outputMsg.toString().trim());
+                    assertThat(outputMsg.toString().trim()).isEqualTo("낫싱");
                 }
 
             }
