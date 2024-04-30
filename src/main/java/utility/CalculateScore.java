@@ -22,8 +22,8 @@ public class CalculateScore {
     }
 
     public static int strikeCount(String answer, String inputNumber){
-        int strike = 0;//스트라이크 수
-        //입력된 수가 같은 자리에 같은 수가있다면 strike 1즐가
+        int strike = 0; // 스트라이크 수
+        // 입력된 수가 같은 자리에 같은 수가있다면 strike 1즐가
         if (answer.charAt(0) == inputNumber.charAt(0)) {
             strike++;
         }

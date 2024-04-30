@@ -9,7 +9,7 @@ public class InputView {
 
     private InputView(){}
 
-    public static String Input()throws IOException {//입력받는 함수
+    public static String Input()throws IOException { // 입력받는 함수
         return br.readLine();
     }
 }
