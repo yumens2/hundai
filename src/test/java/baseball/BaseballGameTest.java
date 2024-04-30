@@ -123,11 +123,11 @@ class BaseballGameTest {
 
         input = new Scanner("asdf\n");
         Scanner finalInput = input;
-        assertThrows(IllegalArgumentException.class, () -> baseballGame.isEndGame(finalInput));
+        assertThatIllegalArgumentException().isThrownBy(() -> baseballGame.isEndGame(finalInput));
 
         input = new Scanner("123412\n");
         Scanner finalInput2 = input;
-        assertThrows(IllegalArgumentException.class, () -> baseballGame.isEndGame(finalInput2));
+        assertThatIllegalArgumentException().isThrownBy(() -> baseballGame.isEndGame(finalInput2));
 
 
     }
