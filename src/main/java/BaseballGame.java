@@ -80,6 +80,21 @@ public class BaseballGame {
     }
 
 
+    private int[] parseUserInput(String userInput) {
+        if (userInput.length() != 3) {
+            throw new IllegalArgumentException("세 자리 숫자를 입력하세요.");
+        }
+
+        int[] userNumbers = new int[3];
+        for (int i = 0; i < 3; i++) {
+            userNumbers[i] = userInput.charAt(i) - '0';
+            if (userNumbers[i] < 1 || userNumbers[i] > 9) {
+                throw new IllegalArgumentException("1에서 9 사이의 숫자를 입력하세요.");
+            }
+        }
+        return userNumbers;
+    }
+
 
 
 
