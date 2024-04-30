@@ -35,7 +35,8 @@ public class BaseballGame {
                 }
 
                 inputToIntArr(userThreeNum, s); //인풋을 하나씩 잘라서 각각을 int 배열로 변경
-                countStkAndBall(stkAndBall, computerThreeNum, userThreeNum); //컴퓨터의 랜덤 수, 유저의 수를 비교해서 스트라이크, 볼 개수를 기록함
+                countStkAndBall(stkAndBall, computerThreeNum, userThreeNum);
+                //컴퓨터의 랜덤 수, 유저의 수를 비교해서 스트라이크, 볼 개수를 기록함
 
                 if (stkAndBall.get("스트라이크") == 3) { //3 스트라이크 라면
                     System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
@@ -124,7 +125,8 @@ public class BaseballGame {
         for (int i = 0; i < 3; i++) {
             if (computerThreeNum[i] == userThreeNum[i]) {
                 strike++;
-            } else if (haveSameElement(computerThreeNum, userThreeNum[i], 3)) { //스트라이크가 아니면서 매치되는 것이 하나라도 있을 때
+            } else if (haveSameElement(computerThreeNum, userThreeNum[i], 3)) {
+                //스트라이크가 아니면서 매치되는 것이 하나라도 있을 때
                 ball++;
             }
         }

@@ -23,7 +23,8 @@ class BaseballGameTest {
 
         assertThat(randomComNumbers).hasSize(3);
         assertThat(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}).contains(randomComNumbers);
-        assertThat(IntStream.of(randomComNumbers).distinct().count()).isEqualTo(3); //컴퓨터 랜덤 수 배열의 int Stream의 서로 다른 원소의 count의 수가 3일때 통과
+        assertThat(IntStream.of(randomComNumbers).distinct().count()).isEqualTo(3);
+        //컴퓨터 랜덤 수 배열의 int Stream의 서로 다른 원소의 count의 수가 3일때 통과
     }
 
     @Test
