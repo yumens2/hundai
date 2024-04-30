@@ -1,3 +1,5 @@
+package utility;
+
 public class GameRestartOption {
 
     public static boolean isGameRestart() throws IllegalArgumentException {
@@ -5,7 +7,7 @@ public class GameRestartOption {
     }
 
     private static String getRestartNumber() throws IllegalArgumentException {
-        String inputNumber = InputNumberReceiver.getInputNumber();
+        String inputNumber = InputStringReceiver.getInputString();
         InputNumberValidator.isRestartNumberCorrect(inputNumber);
         return inputNumber;
     }
