@@ -15,7 +15,7 @@
 
 ## Function(feature)
 - feature 단위로 작성
-- commit 시 `BASEBALL-feature#` 형식으로 작성
+- branch 생성 시 `feature/feature#-functionDesc` 형식으로 작성
 
 ### 1. generate random number
 - 1~9까지 서로 다른 수로 이루어진 3자리의 수를 생성
