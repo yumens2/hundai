@@ -112,5 +112,15 @@ public class BaseballGame {
     }
 
 
+    private boolean containsNumber(int number, int[] numbers) {
+        for (int num : numbers) {
+            if (num == number) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 }
