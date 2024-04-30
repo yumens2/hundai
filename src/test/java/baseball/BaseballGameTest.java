@@ -129,7 +129,7 @@ class BaseballGameTest {
         input = new Scanner("123412\n");
         Scanner finalInput2 = input;
         assertThrows(IllegalArgumentException.class, () -> {
-            baseballGame.isEndGame(finalInput);
+            baseballGame.isEndGame(finalInput2);
         });
 
 
