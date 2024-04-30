@@ -1,5 +1,6 @@
 package baseball;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
@@ -20,9 +21,9 @@ class BaseballGameTest {
     void req1Test() {
         int[] randomComNumbers = baseballGame.getComputerThreeNum();
 
-        assertEquals(3, randomComNumbers.length);
+        assertThat(randomComNumbers.length).isEqualTo(3);
         assertTrue(IntStream.of(randomComNumbers).allMatch(num -> num > 0 && num < 10)); //컴퓨터 랜덤 수 배열의 int Stream의 모든 원소가 1~9 일때만 true
-        assertEquals(3, IntStream.of(randomComNumbers).distinct().count()); //컴퓨터 랜덤 수 배열의 int Stream의 서로 다른 원소의 count의 수가 3일때 통과
+        assertThat(IntStream.of(randomComNumbers).distinct().count()).isEqualTo(3); //컴퓨터 랜덤 수 배열의 int Stream의 서로 다른 원소의 count의 수가 3일때 통과
     }
 
     @Test
