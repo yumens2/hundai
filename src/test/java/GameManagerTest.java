@@ -23,7 +23,7 @@ public class GameManagerTest {
         System.setOut(new PrintStream(outputStreamCaptor));
     }
     @AfterEach
-    public void tearDown() {
+    public void setDown() {
         System.setOut(standardOut);
     }
 
