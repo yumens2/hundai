@@ -1,26 +1,21 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class NumberGenerating {
 
-    public ArrayList<Integer> generateRandomNumber() {
-        ArrayList<Integer> numbers = new ArrayList<>();
+    public Set<Integer> generateRandomNumber() {
+        Set<Integer> numbers = new LinkedHashSet<>();
         Random random = new Random();
-        for (int i = 0; i < 3; i++) {
+        while (numbers.size() < 3){
             numbers.add(random.nextInt(1, 10));
         }
         return numbers;
     }
 
-    public ArrayList<Integer> inputUserNumber() {
-        Scanner scanner = new Scanner(System.in);
-
+    public ArrayList<Integer> inputUserNumber(Scanner scanner) {
         ArrayList<Integer> userNumber = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             userNumber.add(scanner.nextInt());
         }
-        scanner.close();
         return userNumber;
     }
 }
