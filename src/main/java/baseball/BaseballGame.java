@@ -84,10 +84,16 @@ public class BaseballGame {
                 return true;
             }
 
+            char[] userInput = new char[3];
+
             for (int i = 0; i < 3; i++) { //각각의 숫자는 1~9까지여야 함
                 if (str.charAt(i) < '1' || str.charAt(i) > '9') {
                     return true;
                 }
+                else if(i != 0 && haveSameElement(userInput, str.charAt(i), i)) { //각각의 숫자는 달라야함
+                    return true;
+                }
+                userInput[i] = str.charAt(i);
             }
             return false;
         } catch (RuntimeException e) {
@@ -95,9 +101,17 @@ public class BaseballGame {
         }
     }
 
-    private boolean haveSameElement(int[] threeNum, int Num, int index) {
+    private boolean haveSameElement(int[] threeNum, int num, int index) {
         for (int i = 0; i < index; i++) {
-            if (threeNum[i] == Num) {
+            if (threeNum[i] == num) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean haveSameElement(char[] threeNumChar, char ch, int index) {
+        for (int i = 0; i < index; i++) {
+            if (threeNumChar[i] == ch) {
                 return true;
             }
         }
