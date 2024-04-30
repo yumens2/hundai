@@ -7,7 +7,8 @@
   - [4. print compare result](#4-print-compare-result)
   - [5. game end or restart](#5-game-end-or-restart)
 - [Exception](#exception)
-  - [IllegalInputException](#illegalinputexception)
+  - [Number Input exception while game is running](#number-input-exception-while-game-is-running)
+  - [Game restart exception after game is over](#game-restart-exception-after-game-is-over)
 
 ## Description
 - 1~9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 숫자 야구 게임
