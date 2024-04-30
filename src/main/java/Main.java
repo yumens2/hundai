@@ -8,6 +8,13 @@ public class Main {
     public static void main(String[] args){
         int ContinueGameSet = YES;
         int ContinueUserSet = YES;
+
+        BaseballNumber baseballNumber;
+
+        baseballNumber = new BaseballNumber();
+
+
+
         while (ContinueGameSet == YES) {
 
 
