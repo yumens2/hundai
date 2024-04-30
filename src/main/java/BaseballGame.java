@@ -134,4 +134,21 @@ public class BaseballGame {
         }
         System.out.println();
     }
+
+
+    private static boolean askToPlayAgain() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("게임을 다시 하시겠습니까? (1:새로 시작, 2:종료): ");
+            String input = scanner.nextLine().trim();
+            if (input.equals("1")) {
+                return true;
+            } else if (input.equals("2")) {
+                return false;
+            } else {
+                System.out.println("1 또는 2 중 하나를 입력하세요.");
+            }
+        }
+    }
+
 }
