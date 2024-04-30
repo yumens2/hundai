@@ -11,7 +11,7 @@ public class NumberMatchService {
     private NumberMatchService() {
     }
 
-    static public boolean isMatch(List<Integer> computerNumbers,List<Integer> userNumbers) {
+    static public boolean isMatch(List<Integer> computerNumbers, List<Integer> userNumbers) {
         int ballCount = 0;
         int strikeCount = 0;
         for (int i = 0; i < 3; i++) {
@@ -35,19 +35,19 @@ public class NumberMatchService {
         } else if (ballCount > 0) {
             onlyBall(ballCount);
             return false;
-        } else if (strikeCount > 0) {
+        } else if (3 > strikeCount && strikeCount > 0) {
             onlyStrike(strikeCount);
             return false;
         }
         return true;
     }
 
-    public static void run(List<Integer> computerNumbers){
+    public static void run(List<Integer> computerNumbers) {
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             ConsoleMessages.requestNumberInput();
-            List<Integer> userNumbers= InputValidator.validateThreeUniqueNumbers(scanner.next());
-            if(isMatch(computerNumbers, userNumbers)) break;
+            List<Integer> userNumbers = InputValidator.validateThreeUniqueNumbers(scanner.next());
+            if (isMatch(computerNumbers, userNumbers)) break;
         }
     }
 
