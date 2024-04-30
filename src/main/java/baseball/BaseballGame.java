@@ -150,8 +150,14 @@ public class BaseballGame {
 
     public boolean isEndGame(Scanner input) {
         boolean endGame = false;
-        int i = input.nextInt();
-        input.nextLine();
+        int i;
+
+        try{
+            i = input.nextInt();
+            input.nextLine();
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
 
         if (i < 1 || i > 2) { //유저가 올바른 수를 입력했는지 판별
             throw new IllegalArgumentException();
