@@ -19,9 +19,28 @@ public class Main {
         return randomNum;
     }
 
+    private static List<Integer> getUserNum() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.printf("숫자를 입력해주세요");
+        String[] userArr = br.readLine().split("");
+        checkUserNum(userArr);
+        List<Integer> userNum = new ArrayList<>();
+        userNum.add(Integer.parseInt(userArr[0]));
+        userNum.add(Integer.parseInt(userArr[1]));
+        userNum.add(Integer.parseInt(userArr[2]));
+        System.out.println(userNum);
+        return userNum;
+    }
+
+    private static void checkUserNum(String[] userArr) {
+        if (userArr.length != NUMBER_OF_CASE) {
+            throw new IllegalArgumentException();
+        }
+    }
 
 
-    public static void main(String[] args){
+
+    public static void main(String[] args) throws IOException {
         int ContinueGameSet = YES;
         int ContinueUserSet = YES;
 
@@ -31,9 +50,8 @@ public class Main {
             baseballNumber = new BaseballNumber();
             baseballNumber.setRandomNum(pickNum());
 
-
             while (ContinueUserSet == YES) {
-
+                baseballNumber.setUserNum(getUserNum());
             }
 
         }
