@@ -51,7 +51,13 @@ public class Main {
             baseballNumber.setRandomNum(pickNum());
 
             while (ContinueUserSet == YES) {
+                int numberOfStrike = 0;
+                int numberOfBall = 0;
+
                 baseballNumber.setUserNum(getUserNum());
+
+                numberOfStrike = baseballNumber.countStrike();
+                numberOfBall = baseballNumber.countBall();
             }
 
         }
