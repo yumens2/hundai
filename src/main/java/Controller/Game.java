@@ -44,11 +44,7 @@ public class Game {
             CheckPlayerNumberValidity.playerNumberValidity(player.getPlayerNum()); // 입력 받은 수가 올바른 수인지 검사
             int ball = CalculateScore.ballCount(answer.getAnswerNum(), player.getPlayerNum()); // 입력받은수의 ball 계산
             int strike = CalculateScore.strikeCount(answer.getAnswerNum(), player.getPlayerNum()); // 입력받은 수의 strike계산
-            if (strike == 3){ // strike가 3개라면 정답으므로 정답이라는 것을 출력 올바르게 작동했으므로 리턴
-                OutputView.outputFinish();
-                return;
-            }
-
+            //힌트 출력
             if (ball > 0) {
                 OutputView.output(ball+"볼 "); // 볼의 개수 출력
             }
@@ -58,10 +54,16 @@ public class Game {
             }
 
             if (ball == 0 && strike == 0) {
-                OutputView.outputLine("낫싱"); // 둘다 없으면 낫싱 출력
+                OutputView.output("낫싱"); // 둘다 없으면 낫싱 출력
             }
 
             OutputView.outputLine(""); // 개행을 해줌
+            //정답
+            if (strike == 3){ // strike가 3개라면 정답으므로 정답이라는 것을 출력 올바르게 작동했으므로 리턴
+                OutputView.outputFinish();
+                return;
+            }
+
 
         }
     }
