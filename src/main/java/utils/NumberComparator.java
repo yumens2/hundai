@@ -60,7 +60,8 @@ public class NumberComparator {
      * @param input
      * @param answer
      * @param index
-     * @return
+     *
+     * @return isStrike
      */
     private static boolean isStrike(String input, String answer, int index) {
         return input.charAt(index) == answer.charAt(index);
@@ -71,7 +72,8 @@ public class NumberComparator {
      * @param input
      * @param answer
      * @param index
-     * @return
+     *
+     * @return isBall
      */
     private static boolean isBall(String input, String answer, int index) {
         return input.contains(String.valueOf(answer.charAt(index))) && !isStrike(input, answer, index);
