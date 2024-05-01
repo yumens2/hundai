@@ -10,4 +10,12 @@ public class BaseballGameService {
     public void setNewGame(final int capacity, final List<Integer> computerValues){
         this.computer = new Computer(capacity, computerValues);
     }
+
+    public GameResultDTO compareNumber(final List<Integer> humanValues){
+        return new GameResultDTO(
+                computer.getCapacity(),
+                computer.countStrike(humanValues),
+                computer.countBall(humanValues)
+        );
+    }
 }
