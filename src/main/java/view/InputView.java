@@ -6,6 +6,8 @@ import exception.InvalidRestartStateException;
 import exception.NonNumericValueException;
 import utils.InputValidator;
 
+import java.util.Scanner;
+
 /**
  * 사용자 입력을 받는 클래스
  */
@@ -25,7 +27,8 @@ public class InputView {
      */
     public static String askNumber() {
         System.out.print(ASK_NUMBER);
-        String input = System.console().readLine();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
         // validation
         if(InputValidator.isInValidNumber(input)) throw new NonNumericValueException();
@@ -62,9 +65,10 @@ public class InputView {
      *
      * @return isRestart
      */
-    public boolean askRestart() {
+    public static boolean askRestart() {
         System.out.println(ASK_RESTART);
-        String input = System.console().readLine();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
         if(InputValidator.isInvalidRestartState(input)) throw new InvalidRestartStateException();
 
