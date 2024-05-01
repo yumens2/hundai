@@ -12,9 +12,9 @@ class RandomNumberTest {
         //given
         ArrayList<Integer> list = RandomNumber.generateRandomNumber();
         Set<Integer> set = new HashSet<>(list);
-        int num = 3;
+
         //when & then
         assertThat(set.size()).isEqualTo(3);
-        assertThat(list.size()).isEqualTo(num);
+        assertThat(list.size()).isEqualTo(3);
     }
 }

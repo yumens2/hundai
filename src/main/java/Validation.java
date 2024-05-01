@@ -1,12 +1,11 @@
 public class Validation {
-    private static final int NUM = 3;
 
     public void validateNumber(String input) throws IllegalArgumentException{
-        if(input.length() != NUM)
+        if(input.length() != Constant.NUM)
             throw new IllegalArgumentException("You must enter a 3-digit number.");
 
         int[] check = new int[10];
-        for(int i=0;i<NUM;i++) {
+        for(int i=0;i<Constant.NUM;i++) {
             char ch = input.charAt(i);
             if (ch  <= '0' || ch > '9')
                 throw new IllegalArgumentException("Input other than integers is not allowed.");
