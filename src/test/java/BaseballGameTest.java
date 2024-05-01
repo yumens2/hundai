@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import utils.Validation;
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,9 +58,8 @@ public class BaseballGameTest {
     @Test
     @DisplayName("게임 재시작 혹은 게임 종료 선택 시 1,2 외의 숫자가 들어갔을때 확인")
     public void testIsValidRestartOrGameOverNum_checkValid() {
-        BaseballGame game = new BaseballGame();
         assertThrows(IllegalArgumentException.class, () -> {
-            game.isValidRestartOrGameOverNum(3);
+            Validation.isValidRestartOrGameOverNum(3);
         });
     }
 }

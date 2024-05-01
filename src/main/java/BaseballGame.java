@@ -1,5 +1,9 @@
+import utils.Validation;
+
 import java.util.List;
 import java.util.Scanner;
+
+import static utils.Validation.isValidRestartOrGameOverNum;
 
 public class BaseballGame{
     public int isGameOver ;
@@ -58,19 +62,7 @@ public class BaseballGame{
 
     }
 
-    /**
-     * 재시작 혹은 게임종료 선택 숫자 유효성 검증 메서드
-     * @param input
-     * @throws IllegalArgumentException
-     */
 
-    public void isValidRestartOrGameOverNum(int input) throws IllegalArgumentException {
-
-        if(input != 1 && input != 2){
-            throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
-        }
-
-    }
 
     /**
      * 재시작 혹은 게임종료 선택 메서드
