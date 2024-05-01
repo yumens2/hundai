@@ -13,14 +13,12 @@ public class NumberScanner {
             numbers.add(Integer.valueOf(number));
         }
 
-        scanner.close();
         return numbers;
     }
     public int again() {
         final Scanner scanner = new Scanner(System.in);
         int again = scanner.nextInt();
 
-        scanner.close();
         return again;
     }
 }
