@@ -32,5 +32,16 @@ public class NumValidator {
     public static boolean isValidInput(String input){
         return (isCorrectLength(input) && isOneToNine(input) && isNotDuplicateNum(input));
     }
+
+    // 턴 종료 후 게임을 다시 시작할지 끝낼지 입력을 받으면 1, 2 인지 검증하는 함수
+    public static boolean isOneOrTwo(String input){
+        if (input.equals("1") || input.equals("2")){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
