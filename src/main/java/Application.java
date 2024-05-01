@@ -10,7 +10,7 @@ public class Application {
             again = scan.again();
             if (again == 1) continue;
             else if (again == 2) break;
-            else throw new IllegalArgumentException();
+            else throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
         }
     }
 }
