@@ -6,8 +6,8 @@ public class Game {
     private Player player;
     private Referee referee;
     private GameView gameView;
-    private boolean isRunning;
-    private List<Integer> computerNumbers;
+    protected boolean isRunning;
+    protected List<Integer> computerNumbers;
 
     public Game() {
         computer = new Computer();
@@ -33,6 +33,7 @@ public class Game {
             if (result[0] == 3) {
                 gameView.displayGameWonMessage();
                 isRunning = askForRestart();
+                computerNumbers = computer.generateAnswer();
             }
         }
     }
@@ -41,7 +42,7 @@ public class Game {
      * Scanner로 사용자의 입력을 받는 메소드
      * @return 사용자의 입력값
      */
-    private String getPlayerInput() {
+    protected String getPlayerInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
@@ -50,7 +51,7 @@ public class Game {
      * 정답을 맞힌 후 재시작 여부를 물어보는 메소드
      * @return
      */
-    private boolean askForRestart() {
+    protected boolean askForRestart() {
         gameView.displayPlayAgainMessage();
         String input = getPlayerInput();
         if (!input.equals("1") && !input.equals("2")) {
