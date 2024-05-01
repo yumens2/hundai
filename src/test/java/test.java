@@ -28,7 +28,7 @@ public class test {
     void makeUserNumArray() {
         Scanner scanner = new Scanner(System.in);
 //        String nStr = scanner.next(); // 3자리 숫자 입력
-        String nStr = "243"; // 테스트 케이스
+        String nStr = "243";
 
         char[] charArray = nStr.toCharArray();
         ArrayList<Integer> userNumArray = new ArrayList<>();
@@ -45,9 +45,9 @@ public class test {
         for (Integer integer : userNumArray) {
             System.out.println(integer);
         }
+//        return userNumArray;
     }
 
-    @Description("플레이어가 입력한 숫자(현 배열)에서 중복된 문자가 있는지 판별")
     private boolean checkDuplicate(char[] charArray, char c) {
         int cnt = 0;
         for (char c1 : charArray) {
@@ -55,5 +55,56 @@ public class test {
         }
         if(cnt > 1){ return true;}
         else{return false;}
+    }
+
+    @Test
+    @Description("플레이어가 입력한 숫자에 대한 결과 판별")
+    void showResult() {
+        ArrayList<Integer> userNumArray = new ArrayList<>(List.of(1, 2, 3));
+        ArrayList<Integer> randNumArray = new ArrayList<>(List.of(2, 1, 3));
+
+        int strike = 0;
+        int ball = 0;
+        // 1. 스트라이크 개수 계산
+        strike = countStrike(userNumArray, randNumArray);
+        // 2. 볼 개수 계산
+        ball = countBall(userNumArray, randNumArray);
+        // 3. 같은 수가 전혀 없으면 낫싱이란 힌트 제공
+        if(strike == 0 && ball == 0){
+            System.out.println("nothing");
+        }
+        // 같은 수 있는 경우 결과 제시
+        else{
+            System.out.println(strike + " strike " + ball + " ball");
+        }
+
+        if (strike == 3) { // 올 스트라이크
+            System.out.println("You have guessed all 3 numbers correctly! Game finish!.");
+//            return true;
+        }else{ // 올 스트라이크가 아닌 경우
+//            return false;
+        }
+    }
+
+    @Description("볼 개수 계산")
+    private static int countBall(ArrayList<Integer> userNumArray, ArrayList<Integer> randNumArray) {
+        int ballCnt = 0;
+        for(int i = 0; i < userNumArray.size(); i++){
+            if(randNumArray.contains(userNumArray.get(i)) && !Objects.equals(randNumArray.get(i), userNumArray.get(i))){
+                ballCnt++;
+            }
+        }
+        return ballCnt;
+    }
+
+    @Description("스트라이크 개수 계산")
+    private static int countStrike(ArrayList<Integer> userNumArray, ArrayList<Integer> randNumArray) {
+        int strikeCnt = 0;
+        for(int i = 0; i < userNumArray.size(); i++){
+            if(Objects.equals(userNumArray.get(i), randNumArray.get(i))){
+                strikeCnt++;
+            }
+        }
+        return strikeCnt;
     }
 }
