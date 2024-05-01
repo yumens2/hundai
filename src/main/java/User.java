@@ -3,6 +3,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class User {
+    /**
+     * 입력값 유효성 검증 메서드
+     * @param input
+     * @throws IllegalArgumentException
+     */
     public static void isValidInputNum(String input) throws IllegalArgumentException {
 
         if((input.length() !=3) ||
@@ -17,6 +22,11 @@ public class User {
         }
 
     }
+
+    /**
+     * 사용자에게 입력값을 받고 입력값 List 반환 메서드
+     * @return
+     */
     public static List<Integer> createInputNum(){
         String inputnum;
         List<Integer> userInput = new ArrayList<>();
