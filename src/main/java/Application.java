@@ -6,7 +6,7 @@ public class Application {
             again = print.gamePrint();
             if(again == 1) continue;
             else if(again == 2) break;
-            else throw new IllegalArgumentException("입력값이 유효하지 않습니다");
+            else throw new IllegalArgumentException();
         }
     }
 }
