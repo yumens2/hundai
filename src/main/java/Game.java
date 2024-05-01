@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
@@ -24,6 +25,31 @@ public class Game {
             }
         }
         return count;
+    }
+
+    public int inputNumber(Scanner scanner) {
+        System.out.print("숫자를 입력해 주세요 : ");
+        int number = scanner.nextInt();
+        return number;
+    }
+
+    public boolean printResult(List<Integer> randomNumber, int predictNumber) {
+        int strike = checkStrike(randomNumber, predictNumber);
+        int ball = checkBall(randomNumber, predictNumber) - strike;
+
+        if (ball != 0) {
+            System.out.println(ball + "볼 ");
+        } else {
+            System.out.println("낫싱");
+            return false;
+        }
+        if (strike == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        } else {
+            System.out.println(strike + "스트라이크");
+            return false;
+        }
     }
 
     private static List<Integer> getIntegerList(int predictNumber) {

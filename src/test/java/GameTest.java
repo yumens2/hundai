@@ -3,8 +3,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -35,7 +37,7 @@ public class GameTest {
 
     @Test
     @DisplayName("스트라이크 갯수 확인")
-    public void checkStrike() {
+    public void checkStrikeTest() {
         int predictNumber = 124;
         List<Integer> randomNumberList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -47,7 +49,7 @@ public class GameTest {
 
     @Test
     @DisplayName("볼 갯수 확인")
-    public void checkBall() {
+    public void checkBallTest() {
         int predictNumber = 134;
         List<Integer> randomNumberList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -55,5 +57,17 @@ public class GameTest {
         }
         int count = game.checkBall(randomNumberList, predictNumber);
         assertThat(count).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("숫자 입출력 확인")
+    public void InputOutputTest() {  // 테스트에서는 입력값을 직접 쳐서 넣어주지 못한다!
+        String input = "123\n"; // 테스트용 입력
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        Scanner scanner = new Scanner(System.in);
+        int predictNumber = game.inputNumber(scanner);
+        List<Integer> randomNumber = computer.makeRandomNumber();
+        boolean checkCorrect = game.printResult(randomNumber, predictNumber);
     }
 }
