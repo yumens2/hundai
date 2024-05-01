@@ -10,14 +10,12 @@ public class BaseballGame{
     public int isRestart ;
     public int strike;
     public int ball ;
-
     public BaseballGame() {
         this.strike = 0;
         this.ball = 0;
         this.isGameOver = 0;
         this.isRestart = 0;
     }
-
     /**
      * 스트라이크 와 볼을 0으로 리셋시키는 메서드
      */
@@ -25,7 +23,6 @@ public class BaseballGame{
         this.strike = 0;
         this.ball =0;
     }
-
     /**
      * 유저 입력값과 컴퓨터 랜덤값을 비교하여 스트라이크,볼 수 계산 메서드
      * @param inputnum
@@ -40,8 +37,6 @@ public class BaseballGame{
                 ball++;
             }
         }
-
-
         if(this.strike >0 && this.ball > 0){
             System.out.printf("%d볼 %d스트라이크\n",this.ball,this.strike);
         }
@@ -88,7 +83,6 @@ public class BaseballGame{
         List<Integer> cpunum = Computer.createRandomNum();
         List<Integer> userInput;
         while(true){
-
             System.out.print("숫자를 입력해 주세요 :");
             userInput = User.createInputNum();
             compareNum(userInput,cpunum);
