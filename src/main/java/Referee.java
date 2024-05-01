@@ -15,9 +15,13 @@ public class Referee {
         int ball = matchNumber - strike;
 
         if(matchNumber == 0){
-            return "아웃";
+            return "낫싱";
+        }else if(ball == 0){
+            return strike + "스트라이크 ";
+        }else if(strike == 0){
+            return ball +"볼 ";
+        }else {
+            return ball + "볼" + strike + "스트라이크 ";
         }
-
-        return ball + "볼" + strike + "스트라이크 ";
     }
 }
