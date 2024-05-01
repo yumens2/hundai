@@ -3,10 +3,10 @@ import java.util.List;
 
 public class Player {
     /**
-     * 사용자에게 입력을 받는 부분, 입력을 받고 ArrayList로 변환한다.
+     * 입력 받은 값을 ArrayList로 변환한다.
      * @return 입력을 ArrayList로 변환하여 반환
      */
-    public List<Integer> inputNumber(String input){
+    public List<Integer> convertInputToList(String input){
         validateInput(input); // 입력값 유효성 검사
 
         List<Integer> numbers = new ArrayList<>();
