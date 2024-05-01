@@ -7,6 +7,9 @@ import org.assertj.core.util.VisibleForTesting;
 
 public class BaseballGame {
 
+    final int REGAME = 1;
+    final int EXIT = 2;
+
     private int[] computerThreeNum; //1~9까지 랜덤으로 저장할 크기가 3일 배열
 
     public BaseballGame() {
@@ -153,21 +156,21 @@ public class BaseballGame {
     @VisibleForTesting
     protected boolean isEndGame(Scanner input) {
         boolean endGame = false;
-        int i;
+        int cmd;
 
         try{
-            i = input.nextInt();
+            cmd = input.nextInt();
             input.nextLine();
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
 
-        if (i < 1 || i > 2) { //유저가 올바른 수를 입력했는지 판별
+        if (cmd != REGAME && cmd != EXIT) { //유저가 올바른 수를 입력했는지 판별
             throw new IllegalArgumentException();
         }
-        if (i == 1) { //1이면 새로 시작하기 위해 랜덤으로 다시 뽑음
+        if (cmd == REGAME) { //1이면 새로 시작하기 위해 랜덤으로 다시 뽑음
             setRandomThreeNum(computerThreeNum);
-        } else { // 2면 끝내기
+        } else if(cmd == EXIT) { // 2면 끝내기
             endGame = true;
         }
         return endGame;
