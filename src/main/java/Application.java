@@ -10,7 +10,7 @@ public class Application {
         final Referee referee = new Referee();
 
         String result = "";
-        while (!result.equals("0볼 3스트라이크")){
+        while (!result.equals("3스트라이크")){
             result = referee.compare(numbers, playerNumber());
             System.out.println(result);
         }
@@ -19,7 +19,7 @@ public class Application {
     }
 
     public static List<Integer> playerNumber() {
-        System.out.println("숫자를 입력해 주세요 : ");
+        System.out.print("숫자를 입력해 주세요 : ");
         final Scanner scanner = new Scanner(System.in);
         final String scan = scanner.next();
 
