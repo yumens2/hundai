@@ -1,7 +1,9 @@
 package controller;
 
+import exception.DuplicateNumberException;
 import exception.InvalidLengthException;
 import exception.InvalidRestartStateException;
+import exception.NonNumericValueException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import view.InputView;
@@ -24,7 +26,7 @@ class GameControllerTest {
     private InputStream originalIn;
 
     @BeforeEach
-    public void setUpStreams() {
+    void setUpStreams() {
         outContent = new ByteArrayOutputStream();
         originalOut = System.out;
         originalIn = System.in;
@@ -33,7 +35,7 @@ class GameControllerTest {
     }
 
     @AfterEach
-    public void restoreStreams() {
+    void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
     }
@@ -79,14 +81,40 @@ class GameControllerTest {
     }
 
     @Test
+    void gameStrat_NonNumericInput() {
+        // given
+        systemIn("hello\n");
+        List<String> answers = Arrays.asList("123");
+
+        // then
+        // exception
+        assertThrows(NonNumericValueException.class, () -> {
+            GameController.gameStart(answers);
+        });
+    }
+
+    @Test
     void gameStrat_InvalidNumberInput() {
         // given
-        systemIn("213\n12\n3\n");
+        systemIn("213\n12\n1\n");
         List<String> answers = Arrays.asList("123");
 
         // then
         // exception
         assertThrows(InvalidLengthException.class, () -> {
+            GameController.gameStart(answers);
+        });
+    }
+
+    @Test
+    void gameStrat_DuplicateNumberInput() {
+        // given
+        systemIn("223\n123\n1\n");
+        List<String> answers = Arrays.asList("123");
+
+        // then
+        // exception
+        assertThrows(DuplicateNumberException.class, () -> {
             GameController.gameStart(answers);
         });
     }
