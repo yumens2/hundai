@@ -6,7 +6,6 @@ public class Judgement {
 
         for(int i = 0; i < computer.size(); i++){
             int playerNum = player.get(i);
-            computer.contains(playerNum);
             if (computer.contains(playerNum)){
                 result++;
             }
