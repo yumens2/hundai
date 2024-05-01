@@ -11,6 +11,10 @@ public class InputValidator {
         inputIsDuplicated(input);
     }
 
+    public static void validateGameType(String input){
+        integerTypeCheck(input);
+    }
+
     private static void integerTypeCheck(String input){
         if(!input.matches("[1-9]+")){
             throw new IllegalArgumentException("Input Type이 [1-9] 사이의 숫자가 아닙니다.");
