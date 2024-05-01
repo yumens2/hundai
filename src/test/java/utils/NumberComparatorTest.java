@@ -1,7 +1,6 @@
-package service;
+package utils;
 
 import org.junit.jupiter.api.Test;
-import utils.NumberComparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,11 +24,11 @@ class NumberComparatorTest {
 
         System.out.println(NumberComparator.compare(input, answer));
 
-        assertEquals(1, NumberComparator.compare(input, answer).get(0).getCount());
-        assertEquals("스트라이크", NumberComparator.compare(input, answer).get(0).getJudgement());
+        assertEquals(2, NumberComparator.compare(input, answer).get(0).getCount());
+        assertEquals("볼", NumberComparator.compare(input, answer).get(0).getJudgement());
 
-        assertEquals(2, NumberComparator.compare(input, answer).get(1).getCount());
-        assertEquals("볼", NumberComparator.compare(input, answer).get(1).getJudgement());
+        assertEquals(1, NumberComparator.compare(input, answer).get(1).getCount());
+        assertEquals("스트라이크", NumberComparator.compare(input, answer).get(1).getJudgement());
     }
 
     @Test
