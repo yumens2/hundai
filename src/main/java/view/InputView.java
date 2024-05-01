@@ -80,7 +80,7 @@ public class InputView {
      *
      * @return isRestart
      */
-    public boolean askRestart(String testInput) {
+    public static boolean askRestart(String testInput) {
         String input = testInput;
 
         if (InputValidator.isInvalidRestartState(input)) throw new InvalidRestartStateException();
