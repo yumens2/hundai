@@ -6,10 +6,20 @@ public class BaseballGame{
     public int isRestart = 0;
     public int strike = 0;
     public int ball = 0;
+
+    /**
+     * 스트라이크 와 볼을 0으로 리셋시키는 메서드
+     */
     public void resetStrikeAndBall(){
         this.strike = 0;
         this.ball =0;
     }
+
+    /**
+     * 유저 입력값과 컴퓨터 랜덤값을 비교하여 스트라이크,볼 수 계산 메서드
+     * @param inputnum
+     * @param cpunum
+     */
     public void compareNum(List<Integer> inputnum, List<Integer> cpunum){
         resetStrikeAndBall();
         for (int num : inputnum) {
@@ -19,6 +29,7 @@ public class BaseballGame{
                 ball++;
             }
         }
+
 
         if(this.strike >0 && this.ball > 0){
             System.out.printf("%d볼 %d스트라이크\n",this.ball,this.strike);
@@ -40,6 +51,12 @@ public class BaseballGame{
 
     }
 
+    /**
+     * 재시작 혹은 게임종료 선택 숫자 유효성 검증 메서드
+     * @param input
+     * @throws IllegalArgumentException
+     */
+
     public void isValidRestartOrGameOverNum(int input) throws IllegalArgumentException {
 
         if(input != 1 && input != 2){
@@ -47,6 +64,10 @@ public class BaseballGame{
         }
 
     }
+
+    /**
+     * 재시작 혹은 게임종료 선택 메서드
+     */
     public void choiceRestartOrGameOver(){
         int inp;
         Scanner sc = new Scanner(System.in);
@@ -60,6 +81,10 @@ public class BaseballGame{
             resetStrikeAndBall();
         }
     }
+
+    /**
+     * 숫자야구 게임 시작 메서드
+     */
     public void gameStart(){
         List<Integer> cpunum = Computer.createRandomNum();
         List<Integer> userInput;
