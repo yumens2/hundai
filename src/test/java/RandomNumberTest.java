@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 
 class RandomNumberTest {
     @Test
-    @DisplayName("RandomNumberTest")
+    @DisplayName("랜덤변수 생성 테스트")
     void DuplicationAndSizeTest(){
         //given
         ArrayList<Integer> list = RandomNumber.generateRandomNumber();

@@ -15,6 +15,6 @@ public class ResultChecker {
         if(ball + strike == 0) res = res.concat("낫싱");
         System.out.println(res);
 
-        return strike == Constant.NUM;
+        return strike != Constant.NUM;
     }
 }
