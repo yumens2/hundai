@@ -9,7 +9,7 @@ public class Computer {
      * 랜덤 수를 생성하는 메소드
      * @return 랜덤 3자리수 ArrayList<Integer>
      */
-    public List<Integer> generatAnswer(){
+    public List<Integer> generateAnswer(){
         Random random = new Random();
         Set<Integer> numbers = new HashSet<>();
 
