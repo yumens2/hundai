@@ -3,6 +3,11 @@ import java.util.List;
 
 public class Computer {
     final static int NUM_LENGTH = 3;
+
+    /**
+     * 랜덤값을 생성하고 랜덤값 List 반환 메서드
+     * @return
+     */
     public static List<Integer> createRandomNum(){
         int randNum;
         List<Integer> cpuNum =new ArrayList<>();
