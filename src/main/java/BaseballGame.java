@@ -14,7 +14,7 @@ public class BaseballGame {
     }
 
 
-    private void playGame() {
+    public void playGame() {
         int[] computerNumbers = generateComputerNumbers();
         int attempts = 0;
 
@@ -36,7 +36,7 @@ public class BaseballGame {
     }
 
 
-    private int[] generateComputerNumbers() {
+    public int[] generateComputerNumbers() {
         Random random = new Random();
         Set<Integer> numbers = new LinkedHashSet<>();
 
@@ -56,7 +56,7 @@ public class BaseballGame {
     }
 
 
-    private int[] getUserNumbers() {
+    public int[] getUserNumbers() {
         int[] userNumbers = new int[3];
 
         while (true) {
@@ -73,14 +73,14 @@ public class BaseballGame {
     }
 
 
-    private String readUserInput() {
+    public String readUserInput() {
         System.out.print("세 자리 숫자를 입력하세요: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
 
-    private int[] parseUserInput(String userInput) {
+    public int[] parseUserInput(String userInput) {
         if (userInput.length() != 3) {
             throw new IllegalArgumentException("세 자리 숫자를 입력하세요.");
         }
@@ -97,7 +97,7 @@ public class BaseballGame {
     }
 
 
-    private int[] calculateResult(int[] computerNumbers, int[] userNumbers) {
+    public int[] calculateResult(int[] computerNumbers, int[] userNumbers) {
         int strikes = 0;
         int balls = 0;
 
@@ -113,7 +113,7 @@ public class BaseballGame {
     }
 
 
-    private boolean containsNumber(int number, int[] numbers) {
+    public boolean containsNumber(int number, int[] numbers) {
         for (int num : numbers) {
             if (num == number) {
                 return true;
@@ -123,7 +123,7 @@ public class BaseballGame {
     }
 
 
-    private static void printResult(int[] result) {
+    public static void printResult(int[] result) {
         if (result[1] > 0) {
             System.out.print(result[1] + "볼 ");
         }
@@ -137,7 +137,7 @@ public class BaseballGame {
     }
 
 
-    private static boolean askToPlayAgain() {
+    public static boolean askToPlayAgain() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("게임을 다시 하시겠습니까? (1:새로 시작, 2:종료): ");
@@ -153,3 +153,4 @@ public class BaseballGame {
     }
 
 }
+
