@@ -2,10 +2,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BaseballGame{
-    public int isGameOver = 0;
-    public int isRestart = 0;
-    public int strike = 0;
-    public int ball = 0;
+    public int isGameOver ;
+    public int isRestart ;
+    public int strike;
+    public int ball ;
+
+    public BaseballGame() {
+        this.strike = 0;
+        this.ball = 0;
+        this.isGameOver = 0;
+        this.isRestart = 0;
+    }
 
     /**
      * 스트라이크 와 볼을 0으로 리셋시키는 메서드
@@ -88,7 +95,9 @@ public class BaseballGame{
     public void gameStart(){
         List<Integer> cpunum = Computer.createRandomNum();
         List<Integer> userInput;
+        System.out.println(cpunum);
         while(true){
+
             System.out.print("숫자를 입력해 주세요 :");
             userInput = User.createInputNum();
             compareNum(userInput,cpunum);
