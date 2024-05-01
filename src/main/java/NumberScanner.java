@@ -14,4 +14,10 @@ public class NumberScanner {
         }
         return numbers;
     }
+    public int again() {
+        final Scanner scanner = new Scanner(System.in);
+        int again = scanner.nextInt();
+
+        return again;
+    }
 }
