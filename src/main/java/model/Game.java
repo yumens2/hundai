@@ -17,6 +17,10 @@ public class Game {
         this.answer = RandomNumberGenerator.generateRandomNumber();
     }
 
+    public Game(String answer) {
+        this.answer = answer;
+    }
+
     public void addNumberHistory(String number) {
         numberHistory.add(number);
     }
