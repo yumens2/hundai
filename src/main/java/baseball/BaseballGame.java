@@ -3,6 +3,7 @@ package baseball;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import org.assertj.core.util.VisibleForTesting;
 
 public class BaseballGame {
 
@@ -65,8 +66,8 @@ public class BaseballGame {
             }
         }
     }
-
-    public void inputToIntArr(int[] userThreeNum, String s) {
+    @VisibleForTesting
+    protected void inputToIntArr(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
         for (int index = 1; index < 3; index++) {
@@ -78,8 +79,8 @@ public class BaseballGame {
             }
         }
     }
-
-    public boolean isIllegalArgument(String str) {
+    @VisibleForTesting
+    protected boolean isIllegalArgument(String str) {
         try {
             if (str.length() != 3) { //인풋의 길이는 3이여야 함
                 return true;
@@ -118,8 +119,8 @@ public class BaseballGame {
         }
         return false;
     }
-
-    public void countStkAndBall(Map<String, Integer> map, int[] computerThreeNum, int[] userThreeNum) {
+    @VisibleForTesting
+    protected void countStkAndBall(Map<String, Integer> map, int[] computerThreeNum, int[] userThreeNum) {
         int strike = 0;
         int ball = 0;
         for (int i = 0; i < 3; i++) {
@@ -133,8 +134,8 @@ public class BaseballGame {
         map.put("스트라이크", strike);
         map.put("볼", ball);
     }
-
-    public void printSBmap(Map<String, Integer> map) {
+    @VisibleForTesting
+    protected void printSBmap(Map<String, Integer> map) {
         if (map.get("스트라이크") == 0) {
             if (map.get("볼") == 0) {
                 System.out.println("낫싱");
@@ -149,8 +150,8 @@ public class BaseballGame {
             }
         }
     }
-
-    public boolean isEndGame(Scanner input) {
+    @VisibleForTesting
+    protected boolean isEndGame(Scanner input) {
         boolean endGame = false;
         int i;
 
@@ -171,7 +172,8 @@ public class BaseballGame {
         }
         return endGame;
     }
-    public int[] getComputerThreeNum() {
+    @VisibleForTesting
+    protected int[] getComputerThreeNum() {
         return computerThreeNum;
     }
 }
