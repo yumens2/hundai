@@ -15,7 +15,7 @@ public class Judgement {
     }
 
     public boolean placeCheck(List<Integer> computer, int placeNumber, int number){ //placeNumber에 number가 있는지 확인하는 메소드
-        return false;
+        return computer.get(placeNumber) == number;
     }
 }
 
