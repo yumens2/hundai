@@ -2,6 +2,17 @@ import java.util.List;
 
 public class Referee {
     /**
+     * 스트라이크와 볼을 리턴하는 메소드
+     * @param computerNumbers 컴퓨터가 생성한 숫자 리스트
+     * @param playerNumbers 사용자가 입력한 숫자 리스트
+     * @return 스트라이크와 볼 개수를 담은 배열
+     */
+    public int[] determineResult(List<Integer> computerNumbers, List<Integer> playerNumbers) {
+        int strikes = countStrikes(computerNumbers, playerNumbers);
+        int balls = countBalls(computerNumbers, playerNumbers, strikes);
+        return new int[]{strikes, balls};
+    }
+    /**
      * 스트라이크 개수를 계산하는 메소드
      * @param computerNumbers 컴퓨터가 생성한 숫자 리스트
      * @param playerNumbers 사용자가 입력한 숫자 리스트
