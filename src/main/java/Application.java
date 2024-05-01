@@ -14,7 +14,6 @@ public class Application {
         while (isContinueGame){
 
             List<Integer> computerNumbers = RandomNumberService.getThreeUniqueNumbers();
-            System.out.println(computerNumbers.toString());
 
             NumberMatchService.run(computerNumbers);
 
