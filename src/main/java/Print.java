@@ -1,12 +1,13 @@
 import java.util.List;
 
 public class Print {
-    final NumberGenerator generator = new NumberGenerator();
-    List<Integer> numbers = generator.createRandomNumbers();
+    NumberGenerator generator = new NumberGenerator();
+    List<Integer> numbers;
 
     final Referee referee = new Referee();
     NumberScanner player = new NumberScanner();
     int gamePrint() {
+        numbers = generator.createRandomNumbers();
         String result = "";
         while (!result.equals("3스트라이크")) {
             result = referee.compare(numbers, player.playerNumber());
