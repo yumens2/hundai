@@ -1,5 +1,8 @@
 package enums;
 
+/**
+ * Judgement는 스트라이크, 볼, 낫싱을 나타내는 열거형입니다.
+ */
 public enum Judgement {
     STRIKE("스트라이크", 0),
     BALL("볼", 0),
@@ -25,6 +28,6 @@ public enum Judgement {
     }
 
     public String toString() {
-        return this.count + " " + this.judgement;
+        return this.count + "" + this.judgement;
     }
 }

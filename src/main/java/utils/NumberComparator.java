@@ -40,16 +40,16 @@ public class NumberComparator {
             judgements.add(Judgement.NOTHING);
         }
 
-        // Add strike and ball judgements to the list
-        if(strikeCount > 0) {
-            Judgement strike = Judgement.STRIKE;
-            strike.setCount(strikeCount);
-            judgements.add(strike);
-        }
+        // Add ball and strike judgements to the list
         if(ballCount > 0) {
             Judgement ball = Judgement.BALL;
             ball.setCount(ballCount);
             judgements.add(ball);
+        }
+        if(strikeCount > 0) {
+            Judgement strike = Judgement.STRIKE;
+            strike.setCount(strikeCount);
+            judgements.add(strike);
         }
 
         return judgements;
