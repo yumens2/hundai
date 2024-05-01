@@ -19,7 +19,7 @@ public class OutputView {
             stringBuilder.append(judgement.toString());
             stringBuilder.append(" ");
         }
-        System.out.println(stringBuilder.toString());
+        System.out.println(stringBuilder);
     }
 
     /**

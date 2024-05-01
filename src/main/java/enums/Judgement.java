@@ -28,6 +28,9 @@ public enum Judgement {
     }
 
     public String toString() {
-        return this.count + "" + this.judgement;
+        if(judgement.equals("낫싱"))
+            return this.judgement;
+
+        return this.count + this.judgement;
     }
 }
