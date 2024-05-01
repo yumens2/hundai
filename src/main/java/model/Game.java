@@ -11,6 +11,7 @@ public class Game {
     private final String answer;
     private List<String> numberHistory = new ArrayList<>();
     private List<List<Judgement>> judgementHistory = new ArrayList<>();
+    private boolean isEnd = false;
 
     public Game() {
         this.answer = RandomNumberGenerator.generateRandomNumber();
@@ -24,4 +25,14 @@ public class Game {
         judgementHistory.add(judgement);
     }
 
+    public boolean getEnd() {
+        return this.isEnd;
+    }
+    public void setEnd() {
+        isEnd = true;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
 }
