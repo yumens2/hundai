@@ -6,8 +6,8 @@ public class Input {
         Scanner sc = new Scanner(System.in);
         Validation validation = new Validation();
 
-        System.out.println("숫자를 입력해 주세요 : ");
-        String input = sc.nextLine();
+        System.out.print("숫자를 입력해 주세요 : ");
+        String input = sc.nextLine().trim();
         validation.validateNumber(input);
         ArrayList<Integer> parsed = new ArrayList<>();
 

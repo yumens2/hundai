@@ -14,8 +14,8 @@ public class Validation {
             else check[ch - '0']++;
         }
     }
-    public void validateInt(int num)throws IllegalArgumentException{
-        if(num != 1&&num != 2)
+    public void validateInt(String num)throws IllegalArgumentException{
+        if(!num.equals("1")&&!num.equals("2"))
             throw new IllegalArgumentException("You must enter 1 or 2.");
     }
 }

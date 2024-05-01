@@ -37,20 +37,20 @@ public class ValidationTest {
     void intCheckFail1(){
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(()->{
-                    validation.validateInt('a');
+                    validation.validateInt("a");
                 }).withMessage("You must enter 1 or 2.");
     }
     @Test
     void intCheckFail2(){
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(()->{
-                    validation.validateInt(31);
+                    validation.validateInt("31");
                 }).withMessage("You must enter 1 or 2.");
     }
 
     @Test
     void intCheckSuccess1(){
-       validation.validateInt(1);
-       validation.validateInt(2);
+       validation.validateInt("1");
+       validation.validateInt("2");
     }
 }
