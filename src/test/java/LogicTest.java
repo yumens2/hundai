@@ -67,7 +67,7 @@ class LogicTest {
     void shuldModifyNumberCorrectly() {
         assertThat(modifyNumber(123, 0)).isEqualTo(213);
         assertThat(modifyNumber(123, 1)).isEqualTo(132);
-        assertThat(modifyNumber(123, 2)).isEqualTo(123);
+        assertThat(modifyNumber(123, 2)).isEqualTo(321);
     }
 
     @Test
