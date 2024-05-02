@@ -1,5 +1,3 @@
-package game;
-
 import global.controller.GameController;
 
 public class application {
