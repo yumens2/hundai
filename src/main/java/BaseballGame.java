@@ -5,7 +5,7 @@ public class BaseballGame {
 
     private Computer computer;
     private User user;
-    boolean isGameOver;
+    private boolean isGameOver;
 
     public BaseballGame() {
         this.computer = new Computer();
@@ -29,7 +29,7 @@ public class BaseballGame {
 
     // 한 게임의 매 턴을 담당하는 메서드
     // 사용자가 잘못된 값을 입력하면 예외 던짐
-    void playTurn() {
+    private void playTurn() {
         System.out.print("숫자를 입력해 주세요 : ");
         String userInput = user.getUserInputNumbers();
         if (!NumValidator.isValidInput(userInput)) {
