@@ -12,6 +12,8 @@ public class Game {
         while(choice == 1) {
             System.out.println("숫자를 입력해주세요 : ");
             userNum = sc.nextLine();
+
+            count = CountNum.CountSB(userNum, compNum);
         }
     }
 }
