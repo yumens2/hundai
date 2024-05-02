@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.regex.Pattern;
 public class Validate {
     public Boolean numberValidate(String input) {
         HashSet<Character> characters = new HashSet<>();
@@ -8,7 +9,7 @@ public class Validate {
         if (input.length() != 3) {
             return Boolean.FALSE;
         }
-        if (!input.chars().allMatch(Character::isDigit)) {
+        if (!Pattern.matches("[1-9][1-9][1-9]", input)) {
             return Boolean.FALSE;
         }
         for (Character c : input.toCharArray()) {
