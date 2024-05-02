@@ -1,30 +1,28 @@
 public class BaseballUtil {
 
-    public int strike(int randomNumber, int inputNumber) {
+    public int strike(String randomNumber, String inputNumber) {
         int cnt = 0;
-        String randomStr = Integer.toString(randomNumber);
-        String inputStr = Integer.toString(inputNumber);
 
         for (int i = 0; i < 3; i++) {
-            if (randomStr.charAt(i) == inputStr.charAt(i)) {
+            if (randomNumber.charAt(i) == inputNumber.charAt(i)) {
                 cnt++;
             }
         }
+
         return cnt;
     }
 
-    public int ball(int randomNumber, int inputNumber) {
+    public int ball(String randomNumber, String inputNumber) {
         int cnt = 0;
-        String randomStr = Integer.toString(randomNumber);
-        String inputStr = Integer.toString(inputNumber);
 
         for (int i = 0; i < 3; i++) {
-            char n = inputStr.charAt(i);
-            if (randomStr.contains(Character.toString(n))
-                    && randomStr.charAt(i) != n) {
+            char n = inputNumber.charAt(i);
+            if (randomNumber.contains(Character.toString(n))
+                    && randomNumber.charAt(i) != n) {
                 cnt++;
             }
         }
+        
         return cnt;
     }
 }
