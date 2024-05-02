@@ -26,7 +26,7 @@ public class BaseBallMaker {
 	 * 랜덤한 값을 생성한다.
 	 * @return 1<=return<=9
 	 */
-	private int getRandomValue(){
+	protected int getRandomValue(){
 		return random.nextInt(1,10);
 	}
 }
