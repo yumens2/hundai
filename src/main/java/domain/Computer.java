@@ -59,6 +59,9 @@ public class Computer {
             if(capacity < 1 || capacity > 9){
                 throw new IllegalArgumentException("랜덤값 자릿수는 1이상 9이하 입니다.");
             }
+            if(values.size() != capacity){
+                throw new IllegalArgumentException("컴퓨터의 랜덤값의 자리수와 주어진 자리수가 일치하지 않습니다.");
+            }
             this.capacity = capacity;
             this.values = values;
         }
