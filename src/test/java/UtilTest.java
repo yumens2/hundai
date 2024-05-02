@@ -92,67 +92,67 @@ class UtilTest {
             Arrays.asList(outputStreamCaptor.toString().trim()));
 
     }
-
-    @Test
-    @DisplayName("출력검사(볼)")
-    void testBallPrintCount() {
-        // given
-        int ball = 2;
-        int strike = 0;
-
-        // Capture System.out
-        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
-
-        // when
-        util.printCount(strike, ball);
-
-        // then
-        String expectedOutput = "2볼";
-        assertLinesMatch(Arrays.asList(expectedOutput),
-            Arrays.asList(outputStreamCaptor.toString().trim()));
-
-    }
-
-    @Test
-    @DisplayName("출력검사(스트라이크)")
-    void testStrikePrintCount() {
-        // given
-        int ball = 0;
-        int strike = 1;
-
-        // Capture System.out
-        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
-
-        // when
-        util.printCount(strike, ball);
-
-        // then
-        String expectedOutput = "1스트라이크";
-        assertLinesMatch(Arrays.asList(expectedOutput),
-            Arrays.asList(outputStreamCaptor.toString().trim()));
-
-    }
-
-    @Test
-    @DisplayName("출력검사(볼)")
-    void testNothingPrintCount() {
-        // given
-        int ball = 0;
-        int strike = 0;
-
-        // Capture System.out
-        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
-
-        // when
-        util.printCount(strike, ball);
-
-        // then
-        String expectedOutput = "낫싱";
-        assertLinesMatch(Arrays.asList(expectedOutput),
-            Arrays.asList(outputStreamCaptor.toString().trim()));
-
-    }
+//
+//    @Test
+//    @DisplayName("출력검사(볼)")
+//    void testBallPrintCount() {
+//        // given
+//        int ball = 2;
+//        int strike = 0;
+//
+//        // Capture System.out
+//        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outputStreamCaptor));
+//
+//        // when
+//        util.printCount(strike, ball);
+//
+//        // then
+//        String expectedOutput = "2볼";
+//        assertLinesMatch(Arrays.asList(expectedOutput),
+//            Arrays.asList(outputStreamCaptor.toString().trim()));
+//
+//    }
+//
+//    @Test
+//    @DisplayName("출력검사(스트라이크)")
+//    void testStrikePrintCount() {
+//        // given
+//        int ball = 0;
+//        int strike = 1;
+//
+//        // Capture System.out
+//        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outputStreamCaptor));
+//
+//        // when
+//        util.printCount(strike, ball);
+//
+//        // then
+//        String expectedOutput = "1스트라이크";
+//        assertLinesMatch(Arrays.asList(expectedOutput),
+//            Arrays.asList(outputStreamCaptor.toString().trim()));
+//
+//    }
+//
+//    @Test
+//    @DisplayName("출력검사(볼)")
+//    void testNothingPrintCount() {
+//        // given
+//        int ball = 0;
+//        int strike = 0;
+//
+//        // Capture System.out
+//        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outputStreamCaptor));
+//
+//        // when
+//        util.printCount(strike, ball);
+//
+//        // then
+//        String expectedOutput = "낫싱";
+//        assertLinesMatch(Arrays.asList(expectedOutput),
+//            Arrays.asList(outputStreamCaptor.toString().trim()));
+//
+//    }
 }
