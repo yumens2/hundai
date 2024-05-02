@@ -16,4 +16,8 @@ public class SBCount {
 
         return msg;
     }
+
+    public boolean isThreeStrike() {
+        return strike == 3;
+    }
 }
