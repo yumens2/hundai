@@ -18,6 +18,15 @@ public class BaseBallAnsVO {
 	public boolean isEnd () {
 		return isEnd;
 	}
+
+	public int getStrikeCount () {
+		return strikeCount;
+	}
+
+	public int getBallCount () {
+		return ballCount;
+	}
+
 	@Override
 	public String toString () {
 		StringBuilder sd = new StringBuilder();
