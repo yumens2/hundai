@@ -45,6 +45,24 @@ public class Application {
         }
     }
     public static String giveResult(String question, String answer){
+        int strike=0;
+        int ball=0;
+        for(int i=0; i<3; i++){
+            if(question.charAt(i)==answer.charAt(i)){
+                strike++;
+            }else if(hs.contains(answer.charAt(i)-'0')){
+                ball++;
+            }
+        }
 
+        if((strike+ball)==0){
+            return "낫싱";
+        }else{
+            StringBuilder sb = new StringBuilder();
+            if(ball>0){
+                sb.append(ball).append("볼 ");
+            }
+            return sb.append(strike).append("스트라이크").toString();
+        }
     }
 }
