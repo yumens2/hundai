@@ -94,6 +94,10 @@ public class Logic {
         return ball_count;
     }
 
+    public boolean isWin(int userNumber) {
+        return isStrike(userNumber) == 3;
+    }
+
     public int getComputerNumber() {
         return computerNumber;
     }

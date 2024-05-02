@@ -106,6 +106,21 @@ class LogicTest {
         }
     }
 
+    @Test
+    void shouldCalculateWinCorrectly() {
+        Logic edgeCaseLogic = new Logic(111);
+        assertThat(edgeCaseLogic.isWin(111)).isTrue();
+        for (Integer number : validNumbers) {
+            Logic logic = new Logic(number);
+            assertThat(logic.isWin(number)).isTrue();
+            for (int j = 0; j < 3; j++) {
+                int modifiedNumber = modifyNumber(number, j);
+                logic.setComputerNumber(modifiedNumber);
+                assertThat(logic.isWin(number)).isFalse();
+            }
+        }
+    }
+
     /**
      * Extracts each digit from a three-digit integer and returns them as an array. This method
      * operates independently from {@link Utils#getDigits} and is guaranteed to function correctly
