@@ -18,6 +18,9 @@ public class NumberScanner {
     public int again() {
         final Scanner scanner = new Scanner(System.in);
         int again = scanner.nextInt();
+        if(again != 1 && again != 2){
+            throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
+        }
 
         return again;
     }
