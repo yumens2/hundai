@@ -2,25 +2,31 @@ package global.controller;
 
 import game.gamePack.GamePack;
 import global.config.GamePackConfig;
-import global.view.InputViewHandler;
-import global.view.MainViewHandler;
+import global.view.InputView;
+import global.view.OutputView;
 import java.util.List;
 
 public class GameController {
 
+    private static final int END = 0;
     List<GamePack> gamePackList = GamePackConfig.getGamePacks();
 
     public void playGame() {
-        MainViewHandler.printGameOpenMessage();
-        do {
-            GamePack gamePack = selectGamePack();
+        OutputView.printGameOpenMessage();
+        GamePack gamePack = selectGamePack();
+        while (gamePack != null) {
             gamePack.run();
-        } while (true);
+            gamePack = selectGamePack();
+        }
+        OutputView.printEndGameMessage();
     }
 
     private GamePack selectGamePack() {
-        MainViewHandler.printGameList();
-        int gameNumber = Integer.parseInt(InputViewHandler.printInputGameNumber());
+        OutputView.printGameList();
+        int gameNumber = Integer.parseInt(InputView.printInputGameNumber());
+        if (gameNumber == END) {
+            return null;
+        }
         return gamePackList.get(gameNumber - 1);
     }
 
