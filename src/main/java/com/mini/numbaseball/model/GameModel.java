@@ -9,7 +9,7 @@ public class GameModel {
 
     private int answer;
 
-    public void initKey() {
+    public void initAnswer() {
         List<Integer> numbers = new ArrayList<>();
         for (int i = 1; i < 10; i++) {
             numbers.add(i);
@@ -17,8 +17,8 @@ public class GameModel {
         Collections.shuffle(numbers);
 
         this.answer = 0;
-        for(int i=0; i<3; i++){
-            this.answer = this.answer*10 + numbers.get(i);
+        for (int i = 0; i < 3; i++) {
+            this.answer = this.answer * 10 + numbers.get(i);
         }
     }
 }
