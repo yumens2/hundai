@@ -2,6 +2,7 @@ package global.controller;
 
 import game.gamePack.GamePack;
 import global.config.GamePackConfig;
+import global.validator.Validator;
 import global.view.InputView;
 import global.view.OutputView;
 import java.util.List;
@@ -23,7 +24,9 @@ public class GameController {
 
     private GamePack selectGamePack() {
         OutputView.printGameList();
-        int gameNumber = Integer.parseInt(InputView.printInputGameNumber());
+        String gameNumberInput = InputView.printInputGameNumber();
+        Validator.validGamePackInput(gamePackList.size(), gameNumberInput);
+        Integer gameNumber = Integer.parseInt(gameNumberInput);
         if (gameNumber == END) {
             return null;
         }
