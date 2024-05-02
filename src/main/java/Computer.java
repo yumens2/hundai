@@ -164,4 +164,20 @@ public class Computer {
     public void printInputMessage() {
         System.out.print("숫자를 입력해 주세요 : ");
     }
+
+    /**
+     * 게임이 끝났을 경우의 출력
+     */
+    public void printFinishMessage() {
+        System.out.println(NUM_LENGTH + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+    }
+
+    /**
+     * 3스트라이크로 게임이 끝났는지 확인
+     * @return 3스트라이크이면 true
+     */
+    public boolean isGameFinish() {
+        return strikeScore == NUM_LENGTH;
+    }
 }
