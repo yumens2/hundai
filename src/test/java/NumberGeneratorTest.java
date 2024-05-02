@@ -20,4 +20,21 @@ class NumberGeneratorTest {
         //then
         assertThat(numbers.size()).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("랜덤으로 생성한 숫자의 범위가 1~9가 맞는지 테스트")
+    void createRandomNumbers_isRangeCorrect() {
+        //given
+        NumberGenerator computer = new NumberGenerator();
+
+        //when
+        List<Integer> numbers = computer.createRandomNumbers();
+
+        //then
+        for(int number : numbers){
+            assertTrue(number>=1 && number<=9);
+        }
+    }
+
+
 }
