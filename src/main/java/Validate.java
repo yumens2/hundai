@@ -35,4 +35,22 @@ public class Validate {
         }
         return Boolean.TRUE;
     }
+
+    public Boolean yesOrNoValidate(String input) {
+        /*
+            입력 값이 null 인 경우
+         */
+        if (input == null) {
+            return Boolean.FALSE;
+        }
+
+        /*
+            입력 값이 1 또는 2가 아닌 경우
+         */
+        if (!Pattern.matches("[0-1]", input)) {
+            return Boolean.FALSE;
+        }
+
+        return Boolean.TRUE;
+    }
 }
