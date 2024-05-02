@@ -26,7 +26,7 @@ public class NumValidatorTest {
 //        }
 //    }
 
-//    @Test
+    //    @Test
 //    public void testIsNotDuplicateNum() {
 //        String[] inputs = {"123", "1233", "132"};
 //        boolean[] expectedOutputs = {true, false, true};
