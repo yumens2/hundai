@@ -151,8 +151,9 @@ public class Computer {
             System.out.print(ballScore + "볼 ");
         }
         if(strikeScore > 0) {
-            System.out.println(strikeScore + "스트라이크 ");
+            System.out.print(strikeScore + "스트라이크 ");
         }
+        System.out.println();
     }
 
     /**
