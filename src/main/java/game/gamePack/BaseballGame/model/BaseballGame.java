@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 
 public class BaseballGame {
 
-    private static String START = "1";
-    private static String END = "2";
+    private static final String START = "1";
     private static BaseballGame baseballGame;
 
     private BaseballGame() {
