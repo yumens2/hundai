@@ -1,10 +1,14 @@
 
 public class Application {
     public static void main(String[] args) {
+        Application application = new Application();
+        application.checkAgain();
+    }
+
+    void checkAgain(){
         Print print = new Print();
         NumberScanner scan = new NumberScanner();
         int again;
-
         while(true) {
             print.gamePrint();
             again = scan.again();
