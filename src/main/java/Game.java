@@ -8,7 +8,12 @@ public class Game {
 
         while(choice == 1) {
             System.out.println("숫자를 입력해주세요 : ");
-            userNum = InputException.inputUserNum();
+            try {
+                userNum = InputException.inputUserNum();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                return;
+            }
 
             count = CountNum.CountSB(userNum, compNum);
             answer = Game.printResult(count);
@@ -42,7 +47,11 @@ public class Game {
     public static int userChoice() {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-
-        return InputException.inputChoice();
+        try {
+            return InputException.inputChoice();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 2;
+        }
     }
 }
