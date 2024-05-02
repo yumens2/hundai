@@ -7,7 +7,7 @@ public class User {
     }
 
     public String getUserInputNumbers(){
-        System.out.println("숫자를 입력해 주세요 : ");
+        System.out.print("숫자를 입력해 주세요 : ");
         useNumbers = scanner.nextLine();
         return useNumbers;
     }

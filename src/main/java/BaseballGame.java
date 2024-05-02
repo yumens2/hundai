@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BaseballGame {
 
@@ -31,8 +32,9 @@ public class BaseballGame {
     // 한 게임의 매 턴을 담당하는 메서드
     // 사용자가 잘못된 값을 입력하면 예외 던짐
     private void playTurn(){
+        System.out.print("숫자를 입력해 주세요 : ");
         String userInput = user.getUserInputNumbers();
-        if (NumValidator.isValidInput(userInput)){
+        if (!NumValidator.isValidInput(userInput)){
             throw new IllegalArgumentException("잘못된 입력입니다. 게임을 종료합니다.");
         }
         List<Integer> userInputInt = new ArrayList<>();
@@ -49,6 +51,7 @@ public class BaseballGame {
     private void playContinue(List<Integer> userInputInt){
         BaseballCounter baseballCounter = computeNum(userInputInt);
         baseballResultPrint(baseballCounter);
+        checkGameOver(baseballCounter);
     }
 
     // 스트라이크와 볼을 계산하는 메서드
@@ -75,9 +78,41 @@ public class BaseballGame {
         if (baseballCounter.strikes() == 0 && baseballCounter.balls() == 0){
             System.out.println("낫싱");
         }
-        else{
+        else if (baseballCounter.strikes() > 0 && baseballCounter.balls() == 0){
+            System.out.println(baseballCounter.strikes() + "스트라이크");
+        }
+        else if (baseballCounter.strikes() == 0 && baseballCounter.balls() > 0){
+            System.out.println(baseballCounter.balls() + "볼");
+        }
+        else {
             System.out.println(baseballCounter.balls() + "볼 " + baseballCounter.strikes() + "스트라이크");
         }
+
     }
+
+    private void checkGameOver(BaseballCounter baseballCounter){
+        if (baseballCounter.strikes() == 3){
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            askForNewGame();
+        }
+    }
+
+    private void askForNewGame(){
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String userInput = user.getUserInputNumbers();
+        if (!NumValidator.isOneOrTwo(userInput)){
+            throw new IllegalArgumentException("잘못된 입력입니다. 게임을 종료합니다.");
+        }
+
+        if (userInput.equals("1")){
+            // 새 computer 객체를 만들어야 새로운 수를 뽑아낼테니
+            this.computer = new Computer();
+        }
+        else {
+            isGameOver = true;
+        }
+
+    }
+
 
 }
