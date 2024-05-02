@@ -89,6 +89,30 @@ public class Computer {
         return false;
     }
 
+    /**
+     * 추측 결과를 출력
+     */
+    public void printScore() {
+        if(isNothing()) {
+            System.out.println("낫싱");
+            return;
+        }
+        if(ballScore > 0) {
+            System.out.print(ballScore + "볼 ");
+        }
+        if(strikeScore > 0) {
+            System.out.println(strikeScore + "스트라이크 ");
+        }
+    }
+
+    /**
+     * 볼과 스트라이크가 모두 해당되지 않는지 확인
+     * @return 볼과 스트라이크 모두 없으면 true를 반환
+     */
+    private boolean isNothing() {
+        return ballScore == 0 && strikeScore == 0;
+    }
+
     public void printInputMessage() {
         System.out.print("숫자를 입력해 주세요 : ");
     }
