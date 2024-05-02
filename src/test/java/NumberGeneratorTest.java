@@ -36,5 +36,24 @@ class NumberGeneratorTest {
         }
     }
 
+    @Test
+    @DisplayName("랜덤으로 생성한 숫자들이 서로 다른지 테스트")
+    void createRandomNumbers_notSame() {
+        //given
+        NumberGenerator computer = new NumberGenerator();
+
+        //when
+        List<Integer> numbers = computer.createRandomNumbers();
+
+        //then
+        for(int i=0; i<numbers.size(); i++){
+            for(int j=i+1; j<numbers.size(); j++){
+                assertNotEquals(numbers.get(i), numbers.get(j));
+            }
+        }
+    }
+
+
+
 
 }
