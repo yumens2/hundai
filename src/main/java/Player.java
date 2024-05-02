@@ -25,7 +25,7 @@ public class Player {
             if (dc.ExistDuplicate(playernum, i)) {
                 throw new IllegalArgumentException("중복해서 숫자를 사용하면 안됩니다.");
             }
-            if(playernum[i] == 0){
+            if (playernum[i] == 0) {
                 throw new IllegalArgumentException("0은 사용할 수 없습니다.");
             }
         }

@@ -1,20 +1,21 @@
 public class BaseBallBE {
+
     public static void main(String[] args) {
         boolean gamestatus = true;
         int continuenum = 0;
-        while(gamestatus){
+        while (gamestatus) {
             DetailedGame dg = new DetailedGame();
             ContinueGame cg = new ContinueGame();
             dg.play();
-            try{
+            try {
                 continuenum = cg.continueorexit();
-            }catch(IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.toString());
                 return;
             }
-            if(continuenum == 1){
+            if (continuenum == 1) {
                 gamestatus = true;
-            }else if(continuenum == 2){
+            } else if (continuenum == 2) {
                 gamestatus = false;
             }
         }
