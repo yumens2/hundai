@@ -40,6 +40,18 @@ class JudgementTest {
     }
 
     @Test
+    @DisplayName("placeCheck 정상 작동 테스트")
     void placeCheck() {
+        //given
+        Judgement judgement = new Judgement();
+        List<Integer> computer = Arrays.asList(1,2,3);
+        int number = 2;
+        int placenumber = 1;
+        
+        //when
+        boolean result = judgement.placeCheck(computer, placenumber, number);
+        System.out.println(result);
+        //then
+        assertTrue(result);
     }
 }
