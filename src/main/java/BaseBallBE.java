@@ -17,8 +17,5 @@ public class BaseBallBE {
         }catch(IllegalArgumentException e){
             System.out.println(e.toString());
         }
-        catch(InputMismatchException a){
-            System.out.println("잘못 입력했습니다. 정수만 입력 가능합니다.");
-        }
     }
 }
