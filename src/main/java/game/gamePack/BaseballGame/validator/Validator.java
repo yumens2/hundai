@@ -25,7 +25,7 @@ public class Validator {
      */
     public static void validRestart(String input) {
         if (!input.equals(RESTART) && !input.equals(END)) {
-            throw new IllegalArgumentException("1 또는 2만 입력 가능합니다.");
+            throw new IllegalArgumentException("시작하려면 1, 종료하려면 2를 입력하세요.");
         }
     }
 
