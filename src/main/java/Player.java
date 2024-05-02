@@ -5,6 +5,7 @@ public class Player {
     public void inputplayernum(int[] playernum) throws IllegalArgumentException{
         int num = 0;
         Scanner sc = new Scanner(System.in);
+        DuplicateChecking dc = new DuplicateChecking();
         System.out.print("숫자를 입력해 주세요 : ");
         try{
             num = sc.nextInt();
@@ -20,7 +21,9 @@ public class Player {
         num = num % 10;
         playernum[2] = num;
         for(int i  = 0; i < playernum.length; i++){
-            System.out.println(playernum[i]);
+            if(dc.ExistDuplicate(playernum,i)){
+                throw new IllegalArgumentException("중복해서 숫자를 사용하면 안됩니다.");
+            }
         }
     }
 }
