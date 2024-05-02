@@ -59,13 +59,7 @@ public class Logic {
      * @return if user number is not match anything with computer number return true
      */
     public boolean isNothing(int userNumber) {
-        int[] user_digits = Utils.getDigits(userNumber);
-        for (int i = 0; i < 3; i++) {
-            if (user_digits[i] == computerDigits[i]) {
-                return false;
-            }
-        }
-        return true;
+        return isStrike(userNumber) <= 0 && isBall(userNumber) <= 0;
     }
 
     /**
