@@ -10,15 +10,17 @@ public class BaseBallBE {
         for(int i = 0; i < cpunum.length; i++){
             System.out.print(cpunum[i]);
         }
-        try {
-            ply.inputplayernum(playernum);
-        }catch(IllegalArgumentException e){
-            System.out.println(e.toString());
+        while(strikeballcount[0] != 3){
+            try {
+                ply.inputplayernum(playernum);
+            }catch(IllegalArgumentException e){
+                System.out.println(e.toString());
+            }
+            for(int i = 0; i < playernum.length; i++){
+                System.out.println(playernum[i]);
+            }
+            sbc.countStrikeBall(cpunum,playernum, strikeballcount);
+            sbc.outputresult(strikeballcount);
         }
-        for(int i = 0; i < playernum.length; i++){
-            System.out.println(playernum[i]);
-        }
-        sbc.countStrikeBall(cpunum,playernum, strikeballcount);
-        sbc.outputresult(strikeballcount);
     }
 }
