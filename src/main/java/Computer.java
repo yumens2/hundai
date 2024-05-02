@@ -1,5 +1,7 @@
 public class Computer {
     private String randNum;         // Random number
+    private int strikeScore;
+    private int ballScore;
 
     public Computer() {}
 
@@ -9,6 +11,22 @@ public class Computer {
      */
     public String getRandNum() {
         return randNum;
+    }
+
+    /**
+     * 스트라이크 점수 반환
+     * @return 스트라이크 점수
+     */
+    public int getStrikeScore() {
+        return strikeScore;
+    }
+
+    /**
+     * 볼 점수 반환
+     * @return 볼 점수
+     */
+    public int getBallScore() {
+        return ballScore;
     }
 
     /**
@@ -29,6 +47,46 @@ public class Computer {
             cnt++;
         }
         this.randNum = String.format("%03d", randNum);
+    }
+
+    /**
+     * User의 inputNum에 대한 점수를 계산
+     * @param inputNum User의 inputNum
+     */
+    public void calcScore(String inputNum) {
+        strikeScore = ballScore = 0;
+        for(int i = 0; i < inputNum.length(); i++) {
+            if(isStrike(inputNum, i)) {
+                strikeScore++;
+            } else if(isBall(inputNum, i)) {
+                ballScore++;
+            }
+        }
+    }
+
+    /**
+     * 스트라이크인지 판단
+     * @param inputNum 입력된 수
+     * @param idx 확인할 숫자의 위치(인덱스)
+     * @return 스트라이크라면 true를 반환
+     */
+    private boolean isStrike(String inputNum, int idx) {
+        return inputNum.charAt(idx) == randNum.charAt(idx);
+    }
+
+    /**
+     * 볼인지 판단
+     * @param inputNum 입력된 수
+     * @param idx 확인할 숫자의 위치(인덱스)
+     * @return 볼이라면 true 반환
+     */
+    private boolean isBall(String inputNum, int idx) {
+        for(int i = 0; i < inputNum.length(); i++) {
+            if(idx != i && inputNum.charAt(idx) == randNum.charAt(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void printInputMessage() {
