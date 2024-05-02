@@ -40,7 +40,9 @@ public class Application {
         return sb.toString();
     }
     public static void checkThreeNum(String answer){
-
+        if(answer.length()!=3){
+            throw new IllegalArgumentException();
+        }
     }
     public static String giveResult(String question, String answer){
 
