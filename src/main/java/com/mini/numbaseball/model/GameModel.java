@@ -21,4 +21,8 @@ public class GameModel {
             this.answer = this.answer * 10 + numbers.get(i);
         }
     }
+
+    public int getAnswer() {
+        return answer;
+    }
 }
