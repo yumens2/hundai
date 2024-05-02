@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
-    public void inputplayernum() throws IllegalArgumentException{
+    public void inputplayernum(int[] playernum) throws IllegalArgumentException{
         int num = 0;
         Scanner sc = new Scanner(System.in);
         System.out.print("숫자를 입력해 주세요 : ");
@@ -11,11 +11,16 @@ public class Player {
         }catch (InputMismatchException e){
             throw new IllegalArgumentException("잘못 입력했습니다. 정수만 입력 가능합니다.");
         }
-        if((num >= 100) && (num <= 999)){
-            System.out.println(" num = " +num);
-        }
-        else{
+        if(!((num >= 100) && (num <= 999))){
             throw new IllegalArgumentException("3자리 숫자가 아닙니다.");
+        }
+        playernum[0] = num / 100;
+        num = num % 100;
+        playernum[1] = num / 10;
+        num = num % 10;
+        playernum[2] = num;
+        for(int i  = 0; i < playernum.length; i++){
+            System.out.println(playernum[i]);
         }
     }
 }

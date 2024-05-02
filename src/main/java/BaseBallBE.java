@@ -13,7 +13,7 @@ public class BaseBallBE {
             System.out.print(cpunum[i]);
         }
         try {
-            ply.inputplayernum();
+            ply.inputplayernum(playernum);
         }catch(IllegalArgumentException e){
             System.out.println(e.toString());
         }
