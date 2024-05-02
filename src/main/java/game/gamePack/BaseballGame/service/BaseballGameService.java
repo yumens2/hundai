@@ -34,11 +34,10 @@ public class BaseballGameService {
         do {
             guessNumber = baseballGame.GuessNumbers();
         } while (result.getOutCome(computerNumbers, guessNumber));
+        OutputView.printGameClearMessage();
     }
 
     public boolean exitGame() {
-        return false;
+        return baseballGame.exitGame();
     }
-
-
 }
