@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import Exception.*;
+import validate.InputValidator;
+import validate.RestartValidator;
 
 public class Game {
 
@@ -29,7 +32,14 @@ public class Game {
 
     public int inputNumber(Scanner scanner) {
         System.out.print("숫자를 입력해 주세요 : ");
-        int number = scanner.nextInt();
+        int number;
+        try {
+            number = scanner.nextInt();
+        } catch (Exception e) {
+            throw new InvalidInputException();
+        }
+        InputValidator.checkDuplicate(number);
+        InputValidator.checkInvalidLength(number);
         return number;
     }
 
@@ -63,7 +73,13 @@ public class Game {
 
     public boolean restart(Scanner scanner) {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        int checkRestart = scanner.nextInt();
+        int checkRestart;
+        try {
+            checkRestart = scanner.nextInt();
+        } catch (Exception e) {
+            throw new InvalidInputException();
+        }
+        RestartValidator.checkRestartNumber(checkRestart);
         if (checkRestart == 1) {
             return true;
         } else {
