@@ -14,6 +14,10 @@ public class InputOutput {
         return scanner.nextLine();
     }
 
+    public String yesOrNoInput() {
+        return scanner.nextLine();
+    }
+
     public void hitterResultOutput(int ballCnt, int strikeCnt) {
         if (ballCnt == 0 && strikeCnt == 0) {
             System.out.println("낫싱");
