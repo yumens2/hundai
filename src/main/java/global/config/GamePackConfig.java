@@ -1,6 +1,6 @@
 package global.config;
 
-import game.gamePack.BaseballGame.BaseballGame;
+import game.gamePack.BaseballGame.BaseballGamePack;
 import game.gamePack.GamePack;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class GamePackConfig {
      * 사용가능한 게임팩 init
      */
     private void initGamePacks() {
-        gamePacks.add(new BaseballGame());
+        gamePacks.add(new BaseballGamePack());
     }
 
     /**
