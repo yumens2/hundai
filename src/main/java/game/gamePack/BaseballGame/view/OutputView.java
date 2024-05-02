@@ -9,14 +9,7 @@ public class OutputView {
     private static final String NOTHING = "낫싱";
     private static final String GAME_CLEAR_MESSAGE = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
     private static final int ZERO = 0;
-
-    public static OutputView of() {
-        if (outputView == null) {
-            outputView = new OutputView();
-        }
-        return outputView;
-    }
-
+    
     private OutputView() {
     }
 
