@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Application {
@@ -23,7 +24,20 @@ public class Application {
         }
     }
     public static String getNumber(){
-
+        hs = new HashSet<>();
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder();
+        int i=0;
+        while(i<3) {
+            int digit = rand.nextInt(9) + 1; // 1부터 9까지의 난수 생성
+            if(hs.contains(digit)){
+                continue;
+            }
+            hs.add(digit);
+            sb.append(digit);
+            i++;
+        }
+        return sb.toString();
     }
     public static void checkThreeNum(String answer){
 
