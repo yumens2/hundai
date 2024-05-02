@@ -30,4 +30,8 @@ public class Computer {
         }
         this.randNum = String.format("%03d", randNum);
     }
+
+    public void printInputMessage() {
+        System.out.print("숫자를 입력해 주세요 : ");
+    }
 }
