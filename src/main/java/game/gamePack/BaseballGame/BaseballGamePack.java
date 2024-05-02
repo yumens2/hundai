@@ -8,7 +8,7 @@ public class BaseballGamePack implements GamePack {
 
     private final BaseballGameService baseballGameService = BaseballGameConfig.getBaseballGameService();
 
-    private final String gameName = "야구 게임";
+    private static final String GAME_NAME = "야구 게임";
 
     public void run() {
         do {
@@ -17,7 +17,7 @@ public class BaseballGamePack implements GamePack {
     }
 
     public String getGameName() {
-        return gameName;
+        return GAME_NAME;
     }
 
 }
