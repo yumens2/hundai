@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -38,20 +39,16 @@ public class Computer {
      * Random number 생성하는 Setter
      */
     public void generateRandNum() {
-        boolean[] numList = new boolean[10];
-        int cnt = 0;
-        int randNum = 0;
-
-        while(cnt < 3) {
-            int newNum = (int)(Math.random() * 10);
-            if(numList[newNum]) {
-                continue;
-            }
-            numList[newNum] = true;
-            randNum = randNum * 10 + newNum;
-            cnt++;
+        Set<Integer> set = new HashSet<Integer>();
+        while(set.size() < NUM_LENGTH) {
+            set.add((int)(Math.random() * 10));
         }
-        this.randNum = String.format("%03d", randNum);
+
+        StringBuilder randNum = new StringBuilder();
+        for (Integer num : set) {
+            randNum.append((char) (num + '0'));
+        }
+        this.randNum = randNum.toString();
     }
 
     /**
