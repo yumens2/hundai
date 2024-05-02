@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+
     private List<Integer> playerNumber = new ArrayList<>();
 
-    public void setPlayerNumbers(List<Integer> playerNumber){
+    public void setPlayerNumbers(List<Integer> playerNumber) {
         this.playerNumber = playerNumber;
     }
 
-    public List<Integer> getPlayerNumbers(){
+    public List<Integer> getPlayerNumbers() {
         return playerNumber;
     }
 

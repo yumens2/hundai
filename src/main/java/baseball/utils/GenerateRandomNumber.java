@@ -6,9 +6,10 @@ import java.util.Random;
 
 public class GenerateRandomNumber {
 
-    static final int LENGTH = 3;
-    static final int MIN_NUMBER = 1;
-    static final int MAX_NUMBER = 9;
+
+    public static final int LENGTH = 3;
+    public static final int MIN_NUMBER = 1;
+    public static final int MAX_NUMBER = 9;
 
     private List<Integer> generatedRandomNumber = new ArrayList<>();
     Random random = new Random();
