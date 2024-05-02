@@ -34,18 +34,18 @@ version : Java 17
 
 # 대략적인 설계
 
-1. BaseBallMaker class 만들기 - 야구게임을 진행함.
-2. GameManager class 만들기 - 사용자 입력을 받아서 진행
+1. common.BaseBallMaker class 만들기 - 야구게임을 진행함.
+2. common.GameManager class 만들기 - 사용자 입력을 받아서 진행
 3. main 내부에서 진행되도록 함.
 
 # 기능 단위 구현 목표
 
-## BaseBallMaker
+## common.BaseBallMaker
 
 - 처음 BaseBall에 랜덤한 수를 설정한다.
 - 외부의 BaseBall과 설정된 BaseBall을 비교해서 결과를 전달한다.
 
-## GameManager
+## common.GameManager
 
 - 게임의 규칙을 안다.
 
@@ -76,24 +76,26 @@ version : Java 17
 1. init
 2. BaseBallVO Class 구현
 
-3. BaseBallMaker 생성자 구현
-4. BaseBallMaker:: void make()
+3. common.BaseBallMaker 생성자 구현
+4. common.BaseBallMaker:: void make()
    -> BaseBallVO를 생성해서 랜덤한 수 지정
 5. test - make
 
 6. BaseBallAnsVO Class 구현
-7. BaseBallMaker:: BaseBallAnsVO playBall(const BaseBallVO vo)
+7. common.BaseBallMaker:: BaseBallAnsVO playBall(const BaseBallVO vo)
    -> BaseBallVO에 따라서 결과를 반환
 8. test - playBall
 
-9. GameManager:: 생성자 구현
-10. GameManager:: void userInput();
+9. common.GameManager:: 생성자 구현
+10. common.GameManager:: void userInput();
     -> 사용자 입력을 받음
-11. GameManager:: void userOutput(BaseBallAnsVO);
+11. common.GameManager:: void userOutput(BaseBallAnsVO);
     -> 사용자에게 출력
 
 
 ## log
 
+1. BaseBallMaker에서 테스트를 진행하려고 하니 private 부분을 테스트하기 힘듬.
 
+생각해보니 랜덤값을 만들어내는 것은 private 보다는 protected로 설정해도 상관없을듯
 
