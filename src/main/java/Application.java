@@ -1,17 +1,24 @@
-import java.util.ArrayList;
+import Entity.Computer;
+import Entity.User;
 
 public class Application {
+
+    private final static String threeStrike = "3스트라이크";
+
     public static void main(String[] args) {
-
-        NumberGenerating numberGenerating = new NumberGenerating();
-
-        // TODO: 숫자 랜덤하게 생성
-        ArrayList<Integer> computerNumber = numberGenerating.generateRandomNumber();
-
-        // TODO: 사용자가 숫자 입력
-
-        // TODO: 입력받은 숫자로 야구 결과 알기
-
-
+        // NOTE 사용자 또는 컴퓨터의 숫자를 생성하는 NumberGenerating 클래스
+        User user = new User();
+        Computer computer = new Computer();
+        NumberBaseballGame numberBaseballGame = new NumberBaseballGame(user, computer);
+        System.out.println(numberBaseballGame.printStartingGame());
+        numberBaseballGame.setComputerNumbers();
+        String result = "";
+        do {
+            numberBaseballGame.setUserNumbers();
+            result = numberBaseballGame.calculateScore();
+            System.out.println(result);
+        } while (!result.equals(threeStrike));
+        numberBaseballGame.closeScanner();
+        System.out.println(numberBaseballGame.printEndingGmae());
     }
 }
