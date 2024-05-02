@@ -10,6 +10,7 @@ public class BaseBallBE {
                 continuenum = cg.continueorexit();
             }catch(IllegalArgumentException e){
                 System.out.println(e.toString());
+                return;
             }
             if(continuenum == 1){
                 gamestatus = true;
@@ -17,5 +18,6 @@ public class BaseBallBE {
                 gamestatus = false;
             }
         }
+        return;
     }
 }
