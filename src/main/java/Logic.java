@@ -34,6 +34,24 @@ public class Logic {
         this.computerDigits = Utils.getDigits(computerNumber);
     }
 
+    /**
+     * Returns the count of digits from the user's number that match the computer's number and are
+     * in the correct position.
+     *
+     * @param userNumber user input number
+     * @return The count of digits that match method's condition
+     */
+    public int isStrike(int userNumber) {
+        int[] user_digits = Utils.getDigits(userNumber);
+        int strike_count = 0;
+        for (int i = 0; i < 3; i++) {
+            if (user_digits[i] == computerDigits[i]) {
+                strike_count++;
+            }
+        }
+        return strike_count;
+    }
+
     public int getComputerNumber() {
         return computerNumber;
     }
