@@ -3,5 +3,9 @@ public class Validate {
         if (input.length() != 3) {
             return Boolean.FALSE;
         }
+        if (!input.chars().allMatch(Character::isDigit)) {
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
     }
 }
