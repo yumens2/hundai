@@ -39,7 +39,7 @@ public class Game {
 
         if (ball != 0) {
             System.out.println(ball + "볼 ");
-        } else {
+        } else if (strike == 0) {
             System.out.println("낫싱");
             return false;
         }
@@ -48,6 +48,25 @@ public class Game {
             return true;
         } else {
             System.out.println(strike + "스트라이크");
+            return false;
+        }
+    }
+
+    public void play(Computer computer, Scanner scanner) {
+        List<Integer> randomNumber = computer.makeRandomNumber();
+        boolean checkCorrect = false;
+        while (!checkCorrect) {
+            int predictNumber = inputNumber(scanner);
+            checkCorrect = printResult(randomNumber, predictNumber);
+        }
+    }
+
+    public boolean restart(Scanner scanner) {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        int checkRestart = scanner.nextInt();
+        if (checkRestart == 1) {
+            return true;
+        } else {
             return false;
         }
     }
