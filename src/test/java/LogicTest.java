@@ -57,9 +57,16 @@ class LogicTest {
     void shouldRecognizeNoMatchesCorrectly() {
         Logic edgeCaseLogic = new Logic(111);
         assertThat(edgeCaseLogic.isNothing(111)).isFalse();
+        edgeCaseLogic.setComputerNumber(123);
+        assertThat(edgeCaseLogic.isNothing(312)).isFalse();
         for (Integer number : validNumbers) {
             Logic logic = new Logic(number);
             assertThat(logic.isNothing(number)).isFalse();
+            for (int j = 0; j < 3; j++) {
+                int modifiedNumber = modifyNumber(number, j);
+                logic.setComputerNumber(modifiedNumber);
+                assertThat(logic.isNothing(number)).isFalse();
+            }
         }
     }
 
@@ -80,6 +87,8 @@ class LogicTest {
     void shouldCalculateStrikesCorrectly() {
         Logic edgeCaseLogic = new Logic(111);
         assertThat(edgeCaseLogic.isStrike(111)).isEqualTo(3);
+        edgeCaseLogic.setComputerNumber(123);
+        assertThat(edgeCaseLogic.isStrike(312)).isEqualTo(0);
         for (Integer number : validNumbers) {
             Logic logic = new Logic(number);
             assertThat(logic.isStrike(number)).isEqualTo(3);
@@ -95,6 +104,8 @@ class LogicTest {
     void shouldCalculateBallsCorrectly() {
         Logic edgeCaseLogic = new Logic(111);
         assertThat(edgeCaseLogic.isBall(111)).isEqualTo(0);
+        edgeCaseLogic.setComputerNumber(123);
+        assertThat(edgeCaseLogic.isBall(312)).isEqualTo(3);
         for (Integer number : validNumbers) {
             Logic logic = new Logic(number);
             assertThat(logic.isBall(number)).isEqualTo(0);
