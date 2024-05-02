@@ -68,6 +68,32 @@ public class Logic {
         return true;
     }
 
+    /**
+     * Returns the count of digits from the user's number that match the computer's number but are
+     * in the incorrect position.
+     *
+     * @param userNumber user input number
+     * @return The count of digits that match method's condition
+     */
+    public int isBall(int userNumber) {
+        int[] userDigits = Utils.getDigits(userNumber);
+        int[] freq = new int[10];
+        int ball_count = 0;
+
+        for (int i = 0; i < 3; i++) {
+            freq[computerDigits[i]]++;
+            freq[userDigits[i]]++;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (freq[userDigits[i]] > 1 && (computerDigits[i] != userDigits[i])) {
+                ball_count++;
+            }
+        }
+
+        return ball_count;
+    }
+
     public int getComputerNumber() {
         return computerNumber;
     }
