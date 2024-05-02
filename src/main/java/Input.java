@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
-    public ArrayList<Integer> getUserNumber(){
+
+    public ArrayList<Integer> getUserNumber() {
         Scanner sc = new Scanner(System.in);
         Validation validation = new Validation();
 
@@ -11,8 +12,9 @@ public class Input {
         validation.validateNumber(input);
         ArrayList<Integer> parsed = new ArrayList<>();
 
-        for(int i = 0;i < Constant.NUM;i++)
+        for (int i = 0; i < Constant.NUM; i++) {
             parsed.add(input.charAt(i) - '0');
+        }
 
         return parsed;
     }

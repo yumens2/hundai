@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class ReStart {
+
     public boolean selectContinue() {
         Validation validation = new Validation();
         Scanner sc = new Scanner(System.in);
