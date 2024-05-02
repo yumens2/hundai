@@ -52,6 +52,22 @@ public class Logic {
         return strike_count;
     }
 
+    /**
+     * If user number is not match anything with computer number return true
+     *
+     * @param userNumber user input number
+     * @return if user number is not match anything with computer number return true
+     */
+    public boolean isNothing(int userNumber) {
+        int[] user_digits = Utils.getDigits(userNumber);
+        for (int i = 0; i < 3; i++) {
+            if (user_digits[i] == computerDigits[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public int getComputerNumber() {
         return computerNumber;
     }

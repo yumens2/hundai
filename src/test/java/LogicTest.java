@@ -54,6 +54,16 @@ class LogicTest {
     }
 
     @Test
+    void shouldRecognizeNoMatchesCorrectly() {
+        Logic edgeCaseLogic = new Logic(111);
+        assertThat(edgeCaseLogic.isNothing(111)).isFalse();
+        for (Integer number : validNumbers) {
+            Logic logic = new Logic(number);
+            assertThat(logic.isNothing(number)).isFalse();
+        }
+    }
+
+    @Test
     void shuldModifyNumberCorrectly() {
         assertThat(modifyNumber(123, 0)).isEqualTo(213);
         assertThat(modifyNumber(123, 1)).isEqualTo(132);
