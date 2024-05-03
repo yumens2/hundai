@@ -1,23 +1,28 @@
 public class SBCount {
-    private int strike;
-    private int ball;
+    private final int STRIKE;
+    private final int BALL;
+
+    SBCount(int strike, int ball) {
+        this.STRIKE = strike;
+        this.BALL = ball;
+    }
 
     @Override
     public String toString() {
         String msg = "";
 
-        if (ball > 0) {
-            msg += ball + "볼 ";
+        if (BALL > 0) {
+            msg += BALL + "볼 ";
         }
 
-        if (strike > 0) {
-            msg += strike + "스트라이크";
+        if (STRIKE > 0) {
+            msg += STRIKE + "스트라이크";
         }
 
         return msg;
     }
 
     public boolean isThreeStrike() {
-        return strike == 3;
+        return STRIKE == 3;
     }
 }
