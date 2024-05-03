@@ -10,7 +10,10 @@ public class Application {
     private static final Result result = new Result();
 
     public static void main(String[] args) {
-        runGame();
+        do {
+            runGame();
+        } while(inputHandler.isReplay());
+
         scanner.close();
     }
 
@@ -22,5 +25,7 @@ public class Application {
             result.calculate(input, computer.getNumber());
             System.out.println(result);
         }
+
+        result.reset();
     }
 }
