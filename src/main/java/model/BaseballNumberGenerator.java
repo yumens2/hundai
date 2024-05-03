@@ -1,12 +1,12 @@
 package model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class BaseballNumberGenerator {
-    private List<Integer> number;
-    private static int making_number_count = 3;
+    public static final int making_number_count = 3;
 
-    public List<Integer> generate(){
+    public ArrayList<Integer> generate(){
+        ArrayList<Integer> number = new ArrayList<Integer>();
         for(int i = 0; i < making_number_count; i++) {
             number.add((int) (Math.random() * 10));
         }
