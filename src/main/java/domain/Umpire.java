@@ -5,6 +5,7 @@ import utility.BaseballCountCalculator;
 public class Umpire {
 
     private final BaseballCount baseballCount;
+    private static final int MAX_STRIKE_COUNT = 3;
 
     public Umpire() {
         this.baseballCount = new BaseballCount();
@@ -22,6 +23,6 @@ public class Umpire {
     }
 
     public boolean isPlayerWin() {
-        return baseballCount.getStrikeCount() == 3;
+        return baseballCount.getStrikeCount() == MAX_STRIKE_COUNT;
     }
 }
