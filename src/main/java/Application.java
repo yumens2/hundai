@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Application {
@@ -27,6 +28,16 @@ public class Application {
         pNum[0] = pInput.charAt(0) - '0';
         pNum[1] = pInput.charAt(1) - '0';
         pNum[2] = pInput.charAt(2) - '0';
+        checkInput(pNum);
         return pNum;
+    }
+
+    public static void checkInput(int pNum[]) {
+        for(int i : pNum) {
+            if(i < 1 || i > 9)
+                throw new IllegalArgumentException();
+        }
+        if(pNum[0] == pNum[1] || pNum[0] == pNum[2] || pNum[1] == pNum[2])
+            throw new IllegalArgumentException();
     }
 }
