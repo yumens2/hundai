@@ -6,6 +6,44 @@ public class Main {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            int[] computerNumbers = generateComputerNumbers();
+
+            int[] userNumbers;
+            try {
+                userNumbers = getUserNumbers(scanner);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                System.out.println("게임을 종료합니다.");
+                scanner.close();
+                return;
+            }
+
+            while (!checkMatch(computerNumbers, userNumbers)) {
+                try {
+                    userNumbers = getUserNumbers(scanner);
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("게임을 종료합니다.");
+                    scanner.close();
+                    return;
+                }
+            }
+
+            System.out.println("게임을 다시 시작하려면 1, 종료하려면 2를 입력하세요.");
+            int choice = scanner.nextInt();
+            if (choice != 1) {
+                break;
+            }
+        }
+
+        System.out.println("게임을 종료합니다.");
+        scanner.close();
+    }
+
 
     private static int[] generateComputerNumbers() {
         int[] numbers = new int[DIGIT_COUNT];
