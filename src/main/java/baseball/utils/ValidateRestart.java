@@ -2,8 +2,8 @@ package baseball.utils;
 
 public class ValidateRestart {
 
-    public static boolean restartGame(Integer signal) {
-        if (signal == 1) {
+    public static boolean restartGame(String signal) {
+        if (signal.equals("1")) {
             return true;
         }
         else {

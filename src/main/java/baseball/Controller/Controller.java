@@ -20,11 +20,9 @@ public class Controller {
 
     public static void playGame() {
         List<Integer> computerNumbers = getComputerNumbers();
-        System.out.println(computerNumbers);
         Score score;
         do {
             score = guessNumber(computerNumbers);
-            //System.out.println(score.getBallCount());
             OutputView.printResult(score.getStrikeCount(), score.getBallCount());
         } while (!guessCorrect(score));
     }
@@ -33,8 +31,6 @@ public class Controller {
     }
     public static Score guessNumber(List<Integer> computerNumbers){
         String userNumbers = null;
-
-//        userNumbers = InputView.printGameStart();
         try {
             userNumbers = InputView.printGameStart();
         } catch (IllegalArgumentException e) {
@@ -45,7 +41,7 @@ public class Controller {
 
     public static boolean decideRestart() {
         OutputView.printGameEnd();
-        int signal = InputView.printRestartRequest();
+        String signal= InputView.printRestartRequest();
         return ValidateRestart.restartGame(signal);
     }
 
