@@ -8,7 +8,7 @@ public class GameRestartOption {
 
     private static String getRestartNumber() throws IllegalArgumentException {
         String inputNumber = InputStringReceiver.getInputString();
-        InputNumberValidator.isRestartNumberCorrect(inputNumber);
+        RestartNumberValidator.isRestartNumberCorrect(inputNumber);
         return inputNumber;
     }
 }

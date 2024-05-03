@@ -3,8 +3,8 @@ import domain.Computer;
 import domain.Player;
 import domain.Umpire;
 import utility.BaseballPrinter;
-import utility.InputNumberValidator;
 import utility.InputStringReceiver;
+import utility.PlayerNumberValidator;
 
 public class BaseballGame {
 
@@ -29,7 +29,7 @@ public class BaseballGame {
     private void setPlayerNumberWithInput() {
         BaseballPrinter.printPlayerNumberInputMessage();
         String inputNumber = InputStringReceiver.getInputString();
-        InputNumberValidator.isPlayerNumberCorrect(inputNumber);
+        PlayerNumberValidator.isPlayerNumberCorrect(inputNumber);
         player.setPlayerNumber(inputNumber);
     }
 
