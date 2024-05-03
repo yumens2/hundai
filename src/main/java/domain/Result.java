@@ -2,6 +2,8 @@ package domain;
 
 import java.util.List;
 
+import static constant.MessageConstants.*;
+
 public class Result {
     private int strike;
     private int ball;
@@ -24,7 +26,37 @@ public class Result {
         }
     }
 
+    public boolean isCorrect(){
+        return this.strike == 3;
+    }
+
     private boolean isNothing(){
         return this.strike == 0 && this.ball == 0;
+    }
+
+    @Override
+    public String toString() {
+        if(isNothing()){
+            return RESULT_NOTHING;
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        if(ball > 0){
+            result.append(ball).append(RESULT_BALL);
+        }
+
+        if(strike > 0){
+            if(!result.isEmpty()) {
+                result.append(" ");
+            }
+            result.append(strike).append(RESULT_STRIKE);
+        }
+
+        if(strike == 3){
+            result.append("\n").append(RESULT_CORRECT_MESSAGE);
+        }
+
+        return result.toString();
     }
 }
