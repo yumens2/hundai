@@ -1,7 +1,10 @@
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
         int qNum[] = makeNum();
+        int pNum[] = playerInput();
     }
 
     public static int[] makeNum() {
@@ -14,5 +17,16 @@ public class Application {
             num[2] = (int)(Math.random() * 10);
         } while(num[0] == num[2] || num[1] == num[2]);
         return num;
+    }
+
+    public static int[] playerInput() {
+        int pNum[] = new int[3];
+        System.out.print("숫자를 입력해 주세요 : ");
+        Scanner input = new Scanner(System.in);
+        String pInput = input.nextLine();
+        pNum[0] = pInput.charAt(0) - '0';
+        pNum[1] = pInput.charAt(1) - '0';
+        pNum[2] = pInput.charAt(2) - '0';
+        return pNum;
     }
 }
