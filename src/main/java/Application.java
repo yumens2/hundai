@@ -1,11 +1,12 @@
 package main.java;
+import main.java.Number;
 public class Application{
     public static void main(String[] args) throws Exception {
-        boolean FLAGNUM=true;
-        while(FLAGNUM){
+        boolean FLAG_NUM=true;
+        while(FLAG_NUM){
             Number num=new Number();
             num.chkEquality();
-            FLAGNUM=num.FLAG;
+            FLAG_NUM=num.FLAG;
         }
     }
 }

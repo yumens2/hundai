@@ -82,15 +82,15 @@ public class Number{
         }
     }
     public void chkEquality() throws Exception {
-        boolean FLAGNUM1=true;
-        while(FLAGNUM1){
+        boolean FLAG_NUM1=true;
+        while(FLAG_NUM1){
             getNum();
             compareNum();
             if(STRIKE==3) {
                 finishedGame();
                 return;
             }
-            FLAGNUM1=FLAG;
+            FLAG_NUM1=FLAG;
         }
     }
     public void finishedGame() throws Exception{
