@@ -4,9 +4,19 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
-        int qNum[] = makeNum();
-        int pNum[] = playerInput();
-        compareNum(qNum, pNum);
+        boolean flag = true;
+        while(flag) {
+            int qNum[] = makeNum();
+            flag = playBall(qNum);
+        }
+    }
+
+    public static boolean playBall(int qNum[]) {
+        boolean flag = true;
+        while(flag) {
+            flag = compareNum(qNum, playerInput());
+        }
+        return chooseResume();
     }
 
     public static int[] makeNum() {
@@ -42,21 +52,18 @@ public class Application {
             throw new IllegalArgumentException();
     }
 
-    public static void compareNum(int[] qNum, int[] pNum) {
+    public static boolean compareNum(int[] qNum, int[] pNum) {
         int s = 0, b = 0;
         for(int i=0; i<3; i++) {
             if(qNum[i] == pNum[i])
                 s++;
         }
-        for(int i=0; i<3; i++)
-            if(qNum[0] == pNum[i])
-                b++;
-        for(int i=0; i<3; i++)
-            if(qNum[1] == pNum[i])
-                b++;
-        for(int i=0; i<3; i++)
-            if(qNum[2] == pNum[i])
-                b++;
+        if(qNum[0] == pNum[1] || qNum[0] == pNum[2])
+            b++;
+        if(qNum[1] == pNum[0] || qNum[1] == pNum[2])
+            b++;
+        if(qNum[2] == pNum[0] || qNum[2] == pNum[1])
+            b++;
         if(s == 0 && b == 0) {
             System.out.println("낫싱");
         } else {
@@ -70,6 +77,21 @@ public class Application {
         }
         if(s == 3) {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean chooseResume() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        Scanner input = new Scanner(System.in);
+        String readLine = input.nextLine();
+        if(readLine.equals("1")) {
+            return true;
+        } else if(readLine.equals("2")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 }
