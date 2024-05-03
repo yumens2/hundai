@@ -13,7 +13,7 @@ public record TurnResult(int numberLength, int ball, int strike) {
             else
                 ball++;
         }
-        return new TurnResult(numberLength, strike, ball);
+        return new TurnResult(numberLength, ball, strike);
     }
 
     public boolean isAllStrike(){
