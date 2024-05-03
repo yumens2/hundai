@@ -1,15 +1,14 @@
-package Game;
-
 import View.Input;
 import View.Output;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class BaseballGame {
     private List<Integer> computerNumbers;
-    //게임 진행 메서드 실행 기능
+    private static boolean continuePlaying = true;
+
     public static void main(String[] args) {
-        boolean continuePlaying = true;
         while (continuePlaying) {
             BaseballGame game = new BaseballGame();
             boolean won = game.playGame();
@@ -19,18 +18,25 @@ public class BaseballGame {
         }
     }
 
-    //게임 진행
-    public boolean playGame() {
-        computerNumbers = RandomNumberGenerator.generateUniqueNumbers();
+    private boolean playGame() {
+        computerNumbers = RandomNumberGenerator.generateNumbers();
         while (true) {
-            List<Integer> userNumbers = Input.getInputFromUser();
+            Output.printMessage("3개의 서로 다른 숫자를 입력해주세요(1~9): ");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            List<Integer> userNumbers = Input.getInputFromUser(input);
+            if (userNumbers.get(0) == -1){
+                continuePlaying = Input.askForRestart();
+                return false;
+            }
             int[] score = ScoreCalculator.calculateScore(userNumbers, computerNumbers);
             int strikes = score[0];
             int balls = score[1];
 
-            Output.printResult(strikes, balls);
+            String re = Output.printResult(strikes, balls);
+            Output.printlnMessage(re);
             if (strikes == 3) {
-                Output.printMessage("You win!");
+                Output.printlnMessage("승리!");
                 return true;
             }
         }
