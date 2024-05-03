@@ -1,5 +1,6 @@
 package com.ktc2.precourse.baseball.validator;
 
+import com.ktc2.precourse.baseball.logic.DuplicateChecker;
 import com.ktc2.precourse.baseball.object.Numbers;
 
 public class NumbersValidator implements Validator<String> {
@@ -17,11 +18,10 @@ public class NumbersValidator implements Validator<String> {
     }
 
     private boolean hasDuplicatedDigit(String digits) {
-        int[] freq = new int[10];
+        DuplicateChecker<Character> duplicate = new DuplicateChecker<>();
 
         for (int i = 0; i < Numbers.LENGTH; i++) {
-            int index = digits.charAt(i) - '0';
-            if (freq[index]++ != 0) {
+            if (duplicate.check(digits.charAt(i))) {
                 return false;
             }
         }
