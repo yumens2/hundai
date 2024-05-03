@@ -25,6 +25,6 @@ public class InputStringReceiver {
     }
 
     public static String getInputString() {
-        return getInstance().next();
+        return getInstance().nextLine();
     }
 }
