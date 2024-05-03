@@ -4,6 +4,9 @@ import com.ktc2.precourse.baseball.object.Numbers;
 import com.ktc2.precourse.baseball.validator.NumbersValidator;
 import com.ktc2.precourse.baseball.validator.Validator;
 
+/**
+ * 표준 입력으로부터 Numbers를 받는 클래스
+ */
 public class NumbersAcceptor extends SystemInAcceptor<Numbers>{
 
     @Override

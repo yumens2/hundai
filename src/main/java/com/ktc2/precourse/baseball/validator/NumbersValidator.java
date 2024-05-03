@@ -3,6 +3,9 @@ package com.ktc2.precourse.baseball.validator;
 import com.ktc2.precourse.baseball.logic.DuplicateChecker;
 import com.ktc2.precourse.baseball.object.Numbers;
 
+/**
+ * Numbers를 생성하는 데 필요한 String의 유효성을 확인하는 클래스
+ */
 public class NumbersValidator implements Validator<String> {
     private static final NumbersValidator instance = new NumbersValidator();
 
@@ -12,11 +15,20 @@ public class NumbersValidator implements Validator<String> {
         return instance;
     }
 
-    //모든 문자가 1~9의 숫자로 이뤄지지 않은 경우
+    /**
+     * str의 모든 문자가 1~9의 숫자로 이뤄졌는 지 확인한다.
+     * @param str 확인할 문자열
+     * @return 모든 문자가 1~9의 숫자로 이뤄지면 true, 아니면 false
+     */
     private boolean isNotDigit(String str) {
         return !str.chars().allMatch(s -> Character.isDigit(s) && s != '0');
     }
 
+    /**
+     * 숫자로 이뤄진 digits가 중복되지 않게 구성되었는지 확인한다.
+     * @param digits 중복을 확인할 숫자로 이뤄진 문자열
+     * @return 중복되었으면 true, 아니면 false 반환
+     */
     private boolean hasDuplicatedDigit(String digits) {
         DuplicateChecker<Character> duplicate = new DuplicateChecker<>();
 
