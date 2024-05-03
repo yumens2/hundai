@@ -22,16 +22,15 @@ public class GameModel {
         }
     }
 
-    public int countStrike(int input) {
+    public int countStrike(int number1, int number2) {
         int cnt = 0;
-        int tempAnswer = this.answer;
 
         for (int i = 0; i < 3; i++) {
-            if (input % 10 == tempAnswer % 10) {
+            if (number1 % 10 == number2 % 10) {
                 cnt++;
             }
-            input /= 10;
-            tempAnswer /= 10;
+            number1 /= 10;
+            number2 /= 10;
         }
 
         return cnt;
