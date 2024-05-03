@@ -46,5 +46,9 @@ public class GameService {
 
     }
 
+    public Number getAnswer() {
+        return randomGenerator.createNumber();
+    }
+    
 
 }
