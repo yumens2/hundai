@@ -93,4 +93,18 @@ public class Number{
             FLAGNUM1=FLAG;
         }
     }
+    public void finishedGame() throws Exception{
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        Scanner sc=new Scanner(System.in);
+        String S=sc.next();
+        int GET_NUM=Integer.parseInt(S);
+        if(GET_NUM<1||GET_NUM>2) {
+            FLAG = false;
+            throw new Exception("IllegalArgumentException");
+        }
+        else if(GET_NUM==2){
+            FLAG=false;
+        }
+    }
 }
