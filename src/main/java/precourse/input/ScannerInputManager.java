@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class ScannerInputManager implements InputManager{
     private final Scanner scanner;
 
-    public ScannerInputManager(Scanner scanner) {
-        this.scanner = scanner;
+    public ScannerInputManager() {
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
