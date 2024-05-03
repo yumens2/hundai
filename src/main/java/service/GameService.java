@@ -83,4 +83,18 @@ public class GameService {
         return getInput() == 2;
     }
 
+    public void printHints(Hints hint) {
+
+        if (hint.hasStrikesAndBalls()) {
+            System.out.println(hint.getBall() + "볼 " + hint.getStrike() + "스트라이크");
+        } else if (hint.hasStrikes()) {
+            System.out.println(hint.getStrike() + "스트라이크");
+        } else if (hint.hasBalls()) {
+            System.out.println(hint.getBall() + "볼");
+        } else {
+            System.out.println("낫싱");
+        }
+
+    }
+
 }
