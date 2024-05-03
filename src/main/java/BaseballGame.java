@@ -36,6 +36,7 @@ public class BaseballGame {
     public boolean isGameOver() {
         if (umpire.isPlayerWin()) {
             BaseballPrinter.printGameOverMessage();
+            BaseballPrinter.printGameRestartInputMessage();
             return true;
         }
         return false;
