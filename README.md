@@ -6,8 +6,8 @@ BaseballNumberGenerator
 GameControlService
 - start : 게임을 시작한다.
 - printQuestion : "숫자를 입력해 주세요 : "를 출력한다.
-- scanInput : 사용자의 입력을 받는다. 사용자의 입력 값이 잘못되었을 경우 IllegalArgumentException를 발생시킨다.
-- isInputValid : 사용자의 입력 값이 잘못되었는지 판별한다.
+- scanInput : 사용자의 입력을 받는다. 입력을 ArrayList에 쪼개어 넣는다.
+- checkInputValid : 사용자의 입력 값이 잘못되었을 경우 IllegalArgumentException를 발생시킨다.
 - printRestart : "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요." 를 출력한다.
 - scanRestart : 1이 입력되면 새로 시작하고, 2을 입력하면 종료된다.
 
