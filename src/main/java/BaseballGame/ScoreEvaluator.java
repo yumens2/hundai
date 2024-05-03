@@ -3,16 +3,11 @@ package BaseballGame;
 import java.util.List;
 
 public class ScoreEvaluator {
-    public String getScore(List<String> guess, String answer) {
+    public List<Integer> getScore(List<String> guess, String answer) {
         int strike = countStrikes(guess, answer);
         int ball = countBall(guess, answer);
 
-        if (strike == 0 && ball == 0) {
-            return "낫싱";
-        }
-        else {
-            return "%s볼 %s스트라이크".formatted(strike, ball);
-        }
+        return List.of(strike, ball);
     }
 
     private int countStrikes(List<String> guess, String answer) {
