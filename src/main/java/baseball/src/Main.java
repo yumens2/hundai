@@ -40,7 +40,36 @@ public class Main {
             }
         }
         return numbers;
-    }//2,3
+    }
+    private static boolean checkMatch(int[] computerNumbers, int[] userNumbers) {
+        int strike = 0;
+        int ball = 0;
+        boolean match = false;
+
+        for (int i = 0; i < DIGIT_COUNT; i++) {
+            for (int j = 0; j < DIGIT_COUNT; j++) {
+                if (userNumbers[i] == computerNumbers[j]) {
+                    match = true;
+                    if (i == j) {
+                        strike++;
+                    } else {
+                        ball++;
+                    }
+                }
+            }
+        }
+
+        if (!match) {
+            System.out.println("낫싱");
+        } else if (strike == DIGIT_COUNT) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        } else {
+            System.out.printf("%d볼 %d스트라이크\n", ball, strike);
+        }
+        return false;
+    }
 }
+
 
 
