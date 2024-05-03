@@ -1,7 +1,7 @@
 package precourse.game;
 
 public enum GameStatus {
-    NONE(),
+    NOT_STARTED(),
     ROUND_STARTED(),
     ROUND_ENDED(),
 }

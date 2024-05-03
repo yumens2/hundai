@@ -63,8 +63,8 @@ public class NumberBaseBall {
     public boolean isRoundEnded(){
         return isSameStatus(GameStatus.ROUND_ENDED);
     }
-    public boolean isNONE(){
-        return isSameStatus(GameStatus.NONE);
+    public boolean isNotStarted(){
+        return isSameStatus(GameStatus.NOT_STARTED);
     }
 
 //내부 로직
@@ -84,7 +84,7 @@ public class NumberBaseBall {
         if (endCommand == EndCommand.CONTINUE)
             startRound(this.numbers.length());
         if (endCommand == EndCommand.STOP)
-            updateGameStatus(GameStatus.NONE);
+            updateGameStatus(GameStatus.NOT_STARTED);
     }
 
 }
