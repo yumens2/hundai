@@ -20,6 +20,27 @@ public class Main {
             }
         }
         return numbers;
-    } //1
+    }
+
+    private static int[] getUserNumbers(Scanner scanner) {
+        int[] numbers = new int[DIGIT_COUNT];
+        System.out.print("숫자를 입력해 주세요: ");
+        String input = scanner.next();
+        if (input.length() != DIGIT_COUNT) {
+            throw new IllegalArgumentException("숫자의 길이가 올바르지 않습니다.");
+        }
+        for (int i = 0; i < DIGIT_COUNT; i++) {
+            char ch = input.charAt(i);
+            if (!Character.isDigit(ch)) {
+                throw new IllegalArgumentException("숫자가 아닙니다.");
+            }
+            numbers[i] = Character.getNumericValue(ch);
+            if (numbers[i] < MIN_NUMBER || numbers[i] > MAX_NUMBER) {
+                throw new IllegalArgumentException("숫자가 범위를 벗어납니다.");
+            }
+        }
+        return numbers;
+    }//2,3
 }
+
 
