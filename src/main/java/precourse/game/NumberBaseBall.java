@@ -11,13 +11,14 @@ public class NumberBaseBall {
 
     public NumberBaseBall(Validator validator){
         this.validator = validator;
+        this.gameStatus = GameStatus.NOT_STARTED;
     }
 
     //초기화 메서드 필요 없을듯
 
     public void startRound(int numberLength){
         //시작된 상태가 아닌지 검증
-        checkTrueOrThrow(!isSameStatus(GameStatus.ROUND_STARTED), Messages.ALREADY_STARTED::getMessage);
+        checkTrueOrThrow(isSameStatus(GameStatus.NOT_STARTED), Messages.ALREADY_STARTED::getMessage);
         //인풋 검증
         validator.validateStartRoundInput(numberLength);
         //numbers 초기화
@@ -72,7 +73,7 @@ public class NumberBaseBall {
         return this.gameStatus == gameStatus;
     }
     private void checkTrueOrThrow(boolean bool, Supplier<String> exceptionMessageSupplier){
-        if (bool) throw new IllegalArgumentException(exceptionMessageSupplier.get());
+        if (!bool) throw new IllegalArgumentException(exceptionMessageSupplier.get());
     }
     private void showMessage(String message){
         System.out.println(message);
