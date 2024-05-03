@@ -30,6 +30,11 @@ public class Result {
         return this.strike == 3;
     }
 
+    public void reset(){
+        this.strike = 0;
+        this.ball = 0;
+    }
+
     private boolean isNothing(){
         return this.strike == 0 && this.ball == 0;
     }
