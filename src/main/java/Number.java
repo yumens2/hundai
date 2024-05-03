@@ -21,6 +21,30 @@ public class Number{
             if(RANDOM_NUM[0]!=RANDOM_NUM[2]&&RANDOM_NUM[1]!=RANDOM_NUM[2]) break;
         }
     }
+    public void getNum() throws Exception{
+        BALL=0; STRIKE=0;
+        System.out.print("숫자를 입력해 주세요 : ");
+        Scanner sc=new Scanner(System.in);
+        String S=sc.next();
+        if(S.length()!= 3) {
+            throw new Exception("IllegalArgumentException");
+        }
+        else {
+            if(!isNumeric(S)) {
+                throw new Exception("IllegalArgumentException");
+            }
+            int TEMP=Integer.parseInt(S);
+            isNumOk(TEMP);
+        }
+    }
+    private static boolean isNumeric(String str){
+        return str != null && str.matches("[0-9.]+");
+    }
+    public void isNumOk(int NUM) throws Exception{
+        if(NUM<0||NUM>999)
+            throw new Exception("IllegalArgumentException");
+        MY_NUM=NUM;
+    }
     public void chkEquality() throws Exception {
         boolean FLAGNUM1=true;
         while(FLAGNUM1){
