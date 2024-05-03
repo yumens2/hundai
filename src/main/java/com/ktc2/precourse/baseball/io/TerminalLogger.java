@@ -1,4 +1,5 @@
 package com.ktc2.precourse.baseball.io;
 
-public abstract class TerminalLogger {
+public interface TerminalLogger {
+    public abstract void log();
 }
