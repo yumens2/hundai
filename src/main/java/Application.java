@@ -8,6 +8,10 @@ public class Application {
             BaseballGame baseballGame = new BaseballGame();
             baseballGame.playBall();
         } while (GameRestartOption.isGameRestart());
+        closeGame();
+    }
+
+    private static void closeGame() {
         InputStringReceiver.close();
     }
 }
