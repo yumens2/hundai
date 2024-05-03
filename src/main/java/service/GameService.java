@@ -49,6 +49,32 @@ public class GameService {
     public Number getAnswer() {
         return randomGenerator.createNumber();
     }
+
+    public Hints compareNumbers(int[] userInput, int[] answer) {
+        int strike = 0;
+        int ball = 0;
+        boolean[] cnt = new boolean[10];
+
+        for (int i = 0; i < 3; i++) {
+            if (userInput[i] == answer[i]) {
+                strike++;
+            } else {
+                cnt[answer[i]] = true;
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            if (cnt[userInput[i]]) {
+                ball++;
+            }
+        }
+
+        return new Hints(strike, ball);
+    }
+
+    public boolean isAnswered(Hints hints) {
+        return hints.getStrike() == 3 && hints.getBall() == 0;
+    }
     
 
 }
