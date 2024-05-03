@@ -97,10 +97,10 @@ e.g.
 
 #### 사용자 인터랙션
 
-- [ ] (test: yes) 사용자 입력을 받는다.
-- [ ] (test: yes) 사용자 입력이 유효한 지 판단한다.
+- [x] (test: yes) 사용자 입력을 받는다.
+- [x] (test: yes) 사용자 입력이 유효한 지 판단한다.
   - 유효 조건: 서로 다른 3자리 숫자 입력
-- [ ] (test: yes) 유효하지 않은 사용자 입력이 들어온 경우 `IllegalArgumentException`을 발생시킨다.
+- [x] (test: yes) 유효하지 않은 사용자 입력이 들어온 경우 `IllegalArgumentException`을 발생시킨다.
 
 #### 프로그램 계산
 
