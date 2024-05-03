@@ -62,6 +62,25 @@ public class Number{
         }
         printWhat();
     }
+    public void printWhat(){
+        if(BALL==0&&STRIKE==0)
+            System.out.println("낫싱");
+        else if(BALL==0&&STRIKE>0)
+            System.out.println(STRIKE+"스트라이크");
+        else if(BALL>0&&STRIKE==0)
+            System.out.println(BALL+"볼");
+        else System.out.println(BALL+"볼 "+STRIKE+"스트라이크");
+    }
+    public void isEqualNum(int i, int j, int a,int r){
+        if(a==r){
+            if(i==j){
+                STRIKE++;
+            }
+            else{
+                BALL++;
+            }
+        }
+    }
     public void chkEquality() throws Exception {
         boolean FLAGNUM1=true;
         while(FLAGNUM1){
