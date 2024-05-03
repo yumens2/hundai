@@ -27,7 +27,7 @@ public class GameService {
 
     }
 
-    public Number checkingCondition(int number) throws IllegalArgumentException {
+    public static Number checkingCondition(int number) throws IllegalArgumentException {
 
         if (number < 100 || number > 999) {
             throw new IllegalArgumentException("세자리 수를 입력해야 합니다.");
