@@ -8,16 +8,31 @@ import java.util.stream.Collectors;
 public class BaseballGame {
 
     private static final String START = "1";
-    private static BaseballGame baseballGame;
 
     private BaseballGame() {
     }
 
+    /**
+     * 다중쓰레드 환경에서 싱글톤 보장 안됨
+     */
+//    public static BaseballGame of() {
+//        if (baseballGame == null) {
+//            baseballGame = new BaseballGame();
+//        }
+//        return baseballGame;
+//    }
+
+    /**
+     * static inner class를 이용한 싱글톤 패턴 클래스가 로딩될 때 생성되기 때문에 thread-safe 함 lazy loading이 가능하며, of()
+     * 메소드가 호출되기 전까지는 객체가 생성되지 않음
+     */
+    private static class BaseballGameHolder {
+
+        private static final BaseballGame baseballGame = new BaseballGame();
+    }
+
     public static BaseballGame of() {
-        if (baseballGame == null) {
-            baseballGame = new BaseballGame();
-        }
-        return baseballGame;
+        return BaseballGameHolder.baseballGame;
     }
 
     public List<Integer> GuessNumbers() {
