@@ -4,7 +4,9 @@ import com.ktc2.precourse.baseball.exception.GameExitException;
 
 public class Application {
     /**
-     * Application Main Entry */
+     * Application Main Entry
+     * @param args
+     */
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
         try {
