@@ -1,9 +1,11 @@
+import controller.GameController;
+
 public class MainApplication {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
-        game.playGame();
+        GameController gameController = new GameController();
+        gameController.playGame();
     }
 
 }
