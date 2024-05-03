@@ -35,6 +35,10 @@ public class Numbers {
         }
 
         return true;
+    }
 
+    @Override
+    public int hashCode() {
+        return 100 * number[0] + 10 * number[1] + number[2];
     }
 }
