@@ -51,10 +51,11 @@ public class Result {
             result.append(ball).append(RESULT_BALL);
         }
 
+        if(!result.isEmpty()) {
+            result.append(" ");
+        }
+
         if(strike > 0){
-            if(!result.isEmpty()) {
-                result.append(" ");
-            }
             result.append(strike).append(RESULT_STRIKE);
         }
 
