@@ -17,9 +17,10 @@ public class InputManager {
     public int getUserChoice() {
         String userChoice = scanner.nextLine();
         if (Objects.equals(userChoice, "1") || Objects.equals(userChoice, "2")) {
+            return Integer.parseInt(userChoice);
+        } else {
             throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
         }
-        return Integer.parseInt(userChoice);
     }
 
     private boolean isValidInput(String input) {
