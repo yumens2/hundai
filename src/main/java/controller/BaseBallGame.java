@@ -15,7 +15,7 @@ public class BaseBallGame {
     private static final Output output = new Output();
     private static final RandomNonZeroNumberGenerator generator = new RandomNonZeroNumberGenerator();
 
-    public Hint hint;
+    private Hint hint;
 
     public void play() {
         List<Integer> answer = generator.generate();
@@ -27,7 +27,7 @@ public class BaseBallGame {
         output.printResult(hint.getBallCount(), hint.getStrikeCount());
     }
 
-    public void ballStrike(List<Integer> answer, List<Integer> inputNumbers) {
+    private void ballStrike(List<Integer> answer, List<Integer> inputNumbers) {
         hint = new Hint();
 
         for (int i = 0; i < answer.size(); i++) {
