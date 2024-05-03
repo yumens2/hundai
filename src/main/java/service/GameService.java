@@ -10,11 +10,14 @@ import java.util.stream.Stream;
 public class GameService {
 
     private final RandomGenerator randomGenerator;
-    private final Scanner sc;
+    private static Scanner sc;
 
     public GameService(RandomGenerator randomGenerator) {
         this.randomGenerator = randomGenerator;
-        this.sc = new Scanner(System.in);
+    }
+
+    public static void setScanner(Scanner sc) {
+        GameService.sc = sc;
     }
 
     public int getInput() {
@@ -74,13 +77,6 @@ public class GameService {
 
     public boolean isAnswered(Hints hints) {
         return hints.getStrike() == 3 && hints.getBall() == 0;
-    }
-
-    public boolean isContinuing() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-
-        return getInput() == 1;
     }
 
     public void printHints(Hints hint) {
