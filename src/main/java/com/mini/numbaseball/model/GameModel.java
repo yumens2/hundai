@@ -22,6 +22,21 @@ public class GameModel {
         }
     }
 
+    public int countStrike(int input) {
+        int cnt = 0;
+        int tempAnswer = this.answer;
+
+        for (int i = 0; i < 3; i++) {
+            if (input % 10 == tempAnswer % 10) {
+                cnt++;
+            }
+            input /= 10;
+            tempAnswer /= 10;
+        }
+
+        return cnt;
+    }
+
     public int getAnswer() {
         return answer;
     }
