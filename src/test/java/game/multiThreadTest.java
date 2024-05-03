@@ -36,7 +36,7 @@ public class multiThreadTest {
     void multiThreadComputerTest() {
         // given
         Map<String, Computer> computerMap = new ConcurrentHashMap<>();
-        var executorService = Executors.newFixedThreadPool(5000);
+        var executorService = Executors.newFixedThreadPool(1000);
         // When
         IntStream.range(0, 100000).forEach((index) -> executorService.submit(() -> {
             Computer computer = Computer.of();
