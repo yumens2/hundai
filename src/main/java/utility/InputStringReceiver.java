@@ -6,7 +6,6 @@ public class InputStringReceiver {
 
     private static Scanner scanner;
 
-
     private InputStringReceiver() {
     }
 
