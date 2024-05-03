@@ -1,6 +1,7 @@
 # java-baseball-precourse
 
 ## 기능 구현 과정 (commit 순서별 정렬)
+
 * createRandomNumbers 메소드에 1~9까지의 랜덤 숫자 생성 기능 구현
 * 숫자 중 몇개가 같은지 return하는 기능을 가진 matchNumber 메소드 추가
 * PlaceNumber에 number가 있는지 여부를 return하는 기능 추가
@@ -11,11 +12,12 @@
 * main문 깊이 조절을 위한 Print 클래스 생성 후 구현
 * Print 클래스 내에 실제 print부분을 묶은 gamePrint메소드 생성
 * main문을 반복 조건에 수정
-  * 1을 입력하면 반복
-  * 2를 입력하면 종료
-  * 이외의 숫자를 입력하면 오류 발생
+    * 1을 입력하면 반복
+    * 2를 입력하면 종료
+    * 이외의 숫자를 입력하면 오류 발생
 
 ## Test코드
+
 * createRandomNumbers가 생성한 숫자의 길이가 3인지 테스트하는 기능 구현
 * createRandomNumbers가 생성한 숫자의 범위가 1~9인지 테스트하는 기능 구현
 * createRandomNumbers가 생성한 숫자들이 서로 다른지 테스트하는 기능 구현

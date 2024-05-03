@@ -14,14 +14,14 @@ class JudgementTest {
     void matchNumber_noMatch() {
         //given
         Judgement judgement = new Judgement();
-        List<Integer> computer = Arrays.asList(1,2,3);
-        List<Integer> player = Arrays.asList(5,6,7);
+        List<Integer> computer = Arrays.asList(1, 2, 3);
+        List<Integer> player = Arrays.asList(5, 6, 7);
 
         //when
         int result = judgement.matchNumber(computer, player);
 
         //then
-        assertEquals(0,result);
+        assertEquals(0, result);
     }
 
     @Test
@@ -29,14 +29,14 @@ class JudgementTest {
     void matchNumber_twoMatch() {
         //given
         Judgement judgement = new Judgement();
-        List<Integer> computer = Arrays.asList(1,2,3);
-        List<Integer> player = Arrays.asList(2,3,7);
+        List<Integer> computer = Arrays.asList(1, 2, 3);
+        List<Integer> player = Arrays.asList(2, 3, 7);
 
         //when
         int result = judgement.matchNumber(computer, player);
 
         //then
-        assertEquals(2,result);
+        assertEquals(2, result);
     }
 
     @Test
@@ -44,10 +44,10 @@ class JudgementTest {
     void placeCheck() {
         //given
         Judgement judgement = new Judgement();
-        List<Integer> computer = Arrays.asList(1,2,3);
+        List<Integer> computer = Arrays.asList(1, 2, 3);
         int number = 2;
         int placenumber = 1;
-        
+
         //when
         boolean result = judgement.placeCheck(computer, placenumber, number);
         System.out.println(result);

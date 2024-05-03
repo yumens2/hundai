@@ -1,11 +1,13 @@
 import java.util.List;
 
 public class Print {
+
     NumberGenerator generator = new NumberGenerator();
     List<Integer> numbers;
 
     final Referee referee = new Referee();
     NumberScanner player = new NumberScanner();
+
     void gamePrint() {
         numbers = generator.createRandomNumbers();
         String result = "";

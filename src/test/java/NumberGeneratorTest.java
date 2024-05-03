@@ -31,8 +31,8 @@ class NumberGeneratorTest {
         List<Integer> numbers = computer.createRandomNumbers();
 
         //then
-        for(int number : numbers){
-            assertTrue(number>=1 && number<=9);
+        for (int number : numbers) {
+            assertTrue(number >= 1 && number <= 9);
         }
     }
 
@@ -46,14 +46,12 @@ class NumberGeneratorTest {
         List<Integer> numbers = computer.createRandomNumbers();
 
         //then
-        for(int i=0; i<numbers.size(); i++){
-            for(int j=i+1; j<numbers.size(); j++){
+        for (int i = 0; i < numbers.size(); i++) {
+            for (int j = i + 1; j < numbers.size(); j++) {
                 assertNotEquals(numbers.get(i), numbers.get(j));
             }
         }
     }
-
-
 
 
 }

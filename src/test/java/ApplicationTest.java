@@ -7,6 +7,7 @@ import java.io.InputStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicationTest {
+
     private void setScannerInputStream(String input) {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
