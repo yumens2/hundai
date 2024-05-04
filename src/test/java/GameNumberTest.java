@@ -18,4 +18,17 @@ public class GameNumberTest {
         })
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("두 숫자 비교 결과 테스트")
+    @ParameterizedTest(name = "{3}")
+    @CsvSource({
+            "'123', '123', '3스트라이크', '세 자리 모두 같을 때'",
+            "'123', '456', '', '세 자리 모두 다를 때'",
+            "'123', '135', '1볼 1스트라이크', '그 외의 경우'"
+    })
+    public void numberCompareTest(GameNumber gameNumber1, GameNumber gameNumber2, String expect, String msg) {
+        String result = gameNumber1.compareTo(gameNumber2).toString();
+        Assertions.assertThat(result)
+                .isEqualTo(expect);
+    }
 }
