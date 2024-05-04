@@ -11,6 +11,7 @@ public class Application {
         boolean replay=true;
         while(replay){
             baseball.run();
+            
 //            List<Integer> game=baseballmaker.makeBaseball();
 //            String baseballCount="";
 //            while(!baseballCount.equals("3스트라이크")){

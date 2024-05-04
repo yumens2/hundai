@@ -17,11 +17,18 @@ public class User {
 //        if(num.length()!=3){
 //            throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다");
 //        }
-        List<Integer> playerNumber = new ArrayList<>();
+        List<Integer> userNumber = new ArrayList<>();
         for(String number: num.split("")){
-            playerNumber.add(Integer.parseInt(number));
+            if(number.charAt(0)<'1'||number.charAt(0)>'0'){
+                throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
+            }
+            userNumber.add(Integer.parseInt(number));
         }
-        return playerNumber;
+        if(isPossible(userNumber)){
+            return userNumber;
+        }
+        throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
+
     }
     public boolean isPossible(List<Integer> userNumber){
         if(userNumber.size()!=3){
