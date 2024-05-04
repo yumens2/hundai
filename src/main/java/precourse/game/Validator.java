@@ -11,7 +11,7 @@ import precourse.utils.StringUtil;
 //일단 구현하고 고민하기
 public class Validator {
     public void validateStartRoundInput(int numberLength){
-        if (numberLength < 1 || numberLength > 9)
+        if (!DigitUtil.isOneDigitOfPositive(numberLength))
             throw new IllegalArgumentException(Messages.INVALID_NUMBER_LENGTH.getMessage());
     }
     public void validatePlayTurnInput(String numbers, String userNumbers){

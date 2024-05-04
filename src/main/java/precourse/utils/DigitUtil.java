@@ -4,7 +4,7 @@ import java.util.*;
 
 public class DigitUtil {
     public static String createUniqueDigits(int length){
-        if (length > 10) throw new IllegalArgumentException();
+        if (!isOneDigitOfPositive(length)) throw new IllegalArgumentException();
 
         List<Integer> digits = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -21,11 +21,19 @@ public class DigitUtil {
     }
 
     public static boolean isDigitsOfPositive(String str){
+        if (str.isEmpty()) return false;
+
+        boolean isNotZero = false;
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
             if (c < '0' || c > '9') return false;
+            if (c != '0') isNotZero = true;
         }
-        return true;
+        return isNotZero;
+    }
+
+    public static boolean isOneDigitOfPositive(int num){
+        return (num > 0 && num < 10);
     }
 
     private DigitUtil(){}
