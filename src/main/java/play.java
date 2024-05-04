@@ -22,7 +22,7 @@ public class play {
     
         return numToList.numToList(inputValue);
     }
-
+    
     public boolean continueGame(){
 
         Scanner sc = new Scanner(System.in);
