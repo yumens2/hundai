@@ -11,8 +11,8 @@ public class GameService {
 
     private final Computer computer;
 
-    public GameService() {
-        computer = new Computer();
+    public GameService(Computer computer) {
+        this.computer = computer;
     }
 
     public ResultDto play(String input) {
