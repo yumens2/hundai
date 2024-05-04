@@ -20,6 +20,18 @@ public class Util {
     }
 
     /**
+     * @return String[]
+     * @throws IllegalArgumentException
+     * @prama 입력의 길이가 3인지 검사
+     */
+    public boolean isOver(String[] arr){
+        if(arr.length!=3){
+            throw new IllegalArgumentException();
+        }
+        return true;
+    }
+
+    /**
      * @return 숫자 중복 여부
      * @throws IllegalArgumentException
      * @prama num 입력된 문자열들이 중복되는지 검사

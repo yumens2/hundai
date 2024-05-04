@@ -42,6 +42,42 @@ class UtilTest {
     }
 
     @Test
+    @DisplayName("입력의 길이가 3인지 검사(성공)")
+    void testIsNumLengthThree() {
+        //  give
+        String[] test = new String[3];
+        for (int i=0;i<3;i++){
+            test[i] = Integer.toString(i);
+        }
+
+        //  when
+
+        //  then
+        // 숫자가 아닌 값을 입력했을 때 IllegalArgumentException이 발생하는지 확인
+        assertDoesNotThrow(() -> {
+            util.isOver(test);
+        });
+    }
+
+    @Test
+    @DisplayName("입력의 길이가 3인지 검사(실패)")
+    void testIsNumLengthNonThree() {
+        //  give
+        String[] test = new String[5];
+        for (int i=0;i<5;i++){
+            test[i] = Integer.toString(i);
+        }
+
+        //  when
+
+        //  then
+        // 숫자가 아닌 값을 입력했을 때 IllegalArgumentException이 발생하는지 확인
+        assertThrows(IllegalArgumentException.class, () -> {
+            util.isOver(test);
+        });
+    }
+
+    @Test
     @DisplayName("중복검사(중복됨)")
     void testIsDuplicate() {
         //  give

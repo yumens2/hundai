@@ -15,8 +15,11 @@ public class Application {
             System.out.print("숫자를 입력해 주세요 : ");
 //          유저가 번호입력
             String[] nums = sc.nextLine().split("");
+
 //           중복되는 문자가 존재하는지 검사
             util.isDuplicate(nums);
+//            글자수를 초과하는지 검사사
+            util.isOver(nums);
 
 //          입력된 숫자가 볼인지 스트라이크인지 판별
             for (int i = 0; i < 3; i++) {
@@ -41,11 +44,11 @@ public class Application {
                     target = new CreateRandomNum();
                 } else if (num == 2) {
                     break;
-                }else {
+                } else {
                     throw new IllegalArgumentException();
                 }
             } else {
-                util.printCount(strike,ball);
+                util.printCount(strike, ball);
             }
 
         }
