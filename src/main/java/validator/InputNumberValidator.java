@@ -10,6 +10,7 @@ public class InputNumberValidator {
     private static final String NOT_VALID_LENGTH_MESSAGE = VALID_LENGTH + "자리 숫자를 입력해야합니다.";
     private static final String NOT_VALID_RANGE_MESSAGE = MIN_NUMBER + " ~ " + MAX_NUMBER + " 범위 내의 숫자만 허용됩니다.";
     private static final String NOT_UNIQUE_NUMBER_MESSAGE = "중복되지 않는 숫자들로만 구성되어야합니다.";
+
     public void validateNumber(String number) {
         checkValidLength(number);
         checkNumbersRange(number);

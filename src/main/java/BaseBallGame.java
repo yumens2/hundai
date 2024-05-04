@@ -10,6 +10,7 @@ public class BaseBallGame {
         initComputer();
         while(true) {
             List<Integer> playerNumbers = inputPlayerNumber();
+            Hint hint = computer.getHint(playerNumbers);
         }
     }
 
