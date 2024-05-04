@@ -88,8 +88,9 @@ public class Logic {
         }
 
         for (int i = 0; i < 3; i++) {
-            if (freq[userDigits[i]] > 1 && (computerDigits[i] != userDigits[i])) {
+            if (freq[userDigits[i]] > 0 && (computerDigits[i] != userDigits[i])) {
                 ball_count++;
+                freq[userDigits[i]]--;
             }
         }
 
