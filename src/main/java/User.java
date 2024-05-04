@@ -8,4 +8,7 @@ public class User {
     public User(Scanner scanner) {
         this.scanner = scanner;
     }
+    public String readNumber(){
+        return scanner.next();
+    }
 }
