@@ -22,7 +22,7 @@ public class ComputerTests {
 
     @DisplayName("유저 입력 유효성 테스트")
     @ParameterizedTest
-    @ValueSource(strings = {"", "1", "12", "111", "122", "aaa", "1234", "abcd", "ab345"})
+    @ValueSource(strings = {"", "1", "12", "111", "122", "024", "aaa", "1234", "abcd", "ab345"})
     void inputValidationCheckTest(String nums) {
         assertThatThrownBy(() -> {
             com.inputValidationCheck(nums);
