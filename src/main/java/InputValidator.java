@@ -10,6 +10,7 @@ public class InputValidator {
     return stringToList(input);
   }
 
+  /// 형식에 맞는지
   public static boolean isValid(String input) {
     if (input.length() != 3) {
       return false;
@@ -22,6 +23,7 @@ public class InputValidator {
     return true;
   }
 
+  /// String으로 된 숫자를 List로 변경
   private static List<Integer> stringToList(String input) {
     return input.chars()
         .map(Character::getNumericValue)
