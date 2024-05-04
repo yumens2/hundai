@@ -10,22 +10,22 @@ public class AnswerCheck {
 		this.playerNumber = playerNumber;
 	}
 
-	public Answer checkResult(List<Integer> computerNumber, List<Integer> playerNumber) {
+	public Answer checkResult() {
 		int strike = 0, ball= 0;
 		for(int i = 0; i < computerNumber.size(); i++) {
-			ball = checkBall(computerNumber, playerNumber, i);
-			strike = checkStrike(computerNumber, playerNumber, i);
+			ball = checkBall(i);
+			strike = checkStrike(i);
 		}
 		return new Answer(ball,strike);
 	}
 
-	private int checkStrike(List<Integer> computerNumber, List<Integer> playerNumber, int index) {
+	private int checkStrike(int index) {
 		int strike = 0;
 		if(computerNumber.get(index).equals(playerNumber.get(index))) strike++;
 		return strike;
 	}
 
-	private int checkBall(List<Integer> computerNumber, List<Integer> playerNumber, int index) {
+	private int checkBall(int index) {
 		int ball = 0;
 		int existNumber = computerNumber.get(index);
 		for(int i = 0; i < computerNumber.size(); i++) {
