@@ -6,6 +6,7 @@ import java.util.List;
 public class NumberBaseballGame {
 
     private GameState state;
+    private final InputValueValidationStrategy strategy;
     private final RandomNumberGenerator randomNumberGenerator;
     private final List<Integer> answers = new LinkedList<>();
 
@@ -14,6 +15,7 @@ public class NumberBaseballGame {
             RandomNumberGenerator randomNumberGenerator
     ) {
         state = GameState.READY;
+        this.strategy = strategy;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
@@ -30,6 +32,16 @@ public class NumberBaseballGame {
         return state == GameState.RUNNING || state == GameState.PAUSED;
     }
 
+    public void onInputSubmitted(String input) {
+        if (!isRunning()) {
+            throw new IllegalStateException("Game is not running.");
+        }
+        if (!strategy.isValid(input)) {
+            throw new IllegalArgumentException("잘못된 입력 : 서로 다른 숫자 세개를 입력해야 합니다.");
+        }
+    }
+
+
     private void generateNewAnswers() {
         answers.clear();
         while (answers.size() < 3) {
@@ -39,5 +51,4 @@ public class NumberBaseballGame {
             }
         }
     }
-
 }
