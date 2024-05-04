@@ -1,6 +1,7 @@
 package baseball;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Baseball {
     public int ball(List<Integer> baseballNum, List<Integer> userNum){
@@ -38,6 +39,12 @@ public class Baseball {
 
     }
     public boolean replay(){
-        System.out.println("축하합니다! 경기를 다시 시작하시겠습니까? ");
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        if(n==1){
+            return true;
+        }
+        sc.close();
+        return false;
     }
 }

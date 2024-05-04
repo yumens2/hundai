@@ -10,7 +10,7 @@ public class User {
     //숫자 입력받기
     public List<Integer> userNumber() throws IOException {
         BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("숫자를 입력해 주세요");
+        System.out.println("숫자를 입력해 주세요 : ");
         String num=br.readLine();
         List<Integer> playerNumber = new ArrayList<>();
         for(String number: num.split("")){
