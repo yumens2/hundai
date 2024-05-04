@@ -1,4 +1,5 @@
-import org.assertj.core.api.Assertions;
+import domain.Computer;
+import domain.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import util.Printer;
 import validate.InputValidator;
 import Exception.*;
 import validate.RestartValidator;
@@ -69,9 +71,11 @@ public class GameTest {
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         Scanner scanner = new Scanner(System.in);
-        int predictNumber = game.inputNumber(scanner);
+        int predictNumber = Printer.inputNumber(scanner);
         List<Integer> randomNumber = computer.makeRandomNumber();
-        boolean checkCorrect = game.printResult(randomNumber, predictNumber);
+        int strike = game.checkStrike(randomNumber, predictNumber);
+        int ball = game.checkBall(randomNumber, predictNumber);
+        boolean checkCorrect = Printer.printResult(strike, ball);
     }
 
     @Test
@@ -93,5 +97,12 @@ public class GameTest {
     public void InvalidInputExceptionTest() {
         assertThatThrownBy(() -> RestartValidator.checkRestartNumber(3))
             .isInstanceOf(RestartNumberException.class);
+    }
+
+    @Test
+    @DisplayName("0이 포함된 값 예외 체크")
+    public void ContainZeroExceptionTest() {
+        assertThatThrownBy(() -> InputValidator.checkZeroNumber(102))
+            .isInstanceOf(ContainZeroException.class);
     }
 }

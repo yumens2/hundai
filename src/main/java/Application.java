@@ -1,3 +1,5 @@
+import domain.Computer;
+import domain.Game;
 import java.util.Scanner;
 
 public class Application {
