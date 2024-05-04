@@ -2,7 +2,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class LogicTest {
 
@@ -54,81 +57,74 @@ class LogicTest {
     }
 
     @Test
-    void shouldRecognizeNoMatchesCorrectly() {
-        Logic edgeCaseLogic = new Logic(111);
-        assertThat(edgeCaseLogic.isNothing(111)).isFalse();
-        edgeCaseLogic.setComputerNumber(123);
-        assertThat(edgeCaseLogic.isNothing(312)).isFalse();
-        for (Integer number : validNumbers) {
-            Logic logic = new Logic(number);
-            assertThat(logic.isNothing(number)).isFalse();
-            for (int j = 0; j < 3; j++) {
-                int modifiedNumber = modifyNumber(number, j);
-                logic.setComputerNumber(modifiedNumber);
-                assertThat(logic.isNothing(number)).isFalse();
-            }
-        }
+    void shouldInitCorrectly() {
+        Logic logic = new Logic();
+        assertThat(logic.getComputerNumber()).isIn(validNumbers);
+        assertThat(logic.getComputerDigits()).isEqualTo(safeGetDigit(logic.getComputerNumber()));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {222, 234, 345, 456, 567, 678, 789, 893, 932})
+    @DisplayName("Nothing test")
+    void shouldReturnNothing(int number) {
+        Logic logic = new Logic(111);
+        assertThat(logic.isBall(number)).isEqualTo(0);
+        assertThat(logic.isStrike(number)).isEqualTo(0);
+        assertThat(logic.isNothing(number)).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {222, 234, 345, 456, 557, 678, 788, 898, 932})
+    @DisplayName("3strike 0ball test")
+    void shouldReturn3strike(int number) {
+        Logic logic = new Logic(number);
+        assertThat(logic.isBall(number)).isEqualTo(0);
+        assertThat(logic.isStrike(number)).isEqualTo(3);
+        assertThat(logic.isNothing(number)).isFalse();
     }
 
     @Test
-    void shuldModifyNumberCorrectly() {
-        assertThat(modifyNumber(123, 0)).isEqualTo(213);
-        assertThat(modifyNumber(123, 1)).isEqualTo(132);
-        assertThat(modifyNumber(123, 2)).isEqualTo(321);
-    }
-
-    @Test
-    void shouldSetComputerNumberCorrectly() {
+    @DisplayName("1strike 2ball test")
+    void shouldReturn1strike2ball() {
         Logic logic = new Logic(123);
-        assertThat(logic.getComputerNumber()).isEqualTo(123);
+        assertThat(logic.isBall(132)).isEqualTo(2);
+        assertThat(logic.isStrike(132)).isEqualTo(1);
+        assertThat(logic.isNothing(132)).isFalse();
+
+        assertThat(logic.isBall(213)).isEqualTo(2);
+        assertThat(logic.isStrike(213)).isEqualTo(1);
+        assertThat(logic.isNothing(213)).isFalse();
     }
 
     @Test
-    void shouldCalculateStrikesCorrectly() {
-        Logic edgeCaseLogic = new Logic(111);
-        assertThat(edgeCaseLogic.isStrike(111)).isEqualTo(3);
-        edgeCaseLogic.setComputerNumber(123);
-        assertThat(edgeCaseLogic.isStrike(312)).isEqualTo(0);
-        for (Integer number : validNumbers) {
-            Logic logic = new Logic(number);
-            assertThat(logic.isStrike(number)).isEqualTo(3);
-            for (int j = 0; j < 3; j++) {
-                int modifiedNumber = modifyNumber(number, j);
-                logic.setComputerNumber(modifiedNumber);
-                assertThat(logic.isStrike(number)).isEqualTo(1);
-            }
+    @DisplayName("2strike 0ball test")
+    void shouldReturn2strike1ball() {
+        Logic logic1 = new Logic(123);
+        int[] testCase1 = {129, 923, 193};
+        for (int i : testCase1) {
+            assertThat(logic1.isBall(i)).isEqualTo(0);
+            assertThat(logic1.isStrike(i)).isEqualTo(2);
+            assertThat(logic1.isNothing(i)).isFalse();
+        }
+
+        Logic logic2 = new Logic(111);
+        int[] testCase2 = {112, 121, 211};
+        for (int i : testCase2) {
+            assertThat(logic2.isBall(i)).isEqualTo(0);
+            assertThat(logic2.isStrike(i)).isEqualTo(2);
+            assertThat(logic2.isNothing(i)).isFalse();
         }
     }
 
     @Test
-    void shouldCalculateBallsCorrectly() {
-        Logic edgeCaseLogic = new Logic(111);
-        assertThat(edgeCaseLogic.isBall(111)).isEqualTo(0);
-        edgeCaseLogic.setComputerNumber(123);
-        assertThat(edgeCaseLogic.isBall(312)).isEqualTo(3);
-        for (Integer number : validNumbers) {
-            Logic logic = new Logic(number);
-            assertThat(logic.isBall(number)).isEqualTo(0);
-            for (int j = 0; j < 3; j++) {
-                int modifiedNumber = modifyNumber(number, j);
-                logic.setComputerNumber(modifiedNumber);
-                assertThat(logic.isBall(number)).isEqualTo(2);
-            }
-        }
-    }
-
-    @Test
-    void shouldCalculateWinCorrectly() {
-        Logic edgeCaseLogic = new Logic(111);
-        assertThat(edgeCaseLogic.isWin(111)).isTrue();
-        for (Integer number : validNumbers) {
-            Logic logic = new Logic(number);
-            assertThat(logic.isWin(number)).isTrue();
-            for (int j = 0; j < 3; j++) {
-                int modifiedNumber = modifyNumber(number, j);
-                logic.setComputerNumber(modifiedNumber);
-                assertThat(logic.isWin(number)).isFalse();
-            }
+    @DisplayName("0strike 3ball test")
+    void shouldReturn0strike3ball() {
+        Logic logic = new Logic(123);
+        int[] testCase = {231, 312};
+        for (int i : testCase) {
+            assertThat(logic.isBall(i)).isEqualTo(3);
+            assertThat(logic.isStrike(i)).isEqualTo(0);
+            assertThat(logic.isNothing(i)).isFalse();
         }
     }
 
@@ -146,22 +142,5 @@ class LogicTest {
         ret[1] = number / 10 % 10;
         ret[2] = number % 10;
         return ret;
-    }
-
-
-    /**
-     * Adjust the numbers to match the 2 balls, 1 strike condition. swap the idx-th digit with the
-     * (idx + 1) % 3-th digit.
-     *
-     * @param number number to modify
-     * @param index  index of the digit to increment by 1
-     * @return modified number
-     */
-    private int modifyNumber(int number, int index) {
-        int[] digits = safeGetDigit(number);
-        int tmp = digits[index];
-        digits[index] = digits[(index + 1) % 3];
-        digits[(index + 1) % 3] = tmp;
-        return digits[0] * 100 + digits[1] * 10 + digits[2];
     }
 }

@@ -85,7 +85,6 @@ public class Logic {
 
         for (int i = 0; i < 3; i++) {
             freq[computerDigits[i]]++;
-            freq[userDigits[i]]++;
         }
 
         for (int i = 0; i < 3; i++) {
