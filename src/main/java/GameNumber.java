@@ -49,7 +49,7 @@ public class GameNumber {
             char digit = gameNumber.charAt(indexInThis);
             int indexInOther = otherGameNumber.indexOf(digit);
 
-            if (indexInOther != -1) {
+            if (indexInOther == -1) {
                 continue;
             } else if (indexInOther == indexInThis) {
                 strike++;
