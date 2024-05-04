@@ -11,4 +11,10 @@ public class Validator {
         }
         return true;
     }
+
+    private boolean isUserInputNotSame(String userInput){
+        return (userInput.charAt(0) != userInput.charAt(1) &&
+            userInput.charAt(0) != userInput.charAt(2) &&
+            userInput.charAt(1) != userInput.charAt(2));
+    }
 }
