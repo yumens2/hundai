@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Result {
+public enum Hint {
     STRIKE("스트라이크"),
     BALL("볼"),
     NOTHING("낫싱");

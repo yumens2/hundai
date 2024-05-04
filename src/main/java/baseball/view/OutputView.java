@@ -1,12 +1,12 @@
 package baseball.view;
 
 import baseball.dto.ResultDto;
-import baseball.enums.Result;
+import baseball.enums.Hint;
 
 public class OutputView {
 
     public void result(ResultDto resultDto) {
-        System.out.println(Result.toString(resultDto));
+        System.out.println(Hint.toString(resultDto));
     }
 
     public void gameOver() {
