@@ -2,6 +2,9 @@ package service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 class GameServiceTest {
@@ -10,6 +13,18 @@ class GameServiceTest {
 
     public GameServiceTest() {
         this.gameService = new GameService(new RandomGenerator());
+    }
+
+    @Test
+    void nonIntegerInputTest() {
+        InputStream in = System.in;
+        String input = "문자열 입력\n";
+        GameService.setScanner(new Scanner(new ByteArrayInputStream(input.getBytes())));
+
+        assertThrowsExactly(IllegalArgumentException.class,
+            () -> gameService.getInput());
+
+        System.setIn(in);
     }
 
     @Test
