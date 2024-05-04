@@ -11,7 +11,7 @@ public class InputView {
     }
 
     public String answer() {
-        System.out.print("숫자를 입력해 주세요 : ");
+        System.out.println("숫자를 입력해 주세요 : ");
         return scanner.next();
     }
 }

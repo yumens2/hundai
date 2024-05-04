@@ -12,7 +12,7 @@ public class AnswerValidator {
         validateRedundancy(input);
     }
 
-    private static void validateInteger(String input) {
+    public static void validateInteger(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -20,13 +20,13 @@ public class AnswerValidator {
         }
     }
 
-    private static void validateDigit(String input) {
-        if (input.trim().length() != 3) {
+    public static void validateDigit(String input) {
+        if (input.length() != 3) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static void validateRedundancy(String input) {
+    public static void validateRedundancy(String input) {
         Set<String> set = new HashSet<>(Arrays.asList(input.split("")));
         if (set.size() != input.length()) {
             throw new IllegalArgumentException();

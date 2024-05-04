@@ -6,11 +6,7 @@ import baseball.validator.AnswerValidator;
 public class GameService {
 
     public void play(String input) {
-        try {
-            AnswerValidator.validate(input);
-        } catch (IllegalArgumentException e) {
-            return; // todo:
-        }
+        AnswerValidator.validate(input);
 
         int answer = InputParser.parseAnswer(input);
     }
