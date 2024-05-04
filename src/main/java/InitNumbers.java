@@ -1,18 +1,16 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class InitNumbers {
 
     private String numbers = "";
 
     public InitNumbers() {
-        boolean[] checked = new boolean[10];
+        ArrayList<Integer> temp = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
 
-        while (this.numbers.length() < 3) {
-            int temp = (int) ((Math.random() * 10000) % 10);
-
-            if (!checked[temp]) {
-                checked[temp] = true;
-                this.numbers += Integer.toString(temp);
-            }
-        }
+        Collections.shuffle(temp);
+        this.numbers = Integer.toString(temp.get(0)) + Integer.toString(temp.get(1)) + Integer.toString(temp.get(2));
     }
 
     public String getNumbers() {
