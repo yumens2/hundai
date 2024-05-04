@@ -6,8 +6,11 @@ import java.util.Scanner;
 public class BaseballGame {
 
     public void startGame() {
-        System.out.println("Game started");
-        playGame();
+        boolean isPlaying = true;
+        while(isPlaying) {
+            playGame();
+            isPlaying = askToPlayAgain();
+        }
     }
 
     public void playGame() {
@@ -103,5 +106,21 @@ public class BaseballGame {
             return true;
         }
         return false;
+    }
+
+    public static boolean askToPlayAgain() {
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
+            int input = scanner.nextInt();
+            System.out.println(input);
+            if (input == 1) {
+                System.out.println("1입력");
+                return true;
+            } else {
+                System.out.println("2입력");
+                return false;
+            }
+        }
     }
 }
