@@ -11,12 +11,18 @@ class NumberGeneratorTest {
 	private SoftAssertions softAssertions;
 
 	private List<Integer> answer;
+	private int firstNum;
+	private int secondNum;
+	private int thirdNum;
 
 	@BeforeEach
 	void setUp() {
 		numberGenerator = new NumberGenerator();
 		softAssertions = new SoftAssertions();
 		answer = numberGenerator.generateAnswer();
+		firstNum = answer.get(0);
+		secondNum = answer.get(1);
+		thirdNum = answer.get(2);
 	}
 
 	@Test
@@ -29,9 +35,6 @@ class NumberGeneratorTest {
 	@Test
 	@DisplayName("리스트 내의 숫자들은 서로 달라야 한다.")
 	public void differentEachOther() {
-		int firstNum = answer.get(0);
-		int secondNum = answer.get(1);
-		int thirdNum = answer.get(2);
 
 		softAssertions.assertThat(firstNum).isNotEqualTo(secondNum);
 		softAssertions.assertThat(firstNum).isNotEqualTo(thirdNum);
