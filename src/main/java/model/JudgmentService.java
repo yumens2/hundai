@@ -8,10 +8,20 @@ public class JudgmentService {
     }
 
     public int countStrike(ArrayList<Integer> targetNumbers, ArrayList<Integer> inputNumbers){
-
+        int strikeCount = 0;
+        for(int i = 0; i < inputNumbers.size(); i++){
+            if(inputNumbers.get(i) == targetNumbers.get(i))
+                strikeCount++;
+        }
+        return strikeCount;
     }
 
     public int countBall(ArrayList<Integer> targetNumbers, ArrayList<Integer> inputNumbers){
-
+        int ballCount = 0;
+        for(int i = 0; i < inputNumbers.size(); i++){
+            if(targetNumbers.contains(inputNumbers.get(i)))
+                ballCount++;
+        }
+        return ballCount;
     }
 }
