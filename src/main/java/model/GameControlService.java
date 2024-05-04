@@ -19,8 +19,8 @@ public class GameControlService {
             System.out.print("숫자를 입력해 주세요 : ");
             scanInput();
             Score score = judgmentService.compare(targetNumbers, inputNumbers);
-            if(score.getStrike() == BaseballNumberGenerator.making_number_count) break;
             printScore(score);
+            if(score.getStrike() == BaseballNumberGenerator.making_number_count) break;
         }
     }
 
