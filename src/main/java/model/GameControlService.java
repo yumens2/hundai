@@ -20,7 +20,10 @@ public class GameControlService {
             scanInput();
             Score score = judgmentService.compare(targetNumbers, inputNumbers);
             printScore(score);
-            if(score.getStrike() == BaseballNumberGenerator.making_number_count) break;
+            if(score.getStrike() == BaseballNumberGenerator.making_number_count){
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                break;
+            }
         }
     }
 
@@ -44,6 +47,7 @@ public class GameControlService {
     }
 
     public GameControlService scanRestart(){
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         int checkRestart = Integer.parseInt(scanner.nextLine());
         if(checkRestart == 1){
             GameControlService gameControlService = new GameControlService();
