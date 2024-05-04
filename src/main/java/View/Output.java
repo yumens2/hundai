@@ -1,14 +1,17 @@
+package View;
+
 public class Output {
-    //메시지 출력 기능
-    public static void printMessage(String message) {
+    public static void printlnMessage(String message) {
         System.out.println(message);
     }
-    //결과 출력 기능
-    public static void printResult(int strikes, int balls) {
+
+    public static void printMessage(String message) { System.out.print(message); }
+    public static String printResult(int strikes, int balls) {
         if (strikes == 0 && balls == 0) {
-            printMessage("Nothing");
-        } else {
-            printMessage(strikes + " Strike(s), " + balls + " Ball(s)");
+            return "낫싱";
+        }
+        else {
+            return (strikes + " 스트라이크, " + balls + " 볼");
         }
     }
 }
