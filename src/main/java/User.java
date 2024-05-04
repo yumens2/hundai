@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class User {
-    private static final int GAME_NUM = 3;
+    private static final int GAME_NUM = GameNum.GAME_NUM.getGameNum();
 
     private final Scanner scanner;
 

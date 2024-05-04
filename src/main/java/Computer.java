@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Computer {
-    private static final int GAME_NUM = 3;
+    private static final int GAME_NUM = GameNum.GAME_NUM.getGameNum();
     private int[] comNum = new int[GAME_NUM + 1];
     public void createGameNumber(){
         List<Integer> tmp = new ArrayList<>();
