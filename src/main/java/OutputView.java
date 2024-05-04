@@ -7,19 +7,19 @@ public class OutputView {
 	private static final String CORRECT = "정답~! 참 잘 했어요!";
 	private static final String RESTART_OR_QUIT_REQUEST = "재시작은 1, 종료는 2를 입력하세요.";
 
-	public static void printNumberInput() {
+	public void printNumberInput() {
 		System.out.println(INPUT_NUMBER_REQUEST);
 	}
 
-	public static void printCorrect() {
+	public void printCorrect() {
 		System.out.println(CORRECT);
 	}
 
-	public static void printRestartOrQuit() {
+	public void printRestartOrQuit() {
 		System.out.println(RESTART_OR_QUIT_REQUEST);
 	}
 
-	public static void printAnswer(Answer answer) {
+	public void printAnswer(Answer answer) {
 		StringBuilder sb = new StringBuilder();
 
 		int ball = answer.getBall();
