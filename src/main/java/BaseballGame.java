@@ -7,7 +7,7 @@ public class BaseballGame {
 
     public void startGame() {
         boolean isPlaying = true;
-        while(isPlaying) {
+        while (isPlaying) {
             playGame();
             isPlaying = askToPlayAgain();
         }
@@ -62,26 +62,28 @@ public class BaseballGame {
         int strikeCount = comparedResult[0];
         int ballCount = comparedResult[1];
 
-        if (strikeCount == 3) {
-            message = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
-            return message;
+        switch (strikeCount) {
+            case 3:
+                message = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+                break;
+            case 0:
+                if (ballCount == 0) {
+                    message = "낫싱";
+                } else {
+                    message = String.format("%d볼", ballCount);
+                }
+                break;
+            default:
+                if (ballCount == 0) {
+                    message = String.format("%d스트라이크", strikeCount);
+                } else {
+                    message = String.format("%d볼 %d스트라이크", ballCount, strikeCount);
+                }
+                break;
         }
-        if (strikeCount == 0 && ballCount == 0) {
-            message = "낫싱";
-            return message;
-        }
-        if (strikeCount > 0 && ballCount == 0) {
-            message = String.format("%d스트라이크", strikeCount);
-            return message;
-        }
-        if (strikeCount == 0 && ballCount > 0) {
-            message = String.format("%d볼", ballCount);
-            return message;
-        }
-        message = String.format("%d볼 %d스트라이크", ballCount, strikeCount);
         return message;
-
     }
+
 
     public int[] compareNumbers(int[] target, int[] userInput) {
         // 배열의 첫번쨰 자리에는 strike 개수, 두번째 자리에는 ball 개수
@@ -110,7 +112,7 @@ public class BaseballGame {
 
     public static boolean askToPlayAgain() {
         Scanner scanner = new Scanner(System.in);
-        while(true) {
+        while (true) {
             System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
             int input = scanner.nextInt();
             System.out.println(input);
