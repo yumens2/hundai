@@ -3,11 +3,15 @@ package com.mini.numbaseball.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class GameModelTest {
 
     @Test
+    @DisplayName("Answer 값 생성 검사")
     void initAnswerTest() {
         GameModel gameModel = new GameModel();
         gameModel.initAnswer();
@@ -29,14 +33,19 @@ class GameModelTest {
         assertThat(first).isNotEqualTo(third);
     }
 
-    @Test
-    void countStrikeTest() {
+    @ParameterizedTest
+    @DisplayName("Strike 개수 카운팅 검사")
+    @CsvSource({
+        "123, 456, 0",
+        "123, 145, 1",
+        "123, 523, 2",
+        "987, 987, 3"
+    })
+    void countStrikeTest(int guess, int answer, int expectedStrike) {
         GameModel gameModel = new GameModel();
-
-        // 0-3 strike 개수 카운팅 테스트
-        assertThat(gameModel.countStrike(123, 456)).isEqualTo(0);
-        assertThat(gameModel.countStrike(123, 145)).isEqualTo(1);
-        assertThat(gameModel.countStrike(123, 523)).isEqualTo(2);
-        assertThat(gameModel.countStrike(987, 987)).isEqualTo(3);
+        int actualStrike = gameModel.countStrike(guess, answer);
+        assertThat(actualStrike).isEqualTo(expectedStrike);
     }
+
+    
 }
