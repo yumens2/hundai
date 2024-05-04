@@ -13,13 +13,14 @@ public class Logic {
         this.computerNumber = 111;
         while (true){
             try {
-                computerNumber = (int) (Math.random() * 1000);
+                this.computerNumber = (int) (Math.random() * 1000);
                 Utils.validateNumber(computerNumber);
                 break;
             } catch (IllegalArgumentException e) {
                 continue;
             }
         }
+            this.computerDigits = Utils.getDigits(computerNumber);
     }
 
     /**
@@ -102,5 +103,9 @@ public class Logic {
 
     public int getComputerNumber() {
         return computerNumber;
+    }
+
+    public int[] getComputerDigits() {
+        return computerDigits;
     }
 }
