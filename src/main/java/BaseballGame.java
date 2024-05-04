@@ -37,8 +37,8 @@ public class BaseballGame {
     }
 
     public int[] getUserInput() {
-        System.out.println("세 자리 숫자를 입력하세요: ");
         Scanner scanner = new Scanner(System.in);
+        System.out.print("세 자리 숫자를 입력하세요: ");
         String input = scanner.nextLine();
 
         String[] inputArray = input.split("");
