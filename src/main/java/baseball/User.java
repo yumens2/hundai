@@ -14,14 +14,16 @@ public class User {
         //BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
         System.out.print("숫자를 입력해 주세요 : ");
         String num=sc.next();
+//        if(num.length()!=3){
+//            throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다");
+//        }
         List<Integer> playerNumber = new ArrayList<>();
         for(String number: num.split("")){
             playerNumber.add(Integer.parseInt(number));
         }
-        sc.close();
         return playerNumber;
     }
-    public boolean isPossible(List<Integer> userNumber)throws IllegalArgumentException{
+    public boolean isPossible(List<Integer> userNumber){
         if(userNumber.size()!=3){
             throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
         }
