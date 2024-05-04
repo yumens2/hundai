@@ -13,7 +13,6 @@ GameControlService
 
 JudgmentService
 - compare : 숫자야구 번호와 상대방(컴퓨터)의 수를 비교한다.
-- strikeCount : strike의 갯수를 센다.
-- ballCount : ball의 갯수를 센다.
+- countStrikeBall : strike와 ball 갯수를 센다.
 - printCompareResult : 비교 결과를 출력한다.
 
