@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 public class GameModel {
@@ -57,6 +56,26 @@ public class GameModel {
         }
 
         return cnt;
+    }
+
+    public String createResult(int number1, int number2) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int strike = countStrike(number1, number2);
+        int ball = countBall(number1, number2);
+
+        if (ball > 0) {
+            stringBuilder.append(ball).append("볼 ");
+        }
+
+        if (strike > 0) {
+            stringBuilder.append(strike).append("스트라이크 ");
+        }
+
+        if (stringBuilder.isEmpty()) {
+            stringBuilder.append("낫싱");
+        }
+
+        return stringBuilder.toString().strip();
     }
 
     public int getAnswer() {
