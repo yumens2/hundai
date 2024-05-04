@@ -53,7 +53,7 @@ public class InputValidator {
 
     private static boolean isNumber(String input) {
         for (int i = 0; i < 3; i++) {
-            if (!('0' <= input.charAt(i) && input.charAt(i) <= '9')) return false;
+            if (!('1' <= input.charAt(i) && input.charAt(i) <= '9')) return false;
         }
         return true;
     }
