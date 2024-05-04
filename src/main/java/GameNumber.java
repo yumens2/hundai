@@ -39,6 +39,32 @@ public class GameNumber {
         return result;
     }
 
+    public SBCount compareTo(GameNumber other) {
+        String otherGameNumber = other.getGameNumber();
+
+        int strike = 0;
+        int ball = 0;
+
+        for (int indexInThis = 0; indexInThis < 3; indexInThis++) {
+            char digit = gameNumber.charAt(indexInThis);
+            int indexInOther = otherGameNumber.indexOf(digit);
+
+            if (indexInOther != -1) {
+                continue;
+            } else if (indexInOther == indexInThis) {
+                strike++;
+            } else {
+                ball++;
+            }
+        }
+
+        return new SBCount(strike, ball);
+    }
+
+    public String getGameNumber() {
+        return gameNumber;
+    }
+
     GameNumber() {
         this.gameNumber = randomGameNumber();
     }
