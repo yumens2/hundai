@@ -1,4 +1,16 @@
 public class Validator {
+    public boolean isUserInputValid(String userInput){
+        if (!isUserInputLengthGameNum(userInput)){
+            return false;
+        }
+
+        if (!isUserInputNotInt(userInput)){
+            return false;
+        }
+
+        return isUserInputNotSame(userInput);
+    }
+
     private boolean isUserInputLengthGameNum(String userInput){
         return (userInput != null && userInput.length() == 3);
     }
