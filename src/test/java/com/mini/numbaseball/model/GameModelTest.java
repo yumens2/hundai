@@ -56,7 +56,7 @@ class GameModelTest {
         "123, 321, 2",
         "123, 231, 3"
     })
-    void countBallTest(int guess, int answer, int expectedBall){
+    void countBallTest(int guess, int answer, int expectedBall) {
         GameModel gameModel = new GameModel();
         int actualBall = gameModel.countBall(guess, answer);
         assertThat(actualBall).isEqualTo(expectedBall);
@@ -72,7 +72,7 @@ class GameModelTest {
         "713, 713, '3스트라이크'",
         "425, 713, '낫싱'"
     })
-    void createResultTest(int guess, int answer, String expectedResult){
+    void createResultTest(int guess, int answer, String expectedResult) {
         GameModel gameModel = new GameModel();
         String actualResult = gameModel.createResult(guess, answer);
         assertThat(actualResult).isEqualTo(expectedResult);
