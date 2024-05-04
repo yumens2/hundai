@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Application {
-    private boolean wantRestart(Scanner scanner) {
+    private static boolean wantRestart(Scanner scanner) {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. ");
 
         String input = scanner.nextLine();
@@ -15,6 +15,12 @@ public class Application {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        do {
+            NBBGame game = new NBBGame(scanner);
+
+            game.playGame();
+        } while (wantRestart(scanner));
     }
 }
