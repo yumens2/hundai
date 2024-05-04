@@ -30,6 +30,9 @@ public class Utils {
                 throw new IllegalArgumentException("Number must not contain 0");
             }
         }
+        if (digits[0] == digits[1] || digits[1] == digits[2] || digits[0] == digits[2]) {
+            throw new IllegalArgumentException("Number must not contain duplicate digits");
+        }
     }
 
     /**
