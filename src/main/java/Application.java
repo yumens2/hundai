@@ -9,6 +9,7 @@ public class Application {
         while (true) {
             System.out.print("숫자를 입력해 주세요 : ");
             int userNumber = Utils.InputToRightInteger(sc.nextLine());
+            System.out.println(logic.getComputerNumber());
             int strike = logic.isStrike(userNumber);
             int ball = logic.isBall(userNumber);
             if (strike == 3) {

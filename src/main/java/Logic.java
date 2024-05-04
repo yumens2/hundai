@@ -10,8 +10,16 @@ public class Logic {
      * Constructor for Logic class
      */
     Logic() {
-        this.computerNumber = (int) (Math.random() * 1000);
-        this.computerDigits = Utils.getDigits(computerNumber);
+        this.computerNumber = 111;
+        while (true){
+            try {
+                computerNumber = (int) (Math.random() * 1000);
+                Utils.validateNumber(computerNumber);
+                break;
+            } catch (IllegalArgumentException e) {
+                continue;
+            }
+        }
     }
 
     /**
