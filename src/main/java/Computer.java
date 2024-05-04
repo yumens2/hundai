@@ -3,11 +3,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Computer {
-    private static final int NUM_LENGTH = 3;
+    private static final int NUM_LENGTH = 3;         // 숫자 최대 길이
 
-    private String randNum;         // Random number
-    private int strikeScore;
-    private int ballScore;
+    private String randNum;                         // Random number
+    private int strikeScore;                        // 스트라이크 점수
+    private int ballScore;                          // 볼 점수
 
     public Computer() {}
 
@@ -151,6 +151,9 @@ public class Computer {
         return ballScore == 0 && strikeScore == 0;
     }
 
+    /**
+     * 유저 입력 안내 메시지 출력
+     */
     public void printInputMessage() {
         System.out.print("숫자를 입력해 주세요 : ");
     }

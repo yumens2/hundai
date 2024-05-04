@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class User {
-    private String inputNum;
-    private int retryOrFinish;
+    private String inputNum;        // 유저 추측 입력 값
+    private int retryOrFinish;      // 재시작/종료 선택 입력 값
 
     public User() {}
 
@@ -10,6 +10,9 @@ public class User {
         return inputNum;
     }
 
+    /**
+     * 유저로부터 추측한 숫자를 입력받는 메서드
+     */
     public void setInputNum() {
         Scanner scan = new Scanner(System.in);
         inputNum = scan.nextLine();
@@ -24,7 +27,7 @@ public class User {
     }
 
     /**
-     * retryOrFinish Setter
+     * 유저로부터 재시작/종료에 대한 입력을 받는 메서드
      */
     public void setRetryOrFinish() {
         Scanner scan = new Scanner(System.in);

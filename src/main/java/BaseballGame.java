@@ -1,5 +1,5 @@
 public class BaseballGame {
-    private static final int RETRY = 1;
+    private static final int RETRY = 1;                         // 재시작(1)
 
     private final Computer com;
     private final User user;
@@ -12,12 +12,12 @@ public class BaseballGame {
     public void game() {
         try {
             do {
-                new GameProcess(com, user).play();
-                com.printFinishMessage();
-                user.setRetryOrFinish();
-            } while (retryGame(user.chooseRetryOrFinish()));
+                new GameProcess(com, user).play();              // 새 게임을 시작
+                com.printFinishMessage();                       // 게임 종료 메시지 출력
+                user.setRetryOrFinish();                        // 재시작/종료 선택
+            } while (retryGame(user.chooseRetryOrFinish()));    // 재시작/종료 판단
         } catch(IllegalArgumentException e) {
-            printErrorMessage();
+            printErrorMessage();                                // Error 메시지 출력
         }
     }
 
