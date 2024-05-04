@@ -5,18 +5,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class User {
     //숫자 입력받기
-    public List<Integer> userNumber() throws IOException {
-        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("숫자를 입력해 주세요 : ");
-        String num=br.readLine();
+    public List<Integer> userNumber() {
+        Scanner sc=new Scanner(System.in);
+        //BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("숫자를 입력해 주세요 : ");
+        String num=sc.next();
         List<Integer> playerNumber = new ArrayList<>();
         for(String number: num.split("")){
             playerNumber.add(Integer.parseInt(number));
         }
-        br.close();
+        sc.close();
         return playerNumber;
     }
     public boolean isPossible(List<Integer> userNumber)throws IllegalArgumentException{
