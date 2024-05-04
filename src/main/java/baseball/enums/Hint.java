@@ -1,17 +1,17 @@
 package baseball.enums;
 
 import baseball.dto.ResultDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@Getter
-@AllArgsConstructor
 public enum Hint {
     STRIKE("스트라이크"),
     BALL("볼"),
     NOTHING("낫싱");
 
     private final String value;
+
+    Hint(String value) {
+        this.value = value;
+    }
 
     public static String toString(ResultDto resultDto) {
         int strike = resultDto.getStrike();
