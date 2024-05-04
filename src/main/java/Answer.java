@@ -1,21 +1,22 @@
 public class Answer {
 
-	private int ball;
-	private int strike;
-	public Answer(int ball, int strike) {
-		this.ball = ball;
-		this.strike = strike;
-	}
+    private int ball;
+    private int strike;
 
-	public int getBall() {
-		return ball;
-	}
+    public Answer(int ball, int strike) {
+        this.ball = ball;
+        this.strike = strike;
+    }
 
-	public int getStrike() {
-		return strike;
-	}
+    public int getBall() {
+        return ball;
+    }
 
-	public boolean isFinished() {
-		return getStrike() == 3;
-	}
+    public int getStrike() {
+        return strike;
+    }
+
+    public boolean isFinished() {
+        return getStrike() == 3;
+    }
 }
