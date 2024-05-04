@@ -2,7 +2,7 @@ package domain;
 
 import java.util.List;
 
-import static constant.MessageConstants.*;
+import static domain.constant.ResultConstants.*;
 
 public class Result {
     private int strike;
