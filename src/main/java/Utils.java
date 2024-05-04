@@ -13,4 +13,20 @@ public class Utils {
         ret[2] = number % 10;
         return ret;
     }
+
+    /**
+     * Validate number for the game<br> Number must be between 100 and 999 and must not contain 0
+     *
+     * @param number number to validate
+     * @throws IllegalArgumentException if number is not valid
+     */
+    public static boolean validateNumber(int number) {
+        if (number < 100 || number > 999) {
+            throw new IllegalArgumentException("Number must be between 100 and 999");
+        }
+        if ((number & 10) == 0 || (number % 100) % 10 == 0) {
+            throw new IllegalArgumentException("Number must not contain 0");
+        }
+        return true;
+    }
 }
