@@ -38,8 +38,8 @@ public class Game {
         } catch (Exception e) {
             throw new InvalidInputException();
         }
-        InputValidator.checkDuplicate(number);
         InputValidator.checkInvalidLength(number);
+        InputValidator.checkDuplicate(number);
         return number;
     }
 
