@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class randomNumber {
+public class RandomNumber {
     public ArrayList<Integer> generateRandomNumbers() {
         ArrayList<Integer> randomNumbers = new ArrayList<>();
 
