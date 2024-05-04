@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class InputView {
+
+	private static final int NUMBER_LENGTH = 3;
+	private static final int FLAG_LENGTH = 1;
+
+	private static final int MIN = 1;
+	private static final int MAX = 9;
+
+	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public List<Integer> readNumber() throws IOException {
+		String line = br.readLine();
+		checkNumberLength(line);
+		return makeNumberList(line);
+	}
+
+	public List<Integer> makeNumberList(String line) {
+		List<Integer> numberList = new ArrayList<>();
+		for(int i = 0; i < NUMBER_LENGTH; i++) {
+			char ch = line.charAt(i);
+			validateNumber(ch);
+			int number = line.charAt(i) - '0';
+			validateRange(number);
+			numberList.add(number);
+		}
+		return numberList;
+	}
+
+	private void checkNumberLength(String line) {
+		if(line.length() != NUMBER_LENGTH) throw new IllegalArgumentException();
+	}
+
+	private void validateRange(int number) {
+		if(number < MIN || number > MAX) throw new IllegalArgumentException();
+	}
+
+	private void validateNumber(char ch) {
+		if(!Character.isDigit(ch)) throw new IllegalArgumentException();
+	}
+}
