@@ -10,11 +10,15 @@ public class BaseballGame {
     }
 
     public void game() {
-        do {
-            new GameProcess(com, user).play();
-            com.printFinishMessage();
-            user.setRetryOrFinish();
-        } while(retryGame(user.chooseRetryOrFinish()));
+        try {
+            do {
+                new GameProcess(com, user).play();
+                com.printFinishMessage();
+                user.setRetryOrFinish();
+            } while (retryGame(user.chooseRetryOrFinish()));
+        } catch(IllegalArgumentException e) {
+            printErrorMessage();
+        }
     }
 
     /**
@@ -24,5 +28,13 @@ public class BaseballGame {
      */
     private boolean retryGame(int userChoice) {
         return userChoice == RETRY;
+    }
+
+    /**
+     * IllegalArgumentException으로 인한 종료 메시지 출력
+     */
+    private void printErrorMessage() {
+        System.out.println("잘못된 형식의 입력입니다.");
+        System.out.println("게임을 종료합니다.");
     }
 }

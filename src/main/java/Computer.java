@@ -32,7 +32,9 @@ public class Computer {
      * @param inputNum 입력된 수
      */
     public void inputValidationCheck(String inputNum) {
-        isInputValid(inputNum);
+        if (!isInputValid(inputNum)) {
+            throw new IllegalArgumentException("Invalid argument: " + inputNum);
+        }
     }
 
     /**
