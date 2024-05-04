@@ -48,4 +48,13 @@ class NumberGeneratorTest {
 		softAssertions.assertAll();
 	}
 
+	@Test
+	@DisplayName("리스트 내의 숫자들은 1~9까지의 숫자여야만 한다.")
+	public void rangeCheck() {
+		softAssertions.assertThat(firstNum).isBetween(1,9);
+		softAssertions.assertThat(secondNum).isBetween(1,9);
+		softAssertions.assertThat(thirdNum).isBetween(1,9);
+		softAssertions.assertAll();
+	}
+
 }
