@@ -9,15 +9,16 @@ import service.RandomGenerator;
 public class GameController {
 
     private final GameService gameService;
-    private final Scanner sc;
+    private static Scanner sc;
 
     public GameController() {
         this.gameService = new GameService(new RandomGenerator());
-        this.sc = new Scanner(System.in);
+        sc = new Scanner(System.in);
     }
 
     public void playGame() {
         GameService.setScanner(sc);
+
         do {
             Number answer = gameService.getAnswer();
             playOneTurn(answer);
@@ -49,4 +50,5 @@ public class GameController {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         return gameService.getInput() == 1;
     }
+
 }
