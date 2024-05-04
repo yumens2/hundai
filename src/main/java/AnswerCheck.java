@@ -2,12 +2,12 @@ import java.util.List;
 
 public class AnswerCheck {
 
-	private List<Integer> playerNumber;
 	private List<Integer> computerNumber;
+	private List<Integer> playerNumber;
 
-	public AnswerCheck(List<Integer> playerNumber, List<Integer> computerNumber) {
-		this.playerNumber = playerNumber;
+	public AnswerCheck(List<Integer> computerNumber, List<Integer> playerNumber) {
 		this.computerNumber = computerNumber;
+		this.playerNumber = playerNumber;
 	}
 
 	public Answer checkResult(List<Integer> computerNumber, List<Integer> playerNumber) {
