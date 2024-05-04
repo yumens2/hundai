@@ -39,8 +39,20 @@ public class NumberBaseballGame {
         if (!strategy.isValid(input)) {
             throw new IllegalArgumentException("잘못된 입력 : 서로 다른 숫자 세개를 입력해야 합니다.");
         }
+        List<Integer> actual = parseInput(input);
+        defense(actual);
     }
 
+    public void success() {
+    }
+
+    public void stop() {
+        if(!isRunning()) {
+            throw new IllegalStateException("게임이 시작되지 않았습니다.");
+        }
+        state = GameState.STOPPED;
+        System.out.println("게임을 종료합니다.");
+    }
 
     private void generateNewAnswers() {
         answers.clear();
@@ -50,5 +62,36 @@ public class NumberBaseballGame {
                 answers.add(number);
             }
         }
+    }
+
+    private List<Integer> parseInput(String input) {
+        List<Integer> numbers = new LinkedList<>();
+        for (char c : input.toCharArray()) {
+            numbers.add(c - '0');
+        }
+        return numbers;
+    }
+
+    private void defense(List<Integer> actual) {
+        DefenseResult result = getDefenseResult(answers, actual);
+        System.out.println(result);
+        if(result.isStrikeOut()) {
+            success();
+            return;
+        }
+        System.out.print("숫자를 입력해 주세요 : ");
+    }
+
+    private DefenseResult getDefenseResult(List<Integer> expected, List<Integer> actual) {
+        int strike = 0;
+        int ball = 0;
+        for (int i = 0; i < expected.size(); i++) {
+            if (expected.get(i).equals(actual.get(i))) {
+                strike++;
+            } else if (expected.contains(actual.get(i))) {
+                ball++;
+            }
+        }
+        return new DefenseResult(strike, ball);
     }
 }
