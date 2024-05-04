@@ -11,6 +11,18 @@ public class Computer {
 
     public Computer() {}
 
+    public String getRandNum() {
+        return randNum;
+    }
+
+    public int getStrikeScore() {
+        return strikeScore;
+    }
+
+    public int getBallScore() {
+        return ballScore;
+    }
+
     /**
      * Random number 생성하는 Setter
      */
