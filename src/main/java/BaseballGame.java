@@ -11,15 +11,18 @@ public class BaseballGame {
     }
 
     public void playGame() {
-
         int[] targetNumbers = generateRandomNumbers();
-        int[] userInput = getUserInput();
-        System.out.println(Arrays.toString(targetNumbers));
-        System.out.println(Arrays.toString(userInput));
-        int[] comparedResult = compareNumbers(targetNumbers, userInput);
-        System.out.println(getResultMessage(comparedResult));
 
-
+        while (true) {
+            int[] userInput = getUserInput();
+            System.out.println(Arrays.toString(targetNumbers));
+            System.out.println(Arrays.toString(userInput));
+            int[] comparedResult = compareNumbers(targetNumbers, userInput);
+            System.out.println(getResultMessage(comparedResult));
+            if (isGameEnded(comparedResult)) {
+                break;
+            }
+        }
     }
 
     public static int[] generateRandomNumbers() {
@@ -93,5 +96,12 @@ public class BaseballGame {
             }
         }
         return new int[]{strikeCount, ballCount};
+    }
+
+    public boolean isGameEnded(int[] comparedResult) {
+        if (comparedResult[0] == 3) {
+            return true;
+        }
+        return false;
     }
 }
