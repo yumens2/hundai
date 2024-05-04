@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class NBBGame {
+public class NBBGame {
+    private final GameNumber answer;
+
+    NBBGame() {
+        this.answer = new GameNumber();
+    }
 }
