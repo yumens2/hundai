@@ -13,6 +13,8 @@ public class RandomNumberTest {
 
         if (size != 3) {
             System.out.println("3자리 숫자가 생성되지 않았습니다.");
+        } else {
+            System.out.println("3자리 숫자가 생성되었습니다.");
         }
     }
 
@@ -29,6 +31,8 @@ public class RandomNumberTest {
 
         if (!isValid) {
             System.out.println("1~9 사이의 숫자가 생성되지 않았습니다.");
+        } else {
+            System.out.println("1~9 사이의 숫자가 생성되었습니다.");
         }
     }
 
@@ -45,6 +49,8 @@ public class RandomNumberTest {
 
         if (isDuplicated) {
             System.out.println("중복된 숫자가 생성되었습니다.");
+        } else {
+            System.out.println("중복된 숫자가 생성되지 않았습니다.");
         }
     }
 }

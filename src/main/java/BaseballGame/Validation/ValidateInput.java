@@ -7,7 +7,7 @@ public class ValidateInput {
         }
 
         if (!input.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException("[ERROR] 숫자만 입력해주세요!");
+            throw new IllegalArgumentException("[ERROR] 1~9 사이의 숫자만 입력해주세요!");
         }
 
         if (input.chars().distinct().count() != 3) {
