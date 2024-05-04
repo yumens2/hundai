@@ -7,6 +7,9 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import validate.InputValidator;
+import Exception.*;
+import validate.RestartValidator;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -69,5 +72,26 @@ public class GameTest {
         int predictNumber = game.inputNumber(scanner);
         List<Integer> randomNumber = computer.makeRandomNumber();
         boolean checkCorrect = game.printResult(randomNumber, predictNumber);
+    }
+
+    @Test
+    @DisplayName("중복된 숫자 예외 체크")
+    public void duplicatedInputExceptionTest() {
+        assertThatThrownBy(() -> InputValidator.checkDuplicate(122))
+            .isInstanceOf(DuplicateException.class);
+    }
+
+    @Test
+    @DisplayName("범위를 벗어난 숫자 예외 체크")
+    public void InvalidLengthExceptionTest() {
+        assertThatThrownBy(() -> InputValidator.checkInvalidLength(1222))
+            .isInstanceOf(InvalidLengthException.class);
+    }
+
+    @Test
+    @DisplayName("유효하지 않은 재시작 값 예외 체크")
+    public void InvalidInputExceptionTest() {
+        assertThatThrownBy(() -> RestartValidator.checkRestartNumber(3))
+            .isInstanceOf(RestartNumberException.class);
     }
 }
