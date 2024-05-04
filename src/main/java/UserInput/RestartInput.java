@@ -1,14 +1,20 @@
 package UserInput;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class RestartInput {
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     // 사용자의 입력이 1 또는 2가 아닌 경우 예외 발생
     public static int restartInput() {
-        String inputString = scanner.nextLine();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String inputString = null;
+        try {
+            inputString = bufferedReader.readLine();
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
         if (!validationRestartInput(inputString)) {
             throw new IllegalArgumentException();
         }

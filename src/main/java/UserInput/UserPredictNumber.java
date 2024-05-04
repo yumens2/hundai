@@ -1,19 +1,25 @@
 package UserInput;
 
 import GenerateRandomNumber.RandomNumberGeneratorConfigure;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 
 public class UserPredictNumber {
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     public static List<Integer> predictInput() {
-        String inputString = scanner.nextLine();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String inputString = null;
+        try {
+            inputString = bufferedReader.readLine();
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
 
         // 사용자의 입력이 숫자가 아닌 경우, 중복된 숫자가 있는 경우, 입력한 숫자의 길이가 지정된 길이가 아닌 경우 예외 발생
         if (!validationPredictInputNotEqualLength(inputString)) {
