@@ -7,7 +7,7 @@ import java.util.List;
 public class NumberGenerator {
     public String generateNumber() {
         List<Integer> numbers = new ArrayList<Integer>();
-        for (int i = 0; i <= 9; i++) {
+        for (int i = 1; i <= 9; i++) {
             numbers.add(i);
         }
         Collections.shuffle(numbers);
