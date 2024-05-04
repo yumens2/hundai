@@ -18,7 +18,7 @@ public class GameView {
         return scanner.nextLine();
     }
 
-    public void displayResult(String result){
+    public void displayResult(String result) {
         System.out.println(result);
     }
 }

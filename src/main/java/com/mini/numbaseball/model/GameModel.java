@@ -86,7 +86,7 @@ public class GameModel {
         return answer;
     }
 
-    public boolean isCorrect() {
+    public boolean getIsCorrect() {
         return isCorrect;
     }
 }

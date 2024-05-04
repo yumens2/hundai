@@ -34,7 +34,7 @@ class GameViewTest {
 
         GameView gameView = new GameView();
 
-        String result = gameView.getUserInput();
+        String result = gameView.getIsReplay();
 
         assertThat("1").isEqualTo(result);
     }
