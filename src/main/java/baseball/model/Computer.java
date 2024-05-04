@@ -10,16 +10,19 @@ public class Computer {
     private List<Integer> answer;
 
     public void init() {
-        Random random = new Random();
-
         answer = new ArrayList<>();
 
         while (answer.size() < 3) {
-            int randomNumber = random.nextInt(9) + 1;
+            int randomNumber = generateRandomNumber();
             if (!answer.contains(randomNumber)) {
                 answer.add(randomNumber);
             }
         }
+    }
+
+    private int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(9) + 1;
     }
 
     public ResultDto judge(List<Integer> input) {
