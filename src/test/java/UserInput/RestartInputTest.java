@@ -1,6 +1,8 @@
 package UserInput;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +27,7 @@ class RestartInputTest {
 
     @DisplayName("Restart Input Fail Test")
     @ParameterizedTest
-    @ValueSource(strings = {"0", "3", "4", "5", "aaaa", "@@@", "a\naa\n\n\n\baaaaaaaasaddsadasddsadasdsa"})
+    @ValueSource(strings = {"0", "3", "4", "5", "aaaa", "@@@", "a\naadadas"})
     void restartInputFail(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         assertThrows(IllegalArgumentException.class, RestartInput::restartInput);

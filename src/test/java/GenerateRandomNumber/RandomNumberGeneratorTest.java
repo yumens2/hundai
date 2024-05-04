@@ -17,6 +17,10 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class RandomNumberGeneratorTest {
+    // MIN_VALUE와 MAX_VALUE 사이에 있는지 확인
+    private boolean numberInRange(Integer number) {
+        return number >= MIN_VALUE.getValue() && number <= MAX_VALUE.getValue();
+    }
 
     // 조건에 맞는 임의의 무작위 난수 생성
     static Stream<Arguments> generateData() {
@@ -61,8 +65,7 @@ class RandomNumberGeneratorTest {
             () -> assertNotEquals(generatedNumbers.get(0), 0),
 
             // 모든 수는 MIN_VALUE와 MAX_VALUE 사이에 있어야 한다.
-            () -> assertTrue(generatedNumbers.stream().allMatch(
-                number -> number >= MIN_VALUE.getValue() && number <= MAX_VALUE.getValue()))
+            () -> assertTrue(generatedNumbers.stream().allMatch(this::numberInRange))
         );
     }
 }
