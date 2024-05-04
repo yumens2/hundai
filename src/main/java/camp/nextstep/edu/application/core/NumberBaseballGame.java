@@ -36,6 +36,10 @@ public class NumberBaseballGame {
         if (!isRunning()) {
             throw new IllegalStateException("Game is not running.");
         }
+        if(state == GameState.PAUSED) {
+            decideGameStatus(input);
+            return;
+        }
         if (!strategy.isValid(input)) {
             throw new IllegalArgumentException("잘못된 입력 : 서로 다른 숫자 세개를 입력해야 합니다.");
         }
@@ -44,6 +48,9 @@ public class NumberBaseballGame {
     }
 
     public void success() {
+        state = GameState.PAUSED;
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
     }
 
     public void stop() {
@@ -93,5 +100,16 @@ public class NumberBaseballGame {
             }
         }
         return new DefenseResult(strike, ball);
+    }
+
+    private void decideGameStatus(String input) {
+        switch (input) {
+            case "1" -> {
+                state = GameState.READY;
+                run();
+            }
+            case "2" -> stop();
+            default -> throw new IllegalArgumentException("1 또는 2를 입력해야 합니다.");
+        }
     }
 }
