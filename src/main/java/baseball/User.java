@@ -1,35 +1,32 @@
 package baseball;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class User {
-    //숫자 입력받기
+    //유저 번호 입력 받기
     public List<Integer> userNumber() {
         Scanner sc=new Scanner(System.in);
         //BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
         System.out.print("숫자를 입력해 주세요 : ");
         String num=sc.next();
-//        if(num.length()!=3){
-//            throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다");
-//        }
         List<Integer> userNumber = new ArrayList<>();
         for(String number: num.split("")){
-            if(number.charAt(0)<'1'||number.charAt(0)>'0'){
+            if(number.charAt(0)<'1'||number.charAt(0)>'9'){
                 throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
             }
             userNumber.add(Integer.parseInt(number));
         }
-        if(isPossible(userNumber)){
-            return userNumber;
+        if(!isPossible(userNumber)){
+            throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
         }
-        throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
+        return userNumber;
+
 
     }
+    //유효 숫자인지
     public boolean isPossible(List<Integer> userNumber){
         if(userNumber.size()!=3){
             throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");

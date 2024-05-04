@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Referee {
+    //볼개수
     public int ball(List<Integer> baseballNum, List<Integer> userNum){
         int count=0;
         for(int i=0; i<3; i++){
@@ -13,6 +14,7 @@ public class Referee {
         }
         return count;
     }
+    //스트라이크 개수
     public int strike(List<Integer> baseballNum,List<Integer>userNum){
         int count=0;
         for(int i=0; i<3; i++){
@@ -22,6 +24,7 @@ public class Referee {
         }
         return count;
     }
+    //볼카운트
     public String ballCount(int ball, int strike){
         if(strike>0){
             ball-=strike;
