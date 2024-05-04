@@ -6,8 +6,6 @@ import utils.RandomNumber;
 import java.util.ArrayList;
 
 public class StartGame {
-    private static Input input = new Input();
-    private static BaseballGame baseballGame = new BaseballGame();
 
     public static void startGame() {
         ArrayList<Integer> targetNumbers = RandomNumber.generateRandomNumbers();
