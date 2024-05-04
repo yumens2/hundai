@@ -14,8 +14,10 @@ public class Validator {
         if (!isUserInputNotInt(restartInput)){
             return false;
         }
-
-        return isUserInputLength(restartInput, 1);
+        if (!isUserInputLength(restartInput, 1)){
+            return false;
+        }
+        return restartInput.equals("1") || restartInput.equals("2");
     }
     private boolean isUserInputLength(String userInput, int inputLength){
         return (userInput != null && userInput.length() == inputLength);
