@@ -29,7 +29,7 @@ public class Computer {
     public void generateRandNum() {
         Set<Integer> set = new HashSet<Integer>();
         while(set.size() < NUM_LENGTH) {
-            set.add((int)(Math.random() * 10));
+            set.add((int)(Math.random() * 9 + 1));
         }
 
         StringBuilder randNum = new StringBuilder();
@@ -83,7 +83,7 @@ public class Computer {
      * @return 모두 숫자이면 true
      */
     private boolean inputDomainCheck(String inputNum) {
-        return inputNum.matches("^[0-9]+$");
+        return inputNum.matches("^[1-9]+$");
     }
 
     /**
