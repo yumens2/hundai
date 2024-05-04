@@ -3,7 +3,6 @@ import util.Casting;
 import view.InputView;
 
 public class BaseBallGame {
-
     private InputView inputView = new InputView();
     private Computer computer;
 
