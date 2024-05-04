@@ -18,7 +18,9 @@ public class GameControlService {
         while(true){
             System.out.print("숫자를 입력해 주세요 : ");
             scanInput();
-            if(judgmentService.compare(targetNumbers, inputNumbers)) break;
+            Score score = judgmentService.compare(targetNumbers, inputNumbers);
+            if(score.getStrike() == BaseballNumberGenerator.making_number_count) break;
+            printScore(score);
         }
     }
 
@@ -52,5 +54,17 @@ public class GameControlService {
         }
         else
             throw new IllegalArgumentException("Invalid Input : " + checkRestart);
+    }
+
+    public void printScore(Score score){
+        if(score.getStrike() == 0 && score.getBall() == 0)
+            System.out.println("낫싱");
+        else{
+            if(score.getStrike()!=0)
+                System.out.print(score.getStrike() + "스트라이크 ");
+            if(score.getBall()!=0)
+                System.out.print(score.getBall() + "볼 ");
+            System.out.println();
+        }
     }
 }
