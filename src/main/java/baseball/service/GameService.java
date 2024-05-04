@@ -1,13 +1,21 @@
 package baseball.service;
 
+import baseball.model.Computer;
 import baseball.parser.InputParser;
 import baseball.validator.AnswerValidator;
 
 public class GameService {
 
-    public void play(String input) {
-        AnswerValidator.validate(input);
+    private final Computer computer;
 
+    public GameService() {
+        computer = new Computer();
+    }
+
+    public void play(String input) {
+        computer.init();
+
+        AnswerValidator.validate(input);
         int answer = InputParser.parseAnswer(input);
     }
 }
