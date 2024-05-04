@@ -10,6 +10,7 @@ public class AnswerValidator {
         validateInteger(input);
         validateDigit(input);
         validateRedundancy(input);
+        validateNoZero(input);
     }
 
     public static void validateInteger(String input) {
@@ -29,6 +30,12 @@ public class AnswerValidator {
     public static void validateRedundancy(String input) {
         Set<String> set = new HashSet<>(Arrays.asList(input.split("")));
         if (set.size() != input.length()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateNoZero(String input) {
+        if (input.contains("0")) {
             throw new IllegalArgumentException();
         }
     }
