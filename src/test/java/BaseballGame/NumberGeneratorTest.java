@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class NumberGeneratorTest {
+    NumberGenerator generator = new NumberGenerator();
 
     @Test
     @DisplayName("생성된 번호가 Null이 아닌지 확인")
     public void checkNotNullNumber() {
-        NumberGenerator generator = new NumberGenerator();
         String generatedNumber = generator.generateNumber();
 
         assertNotNull(generatedNumber);
@@ -18,7 +18,6 @@ public class NumberGeneratorTest {
     @Test
     @DisplayName("생성된 번호가 세 자리인지 확인")
     public void checkLengthNumber() {
-        NumberGenerator generator = new NumberGenerator();
         String generatedNumber = generator.generateNumber();
 
         assertEquals(3, generatedNumber.length());
@@ -27,7 +26,6 @@ public class NumberGeneratorTest {
     @Test
     @DisplayName("생성된 번호가 숫자인지 확인")
     public void testGenerateNumber() {
-        NumberGenerator generator = new NumberGenerator();
         String generatedNumber = generator.generateNumber();
 
         assertTrue(generatedNumber.matches("[0-9]+"));
@@ -36,7 +34,6 @@ public class NumberGeneratorTest {
     @Test
     @DisplayName("생성된 번호가 중복된 숫자를 포함하지 않는지 확인")
     public void checkDuplicateNumber() {
-        NumberGenerator generator = new NumberGenerator();
         String generatedNumber = generator.generateNumber();
 
         for (int i = 0; i < generatedNumber.length(); i++) {
