@@ -20,8 +20,22 @@ class GameViewTest {
 
         GameView gameView = new GameView();
 
-        int result = gameView.getUserInput();
+        String result = gameView.getUserInput();
 
-        assertThat(123).isEqualTo(result);
+        assertThat("123").isEqualTo(result);
+    }
+
+    @Test
+    @DisplayName("유저 재시작 여부 입력 작동 검사")
+    void getIsReplayTest() {
+        String input = "1\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        GameView gameView = new GameView();
+
+        String result = gameView.getUserInput();
+
+        assertThat("1").isEqualTo(result);
     }
 }
