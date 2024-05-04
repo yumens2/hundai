@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class CompareNumber {
 
+    // strike 개수 계산
     public static int strike(List<Integer> generatedNumbers, List<Integer> input) {
         int strikeCount = 0;
         for (int i = 0; i < LENGTH.getValue(); i++) {
@@ -17,6 +18,7 @@ public class CompareNumber {
         return strikeCount;
     }
 
+    // ball 개수 계산
     public static int ball(List<Integer> generatedNumbers, List<Integer> input) {
         int ballCount = 0;
         for (int i = 0; i < LENGTH.getValue(); i++) {
