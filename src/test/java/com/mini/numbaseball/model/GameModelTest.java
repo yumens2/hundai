@@ -47,5 +47,18 @@ class GameModelTest {
         assertThat(actualStrike).isEqualTo(expectedStrike);
     }
 
-    
+    @ParameterizedTest
+    @DisplayName("Ball 개수 카운팅 검사")
+    @CsvSource({
+        "123, 456, 0",
+        "123, 123, 0",
+        "789, 475, 1",
+        "123, 321, 2",
+        "123, 231, 3"
+    })
+    void countBallTest(int guess, int answer, int expectedBall){
+        GameModel gameModel = new GameModel();
+        int actualBall = gameModel.countBall(guess, answer);
+        assertThat(actualBall).isEqualTo(expectedBall);
+    }
 }
