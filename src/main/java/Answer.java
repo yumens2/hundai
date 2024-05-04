@@ -15,4 +15,7 @@ public class Answer {
 		return strike;
 	}
 
+	public boolean isFinished() {
+		return getStrike() == 3;
+	}
 }
