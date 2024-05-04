@@ -4,6 +4,7 @@ import baseball.dto.ResultDto;
 import baseball.model.Computer;
 import baseball.parser.InputParser;
 import baseball.validator.AnswerValidator;
+import baseball.validator.BitValidator;
 import java.util.List;
 
 public class GameService {
@@ -26,6 +27,9 @@ public class GameService {
     }
 
     public boolean restart(String input) {
-        return false;   // TODO: implement
+        BitValidator.validate(input);
+        int bit = InputParser.parseBit(input);
+
+        return bit == 1;
     }
 }

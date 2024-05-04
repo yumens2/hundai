@@ -11,4 +11,8 @@ public class InputParser {
             .mapToInt(Integer::parseInt)
             .boxed().collect(Collectors.toList());
     }
+
+    public static int parseBit(String input) {
+        return Integer.parseInt(input);
+    }
 }
