@@ -29,4 +29,21 @@ public class Utils {
         }
         return true;
     }
+
+    /**
+     * Validate input string for the game<br> Input must be a number
+     *
+     * @param input input to validate
+     * @return int number from input
+     * @throws IllegalArgumentException if input is not a number
+     */
+    public static int InputToRightInteger(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            validateNumber(number);
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Input must be a number");
+        }
+    }
 }
