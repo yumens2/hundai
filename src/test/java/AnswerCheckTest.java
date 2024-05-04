@@ -38,7 +38,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(4,5,1);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getBall()).isEqualTo(1);
 			}
@@ -51,7 +51,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(4,3,1);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getBall()).isEqualTo(2);
 			}
@@ -64,7 +64,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(2,3,1);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getBall()).isEqualTo(3);
 			}
@@ -82,7 +82,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(1,5,6);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getStrike()).isEqualTo(1);
 			}
@@ -95,7 +95,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(1,2,6);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getStrike()).isEqualTo(2);
 			}
@@ -108,7 +108,7 @@ class AnswerCheckTest {
 				playerNumber = Arrays.asList(1,2,3);
 
 				answerCheck = new AnswerCheck(computerNumber,playerNumber);
-				Answer result = answerCheck.checkResult(computerNumber,playerNumber);
+				Answer result = answerCheck.checkResult();
 
 				softAssertions.assertThat(result.getStrike()).isEqualTo(3);
 			}
