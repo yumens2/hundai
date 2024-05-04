@@ -12,6 +12,14 @@ public class GameControlService {
     }
 
     public void start(){
+        BaseballNumberGenerator baseballNumberGenerator = new BaseballNumberGenerator();
+        JudgmentService judgmentService = new JudgmentService();
+        targetNumbers = baseballNumberGenerator.generate();
+        while(true){
+            printQuestion();
+            scanInput();
+            if(judgmentService.compare(targetNumbers, inputNumbers)) break;
+        }
     }
 
     public void printQuestion(){
