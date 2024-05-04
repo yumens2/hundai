@@ -1,10 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class DuplicateCheckingTest {
 
     @Test
+    @DisplayName("중복 확인하기")
     public void testExistDuplicate() {
         DuplicateChecking dc = new DuplicateChecking();
         int[] numArray = {1, 2, 3, 4, 2};
