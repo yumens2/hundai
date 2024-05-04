@@ -1,5 +1,7 @@
-public class Validate {
-    public void isValidate(String input) {
+package Validation;
+
+public class ValidateInput {
+    public static void isValidateInput(String input) {
         if (input.length() != 3) {
             throw new IllegalArgumentException("[ERROR] 3자리 숫자를 입력해주세요!");
         }

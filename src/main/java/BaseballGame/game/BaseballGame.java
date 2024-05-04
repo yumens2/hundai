@@ -1,8 +1,10 @@
+package game;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class BaseballGame {
-    public int play(ArrayList<Integer> targetNumbers, ArrayList<Integer> inputNumbers) {
+    public static int play(ArrayList<Integer> targetNumbers, ArrayList<Integer> inputNumbers) {
         int strike = 0, ball = 0;
         for (int i = 0; i < targetNumbers.size(); i++) {
             if (Objects.equals(targetNumbers.get(i), inputNumbers.get(i))) {

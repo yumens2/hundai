@@ -1,7 +1,9 @@
+package utils;
+
 import java.util.ArrayList;
 
 public class RandomNumber {
-    public ArrayList<Integer> generateRandomNumbers() {
+    public static ArrayList<Integer> generateRandomNumbers() {
         ArrayList<Integer> randomNumbers = new ArrayList<>();
 
         while (randomNumbers.size() < 3) {
