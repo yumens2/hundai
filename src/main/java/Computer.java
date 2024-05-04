@@ -3,7 +3,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Computer {
-    static final int NUM_LENGTH = 3;
+    private static final int NUM_LENGTH = 3;
 
     private String randNum;         // Random number
     private int strikeScore;

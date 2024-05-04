@@ -1,5 +1,5 @@
 public class BaseballGame {
-    static final int RETRY = 1;
+    private static final int RETRY = 1;
 
     private final Computer com;
     private final User user;
