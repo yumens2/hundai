@@ -34,7 +34,7 @@ public class BaseballVO {
     }// 인덱스랑 값이랑 비교해서 볼카운트 메서드를 불러들입니다.
 
 
-    public void add_strike(int player , int random , int player_index , int random_index) {
+    public void add_strike(int player, int random, int player_index, int random_index) {
         if ( player==random) {
             if (player_index== random_index) {
                 strike += 1;
