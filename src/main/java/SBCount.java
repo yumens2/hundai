@@ -1,6 +1,7 @@
 public class SBCount {
     private final int STRIKE;
     private final int BALL;
+    private static final int NUMOFDIGIT = 3;
 
     SBCount(int strike, int ball) {
         this.STRIKE = strike;
@@ -22,7 +23,7 @@ public class SBCount {
         return msg;
     }
 
-    public boolean isThreeStrike() {
-        return STRIKE == 3;
+    public boolean isAllStrike() {
+        return STRIKE == NUMOFDIGIT;
     }
 }
