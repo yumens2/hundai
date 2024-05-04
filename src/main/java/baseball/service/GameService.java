@@ -1,5 +1,6 @@
 package baseball.service;
 
+import baseball.dto.ResultDto;
 import baseball.model.Computer;
 import baseball.parser.InputParser;
 import baseball.validator.AnswerValidator;
@@ -13,10 +14,18 @@ public class GameService {
         computer = new Computer();
     }
 
-    public void play(String input) {
-        computer.init();
-
+    public ResultDto play(String input) {
         AnswerValidator.validate(input);
         List<Integer> answer = InputParser.parseAnswer(input);
+
+        return computer.judge(answer);
+    }
+
+    public boolean isCorrect(ResultDto resultDto) {
+        return resultDto.getStrike() == 3 && resultDto.getBall() == 0;
+    }
+
+    public boolean restart(String input) {
+        return false;   // TODO: implement
     }
 }

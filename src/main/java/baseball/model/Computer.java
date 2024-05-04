@@ -1,6 +1,7 @@
 package baseball.model;
 
-import baseball.enums.Result;
+import baseball.dto.ResultDto;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,8 @@ public class Computer {
     public void init() {
         Random random = new Random();
 
+        answer = new ArrayList<>();
+
         while (answer.size() < 3) {
             int randomNumber = random.nextInt(9) + 1;
             if (!answer.contains(randomNumber)) {
@@ -19,7 +22,7 @@ public class Computer {
         }
     }
 
-    public String isCorrect(List<Integer> input) {
+    public ResultDto judge(List<Integer> input) {
         int strike = 0, ball = 0;
 
         for (int i = 0; i < 3; i++) {
@@ -31,6 +34,6 @@ public class Computer {
                 ball++;
             }
         }
-        return Result.toString(strike, ball);
+        return new ResultDto(strike, ball);
     }
 }

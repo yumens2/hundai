@@ -1,5 +1,6 @@
 package baseball.enums;
 
+import baseball.dto.ResultDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +13,10 @@ public enum Result {
 
     private final String value;
 
-    public static String toString(int strike, int ball) {
+    public static String toString(ResultDto resultDto) {
+        int strike = resultDto.getStrike();
+        int ball = resultDto.getBall();
+
         if (strike == 0 && ball == 0) {
             return NOTHING.value;
         }
