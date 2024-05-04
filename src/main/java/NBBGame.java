@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class NBBGame {
     private final GameNumber answer;
+    private final Scanner scanner;
 
-    NBBGame() {
+    NBBGame(Scanner scanner) {
         this.answer = new GameNumber();
+        this.scanner = scanner;
     }
 
-    private static GameNumber getUserGuess() {
-        Scanner scanner = new Scanner(System.in);
-
+    private GameNumber getUserGuess() {
         String input = scanner.nextLine();
 
         return new GameNumber(input);
