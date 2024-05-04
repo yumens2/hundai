@@ -12,30 +12,6 @@ public class Computer {
     public Computer() {}
 
     /**
-     * Random number 반환
-     * @return Random Number
-     */
-    public String getRandNum() {
-        return randNum;
-    }
-
-    /**
-     * 스트라이크 점수 반환
-     * @return 스트라이크 점수
-     */
-    public int getStrikeScore() {
-        return strikeScore;
-    }
-
-    /**
-     * 볼 점수 반환
-     * @return 볼 점수
-     */
-    public int getBallScore() {
-        return ballScore;
-    }
-
-    /**
      * Random number 생성하는 Setter
      */
     public void generateRandNum() {
