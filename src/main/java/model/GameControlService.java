@@ -16,14 +16,10 @@ public class GameControlService {
         JudgmentService judgmentService = new JudgmentService();
         targetNumbers = baseballNumberGenerator.generate();
         while(true){
-            printQuestion();
+            System.out.print("숫자를 입력해 주세요 : ");
             scanInput();
             if(judgmentService.compare(targetNumbers, inputNumbers)) break;
         }
-    }
-
-    public void printQuestion(){
-        System.out.print("숫자를 입력해 주세요 : ");
     }
 
     public void scanInput(){
@@ -43,11 +39,6 @@ public class GameControlService {
         if(input.length() != BaseballNumberGenerator.making_number_count){
             throw new IllegalArgumentException("Invalid Input : " + input);
         }
-    }
-
-    public void printRestart(){
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
     }
 
     public GameControlService scanRestart(){
