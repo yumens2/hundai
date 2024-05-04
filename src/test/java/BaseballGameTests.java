@@ -1,8 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -23,5 +25,18 @@ public class BaseballGameTests {
         method.setAccessible(true);
         assertThat((boolean)method.invoke(baseballGame, 1)).isEqualTo(true);
         assertThat((boolean)method.invoke(baseballGame, 2)).isEqualTo(false);
+    }
+
+    @Test
+    @DisplayName("잘못된 입력 에러 메시지 출력 테스트")
+    void printErrorMessageTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        Method method = baseballGame.getClass().getDeclaredMethod("printErrorMessage");
+        method.setAccessible(true);
+        method.invoke(baseballGame);
+
+        assertThat(out.toString()).isEqualTo("잘못된 형식의 입력입니다.\n게임을 종료합니다.\n");
     }
 }
