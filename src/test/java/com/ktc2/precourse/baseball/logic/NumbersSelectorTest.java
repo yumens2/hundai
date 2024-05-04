@@ -6,11 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class NumbersSelectorTest {
+    static final NumbersSelector numbersSelector = new NumbersSelector();
 
     @Test
     void get() {
         for (int i = 0; i < 5000; i++) {
-            assertThat(isValid(NumbersSelector.get())).isTrue();
+            assertThat(isValid(numbersSelector.get())).isTrue();
         }
     }
 

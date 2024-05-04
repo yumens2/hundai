@@ -15,7 +15,7 @@ public class NumbersSelector {
      * 랜덤 셔플된 1~9로 이뤄진 숫자 배열을 반환한다.
      * @return 셔플된 숫자 배열
      */
-    private static int[] shuffledDigits() {
+    private int[] shuffledDigits() {
         int[] ret = IntStream.rangeClosed(1, 9).toArray();
 
         for (int i = 0; i < ret.length; i++) {
@@ -32,7 +32,7 @@ public class NumbersSelector {
      * 중복되지 않은 3개의 숫자를 얻는다.
      * @return 중복되지 않은 3개의 숫자가 담긴 Numbers
      */
-    public static Numbers get() {
+    public Numbers get() {
         int[] digit = shuffledDigits();
         return new Numbers(digit[0], digit[1], digit[2]);
     }
