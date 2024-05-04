@@ -9,6 +9,7 @@ import java.util.Set;
 public class GameModel {
 
     private int answer;
+    private boolean isCorrect = false;
 
     public void initAnswer() {
         List<Integer> numbers = new ArrayList<>();
@@ -69,6 +70,9 @@ public class GameModel {
 
         if (strike > 0) {
             stringBuilder.append(strike).append("스트라이크 ");
+            if(strike==3){
+                isCorrect = true;
+            }
         }
 
         if (stringBuilder.isEmpty()) {
@@ -80,5 +84,9 @@ public class GameModel {
 
     public int getAnswer() {
         return answer;
+    }
+
+    public boolean isCorrect() {
+        return isCorrect;
     }
 }
