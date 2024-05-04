@@ -12,12 +12,6 @@ public class NBBGame {
         this.scanner = scanner;
     }
 
-    private GameNumber getUserGuess() {
-        String input = scanner.nextLine();
-
-        return new GameNumber(input);
-    }
-
     public void playGame() {
         while (true) {
             System.out.print(HELP_MSG);
@@ -31,5 +25,11 @@ public class NBBGame {
                 break;
             }
         }
+    }
+
+    private GameNumber getUserGuess() {
+        String input = scanner.nextLine();
+
+        return new GameNumber(input);
     }
 }
