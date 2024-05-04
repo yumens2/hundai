@@ -5,16 +5,21 @@ public class AnswerCheck {
 	private List<Integer> playerNumber;
 	private List<Integer> computerNumber;
 
+	public AnswerCheck(){
+
+	}
+
 	public AnswerCheck(List<Integer> playerNumber) {
 		this.playerNumber = playerNumber;
 	}
 
-	public void checkResult(List<Integer> computerNumber, List<Integer> playerNumber) {
-		int strike, ball;
+	public Answer checkResult(List<Integer> computerNumber, List<Integer> playerNumber) {
+		int strike = 0, ball= 0;
 		for(int i = 0; i < computerNumber.size(); i++) {
 			ball = checkBall(computerNumber, playerNumber, i);
 			strike = checkStrike(computerNumber, playerNumber, i);
 		}
+		return new Answer(ball,strike);
 	}
 
 	private int checkStrike(List<Integer> computerNumber, List<Integer> playerNumber, int index) {
