@@ -12,15 +12,15 @@ public class InputView {
 	private static final int MIN = 1;
 	private static final int MAX = 9;
 
-	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public List<Integer> readNumber() throws IOException {
+	public static List<Integer> readNumber() throws IOException {
 		String line = br.readLine();
 		checkNumberLength(line);
 		return makeNumberList(line);
 	}
 
-	public List<Integer> makeNumberList(String line) {
+	public static List<Integer> makeNumberList(String line) {
 		List<Integer> numberList = new ArrayList<>();
 		for(int i = 0; i < NUMBER_LENGTH; i++) {
 			char ch = line.charAt(i);
@@ -32,15 +32,15 @@ public class InputView {
 		return numberList;
 	}
 
-	private void checkNumberLength(String line) {
+	private static void checkNumberLength(String line) {
 		if(line.length() != NUMBER_LENGTH) throw new IllegalArgumentException();
 	}
 
-	private void validateRange(int number) {
+	private static void validateRange(int number) {
 		if(number < MIN || number > MAX) throw new IllegalArgumentException();
 	}
 
-	private void validateNumber(char ch) {
+	private static void validateNumber(char ch) {
 		if(!Character.isDigit(ch)) throw new IllegalArgumentException();
 	}
 }
