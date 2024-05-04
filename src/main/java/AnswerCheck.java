@@ -5,12 +5,9 @@ public class AnswerCheck {
 	private List<Integer> playerNumber;
 	private List<Integer> computerNumber;
 
-	public AnswerCheck(){
-
-	}
-
-	public AnswerCheck(List<Integer> playerNumber) {
+	public AnswerCheck(List<Integer> playerNumber, List<Integer> computerNumber) {
 		this.playerNumber = playerNumber;
+		this.computerNumber = computerNumber;
 	}
 
 	public Answer checkResult(List<Integer> computerNumber, List<Integer> playerNumber) {
