@@ -61,4 +61,20 @@ class GameModelTest {
         int actualBall = gameModel.countBall(guess, answer);
         assertThat(actualBall).isEqualTo(expectedBall);
     }
+
+    @ParameterizedTest
+    @DisplayName("입력-답 비교 결과 반환 검사")
+    @CsvSource({
+        "123, 713, '1볼 1스트라이크'",
+        "145, 713, '1볼'",
+        "671, 713, '2볼'",
+        "216, 713, '1스트라이크'",
+        "713, 713, '3스트라이크'",
+        "425, 713, '낫싱'"
+    })
+    void createResultTest(int guess, int answer, String expectedResult){
+        GameModel gameModel = new GameModel();
+        String actualResult = gameModel.createResult(guess, answer);
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
