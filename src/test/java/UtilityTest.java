@@ -113,4 +113,12 @@ class UtilityTest {
         Assertions.assertThat(Utility.getStrikeBall(0, 2)).isEqualTo("2볼");
         Assertions.assertThat(Utility.getStrikeBall(0, 0)).isEqualTo("낫싱");
     }
+
+    @Test
+    void testCheckKeepGoing() {
+        Assertions.assertThat(Utility.checkKeepGoing("1", 3)).isTrue();
+        Assertions.assertThat(Utility.checkKeepGoing("234", 2)).isTrue();
+        Assertions.assertThat(Utility.checkKeepGoing("2", 3)).isFalse();
+        Assertions.assertThatThrownBy(() -> Utility.checkKeepGoing("3", 3)).isInstanceOf(IllegalArgumentException.class);
+    }
 }
