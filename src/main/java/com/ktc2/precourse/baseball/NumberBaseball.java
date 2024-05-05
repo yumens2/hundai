@@ -11,7 +11,7 @@ import com.ktc2.precourse.baseball.object.Retry;
 
 import java.util.Objects;
 
-public class NumberBaseballGame {
+public class NumberBaseball {
     private final static NumbersSelector numbersSelector = new NumbersSelector();
     private final static NumbersAcceptor numbersAcceptor = new NumbersAcceptor();
     private final static MatchResultCreator matchResultCreator = new MatchResultCreator();

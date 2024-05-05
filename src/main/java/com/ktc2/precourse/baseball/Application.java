@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) {
         ExceptionHandler exceptionHandler = new ExceptionHandler(() -> {
             while (true) {
-                NumberBaseballGame.play();
+                NumberBaseball.play();
             }
         });
         exceptionHandler.runProcess();
