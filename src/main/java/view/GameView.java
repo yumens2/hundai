@@ -20,4 +20,8 @@ public class GameView {
     public void displayResult(String feedback) {
         System.out.println(feedback);
     }
+
+    public void displayGameEnd() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
 }
