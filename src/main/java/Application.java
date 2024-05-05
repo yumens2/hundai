@@ -108,6 +108,14 @@ public class Application{
                 }
             }
         }
+        public static class Result {
+            public int strikes;
+            public int balls;
+
+            public Result(int strikes, int balls) {
+                this.strikes = strikes;
+                this.balls = balls;
+            }
 
 
 
@@ -121,6 +129,4 @@ public class Application{
 
 
 
-
-
-    }
+        }
