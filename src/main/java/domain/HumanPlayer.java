@@ -23,12 +23,13 @@ public class HumanPlayer implements Player {
         return ioHandler.getStringInput();
     }
 
-    private void validateInput(String input) {
+
+    private void validateInput(String input) throws IllegalArgumentException {
         if (input.length() != BaseballGame.NUMBER_SIZE) {
-            throw new IllegalArgumentException(Message.INVALID_LENGTH.getMessage());
+            throw new IllegalArgumentException(INVALID_LENGTH.getMessage());
         }
         if (!isNumber(input)) {
-            throw new IllegalArgumentException(Message.INVALID_NUMBER.getMessage());
+            throw new IllegalArgumentException(INVALID_NUMBER.getMessage());
         }
         if (hasDuplicatedNumber(input)) {
             throw new IllegalArgumentException(Message.DUPLICATED_NUMBER.getMessage());
