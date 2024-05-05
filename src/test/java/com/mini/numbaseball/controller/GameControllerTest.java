@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.mini.numbaseball.model.GameModel;
 import com.mini.numbaseball.view.GameView;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -56,5 +61,22 @@ class GameControllerTest {
         assertThatThrownBy(() -> gameController.validateIsReplay("3"))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage("입력값이 1 또는 2가 아닙니다.");
+    }
+
+    @Test
+    @DisplayName("게임 추측 입출력 진행 검사")
+    void playTest() {
+        GameController gameController = new GameController(gameModel, gameView);
+        String input = "123\n";
+
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        gameController.playGuess();
+
+        assertThat(out.toString()).containsAnyOf("스트라이크", "볼", "낫싱");
     }
 }
