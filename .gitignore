@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+bin/*
 
 ### STS ###
 .apt_generated
@@ -33,3 +34,4 @@ out/
 
 ### Mac OS ###
 .DS_Store
+/bin/
