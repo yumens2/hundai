@@ -72,7 +72,7 @@ public class Utility {
         return userNumbers;
     }
 
-    public static int checkStrikeCount(int[] randomNumbers, int[] userNumbers) {
+    public static int strikeCount(int[] randomNumbers, int[] userNumbers) {
         int strike = 0;
 
         for (int i = 0; i < 3; i++) {
