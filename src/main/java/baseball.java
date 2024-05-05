@@ -56,4 +56,15 @@ public class baseball {
 
         return player;
     }
+
+    public static int[] convertInputToArray(String input) {
+        try {
+            return Arrays.stream(input.split("")).mapToInt(Integer::parseInt).toArray();
+        } catch (NumberFormatException e) {
+            // 숫자로 변환할 수 없는 입력이 있을 경우 예외 처리
+            System.out.println("올바른 숫자를 입력하세요.");
+            return new int[0]; // 유효하지 않은 입력은 빈 배열로 반환
+        }
+    }
+
 }
