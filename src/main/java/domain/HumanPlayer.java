@@ -1,10 +1,16 @@
 package domain;
 
+import static domain.ErrorMessage.DUPLICATED_NUMBER;
+import static domain.ErrorMessage.INVALID_LENGTH;
+import static domain.ErrorMessage.INVALID_NUMBER;
+
 import infra.IOHandler;
+import java.util.ArrayList;
 
 public class HumanPlayer implements Player {
 
     private final IOHandler ioHandler = new IOHandler();
+    private ArrayList<Integer> numbers = new ArrayList<>();
 
     @Override
     public void generateNumbers() {
@@ -15,6 +21,10 @@ public class HumanPlayer implements Player {
         while (!isValidInput(input)) {
             ioHandler.print(Message.INVALID_INPUT.getMessage());
             input = ioHandler.getStringInput();
+        }
+
+        for (int i = 0; i < BaseballGame.NUMBER_SIZE; i++) {
+            numbers.add(Character.getNumericValue(input.charAt(i)));
         }
     }
 
@@ -32,7 +42,7 @@ public class HumanPlayer implements Player {
             throw new IllegalArgumentException(INVALID_NUMBER.getMessage());
         }
         if (hasDuplicatedNumber(input)) {
-            throw new IllegalArgumentException(Message.DUPLICATED_NUMBER.getMessage());
+            throw new IllegalArgumentException(DUPLICATED_NUMBER.getMessage());
         }
     }
 
