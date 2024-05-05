@@ -40,9 +40,7 @@ public class NumberBaseballGame {
             decideGameStatus(input);
             return;
         }
-        if (!strategy.isValid(input)) {
-            throw new IllegalArgumentException("잘못된 입력 : 서로 다른 숫자 세개를 입력해야 합니다.");
-        }
+        strategy.validate(input);
         List<Integer> actual = parseInput(input);
         defense(actual);
     }
