@@ -10,26 +10,29 @@ public class Logic {
      * Constructor for Logic class
      */
     Logic() {
-        this.computerNumber = 111;
-        while (true){
+        this.init();
+    }
+
+    /**
+     * Constructor for Logic class Used for testing or need to set computer number manually
+     *
+     * @param computerNumber answer of the games
+     */
+    Logic(int computerNumber) {
+        this.setComputerNumber(computerNumber);
+    }
+
+    public void init() {
+        while (true) {
+            this.computerNumber = (int) (Math.random() * 900) + 100;
             try {
-                this.computerNumber = (int) (Math.random() * 1000);
                 Utils.validateNumber(computerNumber);
                 break;
             } catch (IllegalArgumentException e) {
                 continue;
             }
         }
-            this.computerDigits = Utils.getDigits(computerNumber);
-    }
-
-    /**
-     * Constructor for Logic class Used for testing or need to set computer number manually
-     *
-     * @param computerNumber answer of the game
-     */
-    Logic(int computerNumber) {
-        this.setComputerNumber(computerNumber);
+        this.computerDigits = Utils.getDigits(computerNumber);
     }
 
     /**

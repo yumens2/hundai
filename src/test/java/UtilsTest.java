@@ -43,6 +43,13 @@ class UtilsTest {
     }
 
     @ParameterizedTest
+    @ValueSource(ints = {111, 121, 112, 211, 122, 212, 221})
+    @DisplayName("중복 숫자 판별 여부 테스트")
+    void validateNumberWithDuplicate(int number){
+        assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(number));
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = {"q", "qqq", "qq23", "qwe", "1234", "12345", "123456"})
     @DisplayName("입력값 유효성 검사 테스트")
     void validateInputString(String input){

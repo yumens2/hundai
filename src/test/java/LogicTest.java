@@ -94,14 +94,6 @@ class LogicTest {
         assertThat(logic.isBall(213)).isEqualTo(2);
         assertThat(logic.isStrike(213)).isEqualTo(1);
         assertThat(logic.isNothing(213)).isFalse();
-
-        Logic logic1 = new Logic(112);
-        int[] testCase1 = {121, 923, 193};
-        for (int i : testCase1) {
-            assertThat(logic1.isBall(i)).isEqualTo(0);
-            assertThat(logic1.isStrike(i)).isEqualTo(2);
-            assertThat(logic1.isNothing(i)).isFalse();
-        }
     }
 
     @Test
@@ -114,14 +106,6 @@ class LogicTest {
             assertThat(logic1.isStrike(i)).isEqualTo(2);
             assertThat(logic1.isNothing(i)).isFalse();
         }
-
-        Logic logic2 = new Logic(111);
-        int[] testCase2 = {112, 121, 211};
-        for (int i : testCase2) {
-            assertThat(logic2.isBall(i)).isEqualTo(0);
-            assertThat(logic2.isStrike(i)).isEqualTo(2);
-            assertThat(logic2.isNothing(i)).isFalse();
-        }
     }
 
 
@@ -129,19 +113,11 @@ class LogicTest {
     @DisplayName("0strike 1ball test")
     void shouldReturn0strike1ball() {
         Logic logic = new Logic(123);
-        int[] testCase = {991, 919, 299, 992, 399, 939, 111, 222};
+        int[] testCase = {991, 919, 299, 992, 399, 939};
         for (int i : testCase) {
             assertThat(logic.isBall(i)).isEqualTo(1);
             assertThat(logic.isStrike(i)).isEqualTo(0);
             assertThat(logic.isNothing(i)).isFalse();
-        }
-
-        Logic logic2 = new Logic(121);
-        int[] testCase2 = {991, 919, 199, 299, 992, 222};
-        for (int i : testCase2) {
-            assertThat(logic2.isBall(i)).isEqualTo(1);
-            assertThat(logic2.isStrike(i)).isEqualTo(0);
-            assertThat(logic2.isNothing(i)).isFalse();
         }
     }
 

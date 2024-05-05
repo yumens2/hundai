@@ -22,10 +22,11 @@ public class Application {
 
     private static boolean askStop(Logic logic, Scanner sc) {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        int input = Utils.InputToRightInteger(sc.nextLine());
-        if (input == 1) {
+        String input = sc.nextLine();
+        if (input.equals("1")) {
+            logic.init();
             return false;
-        } else if (input == 2) {
+        } else if (input.equals("2")) {
             return true;
         } else {
             throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
