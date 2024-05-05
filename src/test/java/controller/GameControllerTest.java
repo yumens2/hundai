@@ -9,19 +9,31 @@ import service.GameService;
 import view.GameView;
 
 class GameControllerTest {
+    private GameView view;
+    private GameService service;
+    private ITestGameController controller;
+
+    @BeforeEach
+    void setUp() {
+        view = new GameView(System.in);
+        service = new GameService();
+        controller = new GameController(view, service);
+    }
 
     @Test
     @DisplayName("GameController dependencies test")
     void gameControllerDependenciesTest() throws Exception {
-        //given
-        GameView view = new GameView(System.in);
-        GameService service = new GameService();
-
-        //when
-        GameController controller = new GameController(view, service);
-
         //then
         assertNotNull(controller.getView());
         assertNotNull(controller.getService());
+    }
+
+    @Test
+    @DisplayName("startGame should activate the game")
+    void isGameActiveTest() throws Exception {
+        //then
+        assertFalse(controller.isGameActive());
+        controller.startGame();
+        assertTrue(controller.isGameActive());
     }
 }
