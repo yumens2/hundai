@@ -99,6 +99,16 @@ public class Application{
                 // continue playing until baseballgame.GameTest.game is finished
             }
         }
+        public void startGameFlow() {
+            try (Scanner scanner = new Scanner(System.in)) {
+                boolean playAgain = true;
+                while (playAgain) {
+                    playSingleGame(scanner);
+                    playAgain = askPlayAgain(scanner);
+                }
+            }
+        }
+
 
 
 
