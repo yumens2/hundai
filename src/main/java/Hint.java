@@ -1,3 +1,5 @@
+import constant.GameMessageConstant;
+
 public class Hint {
 
     GameResult result;

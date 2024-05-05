@@ -1,3 +1,5 @@
+import constant.GameConstant;
+import constant.GameMessageConstant;
 import java.util.Scanner;
 
 public class Game {
