@@ -7,11 +7,11 @@ public class GameController {
     GameService gameService = new GameService();
 
     public void play() {
-        setGame();
+        startGame();
     }
 
-    private void setGame() {
-        gameService.setGame();
+    private void startGame() {
+        gameService.startGame();
     }
 
 }
