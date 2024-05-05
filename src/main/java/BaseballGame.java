@@ -53,6 +53,18 @@ public class BaseballGame {
         return com;
     }
 
+    public static boolean UniqueDigits(String number) {
+        for (int i = 0; i < number.length() - 1; i++) {
+            for (int j = i + 1; j < number.length(); j++) {
+                if (number.charAt(i) == number.charAt(j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
 
 
 }
