@@ -1,6 +1,6 @@
 package com.ktc2.precourse.baseball;
 
-import com.ktc2.precourse.baseball.exception.GameExitException;
+import com.ktc2.precourse.baseball.logic.ExceptionHandler;
 
 public class Application {
     /**
@@ -9,14 +9,11 @@ public class Application {
      */
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
-        try {
+        ExceptionHandler exceptionHandler = new ExceptionHandler(() -> {
             while (true) {
                 NumberBaseballGame.play();
             }
-        } catch (IllegalArgumentException e) {
-            System.out.println("IllegalArgumentException");
-        } catch (GameExitException e) {
-            System.out.println("GameExitException");
-        }
+        });
+        exceptionHandler.runProcess();
     }
 }
