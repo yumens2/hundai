@@ -15,6 +15,7 @@ public class Application {
         UserInterface.printStartingGame();
         gameController.startGame();
         UserInterface.printEndingGame();
+
         userInterface.closeScanner();
     }
 }
