@@ -95,5 +95,12 @@ public class gameManagerTest {
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
+    @Test
+    public void gameMenuOption1Test() {
+        gameManager newGameManager = new gameManager();
+        String input = "1\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
+        assertTrue(newGameManager.gameMenu());
+    }
 }
