@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Player {
 
     public void inputplayernum(int[] playernum) throws IllegalArgumentException {
-        int num = 0;
+        int num;
         Scanner sc = new Scanner(System.in);
         DuplicateChecking dc = new DuplicateChecking();
         System.out.print("숫자를 입력해 주세요 : ");
