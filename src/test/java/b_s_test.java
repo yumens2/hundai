@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class b_s_Test {
+public class b_s_test {
 
         @Test
         public void testBSMethod() {
