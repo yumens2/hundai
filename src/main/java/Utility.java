@@ -71,4 +71,16 @@ public class Utility {
 
         return userNumbers;
     }
+
+    public static int checkStrikeCount(int[] randomNumbers, int[] userNumbers) {
+        int strike = 0;
+
+        for (int i = 0; i < 3; i++) {
+            if (randomNumbers[i] == userNumbers[i]) {
+                strike += 1;
+            }
+        }
+
+        return strike;
+    }
 }
