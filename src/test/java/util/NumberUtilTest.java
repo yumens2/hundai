@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class NumberUtilTest {
@@ -35,7 +34,6 @@ public class NumberUtilTest {
         assertThat(numbers).doesNotHaveDuplicates();
     }
 
-    @Test
     @DisplayName("splitNumber invalid input test")
     @ParameterizedTest
     @NullAndEmptySource
@@ -43,7 +41,6 @@ public class NumberUtilTest {
         "12316",
         "13",
         "7",
-        "541",
         "",
         "-156",
         "-12",
@@ -60,7 +57,6 @@ public class NumberUtilTest {
         });
     }
 
-    @Test
     @DisplayName("splitNumber feature test")
     @ParameterizedTest
     @ValueSource(strings = {

@@ -24,6 +24,22 @@ public class NumberUtil {
     }
 
     public static int[] splitNumber(String numberString) {
-        //TODO
+        // 입력값의 길이가 3인지 확인
+        if(numberString == null || numberString.length() != 3) {
+            throw new IllegalArgumentException("Input Value Error");
+        }
+
+        // 입력값이 숫자인지 확인
+        if(!numberString.matches("[0-9]+")) {
+            throw new IllegalArgumentException("Input Value Error");
+        }
+
+        // 입력값을 분리하여 정수 배열에 저장
+        int[] numbers = new int[3];
+        for(int i = 0; i < 3; i++) {
+            numbers[i] = Character.getNumericValue(numberString.charAt(i));
+        }
+
+        return numbers;
     }
 }
