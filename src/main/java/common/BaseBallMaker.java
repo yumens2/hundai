@@ -70,7 +70,7 @@ public class BaseBallMaker {
 	}
 
 	private boolean calEnd(final BaseBallVO vo){
-		return this.randVO==vo;
+		return this.randVO.equals(vo);
 	}
 
 	private int calBallCount(final BaseBallVO vo){
