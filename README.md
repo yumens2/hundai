@@ -23,7 +23,7 @@
 * String getUserInput()
   * 사용자의 입력을 받는 메서드
 
-* void displayResult(int[] result)
+* void displayResult(String feedback)
   * 스트라이크와 볼에 대한 결과를 출력하는 메서드
 
 * void displayGameEnd()
@@ -53,7 +53,7 @@
   * void countStrike()
     * 동일한 위치에 동일한 숫자가 있는지 확인하는 메서드
 
-  * int[] getFeedback()
+  * String getFeedback()
     * 볼/스트라이크 판별된 결과를 반환하는 메서드
 
 
