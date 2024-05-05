@@ -63,11 +63,11 @@ public class BaseballGame{
      * 재시작 혹은 게임종료 선택 메서드
      */
     public void choiceRestartOrGameOver(){
-        int inp;
+        String inp;
         Scanner sc = new Scanner(System.in);
-        inp = sc.nextInt();
+        inp = sc.nextLine();
         isValidRestartOrGameOverNum(inp);
-        if(inp == 2){
+        if(inp.equals("2")){
             isGameOver = 1;
         }
         else{
@@ -82,6 +82,7 @@ public class BaseballGame{
     public void gameStart(){
         List<Integer> cpunum = Computer.createRandomNum();
         List<Integer> userInput;
+        System.out.println(cpunum);
         while(true){
             System.out.print("숫자를 입력해 주세요 :");
             userInput = User.createInputNum();

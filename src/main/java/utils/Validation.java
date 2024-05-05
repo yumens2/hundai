@@ -7,9 +7,9 @@ public class Validation {
      * @throws IllegalArgumentException
      */
 
-    public static void isValidRestartOrGameOverNum(int input) throws IllegalArgumentException {
+    public static void isValidRestartOrGameOverNum(String input) throws IllegalArgumentException {
 
-        if(input != 1 && input != 2){
+        if(!input.equals("1") && !input.equals("2")){
             throw new IllegalArgumentException("입력값이 유효하지 않습니다.");
         }
 
