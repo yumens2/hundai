@@ -53,6 +53,12 @@ public class NumberBaseballGame {
     }
 
     public void success() {
+        if(!isRunning()) {
+            throw new IllegalStateException("게임이 시작되지 않았습니다.");
+        }
+        if(isPaused()) {
+            throw new IllegalStateException("게임이 이미 일시정지 상태입니다.");
+        }
         state = GameState.PAUSED;
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
