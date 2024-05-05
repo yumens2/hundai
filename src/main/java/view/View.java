@@ -19,14 +19,14 @@ public class View {
     public static void printResult(int nBall, int nStrike) {
         if (nBall == 0 && nStrike == 0) {
             System.out.println("낫싱");
-        } else {
-            if (nBall > 0) {
-                System.out.print(nBall + "볼");
-            }
-            if (nStrike > 0) {
-                System.out.print(nStrike + "스트라이크");
-            }
-            System.out.println();
+            return;
         }
+        if (nBall > 0) {
+            System.out.print(nBall + "볼");
+        }
+        if (nStrike > 0) {
+            System.out.print(nStrike + "스트라이크");
+        }
+        System.out.println();
     }
 }
