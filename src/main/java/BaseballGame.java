@@ -120,9 +120,11 @@ public class BaseballGame {
             if (input == 1) {
                 System.out.println("1입력");
                 return true;
-            } else {
+            } else if (input == 2) {
                 System.out.println("2입력");
                 return false;
+            } else {
+                throw new IllegalArgumentException("잘못된 입력입니다. 1 혹은 2를 입력해야 합니다.");
             }
         }
     }
