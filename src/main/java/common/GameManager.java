@@ -4,7 +4,7 @@ import java.util.*;
 import vo.BaseBallAnsVO;
 import vo.BaseBallVO;
 
-public class GameManager {
+public class GameManager{
 
     private BaseBallAnsVO ans;
     private BaseBallVO vo;
@@ -25,7 +25,7 @@ public class GameManager {
         return endGame;
     }
 
-    public void run(){
+    public void run() throws IllegalArgumentException{
 
         userInput();
 
@@ -39,7 +39,7 @@ public class GameManager {
 
     }
 
-    private void userInput(){
+    private void userInput() throws IllegalArgumentException{
         String userString;
 
         System.out.println("숫자를 입력해 주세요 : ");
@@ -53,7 +53,7 @@ public class GameManager {
         ans = bm.playBall(vo);
     }
 
-    private void userEndorRestart(){
+    private void userEndorRestart() throws IllegalArgumentException{
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String snum = sc.next();
         int num = convertInt(snum);
@@ -69,7 +69,7 @@ public class GameManager {
         throw new IllegalArgumentException("end error");
     }
 
-    private void checkUserInput(String s){
+    private void checkUserInput(String s) throws IllegalArgumentException{
         if(s.isEmpty()){
             throw new IllegalArgumentException("empty except");
         }
@@ -87,7 +87,7 @@ public class GameManager {
         return ans;
     }
 
-    private int convertInt(String s){
+    private int convertInt(String s) throws IllegalArgumentException{
        try{
            return Integer.parseInt(s);
        } catch (Exception e){
