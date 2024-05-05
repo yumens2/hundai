@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
@@ -36,6 +37,16 @@ public class gameManagerTest {
         int[] actual = newGameManager.getInput();
 
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void invalidLengthInputeTest() {
+        gameManager newGameManager = new gameManager();
+
+        String input = "12\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, () -> newGameManager.getInput());
     }
 
 }
