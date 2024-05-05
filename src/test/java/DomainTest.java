@@ -3,17 +3,19 @@
 //
 //import baseball.domain.Computer;
 //import baseball.domain.Player;
+//
 //import java.util.ArrayList;
 //import java.util.Arrays;
 //import java.util.List;
+//
 //import org.junit.jupiter.api.Test;
 //
 //public class DomainTest {
 //
 //    @Test
-//    public void playerTest(){
+//    public void playerTest() {
 //        Player player = new Player();
-//        List<Integer> playerList = Arrays.asList(1,2,3);
+//        List<Integer> playerList = Arrays.asList(1, 2, 3);
 //
 //        player.setPlayerNumbers(playerList);
 //        List<Integer> getPlayerNumbers = player.getPlayerNumbers();
@@ -22,7 +24,7 @@
 //    }
 //
 //    @Test
-//    public void ComputerTest(){
+//    public void ComputerTest() {
 //        Computer computer = new Computer();
 //
 //        computer.setComputerNumber();
