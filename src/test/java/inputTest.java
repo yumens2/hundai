@@ -27,7 +27,7 @@ public class inputTest {
         List<Integer> incorrectSizeInput = Arrays.asList(1, 2, 3, 4);
         assertThrows(IllegalArgumentException.class, () -> input.isValid(incorrectSizeInput));
     }
-    
+
 
     @Test
     void testIsValidWithDuplicateNumbers(){
