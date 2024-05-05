@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 class UserTest {
 
     User user = new User(new Scanner(System.in));
+
     @Test
     void toArray() {
-        assertThat(user.toArray("123")[1]).isEqualTo(1);
+        assertThat(user.toArray("123")[0]).isEqualTo(1);
     }
 }
