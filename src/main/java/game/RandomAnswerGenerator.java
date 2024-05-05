@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RandomAnswerGenerator {
-    private static int nDigit = 3;
+
     private List<Integer> digits = null;
 
     public RandomAnswerGenerator() {
@@ -17,7 +17,7 @@ public class RandomAnswerGenerator {
 
     public String getAnswerAsString() {
         String answer = "";
-        for (int i = 0; i < nDigit; i ++) {
+        for (int i = 0; i < GameParameters.nDigit; i ++) {
             Collections.shuffle(digits);
             int d = digits.remove(digits.size() - 1);
             answer += String.valueOf(d);
