@@ -67,12 +67,16 @@ public class Application{
                 throw new IllegalArgumentException("입력은 숫자여야 합니다.");
             }
         }
-
-
-
-
-
+        public boolean askPlayAgain(Scanner scanner) {
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            return scanner.nextLine().equals("1");
         }
+
+
+
+
+
+    }
 
 
 
