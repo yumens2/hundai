@@ -45,7 +45,7 @@ public class GameController {
             List<Integer> playerNumbers = player.getNumber();
             result = compare.compareNumbers(computerNumbers, playerNumbers);
             System.out.println(result);
-        } while (!"3 스트라이크".equals(result));
+        } while (!"3스트라이크".equals(result));
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
 }
