@@ -16,30 +16,37 @@ public class BaseballGame {
 
     private int strikes = 0;
     private int balls = 0;
+    private boolean isEnd = false;
 
 
     public void start() {
+        isEnd = false;
         computerPlayer.generateNumbers();
 
-        while (!isEnd()) {
+        while (!isEnd) {
             ioHandler.print(Message.INPUT_NUMBER.getMessage());
             humanPlayer.generateNumbers();
             compareNumbers(humanPlayer.getNumbers(), computerPlayer.getNumbers());
+
+            printResult(strikes, balls);
+
+            if (strikes == NUMBER_SIZE) {
+                printEndMessage();
+                isEnd = true;
+            }
         }
     }
 
     public void compareNumbers(ArrayList<Integer> humanNumbers, ArrayList<Integer> computerNumbers) {
+        setStrikeAndBallZero();
         for (int i = 0; i < NUMBER_SIZE; i++) {
             GameResult outcome = comparePosition(i, humanNumbers.get(i), computerNumbers);
             switch (outcome) {
                 case STRIKE:
                     strikes++;
-                    break;
+                    continue;
                 case BALL:
                     balls++;
-                    break;
-                case NONE:
-                    break;
             }
         }
     }
@@ -56,29 +63,25 @@ public class BaseballGame {
 
 
     private void printResult(int strikes, int balls) {
-        setStrikeAndBallZero();
         if (strikes == 0 && balls == 0) {
             ioHandler.print(GameResult.NONE.getMessage());
             return;
+        }
+
+        if (balls > 0) {
+            ioHandler.print(GameResult.BALL.getMessage(balls));
         }
 
         if (strikes > 0) {
             ioHandler.print(GameResult.STRIKE.getMessage(strikes));
         }
 
-        if (balls > 0) {
-            ioHandler.print(GameResult.BALL.getMessage(balls));
-        }
+        ioHandler.println("");
     }
 
-    public boolean isEnd() {
-        // TODO 구현
-        return false;
-    }
 
-    // 게임이 종료되었을 때의 메시지를 출력하는 메소드
     public void printEndMessage() {
-        // TODO 구현
+        ioHandler.println(Message.GAME_OVER.getMessage(MAX_NUMBER));
     }
 
     private void setStrikeAndBallZero() {
