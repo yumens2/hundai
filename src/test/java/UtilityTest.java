@@ -105,4 +105,12 @@ class UtilityTest {
         int[] userNumbers4 = {1, 2, 3};
         Assertions.assertThat(Utility.ballCount(randomNumbers, userNumbers4)).isEqualTo(0);
     }
+
+    @Test
+    void testGetStrikeBall() {
+        Assertions.assertThat(Utility.getStrikeBall(3, 0)).isEqualTo("3스트라이크");
+        Assertions.assertThat(Utility.getStrikeBall(1, 1)).isEqualTo("1볼 1스트라이크");
+        Assertions.assertThat(Utility.getStrikeBall(0, 2)).isEqualTo("2볼");
+        Assertions.assertThat(Utility.getStrikeBall(0, 0)).isEqualTo("낫싱");
+    }
 }
