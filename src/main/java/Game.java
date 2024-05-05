@@ -1,7 +1,7 @@
 public class Game {
 
     public void start() {
-        while (once()) {
+        while (playOnce()) {
             IO.outEnd();
             String input = IO.in();
             if (!Validation.isValidEnd(input) || input.equals("2")) {
@@ -10,7 +10,7 @@ public class Game {
         }
     }
 
-    public boolean once() {
+    public boolean playOnce() {
         InitNumbers initNumbers = new InitNumbers();
         String computer = initNumbers.getNumbers();
 
