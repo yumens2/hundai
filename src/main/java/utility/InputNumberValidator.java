@@ -34,7 +34,7 @@ public class InputNumberValidator {
                 .count());
     }
 
-    private static void raiseIllegalArgumentException() {
+    protected static void raiseIllegalArgumentException() {
         throw new IllegalArgumentException("잘못된 입력입니다.");
     }
 }
