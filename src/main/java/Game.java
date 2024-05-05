@@ -4,6 +4,7 @@ import userinterface.UserRequest;
 import userinterface.UserResponse;
 
 public class Game {
+
     private final Computer computer;
     private final UserRequest userRequest;
     private final UserResponse userResponse;
@@ -16,10 +17,10 @@ public class Game {
         this.result = new Result();
     }
 
-    public void runGame(){
+    public void runGame() {
         computer.generateRandomNumbers();
 
-        while(!result.isCorrect()){
+        while (!result.isCorrect()) {
             userResponse.printGuessMessage();
             String input = userRequest.getUserGuess();
 

@@ -3,6 +3,7 @@ package userinterface;
 import java.util.Scanner;
 
 public class UserRequest {
+
     private final Scanner scanner;
     private final InputValidator inputValidator;
 
