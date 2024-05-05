@@ -79,4 +79,17 @@ class UtilityTest {
         int[] temp3 = {2, 4, 6};
         Assertions.assertThat(Utility.stringToIntArray("246")).isEqualTo(temp3);
     }
+
+    @Test
+    void testStrikeCount() {
+        int[] randomNumbers = {1, 2, 3};
+        int[] userNumbers = {1, 2, 3};
+        Assertions.assertThat(Utility.strikeCount(randomNumbers, userNumbers)).isEqualTo(3);
+        int[] userNumbers2 = {1, 4, 3};
+        Assertions.assertThat(Utility.strikeCount(randomNumbers, userNumbers2)).isEqualTo(2);
+        int[] userNumbers3 = {1, 4, 5};
+        Assertions.assertThat(Utility.strikeCount(randomNumbers, userNumbers3)).isEqualTo(1);
+        int[] userNumbers4 = {2, 4, 5};
+        Assertions.assertThat(Utility.strikeCount(randomNumbers, userNumbers4)).isEqualTo(0);
+    }
 }
