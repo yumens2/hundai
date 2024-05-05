@@ -22,6 +22,6 @@
 - [x] 입력값이 2일 경우, 프로그램 종료
 
 **예외 처리**
-- [ ] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException`을 발생시킴
-- [ ] 프로그램 종료
+- [x] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException`을 발생시킴
+- [x] 프로그램 종료
 
