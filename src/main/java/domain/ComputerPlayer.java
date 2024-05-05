@@ -23,6 +23,7 @@ public class ComputerPlayer implements Player {
         }
     }
 
+    @Override
     public ArrayList<Integer> getNumbers() {
         return numbers;
     }

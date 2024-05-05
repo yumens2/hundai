@@ -46,4 +46,9 @@ public class HumanPlayer implements Player {
     private boolean hasDuplicatedNumber(String input) {
         return input.chars().distinct().count() != BaseballGame.NUMBER_SIZE;
     }
+
+    @Override
+    public ArrayList<Integer> getNumbers() {
+        return numbers;
+    }
 }
