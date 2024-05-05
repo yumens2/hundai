@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Test;
-import org.assertj.core.api.Assertions;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.assertj.core.api.Assertions;
 
 public class CompareTest {
     @Test
