@@ -1,5 +1,6 @@
 package domain;
 
+import static domain.BaseballGame.NUMBER_SIZE;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +20,7 @@ class ComputerPlayerTest {
         int size = computerPlayer.getNumbers().size();
 
         //then
-        assertEquals(3, size);
+        assertEquals(NUMBER_SIZE, size);
     }
 
     @Test
