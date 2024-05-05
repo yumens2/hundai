@@ -17,7 +17,7 @@ public class wrongInputTest {
 
     @Test
     @DisplayName("wrong input test")
-    public void test() {
+    public void testing() {
         try {
             String input = "1234";
             playing.checkInput(input);

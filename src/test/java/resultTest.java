@@ -18,7 +18,7 @@ public class resultTest {
 
     @Test
     @DisplayName("nothing test")
-    public void nothingTest() {
+    public void nothingTesting() {
 
         List<Integer> list1 = Arrays.asList(1, 2, 3);
         List<Integer> list2 = Arrays.asList(4, 5, 6);
@@ -29,7 +29,7 @@ public class resultTest {
 
     @Test
     @DisplayName("ball test")
-    public void ballTest() {
+    public void ballTesting() {
         List<Integer> list1 = Arrays.asList(1, 2, 3);
         List<Integer> list2 = Arrays.asList(3, 1, 2);
 
@@ -39,7 +39,7 @@ public class resultTest {
 
     @Test
     @DisplayName("strike test")
-    public void strikeTest() {
+    public void strikeTesing() {
 
         List<Integer> list1 = Arrays.asList(1, 2, 3);
         List<Integer> list2 = Arrays.asList(1, 2, 3);
