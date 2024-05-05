@@ -1,6 +1,8 @@
 package utils;
 
+import game.Game;
 import game.GameParameters;
+import java.util.Objects;
 
 public class UserInputChecker {
 
@@ -24,7 +26,13 @@ public class UserInputChecker {
         //return true;
     }
 
-    public static boolean isValidChoice(int userChoice) {
-        return (userChoice == 1 || userChoice == 2);
+    public static void isValidChoice(String userChoice) {
+        if (Objects.equals(userChoice, GameParameters.nextGame)) {
+            return;
+        }
+        if (Objects.equals(userChoice, GameParameters.quitGame)) {
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 }
