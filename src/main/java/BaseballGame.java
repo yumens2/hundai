@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class BaseballGame {
 
     Player computer;
@@ -10,6 +12,17 @@ public class BaseballGame {
     public void init() {
         computer = new Player();
         isEnd = false;
+    }
+
+    public void game() {
+        init();
+        System.out.println(GameMessageConstant.START_GAME);
+        do {
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.next();
+            String hint = getHint(input);
+            System.out.println(hint);
+        } while (!isEnd);
     }
 
     public String getHint(String input) {
