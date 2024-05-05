@@ -4,7 +4,8 @@ import util.NumberUtil;
 
 public class User {
     private String input;
-    public User(String input) {
+
+    public void setUserInput(String input) {
         this.input = input;
     }
     public int[] getNumbers() {

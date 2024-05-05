@@ -13,7 +13,8 @@ class UserTest {
     @DisplayName("getNumber method must return int array type")
     void getNumberReturnIntArrayTypeTest() throws Exception {
         //given
-        User user = new User("123");
+        User user = new User();
+        user.setUserInput("123");
 
         //when
         int[] expectedNumbers = {1, 2, 3};
@@ -26,7 +27,8 @@ class UserTest {
     @DisplayName("getNumber throws exception for invalid input test")
     void getNumberThrowsExceptionForInvalidInputTest() throws Exception {
         //given
-        User user = new User("abc");
+        User user = new User();
+        user.setUserInput("abc");
 
         //when & then
         assertThrows(IllegalArgumentException.class, () -> {
@@ -38,7 +40,8 @@ class UserTest {
     @DisplayName("getNumber throws exception for non distinct number")
     void getNumberThrowsExceptionForNonDistinctNumber() throws Exception {
         //given
-        User user = new User("111");
+        User user = new User();
+        user.setUserInput("111");
 
         //when & then
         assertThrows(IllegalArgumentException.class, () -> {
