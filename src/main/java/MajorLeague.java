@@ -7,14 +7,13 @@ import java.util.Scanner;
 
 public class MajorLeague {
 
-    static boolean playBaseBall() throws IOException {
+    static boolean playBaseball() throws IOException {
 
         AutomaticBallStrikeSystem ABS = new AutomaticBallStrikeSystem();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         RandomBall random = new RandomBall();
         ValidBall validBall = new ValidBall();
         int number = random.makeRandomBall();
-        System.out.println(number);
 
         while (true) {
 
@@ -26,13 +25,13 @@ public class MajorLeague {
 
             int ballCount = result.getBallCount();
             int strikeCount = result.getStrikeCount();
-            referee(ballCount, strikeCount);
+            callReferee(ballCount, strikeCount);
             break;
         }
         return false;
     }
 
-    private static void referee(int ballCount, int strikeCount) throws IOException {
+    private static void callReferee(int ballCount, int strikeCount) throws IOException {
         if ((ballCount == 0) && (strikeCount == 0)) {
             System.out.println("낫싱");
         } else if ((ballCount != 0) && (strikeCount != 0)) {
@@ -49,7 +48,7 @@ public class MajorLeague {
 
         Integer answer = getUserInput();
         if (answer.equals(1)) {
-            MajorLeague.playBaseBall();
+            MajorLeague.playBaseball();
         } else if (answer.equals(2)) {
             return false;
         }
