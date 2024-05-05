@@ -17,7 +17,7 @@ class RestartNumberValidatorTest {
     @ParameterizedTest
     @DisplayName("잘못된 Restart Number check 테스트")
     @ValueSource(strings = {"3", "9", "12", "123", "123456789" ,"test", "t", "\n"})
-    void checkRestartNumberInCorrect(String inputNumber) {
+    void checkRestartNumberIncorrect(String inputNumber) {
         org.assertj.core.api.Assertions.assertThatThrownBy(() -> RestartNumberValidator.checkRestartNumberCorrect(inputNumber))
                 .isInstanceOf(IllegalArgumentException.class);
     }
