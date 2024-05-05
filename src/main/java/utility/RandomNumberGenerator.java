@@ -10,6 +10,8 @@ public class RandomNumberGenerator {
     private static final int MAX_DIGIT_NUMBER = 9;
     private static final int DIGIT_RANGE_OFFSET = 1;
 
+    private RandomNumberGenerator() {}
+
     public static String getRandomNumber() {
         List<String> randomNumberList = new ArrayList<>();
         while (randomNumberList.size() < RANDOM_NUMBER_LENGTH) {

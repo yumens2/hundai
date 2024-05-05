@@ -6,8 +6,7 @@ public class InputStringReceiver {
 
     private static Scanner scanner;
 
-    private InputStringReceiver() {
-    }
+    private InputStringReceiver() {}
 
     public static Scanner getInstance() {
         if (scanner == null) {

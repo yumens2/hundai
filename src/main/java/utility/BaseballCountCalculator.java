@@ -2,6 +2,8 @@ package utility;
 
 public class BaseballCountCalculator {
 
+    private BaseballCountCalculator() {}
+
     public static int countBall(String playerNumber, String answerNumber) {
         int ballCount = 0;
         for (int i = 0; i < playerNumber.length(); i++) {

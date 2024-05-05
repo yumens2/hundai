@@ -2,6 +2,8 @@ package utility;
 
 public class ConsoleMessagePrinter {
 
+    private ConsoleMessagePrinter() {}
+
     public static void printPlayerNumberInputMessage() {
         System.out.print("숫자를 입력해 주세요 : ");
     }
