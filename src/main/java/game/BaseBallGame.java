@@ -14,9 +14,9 @@ public class BaseBallGame {
         initComputer();
         while(true) {
             List<Integer> playerNumbers = inputPlayerNumber();
-            Hint hint = computer.getHint(playerNumbers);
-            outputView.printHint(hint);
-            if(hint.is3Strike()) {
+            Hint hint = getHintFromComputer(playerNumbers);
+            printHint(hint);
+            if(checkGameOver(hint)) {
                 gameOver();
             }
         }
@@ -28,6 +28,18 @@ public class BaseBallGame {
 
     private List<Integer> inputPlayerNumber() {
         return Casting.stringToIntegerList(inputView.inputPlayerNumber());
+    }
+
+    private Hint getHintFromComputer(List<Integer> playerNumbers) {
+        return computer.getHint(playerNumbers);
+    }
+
+    private void printHint(Hint hint) {
+        outputView.printHint(hint);
+    }
+
+    private boolean checkGameOver(Hint hint) {
+        return hint.is3Strike();
     }
 
     private GameMenu inputGameMenu() {
