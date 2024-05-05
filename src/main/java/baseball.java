@@ -82,4 +82,21 @@ public class baseball {
         return true;
     }
 
+    public static int[] generateComputerNumbers() {
+        Random random = new Random();
+        Set<Integer> uniqueNumbers = new HashSet<>();
+
+        while (uniqueNumbers.size() < 3) {
+            int randomNumber = random.nextInt(9) + 1;
+            uniqueNumbers.add(randomNumber);
+        }
+
+        int[] computer = new int[3];
+        int index = 0;
+        for (int number : uniqueNumbers) {
+            computer[index++] = number;
+        }
+        return computer;
+    }
+
 }
