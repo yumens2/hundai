@@ -35,6 +35,16 @@ public class Application{
         return scanner.nextLine().equals("1");
     }
 
-   
+    // 랜덤 숫자 생성 구현
+    public List<Integer> generateRandomNumbers() {
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
+        return numbers.subList(0, 3);
+    }
+
+
 
 }
