@@ -29,7 +29,7 @@ public class BaseballGame {
     private void setPlayerNumberWithInput() {
         ConsoleMessagePrinter.printPlayerNumberInputMessage();
         String inputNumber = InputStringReceiver.getInputString();
-        PlayerNumberValidator.isPlayerNumberCorrect(inputNumber);
+        PlayerNumberValidator.checkPlayerNumberCorrect(inputNumber);
         player.setPlayerNumber(inputNumber);
     }
 
