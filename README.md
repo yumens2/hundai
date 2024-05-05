@@ -50,10 +50,10 @@
 
 #### GameService 클래스
 게임의 로직을 실행하는 클래스
-  * void countBall()
+  * void countBall(int[] userNumbers, int[] computerNumbers)
     * 동일한 숫자가 몇 개 있는지 확인하는 메서드
 
-  * void countStrike()
+  * void countStrike(int[] userNumbers, int[] computerNumbers)
     * 동일한 위치에 동일한 숫자가 있는지 확인하는 메서드
 
   * String getFeedback()
