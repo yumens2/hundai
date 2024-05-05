@@ -13,5 +13,8 @@ public class Application {
         int st= sb.strike(arr1, arr2);
         int ba= sb.ball(arr1, arr2);
         ba= ba- st; //ball과 strike가 중복되지 않도록 계산
+
+        Print pr= new Print();
+        pr.result(ba, st);
     }
 }
