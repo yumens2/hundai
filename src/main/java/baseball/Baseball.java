@@ -39,8 +39,9 @@ public class Baseball {
     //재시작 여부
     public boolean replay(){
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        if(n==1){
+        String n=sc.next();
+
+        if(n.equals("1")){
             return true;
         }
         return false;

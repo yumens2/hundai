@@ -38,7 +38,7 @@ public class Referee {
         else if(strike==0){
             return ball+"볼";
         }
-        return ball+"볼"+strike+"스트라이크";
+        return ball+"볼 "+strike+"스트라이크";
 
     }
 
