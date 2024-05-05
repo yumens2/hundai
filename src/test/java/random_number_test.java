@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class random_numberTest {
+public class random_number_test {
 
     @Test
     public void testRandomNumber() {
