@@ -18,7 +18,7 @@ public class Game {
     }
 
     private int[] evaluate(String userGuess) {
-        int [] ballAndStrike = new int[2];
+        int[] ballAndStrike = new int[2];
 
         for (int i = 0; i < GameParameters.nDigit; i++) {
             int idx = answer.indexOf(userGuess.charAt(i));

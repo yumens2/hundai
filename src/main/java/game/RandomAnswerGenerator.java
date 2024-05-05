@@ -17,7 +17,7 @@ public class RandomAnswerGenerator {
 
     public String getAnswerAsString() {
         String answer = "";
-        for (int i = 0; i < GameParameters.nDigit; i ++) {
+        for (int i = 0; i < GameParameters.nDigit; i++) {
             Collections.shuffle(digits);
             int d = digits.remove(digits.size() - 1);
             answer += String.valueOf(d);

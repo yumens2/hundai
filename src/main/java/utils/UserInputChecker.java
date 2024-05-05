@@ -3,7 +3,8 @@ package utils;
 import game.GameParameters;
 
 public class UserInputChecker {
-    public UserInputChecker () {
+
+    public UserInputChecker() {
 
     }
 

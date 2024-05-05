@@ -1,8 +1,10 @@
 package view;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class View {
+
     private static final Scanner scanner = new Scanner(System.in);
 
     private View() {
