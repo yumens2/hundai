@@ -16,5 +16,11 @@ public class Application {
 
         Print pr= new Print();
         pr.result(ba, st);
+
+        int restart;
+        if(st==3) {
+            Re re= new Re();
+            restart = re.retartok();
+        }
     }
 }
