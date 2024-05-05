@@ -7,7 +7,7 @@ public class RandomNumberGenerator {
     public List<Integer> generate(){
 
         List<Integer> numbers = new ArrayList<>();
-        for(int i = 0; i <= 9; i++){
+        for(int i = 1; i <= 9; i++){
             numbers.add(i);
         }
 
