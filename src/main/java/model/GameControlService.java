@@ -44,6 +44,11 @@ public class GameControlService {
         if(input.length() != BaseballNumberGenerator.making_number_count){
             throw new IllegalArgumentException("Invalid Input : " + input);
         }
+        for(int i = 0; i < input.length(); i++){
+            if(Character.isDigit(input.charAt(i))) {
+                throw new IllegalArgumentException("Invalid Input : " + input);
+            }
+        }
     }
 
     public GameControlService scanRestart(){
