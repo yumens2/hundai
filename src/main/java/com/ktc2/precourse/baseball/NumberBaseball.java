@@ -11,12 +11,18 @@ import com.ktc2.precourse.baseball.object.Retry;
 
 import java.util.Objects;
 
+/**
+ * 숫자야구 게임의 전반적인 흐름을 구현하는 클래스
+ */
 public class NumberBaseball {
     private final static NumbersSelector numbersSelector = new NumbersSelector();
     private final static NumbersAcceptor numbersAcceptor = new NumbersAcceptor();
     private final static MatchResultCreator matchResultCreator = new MatchResultCreator();
     private final static RetryAcceptor retryAcceptor = new RetryAcceptor();
 
+    /**
+     * 게임을 재시작하거나 게임을 종료한다.
+     */
     private static void gameRetryOrExit() {
         Retry retry = retryAcceptor.getDtoBySystemIn();
         if (Objects.requireNonNull(retry) == Retry.EXIT) {
@@ -24,6 +30,9 @@ public class NumberBaseball {
         }
     }
 
+    /**
+     * 숫자야구 게임을 플레이한다.
+     */
     public static synchronized void play() {
         Numbers computer = numbersSelector.get();
 

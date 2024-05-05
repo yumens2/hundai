@@ -4,6 +4,9 @@ import com.ktc2.precourse.baseball.exception.GameExitException;
 import com.ktc2.precourse.baseball.io.logger.GameExitExceptionLogger;
 import com.ktc2.precourse.baseball.io.logger.IllegalArgumentExceptionLogger;
 
+/**
+ * process에서 발생하는 exception을 핸들링하는 클래스
+ */
 public class ExceptionHandler{
     private final Runnable process;
 

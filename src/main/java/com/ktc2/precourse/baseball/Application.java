@@ -2,6 +2,9 @@ package com.ktc2.precourse.baseball;
 
 import com.ktc2.precourse.baseball.logic.ExceptionHandler;
 
+/**
+ * Application Main Entry class
+ */
 public class Application {
     /**
      * Application Main Entry

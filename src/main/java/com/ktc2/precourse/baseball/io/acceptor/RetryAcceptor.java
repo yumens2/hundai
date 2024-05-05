@@ -6,6 +6,9 @@ import com.ktc2.precourse.baseball.object.Retry;
 import com.ktc2.precourse.baseball.validator.RetryValidator;
 import com.ktc2.precourse.baseball.validator.Validator;
 
+/**
+ * 표준 입력으로부터 Retry를 받는 클래스
+ */
 public class RetryAcceptor extends SystemInAcceptor<Retry> {
     @Override
     protected Retry mapToDto(String input) {

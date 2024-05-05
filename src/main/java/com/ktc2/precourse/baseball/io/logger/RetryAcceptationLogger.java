@@ -2,6 +2,9 @@ package com.ktc2.precourse.baseball.io.logger;
 
 import com.ktc2.precourse.baseball.object.Numbers;
 
+/**
+ * System.in으로부터 Retry를 얻을 때 터미널에 인터랙션을 출력하는 클래스
+ */
 public class RetryAcceptationLogger implements TerminalLogger {
     private static final RetryAcceptationLogger instance = new RetryAcceptationLogger();
     private RetryAcceptationLogger() {}
