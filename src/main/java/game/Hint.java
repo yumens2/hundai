@@ -15,6 +15,10 @@ public class Hint {
         this.ball = ball;
     }
 
+    public boolean is3Strike() {
+        return strike == 3;
+    }
+
     @Override
     public String toString() {
         if(strike == 0 && ball == 0) {

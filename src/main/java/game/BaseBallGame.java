@@ -16,6 +16,9 @@ public class BaseBallGame {
             List<Integer> playerNumbers = inputPlayerNumber();
             Hint hint = computer.getHint(playerNumbers);
             outputView.printHint(hint);
+            if(hint.is3Strike()) {
+                gameOver();
+            }
         }
     }
 
@@ -25,5 +28,15 @@ public class BaseBallGame {
 
     private List<Integer> inputPlayerNumber() {
         return Casting.stringToIntegerList(inputView.inputPlayerNumber());
+    }
+
+    private GameMenu inputGameMenu() {
+        String gameMenu = inputView.inputGameMenu();
+        return GameMenu.findByCode(Integer.parseInt(gameMenu));
+    }
+
+    private void gameOver() {
+        outputView.printEndMessage();
+        GameMenu gameMenu = inputGameMenu();
     }
 }
