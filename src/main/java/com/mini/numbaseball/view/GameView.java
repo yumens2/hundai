@@ -6,7 +6,7 @@ public class GameView {
 
     public String getUserInput() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("숫자를 입력해 주세요 : ");
+        System.out.print("숫자를 입력해 주세요 : ");
 
         return scanner.nextLine();
     }
@@ -20,5 +20,13 @@ public class GameView {
 
     public void displayResult(String result) {
         System.out.println(result);
+    }
+
+    public void displayException(IllegalArgumentException e){
+        System.out.println(e.toString());
+    }
+
+    public void displayEnd(){
+        System.out.println("프로그램을 종료합니다.");
     }
 }
