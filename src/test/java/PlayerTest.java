@@ -39,8 +39,8 @@ class PlayerTest {
     void invalidInputTest() {
         Player player=new Player();
 
-        assertThrowsExactly(IllegalArgumentException.class, () -> player.check("1234"));
-        assertThrowsExactly(IllegalArgumentException.class, () -> player.check("112"));
-        assertThrowsExactly(IllegalArgumentException.class, () -> player.check("1a3"));
+        assertThrowsExactly(IllegalArgumentException.class, () -> player.inputCheck("1234"));
+        assertThrowsExactly(IllegalArgumentException.class, () -> player.inputCheck("112"));
+        assertThrowsExactly(IllegalArgumentException.class, () -> player.inputCheck("1a3"));
     }
 }
