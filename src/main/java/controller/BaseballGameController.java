@@ -13,6 +13,7 @@ public class BaseballGameController {
     public void progress() {
         // generate random number
         List<Integer> answerNum = generateRandomNumber.getRandomNumberList();
+        // input & validation
         List<Integer> inputNum = input.input();
     }
 
