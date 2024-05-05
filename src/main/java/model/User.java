@@ -1,11 +1,19 @@
 package model;
 
-public class User {
+import util.NumberUtil;
 
-    public User() {
-        // TODO
+public class User {
+    private String input;
+    public User(String input) {
+        this.input = input;
     }
     public int[] getNumbers() {
-        // TODO
+        int[] numbers = NumberUtil.parseStringToNumbers(input);
+
+        if(!NumberUtil.isDistinctNumbers(numbers)) {
+            throw new IllegalArgumentException("Invalid input value");
+        }
+
+        return numbers;
     }
 }
