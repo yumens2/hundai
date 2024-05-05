@@ -48,6 +48,17 @@ public class gameManager {
         return userDigits;
     }
 
+    private boolean isUniqueDigits(int[] numDigits) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = i + 1; j < 3; j++) {
+                if (numDigits[i] == numDigits[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     private int[] generateRand() {
         Random random = new Random();
         int[] generatedRandNum = new int[3];
