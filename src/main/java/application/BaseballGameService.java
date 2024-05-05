@@ -27,19 +27,16 @@ public class BaseballGameService {
 
         GameRestartCode gameRestartCode = validateRestartInput(input);
 
-        if (gameRestartCode == GameRestartCode.RESTART) {
+        if (gameRestartCode == GameRestartCode.EXIT) {
             stop();
         }
     }
 
     private GameRestartCode validateRestartInput(String input) {
-        if (!input.equals("1") && !input.equals("2")) {
+        try {
+            return GameRestartCode.getGameRestartCode(input);
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(Message.INVALID_INPUT.getMessage());
-        }
-        if (input.equals("1")) {
-            return GameRestartCode.RESTART;
-        } else {
-            return GameRestartCode.EXIT;
         }
     }
 
@@ -59,6 +56,15 @@ public class BaseballGameService {
 
         GameRestartCode(String number) {
             this.number = number;
+        }
+
+        public static GameRestartCode getGameRestartCode(String number) {
+            for (GameRestartCode gameRestartCode : GameRestartCode.values()) {
+                if (gameRestartCode.number.equals(number)) {
+                    return gameRestartCode;
+                }
+            }
+            throw new IllegalArgumentException(Message.INVALID_INPUT.getMessage());
         }
     }
 }
