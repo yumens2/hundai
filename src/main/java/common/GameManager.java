@@ -81,7 +81,7 @@ public class GameManager {
         int num = convertInt(s);
 
         ans[0] = num/100;
-        ans[1] = num/10;
+        ans[1] = (num%100)/10;
         ans[2] = num%10;
 
         return ans;
