@@ -13,6 +13,7 @@ public class ComputerPlayer implements Player {
 
     @Override
     public void generateNumbers() {
+        numbers.clear();
 
         for (int i = 0; i < BaseballGame.NUMBER_SIZE; i++) {
             int number = randomNumberGenerator.generateRandomNumberInRange(MIN_NUMBER, MAX_NUMBER);
