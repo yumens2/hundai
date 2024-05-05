@@ -5,6 +5,20 @@ public class Game {
     Player computer;
     boolean isEnd;
 
+    public void run() throws IllegalArgumentException {
+        Scanner scanner = new Scanner(System.in);
+        String inputCommand;
+        do {
+            game();
+            System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
+            inputCommand = scanner.next();
+            if (Validation.checkEndCommand(inputCommand)) {
+                throw new IllegalArgumentException();
+            }
+        } while (Integer.parseInt(inputCommand) != GameConstant.END_GAME_NUMBER);
+        System.out.println(GameMessageConstant.GAME_END);
+    }
+
     public void init() {
         computer = new Player();
         isEnd = false;
@@ -24,20 +38,6 @@ public class Game {
             System.out.println(hint);
         } while (!isEnd);
         System.out.println(GameMessageConstant.GAME_CLEAR);
-    }
-
-    public void run() throws IllegalArgumentException {
-        Scanner scanner = new Scanner(System.in);
-        String inputCommand;
-        do {
-            game();
-            System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
-            inputCommand = scanner.next();
-            if (Validation.checkEndCommand(inputCommand)) {
-                throw new IllegalArgumentException();
-            }
-        } while (Integer.parseInt(inputCommand) != GameConstant.END_GAME_NUMBER);
-        System.out.println(GameMessageConstant.GAME_END);
     }
 
     private String getHint(String inputNumber) {
