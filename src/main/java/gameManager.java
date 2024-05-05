@@ -9,7 +9,7 @@ public class gameManager {
         try {
             int[] userNum = getInput();
 
-            while (!computBallCount(randNum, userNum)) {
+            while (!computeBallCount(randNum, userNum)) {
                 userNum = getInput();
             }
 
@@ -34,7 +34,7 @@ public class gameManager {
         return true;
     }
 
-    private boolean computBallCount(int[] randNum, int[] userNum) {
+    public boolean computeBallCount(int[] randNum, int[] userNum) {
         int strikes = countStrikes(randNum, userNum);
         int balls = countBalls(randNum, userNum);
 
@@ -76,7 +76,7 @@ public class gameManager {
         return strikes;
     }
 
-    private int[] getInput() {
+    public int[] getInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("숫자를 입력해 주세요 : ");
         String userInput = scanner.nextLine();
@@ -102,7 +102,7 @@ public class gameManager {
         return userDigits;
     }
 
-    private boolean isValidDigits(int[] numDigits) {
+    public boolean isValidDigits(int[] numDigits) {
         for (int i = 0; i < 3; i++) {
             if (numDigits[i] < 1 || numDigits[i] > 9) {
                 return false;
@@ -111,7 +111,7 @@ public class gameManager {
         return true;
     }
 
-    private boolean isUniqueDigits(int[] numDigits) {
+    public boolean isUniqueDigits(int[] numDigits) {
         for (int i = 0; i < 3; i++) {
             for (int j = i + 1; j < 3; j++) {
                 if (numDigits[i] == numDigits[j]) {
@@ -122,7 +122,7 @@ public class gameManager {
         return true;
     }
 
-    private int[] generateRand() {
+    public int[] generateRand() {
         Random random = new Random();
         int[] generatedRandNum = new int[3];
 
