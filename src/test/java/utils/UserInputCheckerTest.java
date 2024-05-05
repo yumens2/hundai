@@ -13,45 +13,27 @@ public class UserInputCheckerTest {
     @Test
     public void throwExceptionWhenGetWrongInput() {
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidGuess("12?");
-            });
+            () -> userInputChecker.isValidGuess("12?"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidGuess("012");
-            });
+            () -> userInputChecker.isValidGuess("012"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidGuess("1234");
-            });
+            () -> userInputChecker.isValidGuess("1234"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidGuess("12");
-            });
+            () -> userInputChecker.isValidGuess("12"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidGuess("");
-            });
+            () -> userInputChecker.isValidGuess(""));
     }
 
     @DisplayName("게임종료 후 유저 선택 exception Throw 테스트")
     @Test
     public void throwExceptionWhenGetWrongChoice() {
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidChoice("0");
-            });
+            () -> userInputChecker.isValidChoice("0"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidChoice("3");
-            });
+            () -> userInputChecker.isValidChoice("3"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidChoice("12");
-            });
+            () -> userInputChecker.isValidChoice("12"));
         assertThrows(IllegalArgumentException.class,
-            () -> {
-                userInputChecker.isValidChoice("1-");
-            });
+            () -> userInputChecker.isValidChoice("1-"));
     }
 }
