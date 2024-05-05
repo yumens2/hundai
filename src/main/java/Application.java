@@ -21,20 +21,8 @@ public class Application {
     }
 
     private boolean inputValidCheck(String clientNumber) {
-        gameService.checkNumberValid(clientNumber);
-
-        try {
+            gameService.checkNumberValid(clientNumber);
             return true;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    private void continueInputValidCheck(String continueGame) {
-        if(!("1".equals(continueGame) || "2".equals(continueGame))){
-            throw new IllegalArgumentException("입력이 1과 2가 아닙니다. 애플리케이션을 종료합니다.");
-        }
     }
 
     private void printGameInfo(int strike, int ball) {
@@ -48,18 +36,15 @@ public class Application {
     }
 
     private void checkRestartGame(String continueGame){
-        continueInputValidCheck(continueGame);
-        try {
-            if("1".equals(continueGame)){
-                computer.reGenerateNumber();
-                gameCondition.changeCollectAnswer(false);
-            }
-            else if("2".equals(continueGame)){
-                gameCondition.changePlayGame(false);
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        if("1".equals(continueGame)){
+            computer.reGenerateNumber();
+            gameCondition.changeCollectAnswer(false);
+        }
+        else if("2".equals(continueGame)){
             gameCondition.changePlayGame(false);
+        }
+        else{
+            throw new IllegalArgumentException("입력이 1과 2가 아닙니다. 애플리케이션을 종료합니다.");
         }
     }
     public void start(){
