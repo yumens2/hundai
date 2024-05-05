@@ -2,6 +2,8 @@ package utility;
 
 public class InputNumberValidator {
 
+    private static final char OUT_OF_RANGE_DIGIT = '0';
+
     protected static void checkStringLengthCorrect(String string, int stringLength) {
         if (string.length() != stringLength) {
             raiseIllegalArgumentException();
@@ -15,7 +17,7 @@ public class InputNumberValidator {
     }
 
     private static void checkCharacterNumeric(char singleCharacter) {
-        if (!Character.isDigit(singleCharacter) || singleCharacter == '0') {
+        if (!Character.isDigit(singleCharacter) || singleCharacter == OUT_OF_RANGE_DIGIT) {
             raiseIllegalArgumentException();
         }
     }
