@@ -42,6 +42,33 @@ public class Number{
             throw new Exception("IllegalArgumentException");
         MY_NUM=NUM;
     }
+    public void compareNum(){
+        if(!FLAG)
+            return;
+        int TMP=MY_NUM;
+        int[] A=new int[3];
+        A[0]=TMP/100;
+        TMP%=100;
+        A[1]=TMP/10;
+        TMP%=10;
+        A[2]=TMP;
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                isEqualNum(i,j,A[j],RANDOM_NUM[i]);
+            }
+        }
+        printWhat();
+    }
+    public void isEqualNum(int i, int j, int a,int r){
+        if(a==r){
+            if(i==j){
+                STRIKE++;
+            }
+            else{
+                BALL++;
+            }
+        }
+    }
     public void chkEquality() throws Exception {
         boolean FLAG_NUM1=true;
         while(FLAG_NUM1){
