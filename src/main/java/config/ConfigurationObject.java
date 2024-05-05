@@ -12,4 +12,11 @@ public class ConfigurationObject {
         ValueMaker valueMaker = new RandomValueMaker();
         return valueMaker;
     }
+
+    public ValueChecker getValueChecker(String inputValue) {
+        ValueChecker valueChecker = new StandardValueChecker(inputValue);
+        return valueChecker;
+    }
+
+
 }
