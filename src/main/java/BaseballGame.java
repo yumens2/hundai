@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BaseballGame {
+
     public static void main(String[] args) throws IOException {
         //0. 스트라이크, 볼을 저장할 int형 배열, 시작과 종료를 나타낼 int
         int[] judgement = new int[2];
@@ -31,7 +32,7 @@ public class BaseballGame {
                 judgement[1] = 0;
 
             }
-        } catch (IllegalArgumentException ex) { //예외처리 다시!!!!!!!
+        } catch (IllegalArgumentException ex) {
             System.out.println("종료");
             start = 2;
         }
@@ -51,17 +52,25 @@ public class BaseballGame {
             //서로 다른 세 자리수인지 검사
             possible_number = UniqueDigits(com);
 
-        } while(possible_number == false);
+        } while (possible_number == false);
 
         return com;
     }
 
     public static boolean UniqueDigits(String number) {
         for (int i = 0; i < number.length() - 1; i++) {
-            for (int j = i + 1; j < number.length(); j++) {
-                if (number.charAt(i) == number.charAt(j)) {
-                    return false;
-                }
+            if (!UniqueDigits_sub(i, number)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //UniqueDigits 함수의 부속 함수
+    public static boolean UniqueDigits_sub(int i, String number) {
+        for (int j = i + 1; j < number.length(); j++) {
+            if (number.charAt(i) == number.charAt(j)) {
+                return false;
             }
         }
         return true;
@@ -86,15 +95,21 @@ public class BaseballGame {
     public static void b_s(String com, String num, int[] judgement) {
         int com_length = com.length();
         for (int i = 0; i < com_length; i++) {
-            for (int j = 0; j < com_length; j++) {
-                if (com.charAt(i) == num.charAt(j) && i == j) {
-                    judgement[1]++;
-                } else if (com.charAt(i) == num.charAt(j) && i != j) {
-                    judgement[0]++;
-                }
+            b_s_sub(i, com, num, judgement);
+        }
+    }
+
+    //b_s 함수의 부속 함수
+    public static void b_s_sub(int i, String com, String num, int[] judgement) {
+        for (int j = 0; j < com.length(); j++) {
+            if (com.charAt(i) == num.charAt(j) && i == j) {
+                judgement[1]++;
+            } else if (com.charAt(i) == num.charAt(j) && i != j) {
+                judgement[0]++;
             }
         }
     }
+
 
     //몇 볼 몇 스트라이크인지 출력하고 만약 3스트라이크라면 종료에 대한 사용자의 입력을 받음
     public static void b_s_print(int[] judgement) throws IOException {
@@ -110,7 +125,7 @@ public class BaseballGame {
     }
 
     //게임을 종료하는지 확인하는 함수
-    public static int check_restart(int[] judgement) throws IOException{
+    public static int check_restart(int[] judgement) throws IOException {
         int ret = 0;
         if (judgement[1] == 3) {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
@@ -121,15 +136,13 @@ public class BaseballGame {
         return ret;
     }
 
-    public static void valid_string(String num) throws IllegalArgumentException{
-        for(int i = 0; i < num.length(); i++) {
-            if(num.charAt(i) > 48 && num.charAt(i) < 58) {
+    public static void valid_string(String num) throws IllegalArgumentException {
+        for (int i = 0; i < num.length(); i++) {
+            if (num.charAt(i) > 48 && num.charAt(i) < 58) {
 
             } else {
                 throw new IllegalArgumentException();
             }
         }
     }
-
-
 }
