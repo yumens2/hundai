@@ -3,6 +3,8 @@ package common;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import vo.BaseBallAnsVO;
+import vo.BaseBallVO;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,5 +26,17 @@ class BaseBallMakerTest {
 		//then
 		assertTrue(num>=1);
 		assertTrue(num<10);
+	}
+
+	@Test
+	void playBall() {
+		//given
+		BaseBallVO vo = new BaseBallVO(3,1,4);
+
+		//when
+		BaseBallAnsVO ansVO = baseBallMaker.playBall(vo);
+
+		//then
+		assertNotNull(ansVO,ansVO.toString());
 	}
 }
