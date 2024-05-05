@@ -23,6 +23,26 @@ public class gameManager {
         }
     }
 
+    private boolean computBallCount(int[] randNum, int[] userNum) {
+        int strikes = countStrikes(randNum, userNum);
+        int balls = countBalls(randNum, userNum);
+
+        if (strikes == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        }
+        if (strikes == 0 && balls == 0) {
+            System.out.println("낫싱");
+        } else if (strikes == 0) {
+            System.out.printf("%d볼\n", balls);
+        } else if (balls == 0) {
+            System.out.printf("%d스트라이크\n", strikes);
+        } else {
+            System.out.printf("%d볼 %d스트라이크\n", balls, strikes);
+        }
+        return false;
+    }
+
     private int[] getInput() {
         System.out.println("숫자를 입력해 주세요 : ");
         String userInput = scanner.nextLine();
