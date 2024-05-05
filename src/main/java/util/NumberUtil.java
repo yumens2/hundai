@@ -44,6 +44,24 @@ public class NumberUtil {
     }
 
     public static boolean isDistinctNumbers(int[] numbers) {
-        // TODO
+        // 입력된 정수 배열의 크기가 3인지, null이 아닌지 확인
+        if(numbers.length != 3 || numbers == null) {
+            throw new IllegalArgumentException("Array length must be 3");
+        }
+
+        Set<Integer> checkedNumbers = new HashSet<>();
+        for(int number : numbers) {
+            // 범위 안에 있는지 확인
+            if(number < 1 || number > 9) {
+                return false;
+            }
+
+            // 숫자 중복 검사
+            if(!checkedNumbers.add(number)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
