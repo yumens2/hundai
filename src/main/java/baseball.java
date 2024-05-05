@@ -121,5 +121,15 @@ public class baseball {
         return balls;
     }
 
-
+    private static int countBallsWithoutDuplicates(int playerNumber, int[] computer, boolean[] checked) {
+        int balls = 0;
+        for (int j = 0; j < 3; j++) {
+            if (!checked[j] && playerNumber == computer[j]) {
+                balls++;
+                checked[j] = true;
+                break;
+            }
+        }
+        return balls;
+    }
 }
