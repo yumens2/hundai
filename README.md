@@ -118,21 +118,28 @@ A 또한 사용자가 아니게 될 수 있으니까 인터페이스를 두고, 
 <br><br>
 **인터페이스를 분리하고! 적절한 값을 판단하는 구현체를 내부객체로 가지는 추상 클래를 두어서, 코드 재사용률을 높여야겠다!!**
 
-### 문제 출제 인터페이스 : TestTaker
-### 문제 출제 구현체 : UtilRandomTestTaker
-### 입력값 검수 인터페이스 : ValueChecker
-### 입력값 검수 구현체 : StandardvalueChecker
-### 입력값 검수 구현체를 내부 객체로 가지는 추상 클래스 : ProblemManager
-### 추상 클래스를 구현한 구현체 : UtilRandomProblemManagemer
+#### 문제 출제 인터페이스 : TestTaker
+1. 1부터 9까지의 문자열을 제공한다.
+#### 문제 출제 구현체 : UtilRandomTestTaker
+#### 입력값 검수 인터페이스 : ValueChecker
+1. 입력값을 받아 스트라이크, 볼, 낫싱 등 적절한 기능을 제공한다. 
+#### 입력값 검수 구현체 : StandardvalueChecker
+#### 입력값 검수 구현체를 내부 객체로 가지는 추상 클래스 : ProblemManager
+#### 추상 클래스를 구현한 구현체 : UtilRandomProblemManagemer
 
 
-### 문제를 맞추는 인터페이스 : Participant
-### 문제를 맞추는 구현체 : RealParticipant
+#### 문제를 맞추는 인터페이스 : Participant
+1. 입력값을 전달한다.
+#### 문제를 맞추는 구현체 : RealParticipant
 
-### 게임 구성 객체 : ConfigurationObject
+#### 게임 구성 객체 : ConfigurationObject
+1. 각 구성을 채운채 반환한다.
 
-### 개임 진행 인터페이스 : GameManager
-### 게임 진행 구현체 : StandarGameManager
+#### 개임 진행 인터페이스 : GameManager
+1. 구성을 받은 후, 진행한다.
+2. 에러메시지를 적절하게 띄운다.
+
+#### 게임 진행 구현체 : StandarGameManager
 
 
 
