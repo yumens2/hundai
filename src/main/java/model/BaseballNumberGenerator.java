@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * 컴퓨터 측의 랜덤 숫자 생성
+ */
 public class BaseballNumberGenerator {
 
     public String generateBaseballNumberString(int size) {
