@@ -46,6 +46,8 @@ public class BaseballGame {
                     continue;
                 case BALL:
                     balls++;
+                    continue;
+                case NONE:
             }
         }
     }
