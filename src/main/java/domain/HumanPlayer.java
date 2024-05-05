@@ -22,18 +22,18 @@ public class HumanPlayer implements Player {
             input = ioHandler.getStringInput();
         }
 
+        numbers.clear();
         for (int i = 0; i < BaseballGame.NUMBER_SIZE; i++) {
             numbers.add(Character.getNumericValue(input.charAt(i)));
         }
     }
 
     public String getInput() {
-        ioHandler.print(Message.INPUT_NUMBER.getMessage());
         return ioHandler.getStringInput();
     }
 
 
-    private void validateInput(String input) throws IllegalArgumentException {
+    private void validateInput(String input) {
         if (input.length() != BaseballGame.NUMBER_SIZE) {
             throw new IllegalArgumentException(INVALID_LENGTH.getMessage());
         }
@@ -43,6 +43,9 @@ public class HumanPlayer implements Player {
         if (hasDuplicatedNumber(input)) {
             throw new IllegalArgumentException(DUPLICATED_NUMBER.getMessage());
         }
+        if (!inRange(input)) {
+            throw new IllegalArgumentException(INVALID_NUMBER.getMessage());
+        }
     }
 
     private boolean isValidInput(String input) {
@@ -51,6 +54,10 @@ public class HumanPlayer implements Player {
 
     private boolean isNumber(String input) {
         return input.chars().allMatch(Character::isDigit);
+    }
+
+    private boolean inRange(String input) {
+        return input.chars().allMatch(c -> c >= BaseballGame.MIN_NUMBER + '0' && c <= BaseballGame.MAX_NUMBER + '0');
     }
 
     private boolean hasDuplicatedNumber(String input) {

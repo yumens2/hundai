@@ -53,6 +53,17 @@ class HumanPlayerTest {
     }
 
     @Test
+    @DisplayName("입력은 1에서 9까지의 숫자가 아니면 IllegalArgumentException을 던진다.")
+    public void checkNumberRange() {
+        String invalidInput = "012";
+
+        InvocationTargetException ex = assertThrows(
+            InvocationTargetException.class,
+            () -> validateInputMethod.invoke(humanPlayer, invalidInput));
+        assertInstanceOf(IllegalArgumentException.class, ex.getCause());
+    }
+
+    @Test
     @DisplayName("입력은 중복된 숫자가 있으면 IllegalArgumentException을 던진다.")
     public void checkDuplicatedNumber() {
         String invalidInput = "112";
