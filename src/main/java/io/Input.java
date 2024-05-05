@@ -1,5 +1,6 @@
 package io;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -8,11 +9,22 @@ public class Input {
 
     private static final int DIGIT = 3;
     private static final String INPUT_PROMPT = "숫자를 입력해 주세요 : ";
+    private static final String RESTART_PROMPT = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
     private static final Scanner scanner = new Scanner(System.in);
+    private static final List<String> RESTART_OPTION = Arrays.asList("1", "2");
 
     public String input() {
         System.out.print(INPUT_PROMPT);
         return scanner.nextLine();
+    }
+
+    public int restart() {
+        System.out.println(RESTART_PROMPT);
+        String inputString = scanner.nextLine();
+        if (!RESTART_OPTION.contains(inputString)) {
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(inputString);
     }
 
     public List<Integer> validateAndParse(String inputString) {

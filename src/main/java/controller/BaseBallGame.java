@@ -18,13 +18,25 @@ public class BaseBallGame {
     private Hint hint;
 
     public void play() {
-        List<Integer> answer = generator.generate();
+        do {
+            List<Integer> answer = generator.generate();
+            playEachRound(answer);
+        } while (input.restart() == 1);
+    }
 
-        String inputString = input.input();
-        List<Integer> inputNumbers = input.validateAndParse(inputString);
+    private void playEachRound(List<Integer> answer) {
+        while (true) {
+            String inputString = input.input();
+            List<Integer> inputNumbers = input.validateAndParse(inputString);
 
-        ballStrike(answer, inputNumbers);
-        output.printResult(hint.getBallCount(), hint.getStrikeCount());
+            ballStrike(answer, inputNumbers);
+            printResult(hint);
+
+            if (hint.getStrikeCount() == MAX_COUNT) {
+                output.correct();
+                break;
+            }
+        }
     }
 
     private void ballStrike(List<Integer> answer, List<Integer> inputNumbers) {
@@ -37,6 +49,18 @@ public class BaseBallGame {
             else if (inputNumbers.contains(answer.get(i))) {
                 hint.increaseBallCount();
             }
+        }
+    }
+
+    private void printResult(Hint hint) {
+        int ballCount = hint.getBallCount();
+        int strikeCount = hint.getStrikeCount();
+
+        if (ballCount == 0 && strikeCount == 0) {
+            output.nothing();
+        }
+        else {
+            output.hint(hint);
         }
     }
 }

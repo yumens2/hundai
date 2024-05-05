@@ -2,21 +2,16 @@ package io;
 
 import static controller.BaseBallGame.MAX_COUNT;
 
+import model.Hint;
+
 public class Output {
 
-    public void printResult(int ballCount, int strikeCount) {
-        if (ballCount == 0 && strikeCount == 0) {
-            nothing();
-        }
-        else {
-            hint(ballCount, strikeCount);
-            if (strikeCount == MAX_COUNT) {
-                correct();
-            }
-        }
-    }
+    private static final String FINISH_PROMPT = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
 
-    public void hint(int ballCount, int strikeCount) {
+    public void hint(Hint hint) {
+        int ballCount = hint.getBallCount();
+        int strikeCount = hint.getStrikeCount();
+
         if (ballCount != 0 && strikeCount != 0) {
             System.out.println(ballCount + "볼 " + strikeCount + "스트라이크");
         }
@@ -33,6 +28,6 @@ public class Output {
     }
     
     public void correct() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println(FINISH_PROMPT);
     }
 }
