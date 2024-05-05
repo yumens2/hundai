@@ -1,10 +1,9 @@
 package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +19,7 @@ class UserTest {
         int[] expectedNumbers = {1, 2, 3};
 
         //then
-        assertThat(user.getNumbers()).containsExactly(expectedNumbers);
+        assertArrayEquals(expectedNumbers, user.getNumbers());
     }
 
     @Test
@@ -28,11 +27,10 @@ class UserTest {
     void getNumberThrowsExceptionForInvalidInputTest() throws Exception {
         //given
         User user = new User();
-        user.setUserInput("abc");
 
         //when & then
         assertThrows(IllegalArgumentException.class, () -> {
-            user.getNumbers();
+            user.setUserInput("abc");
         });
     }
     
@@ -41,11 +39,10 @@ class UserTest {
     void getNumberThrowsExceptionForNonDistinctNumber() throws Exception {
         //given
         User user = new User();
-        user.setUserInput("111");
 
         //when & then
         assertThrows(IllegalArgumentException.class, () -> {
-            user.getNumbers();
+            user.setUserInput("111");
         });
     }
 }
