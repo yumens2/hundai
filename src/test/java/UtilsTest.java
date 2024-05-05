@@ -20,7 +20,7 @@ class UtilsTest {
 
     @Test
     @DisplayName("숫자 유효성 검사 테스트 - 100~999 사이의 숫자가 아닌 경우")
-    void validateNumber(){
+    void validateNumber() {
         for (int i = 0; i < 100; i++) {
             int finalI = i;
             assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(finalI));
@@ -33,7 +33,7 @@ class UtilsTest {
 
     @Test
     @DisplayName("숫자 유효성 검사 테스트 - 0을 포함한 숫자인 경우")
-    void validateNumberWithZero(){
+    void validateNumberWithZero() {
         assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(100));
         assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(101));
         assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(110));
@@ -45,14 +45,14 @@ class UtilsTest {
     @ParameterizedTest
     @ValueSource(ints = {111, 121, 112, 211, 122, 212, 221})
     @DisplayName("중복 숫자 판별 여부 테스트")
-    void validateNumberWithDuplicate(int number){
+    void validateNumberWithDuplicate(int number) {
         assertThrows(IllegalArgumentException.class, () -> Utils.validateNumber(number));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"q", "qqq", "qq23", "qwe", "1234", "12345", "123456"})
     @DisplayName("입력값 유효성 검사 테스트")
-    void validateInputString(String input){
+    void validateInputString(String input) {
         assertThrows(IllegalArgumentException.class, () -> Utils.InputToRightInteger(input));
     }
 }
