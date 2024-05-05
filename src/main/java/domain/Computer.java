@@ -32,15 +32,11 @@ public class Computer {
         List<Integer> computerValues = computerNumber.values;
         int ball = 0;
         for(int computerIndex = 0; computerIndex < computerNumber.capacity; computerIndex++){
-            for(int humanIndex = 0; humanIndex < computerNumber.capacity; humanIndex++){
-                if(computerIndex == humanIndex){
-                    continue;
-                }
-                if(computerValues.get(computerIndex).equals(humanValues.get(humanIndex))){
-                    ball++;
-                    break;
-                }
+            int targetIndex = humanValues.indexOf(computerValues.get(computerIndex));
+            if(targetIndex == -1 || targetIndex == computerIndex){
+                continue;
             }
+            ball++;
         }
         return ball;
     }
