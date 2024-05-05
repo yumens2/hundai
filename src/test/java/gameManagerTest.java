@@ -40,13 +40,24 @@ public class gameManagerTest {
     }
 
     @Test
-    public void invalidLengthInputeTest() {
+    public void invalidLengthInputTest() {
         gameManager newGameManager = new gameManager();
 
         String input = "12\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        assertThrows(IllegalArgumentException.class, () -> newGameManager.getInput());
+        assertThrows(IllegalArgumentException.class, newGameManager::getInput);
     }
+
+    @Test
+    public void nonUniqueDigitsInputTest() {
+        gameManager newGameManager = new gameManager();
+
+        String input = "112\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, newGameManager::getInput);
+    }
+
 
 }
