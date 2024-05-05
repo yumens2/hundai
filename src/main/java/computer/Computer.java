@@ -28,4 +28,9 @@ public class Computer {
 
         return createNumber;
     }
+
+    public void reGenerateNumber(){
+        number = createBaseballNumber();
+    }
+
 }
