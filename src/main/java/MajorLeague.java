@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,33 +15,22 @@ DIP(Dependency Inversion Principle): 의존 역전 원칙
  */
 
 
-public class BaseBall {
+public class MajorLeague {
 
-    public static void main(String[] args) {
-        baseball();
-        while (true) {
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static void playBaseBall() throws IOException {
 
-            Scanner scanner = new Scanner(System.in);
-            int answer = scanner.nextInt();
-            if (answer == 1) {baseball();}
-            else if (answer == 2) {scanner.close(); break;}
-        }
-    }
-
-    private static void baseball() {
-
-        Scanner scanner = new Scanner(System.in);
         PlayBall play = new PlayBall();
         RandomBall random = new RandomBall();
         ValidBall validBall = new ValidBall();
+
 
         int number = random.makeRandomBall();
 
         while (true) {
 
             System.out.println("숫자를 입력해 주세요 :");
-            int answer = scanner.nextInt();
+            Integer answer = Integer.parseInt(br.readLine());
             validBall.valid(answer);
 
             List<Integer> result = play.baseBall(number, answer);
