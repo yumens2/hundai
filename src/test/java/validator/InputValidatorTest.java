@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class InputValidatorTest {
+
     InputValidator inputValidator = new InputValidator();
 
     @DisplayName("서로 다른 숫자로 이루어진 3자리 수가 아닌 경우, 예외가 발생한다.")

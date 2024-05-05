@@ -4,6 +4,7 @@ import java.util.Scanner;
 import validator.InputValidator;
 
 public class ConsoleInputView implements InputView {
+
     public static final String INPUT_PLAYER_NUMBER_MESSAGE = "숫자를 입력해 주세요 : ";
     public static final String INPUT_RESTART_OR_NOT_MESSAGE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 

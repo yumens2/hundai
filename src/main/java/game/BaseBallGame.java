@@ -6,6 +6,7 @@ import view.InputView;
 import view.OutputView;
 
 public class BaseballGame {
+
     private InputView inputView;
     private OutputView consoleOutputView;
     private Computer computer;
@@ -20,11 +21,11 @@ public class BaseballGame {
 
     public void gameStart() {
         setComputerNumber();
-        while(!exitFlag) {
+        while (!exitFlag) {
             List<Integer> playerNumbers = inputPlayerNumber();
             Hint hint = getHintFromComputer(playerNumbers);
             printHint(hint);
-            if(checkGameOver(hint)) {
+            if (checkGameOver(hint)) {
                 gameOver();
             }
         }
@@ -58,9 +59,9 @@ public class BaseballGame {
     private void gameOver() {
         consoleOutputView.printEndMessage();
         GameMenu gameMenu = inputGameMenu();
-        if(gameMenu == GameMenu.RESTART) {
+        if (gameMenu == GameMenu.RESTART) {
             setComputerNumber();
-        } else if(gameMenu == GameMenu.EXIT) {
+        } else if (gameMenu == GameMenu.EXIT) {
             exitFlag = true;
         }
     }

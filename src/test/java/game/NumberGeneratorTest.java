@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class NumberGeneratorTest {
+
     NumberGenerator numberGenerator = new RandomNumberGenerator();
     List<Integer> numbers;
 
@@ -36,8 +37,8 @@ public class NumberGeneratorTest {
     }
 
     private boolean isInRange(List<Integer> numbers) {
-        for(int n : numbers) {
-            if(n < MIN_NUMBER || n > MAX_NUMBER) {
+        for (int n : numbers) {
+            if (n < MIN_NUMBER || n > MAX_NUMBER) {
                 return false;
             }
         }
