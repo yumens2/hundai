@@ -16,27 +16,30 @@ public class GameRunner {
 
   public static void startGame() {
     isGameActive = true;
+    Scanner scan = new Scanner(System.in);
+
     while (isGameActive) {
       gameWin = false;
       System.out.println("숫자 야구 게임을 시작합니다.");
-      //    answer = NumberGenerator.generateRandomNumber();
       answer = List.of(4, 2, 5);
       System.out.println("컴퓨터가 중복되지 않는 3자리 숫자를 무작위로 생성했습니다.");
 
-      while (!gameWin){
+      while (!gameWin) {
         System.out.print("숫자를 입력해주세요 : ");
-
-        Scanner scan = new Scanner(System.in);
-        String userGuess = scan.nextLine();
-        List<Integer> guess = InputValidator.validate(userGuess);
-
-        if (GameRule.printResult(GameRule.score(answer, guess))) {
-          GameRule.askPlayContinue();
+        try {
+          String userGuess = scan.nextLine();
+          List<Integer> guess = InputValidator.validate(userGuess);
+          if (GameRule.printResult(GameRule.score(answer, guess))) {
+            GameRule.askPlayContinue();
+          }
+        } catch (IllegalArgumentException e) {
+          System.out.println("잘못된 값이 입력되었습니다. 게임을 종료합니다.");
+          gameWin = true;
+          isGameActive = false;
         }
       }
-
     }
-
-
+    scan.close();
   }
+
 }

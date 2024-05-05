@@ -44,23 +44,19 @@ public class GameRule {
 
     System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 
-    while (true) {
-      System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-      continueNumber = userContinue.nextLine();
+    System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+    continueNumber = userContinue.nextLine();
 
-      switch (continueNumber) {
-        case "1":
-          GameRunner.gameWin = true;
-          return;
-        case "2":
-          GameRunner.gameWin = true;
-          GameRunner.isGameActive = false;
-          return;
-        default:
-          System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-      }
+    switch (continueNumber) {
+      case "1":
+        GameRunner.gameWin = true;
+        return;
+      case "2":
+        GameRunner.gameWin = true;
+        GameRunner.isGameActive = false;
+        return;
+      default:
+        throw new IllegalArgumentException();
     }
   }
-
-
 }
