@@ -33,7 +33,7 @@ public class BaseballGame {
         player.setPlayerNumber(inputNumber);
     }
 
-    public boolean isGameOver() {
+    private boolean isGameOver() {
         if (umpire.isPlayerWin()) {
             BaseballPrinter.printGameOverMessage();
             BaseballPrinter.printGameRestartInputMessage();
@@ -42,26 +42,26 @@ public class BaseballGame {
         return false;
     }
 
-    public void printBallCountHint(BaseballCount baseballCount) {
+    private void printBallCountHint(BaseballCount baseballCount) {
         printBallHint(baseballCount.getBallCount());
         printStrikeHint(baseballCount.getStrikeCount());
         printNothingHint(baseballCount.isNothingCount());
         BaseballPrinter.printLineBreak();
     }
 
-    public void printBallHint(int ballCount) {
+    private void printBallHint(int ballCount) {
         if (ballCount > 0) {
             BaseballPrinter.printBallCountHintMessage(ballCount);
         }
     }
 
-    public void printStrikeHint(int strikeCount) {
+    private void printStrikeHint(int strikeCount) {
         if (strikeCount > 0) {
             BaseballPrinter.printStrikeCountHintMessage(strikeCount);
         }
     }
 
-    public void printNothingHint(boolean isNothing) {
+    private void printNothingHint(boolean isNothing) {
         if (isNothing) {
             BaseballPrinter.printNothingHintMessage();
         }
