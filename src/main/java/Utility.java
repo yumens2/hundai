@@ -12,7 +12,7 @@ public class Utility {
         int count = 0;
 
         while (count < 3) {
-            int temp = (int) (Math.random() * 10);
+            int temp = (int) (Math.random() * 9) + 1;
             if (flags[temp]) {
                 continue;
             } else {
@@ -82,5 +82,21 @@ public class Utility {
         }
 
         return strike;
+    }
+
+    public static int ballCount(int[] randomNumbers, int[] userNumbers) {
+        int ball = 0;
+
+        if (userNumbers[0] == randomNumbers[1] || userNumbers[0] == randomNumbers[2]) {
+            ball += 1;
+        }
+        if (userNumbers[1] == randomNumbers[0] || userNumbers[1] == randomNumbers[2]) {
+            ball += 1;
+        }
+        if (userNumbers[2] == randomNumbers[0] || userNumbers[2] == randomNumbers[1]) {
+            ball += 1;
+        }
+
+        return ball;
     }
 }
