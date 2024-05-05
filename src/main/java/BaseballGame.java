@@ -137,6 +137,10 @@ public class BaseballGame {
     }
 
     public static void valid_string(String num) throws IllegalArgumentException {
+        if(num.length() > 3) {
+            throw new IllegalArgumentException();
+        }
+
         for (int i = 0; i < num.length(); i++) {
             if (num.charAt(i) > 48 && num.charAt(i) < 58) {
 
@@ -144,5 +148,6 @@ public class BaseballGame {
                 throw new IllegalArgumentException();
             }
         }
+
     }
 }
