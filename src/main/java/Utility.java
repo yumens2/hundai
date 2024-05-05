@@ -61,4 +61,14 @@ public class Utility {
         }
     }
 
+    public static int[] stringToIntArray(String userString) {
+        int[] userNumbers = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            int temp = (int) userString.charAt(i) - (int) '0';
+            userNumbers[i] = temp;
+        }
+
+        return userNumbers;
+    }
 }
