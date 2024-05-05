@@ -22,7 +22,7 @@ public class BaseballGame {
         do {
             setPlayerNumberWithInput();
             umpire.setBaseballCountWithCalculator(player, computer);
-            printBallCountHint(umpire.getBaseballCount());
+            showBallCountHint(umpire.getBaseballCount());
         } while (!isGameOver());
     }
 
@@ -41,26 +41,26 @@ public class BaseballGame {
         return false;
     }
 
-    private void printBallCountHint(BaseballCount baseballCount) {
-        printBallHint(baseballCount.getBallCount());
-        printStrikeHint(baseballCount.getStrikeCount());
-        printNothingHint(baseballCount.isNothingCount());
+    private void showBallCountHint(BaseballCount baseballCount) {
+        showBallHint(baseballCount.getBallCount());
+        showStrikeHint(baseballCount.getStrikeCount());
+        showNothingHint(baseballCount.isNothingCount());
         ConsoleMessagePrinter.printLineBreak();
     }
 
-    private void printBallHint(int ballCount) {
+    private void showBallHint(int ballCount) {
         if (ballCount > 0) {
             ConsoleMessagePrinter.printBallCountHintMessage(ballCount);
         }
     }
 
-    private void printStrikeHint(int strikeCount) {
+    private void showStrikeHint(int strikeCount) {
         if (strikeCount > 0) {
             ConsoleMessagePrinter.printStrikeCountHintMessage(strikeCount);
         }
     }
 
-    private void printNothingHint(boolean isNothing) {
+    private void showNothingHint(boolean isNothing) {
         if (isNothing) {
             ConsoleMessagePrinter.printNothingHintMessage();
         }
