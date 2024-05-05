@@ -1,3 +1,5 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,5 +55,81 @@ public class BaseballTest {
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class, () -> Application.setNum(invalidInput));
+    }
+
+    @Test
+    public void testPrint_NoStrikesNoBalls() { //0 스트라이크 0 볼 일때 출력 테스트
+        // Arrange
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        Application.strike = 0;
+        Application.ball = 0;
+        Application.print();
+
+        // Assert
+        assertEquals("낫싱", outputStream.toString().trim());
+    }
+
+    @Test
+    public void testPrint_1Strike0Balls() { // N 스트라이크 0볼 일때 출력 테스트
+        // Arrange
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        Application.strike = 1;
+        Application.ball = 0;
+        Application.print();
+
+        // Assert
+        assertEquals("1스트라이크", outputStream.toString().trim());
+    }
+
+    @Test
+    public void testPrint_0Strikes2Balls() { //0 스트라이크 N 볼 일때 출력 테스트
+        // Arrange
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        Application.strike = 0;
+        Application.ball = 2;
+        Application.print();
+
+        // Assert
+        assertEquals("2볼", outputStream.toString().trim());
+    }
+
+    @Test
+    public void testPrint_2Strikes2Balls() { // N 스트라이크 N 볼 일때 출력 테스트
+        // Arrange
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        Application.strike = 2;
+        Application.ball = 2;
+        Application.print();
+
+        // Assert
+        assertEquals("2스트라이크2볼", outputStream.toString().trim());
+    }
+
+    @Test
+    public void testPrint_3Strikes_GameOver() { // 3 스트라이크로 정답일때 출력 테스트
+        // Arrange
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        System.setOut(new PrintStream(outputStream));
+
+        // Act
+        Application.strike = 3;
+        Application.ball = 0;
+        Application.print();
+
+        // Assert
+        assertEquals("3스트라이크\r\n3개의 숫자를 모두 맞히셨습니다! 게임 종료\r\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.",outputStream.toString().trim());
     }
 }
