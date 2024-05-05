@@ -1,4 +1,4 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.logger;
 
 public class GameExitExceptionLogger implements TerminalLogger {
     private static final GameExitExceptionLogger instance = new GameExitExceptionLogger();

@@ -1,5 +1,6 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.acceptor;
 
+import com.ktc2.precourse.baseball.io.logger.TerminalLogger;
 import com.ktc2.precourse.baseball.validator.Validator;
 
 import java.util.Scanner;

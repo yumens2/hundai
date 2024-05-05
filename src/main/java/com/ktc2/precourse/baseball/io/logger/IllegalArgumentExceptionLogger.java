@@ -1,4 +1,4 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.logger;
 
 public class IllegalArgumentExceptionLogger implements TerminalLogger {
     private static final IllegalArgumentExceptionLogger instance = new IllegalArgumentExceptionLogger();

@@ -1,4 +1,4 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.logger;
 
 /**
  * System.in으로부터 Numbers를 얻을 때 터미널에 인터랙션을 출력하는 클래스

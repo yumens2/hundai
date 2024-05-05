@@ -1,8 +1,8 @@
 package com.ktc2.precourse.baseball.logic;
 
 import com.ktc2.precourse.baseball.exception.GameExitException;
-import com.ktc2.precourse.baseball.io.GameExitExceptionLogger;
-import com.ktc2.precourse.baseball.io.IllegalArgumentExceptionLogger;
+import com.ktc2.precourse.baseball.io.logger.GameExitExceptionLogger;
+import com.ktc2.precourse.baseball.io.logger.IllegalArgumentExceptionLogger;
 
 public class ExceptionHandler{
     private final Runnable process;

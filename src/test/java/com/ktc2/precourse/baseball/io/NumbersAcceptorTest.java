@@ -1,5 +1,6 @@
 package com.ktc2.precourse.baseball.io;
 
+import com.ktc2.precourse.baseball.io.acceptor.NumbersAcceptor;
 import com.ktc2.precourse.baseball.object.Numbers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

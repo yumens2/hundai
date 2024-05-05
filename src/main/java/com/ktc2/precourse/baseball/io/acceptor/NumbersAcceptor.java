@@ -1,5 +1,7 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.acceptor;
 
+import com.ktc2.precourse.baseball.io.logger.NumbersAcceptationLogger;
+import com.ktc2.precourse.baseball.io.logger.TerminalLogger;
 import com.ktc2.precourse.baseball.object.Numbers;
 import com.ktc2.precourse.baseball.validator.NumbersValidator;
 import com.ktc2.precourse.baseball.validator.Validator;

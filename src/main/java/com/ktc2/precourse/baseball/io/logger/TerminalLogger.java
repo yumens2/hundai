@@ -1,4 +1,4 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.logger;
 
 /**
  * 터미널에 메시지를 출력한다.

@@ -1,4 +1,4 @@
-package com.ktc2.precourse.baseball.io;
+package com.ktc2.precourse.baseball.io.logger;
 
 import com.ktc2.precourse.baseball.object.Numbers;
 

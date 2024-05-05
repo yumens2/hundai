@@ -1,8 +1,8 @@
 package com.ktc2.precourse.baseball;
 
 import com.ktc2.precourse.baseball.exception.GameExitException;
-import com.ktc2.precourse.baseball.io.NumbersAcceptor;
-import com.ktc2.precourse.baseball.io.RetryAcceptor;
+import com.ktc2.precourse.baseball.io.acceptor.NumbersAcceptor;
+import com.ktc2.precourse.baseball.io.acceptor.RetryAcceptor;
 import com.ktc2.precourse.baseball.logic.MatchResultCreator;
 import com.ktc2.precourse.baseball.logic.NumbersSelector;
 import com.ktc2.precourse.baseball.object.MatchResult;
