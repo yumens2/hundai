@@ -1,23 +1,39 @@
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Application {
 
     public static void main(String[] args) {
-        boolean flag = true;
-        while(flag) {
-            int qNum[] = makeNum();
-            flag = playBall(qNum);
-        }
+        int qNum[];
+        do {
+            boolean flag = true;
+            qNum = makeNum();
+            while(compareNum(qNum, playerInput())){};
+        } while(restart());
     }
 
-    public static boolean playBall(int qNum[]) {
-        boolean flag = true;
-        while(flag) {
-            flag = compareNum(qNum, playerInput());
-        }
-        return chooseResume();
+    public static int[] playerInput() {
+        System.out.print("숫자를 입력해 주세요 : ");
+        Scanner input = new Scanner(System.in);
+        String str = input.nextLine();
+
+        if(str.length() != 3)
+            throw new IllegalArgumentException();
+        for(int i=0; i<3; i++)
+            if(str.charAt(i) == '0')
+                throw new IllegalArgumentException();
+        if(str.charAt(0) == str.charAt(1) || str.charAt(0) == str.charAt(2) || str.charAt(1) == str.charAt(2))
+            throw new IllegalArgumentException();
+
+        return convert(str);
+    }
+
+    public static int[] convert(String pNum) {
+        int num[] = new int[3];
+        num[0] = pNum.charAt(0) - '0';
+        num[1] = pNum.charAt(1) - '0';
+        num[2] = pNum.charAt(2) - '0';
+        return num;
     }
 
     public static int[] makeNum() {
@@ -31,27 +47,6 @@ public class Application {
             num[2] = rnd.nextInt(9) + 1;
         } while(num[0] == num[2] || num[1] == num[2]);
         return num;
-    }
-
-    public static int[] playerInput() {
-        int pNum[] = new int[3];
-        System.out.print("숫자를 입력해 주세요 : ");
-        Scanner input = new Scanner(System.in);
-        String pInput = input.nextLine();
-        pNum[0] = pInput.charAt(0) - '0';
-        pNum[1] = pInput.charAt(1) - '0';
-        pNum[2] = pInput.charAt(2) - '0';
-        checkInput(pNum);
-        return pNum;
-    }
-
-    public static void checkInput(int pNum[]) {
-        for(int i : pNum) {
-            if(i < 1 || i > 9)
-                throw new IllegalArgumentException();
-        }
-        if(pNum[0] == pNum[1] || pNum[0] == pNum[2] || pNum[1] == pNum[2])
-            throw new IllegalArgumentException();
     }
 
     public static boolean compareNum(int[] qNum, int[] pNum) {
@@ -84,7 +79,7 @@ public class Application {
         return true;
     }
 
-    public static boolean chooseResume() {
+    public static boolean restart() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         Scanner input = new Scanner(System.in);
         String readLine = input.nextLine();
