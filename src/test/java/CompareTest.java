@@ -29,7 +29,7 @@ public class CompareTest {
     void testComparisonWithSomeBalls() {
         // Given
         Compare compare = new Compare();
-        int[] targetNumbers = {1, 2};
+        int[] targetNumbers = {1, 2, 7};
         int[] playerInput = {4, 1, 5};
 
         compare.compare(targetNumbers, playerInput);
