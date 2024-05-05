@@ -19,7 +19,6 @@ public class HumanPlayer implements Player {
         validateInput(input);
 
         while (!isValidInput(input)) {
-            ioHandler.print(Message.INVALID_INPUT.getMessage());
             input = ioHandler.getStringInput();
         }
 
