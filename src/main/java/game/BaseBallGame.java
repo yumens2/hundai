@@ -5,14 +5,21 @@ import util.Casting;
 import view.InputView;
 import view.OutputView;
 
-public class BaseBallGame {
-    private InputView inputView = new InputView();
-    private OutputView outputView = new OutputView();
+public class BaseballGame {
+    private InputView inputView;
+    private OutputView consoleOutputView;
     private Computer computer;
+
     private boolean exitFlag = false;
 
+    public BaseballGame(InputView inputView, OutputView consoleOutputView, Computer computer) {
+        this.inputView = inputView;
+        this.consoleOutputView = consoleOutputView;
+        this.computer = computer;
+    }
+
     public void gameStart() {
-        initComputer();
+        setComputerNumber();
         while(!exitFlag) {
             List<Integer> playerNumbers = inputPlayerNumber();
             Hint hint = getHintFromComputer(playerNumbers);
@@ -23,8 +30,8 @@ public class BaseBallGame {
         }
     }
 
-    private void initComputer() {
-        computer = new Computer();
+    private void setComputerNumber() {
+        computer.setNumbers();
     }
 
     private List<Integer> inputPlayerNumber() {
@@ -36,7 +43,7 @@ public class BaseBallGame {
     }
 
     private void printHint(Hint hint) {
-        outputView.printHint(hint);
+        consoleOutputView.printHint(hint);
     }
 
     private boolean checkGameOver(Hint hint) {
@@ -49,10 +56,10 @@ public class BaseBallGame {
     }
 
     private void gameOver() {
-        outputView.printEndMessage();
+        consoleOutputView.printEndMessage();
         GameMenu gameMenu = inputGameMenu();
         if(gameMenu == GameMenu.RESTART) {
-            initComputer();
+            setComputerNumber();
         } else if(gameMenu == GameMenu.EXIT) {
             exitFlag = true;
         }

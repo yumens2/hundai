@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Computer {
     private final NumberGenerator numberGenerator;
-    private final List<Integer> numbers;
+    private List<Integer> numbers;
 
-    public Computer() {
-        this.numberGenerator = new RandomNumberGenerator();
-        this.numbers = numberGenerator.generateNumbers();
+    public Computer(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+        numbers = numberGenerator.generateNumbers();
     }
 
     public Hint getHint(List<Integer> numbers) {
@@ -22,5 +22,9 @@ public class Computer {
             }
         }
         return new Hint(strike, ball);
+    }
+
+    public void setNumbers() {
+        numbers = numberGenerator.generateNumbers();
     }
 }
