@@ -21,7 +21,7 @@ public class GameRunner {
     while (isGameActive) {
       gameWin = false;
       System.out.println("숫자 야구 게임을 시작합니다.");
-      answer = List.of(4, 2, 5);
+      answer = NumberGenerator.generateRandomNumber();
       System.out.println("컴퓨터가 중복되지 않는 3자리 숫자를 무작위로 생성했습니다.");
 
       while (!gameWin) {
