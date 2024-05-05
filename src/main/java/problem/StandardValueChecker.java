@@ -1,5 +1,7 @@
 package problem;
 
+import java.util.List;
+
 public class StandardValueChecker implements ValueChecker{
     private final String problemValue;
 
@@ -8,7 +10,7 @@ public class StandardValueChecker implements ValueChecker{
     }
 
     @Override
-    public int determineTheValue(String inputValue) {
+    public String determineTheValue(String inputValue) {
         int strike = 0;
         int ball = 0;
 
@@ -30,12 +32,6 @@ public class StandardValueChecker implements ValueChecker{
             str = strike +" "+ Message.STRIKE.toString();
         }else
             str = strike +" "+ Message.STRIKE.toString() + " " + ball +" "+ Message.BALL.toString();
-
-        System.out.println(str);
-
-        if (strike == 3) {
-            return 1;
-        }
-        return 0;
+        return str;
     }
 }
