@@ -11,8 +11,8 @@ public class Computer {
             tmp.add(i);
         }
         Collections.shuffle(tmp);
-        for (int i = 1; i < 4; i++) {
-            this.comNum[i] = tmp.get(i - 1);
+        for (int i = 0; i < GAME_NUM; i++) {
+            this.comNum[i] = tmp.get(i);
         }
     }
 
