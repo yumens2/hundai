@@ -33,11 +33,7 @@ public class Randomint {
         Scanner scanner = new Scanner(System.in);
         System.out.print("숫자를 입력해 주세요 : ");
         int n = scanner.nextInt();
-
-        //숫자 입력 오류시 완전종료
-        if (n >999 || n<100) {
-            throw new IllegalArgumentException("3자리수가 아닙니다.");
-        }
+        int n1= n;
 
         int c2= n%10;
         arr2[2]= c2;
@@ -48,14 +44,25 @@ public class Randomint {
         int a2= n%10;
         arr2[0]= a2;
 
-        if (a2==b2 || b2==c2 || a2==c2) {
-            throw new IllegalArgumentException("중복된 숫자입니다.");
-        }
-        if (a2==0 || b2==0 || c2==0) {
-            throw new IllegalArgumentException("1~9 사이의 숫자가 아닙니다.");
-        }
-
+        intTest(n1,arr2);
 
         return arr2;
     }
+
+
+    void intTest(int n, int[] arr2) {
+        //숫자 입력 오류시 완전종료
+
+        if (n >999 || n<100) {
+            throw new IllegalArgumentException("3자리수가 아닙니다.");
+        }
+        if (arr2[0]==arr2[1] || arr2[1]==arr2[2] || arr2[0]==arr2[2]) {
+            throw new IllegalArgumentException("중복된 숫자입니다.");
+        }
+        if (arr2[0]==0 || arr2[1]==0 || arr2[2]==0) {
+            throw new IllegalArgumentException("1~9 사이의 숫자가 아닙니다.");
+        }
+    }
+
+
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 public class RandomintTest {
     @Test
-    public void testRandomint() {
+    public void testrandint() {
         Randomint r = new Randomint();
         int[] arr = new int[3];
         r.randint(arr);
