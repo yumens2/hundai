@@ -2,6 +2,7 @@ package manage;
 
 import config.ConfigurationObject;
 import participant.Participant;
+import problem.Message;
 import problem.ValueChecker;
 import problem.ValueMaker;
 
@@ -25,12 +26,12 @@ public class GameManager {
     }
 
     public int playGame() {
-        String input = proceedInput();
-        return proceedOutput(input);
+        String input0 = proceedInput();
+        String input1 = checkValidValues(input0);
+        return proceedOutput(input1);
     }
 
-    public String proceedInput() {
-        String input = participant.inputValue();
+    public String checkValidValues(String input) {
         if (input.length() != 3) {
             throw new IllegalArgumentException("숫자가 세자리수가 아닙니다.");
         }
@@ -48,15 +49,22 @@ public class GameManager {
             }
         }
         return input;
+    }
+    public String proceedInput() {
+        String input = participant.inputValue();
+        return input;
 
     }
 
     public int proceedOutput(String input) {
-        int result = valueChecker.determineTheValue(input);
-        if (result == 1){
-            System.out.println("⚾ 숫자 야구를 맞추셨군요 대단합니다.~ 정답은 " +this.problemValue+ "입니다~!");
+        String result = valueChecker.determineTheValue(input);
+        System.out.println(result);
+        if (result.equals(3+ " "+ Message.STRIKE.toString())){
+            System.out.println("⚾ 숫자 야구를 맞추셨군요 대단합니다.~ 정답은 " + this.problemValue + "입니다~!");
+            return 1;
         }
-        return result;
+        return 0;
+
     }
 
 }
