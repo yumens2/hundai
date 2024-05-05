@@ -8,7 +8,7 @@ public class BaseballGame {
         while (isContinue){
             playGame();
         }
-    scanner.close();
+        scanner.close();
     }
    public static void playGame(){
         int[] gameNumber = generateGameNumber();
@@ -18,6 +18,13 @@ public class BaseballGame {
         while (true) {
             int[] guess = getGuess(scanner);
             int[] result = checkResult(gameNumber, guess);
+            if (result[0] == 3){
+                System.out.println("3스트라이크, 게임 종료!");
+                break;
+            } else {
+                printResult(result);
+                System.out.println("숫자 입력: ");
+            }
         }
         scanner.close();
    }
@@ -50,6 +57,38 @@ public class BaseballGame {
         return guess;
    }
    public static int[] checkResult(int[] gameNumber, int[] guess){
+        int[] result = new int[2];
+        for (int i = 0; i < 3; i++) {
+            if (gameNumber[i] == guess[i]) {
+                result[0]++; // 스트라이크 개수
+            } else {
+                result[1] += checkBall(gameNumber, guess, i);
+            }
+        }
+        return result;
+   }
 
+   public static int checkBall(int[] gameNumber, int[] guess, int i) {
+       int cnt = 0;
+       for (int j = 0; j < 3; j++) {
+           if (gameNumber[i] == guess[j]) {
+               cnt++; // 볼 개수
+               break;
+           }
+       }
+       return cnt;
+   }
+   public static void printResult(int[] result){
+       if (result[0] == 0 && result[1] == 0) {
+           System.out.println("아웃");
+       } else {
+           if (result[0] > 0) {
+               System.out.println(result[0] + "스트라이크");
+           }
+           if (result[1] > 0) {
+               System.out.println(result[1] + "볼");
+           }
+           System.out.println();
+       }
    }
 }
