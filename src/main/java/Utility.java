@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Utility {
 
     private Utility() {
@@ -20,5 +22,14 @@ public class Utility {
         }
 
         return randomNumbers;
+    }
+
+    public static String getUserNumbers() {
+        System.out.print("숫자를 입력해 주세요 : ");
+
+        Scanner sc = new Scanner(System.in);
+        String userNumbers = sc.nextLine();
+
+        return userNumbers;
     }
 }
