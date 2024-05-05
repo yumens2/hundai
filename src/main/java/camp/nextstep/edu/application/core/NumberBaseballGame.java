@@ -8,15 +8,18 @@ public class NumberBaseballGame {
     private GameState state;
     private final InputValueValidationStrategy strategy;
     private final RandomNumberGenerator randomNumberGenerator;
+    private final DefenseResultMatcher defenseResultMatcher;
     private final List<Integer> answers = new LinkedList<>();
 
     public NumberBaseballGame(
             InputValueValidationStrategy strategy,
-            RandomNumberGenerator randomNumberGenerator
+            RandomNumberGenerator randomNumberGenerator,
+            DefenseResultMatcher defenseResultMatcher
     ) {
         state = GameState.READY;
         this.strategy = strategy;
         this.randomNumberGenerator = randomNumberGenerator;
+        this.defenseResultMatcher = defenseResultMatcher;
     }
 
     public void run() {
@@ -78,26 +81,13 @@ public class NumberBaseballGame {
     }
 
     private void defense(List<Integer> actual) {
-        DefenseResult result = getDefenseResult(answers, actual);
+        DefenseResult result = defenseResultMatcher.match(answers, actual);
         System.out.println(result);
         if(result.isStrikeOut()) {
             success();
             return;
         }
         System.out.print("숫자를 입력해 주세요 : ");
-    }
-
-    private DefenseResult getDefenseResult(List<Integer> expected, List<Integer> actual) {
-        int strike = 0;
-        int ball = 0;
-        for (int i = 0; i < expected.size(); i++) {
-            if (expected.get(i).equals(actual.get(i))) {
-                strike++;
-            } else if (expected.contains(actual.get(i))) {
-                ball++;
-            }
-        }
-        return new DefenseResult(strike, ball);
     }
 
     private void decideGameStatus(String input) {

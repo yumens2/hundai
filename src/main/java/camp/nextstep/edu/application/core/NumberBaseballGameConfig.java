@@ -9,11 +9,14 @@ public class NumberBaseballGameConfig {
             new RandomNumberGeneratorImpl();
     private static final InputValueValidationStrategy inputValueValidationStrategy =
             new DefaultInputValueValidationStrategy();
+    private static final DefenseResultMatcher defenseResultMatcher =
+            new DefenseResultMatcherImpl();
 
     private static final NumberBaseballGame numberBaseballGame =
             new NumberBaseballGame(
                     inputValueValidationStrategy,
-                    randomNumberGenerator
+                    randomNumberGenerator,
+                    defenseResultMatcher
             );
 
     private static final InputListener inputListener =
