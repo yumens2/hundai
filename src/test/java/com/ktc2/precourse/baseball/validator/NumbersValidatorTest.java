@@ -1,5 +1,6 @@
 package com.ktc2.precourse.baseball.validator;
 
+import com.ktc2.precourse.baseball.testutil.ValidNumbersGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,19 +28,9 @@ class NumbersValidatorTest {
     void isValid() {
         //valid test
         //가능한 모든 3자리 숫자에 대해 테스트함
-        String s = "123456789";
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (j == i) {
-                    continue;
-                }
-                for (int k = 0; k < 9; k++) {
-                    if (k == j || k == i) {
-                        continue;
-                    }
-                    assertThat(v.isValid("" + s.charAt(i) + s.charAt(j) + s.charAt(k))).isTrue();
-                }
-            }
+        ValidNumbersGenerator gen = new ValidNumbersGenerator();
+        while (gen.hasNext()) {
+            assertThat(v.isValid(gen.next())).isTrue();
         }
 
         //invalid test

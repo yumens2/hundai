@@ -2,6 +2,7 @@ package com.ktc2.precourse.baseball.io;
 
 import com.ktc2.precourse.baseball.io.acceptor.NumbersAcceptor;
 import com.ktc2.precourse.baseball.object.Numbers;
+import com.ktc2.precourse.baseball.testutil.ValidNumbersGenerator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,34 +40,26 @@ class NumbersAcceptorTest {
     void getDtoBySystemIn() {
         //Valid Test
         //가능한 모든 3자리 숫자에 대해 테스트함
-        String s = "123456789";
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (j == i) {
-                    continue;
-                }
-                for (int k = 0; k < 9; k++) {
-                    if (k == j || k == i) {
-                        continue;
-                    }
+        ValidNumbersGenerator gen = new ValidNumbersGenerator();
 
-                    //System.in 입력을 문자열로 대신하기 위함임
-                    System.setIn(toSysIn("" + s.charAt(i) + s.charAt(j) + s.charAt(k)));
-                    assertThat(a.getDtoBySystemIn())
-                            .isEqualTo(new Numbers(s.charAt(i) - '0', s.charAt(j) - '0', s.charAt(k) - '0'));
-                }
-            }
+        while (gen.hasNext()) {
+            String s = gen.next();
+
+            sysIn(s); //System.in 입력을 문자열로 대신하기 위함임
+            assertThat(a.getDtoBySystemIn())
+                    .isEqualTo(new Numbers(s.charAt(0) - '0', s.charAt(1) - '0', s.charAt(2) - '0'));
+            System.out.println(s);
         }
 
         //invalid test
         for (String f: fails) {
-            System.setIn(toSysIn(f));
+            sysIn(f);
             assertThrows(IllegalArgumentException.class, () -> a.getDtoBySystemIn());
         }
     }
 
-    InputStream toSysIn(String input) {
+    void sysIn(String input) {
         input = input + "\n";
-        return new ByteArrayInputStream(input.getBytes());
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 }
