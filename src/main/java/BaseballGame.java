@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BaseballGame {
 
-    public void startGame() {
+    public static void startGame() {
         boolean isPlaying = true;
         while (isPlaying) {
             playGame();
@@ -13,7 +13,7 @@ public class BaseballGame {
         }
     }
 
-    public void playGame() {
+    public static void playGame() {
         int[] targetNumbers = generateRandomNumbers();
 
         while (true) {
@@ -42,10 +42,14 @@ public class BaseballGame {
         return result;
     }
 
-    public int[] getUserInput() {
+    public static int[] getUserInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("세 자리 숫자를 입력하세요: ");
         String input = scanner.nextLine();
+
+        // 만약 중복되는 문자가 있다면
+        // 세 자리가 아니라면
+        // 숫자가 아니라면
 
         String[] inputArray = input.split("");
         int[] intArray = new int[inputArray.length];
@@ -57,7 +61,7 @@ public class BaseballGame {
     }
 
 
-    public String getResultMessage(int[] comparedResult) {
+    public static String getResultMessage(int[] comparedResult) {
         String message = "";
         int strikeCount = comparedResult[0];
         int ballCount = comparedResult[1];
@@ -85,7 +89,7 @@ public class BaseballGame {
     }
 
 
-    public int[] compareNumbers(int[] target, int[] userInput) {
+    public static int[] compareNumbers(int[] target, int[] userInput) {
         // 배열의 첫번쨰 자리에는 strike 개수, 두번째 자리에는 ball 개수
         int strikeCount = 0;
         int ballCount = 0;
@@ -103,7 +107,7 @@ public class BaseballGame {
         return new int[]{strikeCount, ballCount};
     }
 
-    public boolean isGameEnded(int[] comparedResult) {
+    public static boolean isGameEnded(int[] comparedResult) {
         if (comparedResult[0] == 3) {
             return true;
         }
