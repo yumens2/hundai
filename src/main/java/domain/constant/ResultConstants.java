@@ -1,6 +1,6 @@
 package domain.constant;
 
-public class ResultConstants {
+public final class ResultConstants {
 
     public static final String RESULT_STRIKE = "스트라이크";
     public static final String RESULT_BALL = "볼";
