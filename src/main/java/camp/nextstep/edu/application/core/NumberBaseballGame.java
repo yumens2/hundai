@@ -35,6 +35,10 @@ public class NumberBaseballGame {
         return state == GameState.RUNNING || state == GameState.PAUSED;
     }
 
+    public boolean isPaused() {
+        return state == GameState.PAUSED;
+    }
+
     public void onInputSubmitted(String input) {
         if (!isRunning()) {
             throw new IllegalStateException("Game is not running.");
