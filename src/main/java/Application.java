@@ -125,6 +125,33 @@ public class Application{
         return new Result(strikes, balls);
     }
 
+    //결과 출력 구현
+
+    public static class Result {
+        public int strikes;
+        public int balls;
+
+        public Result(int strikes, int balls) {
+            this.strikes = strikes;
+            this.balls = balls;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            if (strikes > 0) {
+                sb.append(strikes).append(" 스트라이크 ");
+            }
+            if (balls > 0) {
+                sb.append(balls).append(" 볼 ");
+            }
+            if (strikes == 0 && balls == 0) {
+                sb.append("낫싱");
+            }
+            return sb.toString();
+        }
+    }
+
 
 
 }
