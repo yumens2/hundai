@@ -22,4 +22,8 @@ public class NumberUtil {
 
         return numbers;
     }
+
+    public static int[] splitNumber(String numberString) {
+        //TODO
+    }
 }
