@@ -1,6 +1,6 @@
 package game;
 
-public class BaseBallGame {
+public class BaseBallGameService {
 
     public int checkStrike(String computerNumber, String userNumber){
         int strike = 0;
@@ -26,17 +26,38 @@ public class BaseBallGame {
         return ball;
     }
 
-    public void printGameInfo(int strike, int ball){
+    public String printGameInfo(int strike, int ball){
         if(strike == 0 && ball == 0){
-            System.out.println("낫싱");
+            return "낫싱";
         } else if(strike > 0 && ball == 0) {
-            System.out.println(strike+"스트라이크");
+            return strike+"스트라이크";
         } else if(strike == 0 && ball > 0){
-            System.out.println(ball+"볼");
+            return ball+"볼";
         }
         else{
-            System.out.println(ball+"볼 "+strike+"스트라이크");
+            return ball+"볼 "+strike+"스트라이크";
         }
+    }
+
+    public Boolean checkNumberValid(String number){
+        if (number.length() != 3) {
+            return false;
+        }
+
+        for (int i = 0; i < number.length(); i++) {
+            char c = number.charAt(i);
+
+            if (!Character.isDigit(c) || c == '0') {
+                return false;
+            }
+
+            long count = number.chars().filter(n -> n == c).count();
+            if (count > 1){
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
