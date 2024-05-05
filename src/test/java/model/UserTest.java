@@ -33,4 +33,16 @@ class UserTest {
             user.getNumbers();
         });
     }
+    
+    @Test
+    @DisplayName("getNumber throws exception for non distinct number")
+    void getNumberThrowsExceptionForNonDistinctNumber() throws Exception {
+        //given
+        User user = new User("111");
+
+        //when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            user.getNumbers();
+        });
+    }
 }
