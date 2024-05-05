@@ -21,18 +21,15 @@ public class UserInputChecker {
 
     public void isValidGuess(String userGuess) throws IllegalArgumentException {
         if (userGuess.length() != GameParameters.nDigit) {
-            // return false;
-            throw new IllegalArgumentException("자릿수를 확인하세요 input = " + userGuess);
+            throw new IllegalArgumentException();
         }
-
+        char ch;
         for (int i = 0; i < GameParameters.nDigit; i++) {
-            if (!Character.isDigit(userGuess.charAt(i))) {
-                // return false;
-                throw new IllegalArgumentException("정수만 입력해주세요 input = " + userGuess);
+            ch = userGuess.charAt(i);
+            if (!Character.isDigit(ch) || ch == '0') {
+                throw new IllegalArgumentException();
             }
         }
-
-        //return true;
     }
 
     public void isValidChoice(String userChoice) {
