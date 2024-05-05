@@ -89,7 +89,6 @@ public class Game {
         boolean continueGame = true;
         while (continueGame) {
             setAnswer();
-            System.out.println(answer);
             runSingleGame();
             continueGame = doNextGame();
         }
