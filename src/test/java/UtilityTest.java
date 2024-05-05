@@ -19,7 +19,7 @@ class UtilityTest {
             Assertions.assertThat(randomNumbers).hasSize(tempSet.size());
 
             for (int j = 0; j < 3; j++) {
-                Assertions.assertThat(randomNumbers[j]).isBetween(0, 9);
+                Assertions.assertThat(randomNumbers[j]).isBetween(1, 9);
             }
         }
     }
