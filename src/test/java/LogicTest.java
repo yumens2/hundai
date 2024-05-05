@@ -70,7 +70,6 @@ class LogicTest {
         Logic logic = new Logic(111);
         assertThat(logic.isBall(number)).isEqualTo(0);
         assertThat(logic.isStrike(number)).isEqualTo(0);
-        assertThat(logic.isNothing(number)).isTrue();
     }
 
     @ParameterizedTest
@@ -80,7 +79,6 @@ class LogicTest {
         Logic logic = new Logic(number);
         assertThat(logic.isBall(number)).isEqualTo(0);
         assertThat(logic.isStrike(number)).isEqualTo(3);
-        assertThat(logic.isNothing(number)).isFalse();
     }
 
     @Test
@@ -89,11 +87,9 @@ class LogicTest {
         Logic logic = new Logic(123);
         assertThat(logic.isBall(132)).isEqualTo(2);
         assertThat(logic.isStrike(132)).isEqualTo(1);
-        assertThat(logic.isNothing(132)).isFalse();
 
         assertThat(logic.isBall(213)).isEqualTo(2);
         assertThat(logic.isStrike(213)).isEqualTo(1);
-        assertThat(logic.isNothing(213)).isFalse();
     }
 
     @Test
@@ -104,7 +100,6 @@ class LogicTest {
         for (int i : testCase1) {
             assertThat(logic1.isBall(i)).isEqualTo(0);
             assertThat(logic1.isStrike(i)).isEqualTo(2);
-            assertThat(logic1.isNothing(i)).isFalse();
         }
     }
 
@@ -117,7 +112,6 @@ class LogicTest {
         for (int i : testCase) {
             assertThat(logic.isBall(i)).isEqualTo(1);
             assertThat(logic.isStrike(i)).isEqualTo(0);
-            assertThat(logic.isNothing(i)).isFalse();
         }
     }
 
@@ -129,7 +123,6 @@ class LogicTest {
         for (int i : testCase) {
             assertThat(logic.isBall(i)).isEqualTo(3);
             assertThat(logic.isStrike(i)).isEqualTo(0);
-            assertThat(logic.isNothing(i)).isFalse();
         }
     }
 

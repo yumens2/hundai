@@ -24,7 +24,7 @@ public class Logic {
 
     public void init() {
         while (true) {
-            this.computerNumber = (int) (Math.random() * 900) + 100;
+            this.setComputerNumber((int) (Math.random() * 900) + 100);
             try {
                 Utils.validateNumber(computerNumber);
                 break;
@@ -32,7 +32,6 @@ public class Logic {
                 continue;
             }
         }
-        this.computerDigits = Utils.getDigits(computerNumber);
     }
 
     /**
@@ -41,7 +40,6 @@ public class Logic {
      * @param computerNumber answer of the game
      */
     public void setComputerNumber(int computerNumber) {
-//        System.out.println("Warning : This method is for testing only. Do not use in production.");
         this.computerNumber = computerNumber;
         this.computerDigits = Utils.getDigits(computerNumber);
     }
@@ -62,16 +60,6 @@ public class Logic {
             }
         }
         return strike_count;
-    }
-
-    /**
-     * If user number is not match anything with computer number return true
-     *
-     * @param userNumber user input number
-     * @return if user number is not match anything with computer number return true
-     */
-    public boolean isNothing(int userNumber) {
-        return isStrike(userNumber) <= 0 && isBall(userNumber) <= 0;
     }
 
     /**
@@ -98,10 +86,6 @@ public class Logic {
         }
 
         return ball_count;
-    }
-
-    public boolean isWin(int userNumber) {
-        return isStrike(userNumber) == 3;
     }
 
     public int getComputerNumber() {
