@@ -5,10 +5,6 @@ public class BaseballGame {
     Player computer;
     boolean isEnd;
 
-    public BaseballGame() {
-
-    }
-
     public void init() {
         computer = new Player();
         isEnd = false;
@@ -17,23 +13,29 @@ public class BaseballGame {
     public void game() {
         init();
         System.out.println(GameMessageConstant.START_GAME);
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        String hint;
         do {
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.next();
-            String hint = getHint(input);
+            System.out.print(GameMessageConstant.INPUT_NUMBER);
+            input = scanner.next();
+            hint = getHint(input);
             System.out.println(hint);
         } while (!isEnd);
         System.out.println(GameMessageConstant.GAME_CLEAR);
     }
 
     public void run() {
+        Scanner scanner = new Scanner(System.in);
+        String input;
         while (true) {
             game();
             System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
-            Scanner scanner = new Scanner(System.in);
-            int input = scanner.nextInt();
-            if (input == GameConstant.END_GAME_NUMBER) {
+            input = scanner.next();
+            if (input.equals(String.valueOf(GameConstant.END_GAME_NUMBER))) {
                 break;
+            } else if (!input.equals(String.valueOf(GameConstant.RESTART_GAME_NUMBER))) {
+                throw new IllegalArgumentException();
             }
         }
         System.out.println(GameMessageConstant.GAME_END);

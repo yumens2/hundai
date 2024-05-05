@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class Player {
 
-    private int[] answer = new int[GameConstant.NUMBER_COUNT];
+    private final int[] answer = new int[GameConstant.NUMBER_COUNT];
     Set<Integer> numbers = new HashSet<>();
 
     public Player() {
