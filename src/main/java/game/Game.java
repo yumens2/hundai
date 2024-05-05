@@ -9,9 +9,12 @@ public class Game {
     private static UserInputChecker userInputChecker = null;
 
     private String answer = null;
-
+    private int nBall;
+    private int nStrike;
     public Game() {
         userInputChecker = UserInputChecker.getUserInputChecker();
+        nBall = 0;
+        nStrike = 0;
     }
 
     /**
@@ -23,30 +26,28 @@ public class Game {
 
     /**
      * 유저가 정답을 맞혔는지 판단한다
-     * @param nStrike 스트라이크의 수
      * @return 정답을 맞힌 경우 true, 아니면 false
      */
-    private boolean isCorrect(int nStrike) {
+    private boolean isCorrect() {
         return nStrike == GameParameters.nDigit;
     }
 
     /**
-     * 유저의 응답을 정답과 비교하여 볼과 스트라이크의 수를 센다
+     * 유저의 응답을 정답과 비교하여 볼과 스트라이크의 수를 세고
+     * nBall과 nStrike를 업데이트한다.
      * @param userGuess 유저의 응답
-     * @return [0]에는 볼, [1]에는 스트라이크의 수를 담은 배열
      */
-    private int[] evaluate(String userGuess) {
-        int[] ballAndStrike = new int[2];
-
+    private void evaluate(String userGuess) {
+        nBall = 0;
+        nStrike = 0;
         for (int i = 0; i < GameParameters.nDigit; i++) {
             int idx = answer.indexOf(userGuess.charAt(i));
             if (idx == i) {
-                ballAndStrike[1]++;
+                nStrike++;
             } else if (idx != -1) {
-                ballAndStrike[0]++;
+                nBall++;
             }
         }
-        return ballAndStrike;
     }
 
     /**
@@ -70,12 +71,10 @@ public class Game {
         while (true) {
             userGuess = View.getUserGuess();
             userInputChecker.isValidGuess(userGuess);
-            int[] ballAndStrike = evaluate(userGuess);
-            int nBall = ballAndStrike[0];
-            int nStrike = ballAndStrike[1];
+            evaluate(userGuess);
             View.printResult(nBall, nStrike);
 
-            if (isCorrect(nStrike)) {
+            if (isCorrect()) {
                 break;
             }
         }
