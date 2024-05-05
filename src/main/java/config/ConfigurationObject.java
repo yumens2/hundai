@@ -19,4 +19,9 @@ public class ConfigurationObject {
     }
 
 
+    public Participant getParticipant() {
+        Participant participant = new UserParticipant();
+        return participant;
+    }
+
 }
