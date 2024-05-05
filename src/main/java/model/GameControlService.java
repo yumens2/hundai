@@ -45,7 +45,7 @@ public class GameControlService {
             throw new IllegalArgumentException("Invalid Input : " + input);
         }
         for(int i = 0; i < input.length(); i++){
-            if(Character.isDigit(input.charAt(i))) {
+            if(!Character.isDigit(input.charAt(i))) {
                 throw new IllegalArgumentException("Invalid Input : " + input);
             }
         }
