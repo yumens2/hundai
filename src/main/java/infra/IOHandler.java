@@ -6,7 +6,7 @@ public class IOHandler {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public String stringInput() {
+    public String getStringInput() {
         return scanner.nextLine();
     }
 
