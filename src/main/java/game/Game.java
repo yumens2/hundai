@@ -44,12 +44,9 @@ public class Game {
         return Objects.equals(userChoice, GameParameters.nextGame);
     }
 
-    public void run() {
+    private void runSingleGame() {
         String userGuess;
-        boolean continueGame = true;
-        while (continueGame) {
-            setAnswer();
-            System.out.println(answer);
+        while (true) {
             userGuess = View.getUserGuess();
             userInputChecker.isValidGuess(userGuess);
             int[] ballAndStrike = evaluate(userGuess);
@@ -58,10 +55,18 @@ public class Game {
             View.printResult(nBall, nStrike);
 
             if (isCorrect(nStrike)) {
-                continueGame = doNextGame();
+                break;
             }
         }
     }
 
-
+    public void run() {
+        boolean continueGame = true;
+        while (continueGame) {
+            setAnswer();
+            System.out.println(answer);
+            runSingleGame();
+            continueGame = doNextGame();
+        }
+    }
 }
