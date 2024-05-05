@@ -57,8 +57,8 @@ public class BaseballGameService {
 
         private final String number;
 
-        GameRestartCode(String restart) {
-            this.number = restart;
+        GameRestartCode(String number) {
+            this.number = number;
         }
     }
 }
