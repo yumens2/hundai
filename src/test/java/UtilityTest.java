@@ -92,4 +92,17 @@ class UtilityTest {
         int[] userNumbers4 = {2, 4, 5};
         Assertions.assertThat(Utility.strikeCount(randomNumbers, userNumbers4)).isEqualTo(0);
     }
+
+    @Test
+    void testBallCount() {
+        int[] randomNumbers = {1, 2, 3};
+        int[] userNumbers = {2, 3, 1};
+        Assertions.assertThat(Utility.ballCount(randomNumbers, userNumbers)).isEqualTo(3);
+        int[] userNumbers2 = {1, 3, 2};
+        Assertions.assertThat(Utility.ballCount(randomNumbers, userNumbers2)).isEqualTo(2);
+        int[] userNumbers3 = {5, 6, 1};
+        Assertions.assertThat(Utility.ballCount(randomNumbers, userNumbers3)).isEqualTo(1);
+        int[] userNumbers4 = {1, 2, 3};
+        Assertions.assertThat(Utility.ballCount(randomNumbers, userNumbers4)).isEqualTo(0);
+    }
 }
