@@ -42,6 +42,7 @@ public class Game {
                 throw e;
             }
             int[] ballAndStrike = evaluate(userGuess);
+            View.printResult(ballAndStrike[0], ballAndStrike[1]);
         }
     }
 
