@@ -55,6 +55,16 @@ public class gameManager {
         return balls;
     }
 
+    private int countStrikes(int[] randNum, int[] userNum) {
+        int strikes = 0;
+        for (int i = 0; i < 3; i++) {
+            if (randNum[i] == userNum[i]) {
+                strikes++;
+            }
+        }
+        return strikes;
+    }
+
     private int[] getInput() {
         System.out.println("숫자를 입력해 주세요 : ");
         String userInput = scanner.nextLine();
