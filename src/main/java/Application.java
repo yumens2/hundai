@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Application {
@@ -29,6 +30,27 @@ public class Application {
             selectedNumbers.add(randomNumber);
         }
     }
+
+    protected int[] getUserInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("숫자를 입력해 주세요 : ");
+        String input = scanner.nextLine();
+
+        if (input.length() != DIGIT_COUNT) {
+            throw new IllegalArgumentException("숫자는 3자리로 입력해야 합니다.");
+        }
+
+        int[] userInput = new int[DIGIT_COUNT];
+        for (int i = 0; i < DIGIT_COUNT; i++) {
+            char digitChar = input.charAt(i);
+            if (!Character.isDigit(digitChar)) {
+                throw new IllegalArgumentException("숫자만 입력해야 합니다.");
+            }
+            userInput[i] = Character.getNumericValue(digitChar);
+        }
+        return userInput;
+    }
+
     public static void main(String[] args) {
         Application game = new Application();
         // game.start();
