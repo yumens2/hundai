@@ -2,7 +2,7 @@ package validator;
 
 import java.util.HashSet;
 
-public class InputNumberValidator {
+public class InputValidator {
     private static final char MIN_NUMBER = '1';
     private static final char MAX_NUMBER = '9';
     private static final int VALID_LENGTH = 3;
@@ -15,16 +15,16 @@ public class InputNumberValidator {
     private static final String NOT_VALID_MENU = "재시작 : 1, 종료 : 2 만 입력할 수 있습니다.";
 
     public void validateNumber(String number) {
-        checkValidLength(number);
+        checkLength(number);
         checkNumbersRange(number);
         checkDuplicateNumber(number);
     }
 
     public void validateGameMenu(String menuCode) {
-        checkValidMenu(menuCode);
+        checkValidCode(menuCode);
     }
 
-    private void checkValidLength(String number) {
+    private void checkLength(String number) {
         if(number.length() != VALID_LENGTH) {
             throw new IllegalArgumentException(NOT_VALID_LENGTH_MESSAGE);
         }
@@ -50,7 +50,7 @@ public class InputNumberValidator {
         }
     }
 
-    private void checkValidMenu(String menuCode) {
+    private void checkValidCode(String menuCode) {
         if(!(menuCode.equals(RESTART) || menuCode.equals(EXIT))) {
             throw new IllegalArgumentException(NOT_VALID_MENU);
         }
