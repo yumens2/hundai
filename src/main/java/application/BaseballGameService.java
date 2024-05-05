@@ -25,16 +25,21 @@ public class BaseballGameService {
         ioHandler.print(Message.RESTART.getMessage(MIN_NUMBER, MAX_NUMBER));
         String input = ioHandler.getStringInput();
 
-        validateRestartInput(input);
+        GameRestartCode gameRestartCode = validateRestartInput(input);
 
-        if (input.equals("2")) {
+        if (gameRestartCode == GameRestartCode.RESTART) {
             stop();
         }
     }
 
-    private void validateRestartInput(String input) {
+    private GameRestartCode validateRestartInput(String input) {
         if (!input.equals("1") && !input.equals("2")) {
             throw new IllegalArgumentException(Message.INVALID_INPUT.getMessage());
+        }
+        if (input.equals("1")) {
+            return GameRestartCode.RESTART;
+        } else {
+            return GameRestartCode.EXIT;
         }
     }
 
@@ -46,4 +51,14 @@ public class BaseballGameService {
         isRunning = false;
     }
 
+    public enum GameRestartCode {
+        RESTART("1"),
+        EXIT("2");
+
+        private final String number;
+
+        GameRestartCode(String restart) {
+            this.number = restart;
+        }
+    }
 }
