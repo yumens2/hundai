@@ -55,9 +55,24 @@ public class Application{
             System.out.print("3자리 숫자를 입력해주세요: ");
             return scanner.nextLine();
         }
+        public String requestUserInput(Scanner scanner) {
+            System.out.print("3자리 숫자를 입력해주세요: ");
+            return scanner.nextLine();
+        }
+        public void validateUserInput(String userInput){
+            if (userInput.length() != 3) {
+                throw new IllegalArgumentException("입력은 3자리여야 합니다.");
+            }
+            if (!isNumeric(userInput)) {
+                throw new IllegalArgumentException("입력은 숫자여야 합니다.");
+            }
+        }
 
 
-    }
+
+
+
+        }
 
 
 
