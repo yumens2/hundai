@@ -9,7 +9,7 @@ public class Application {
         try {
             game.run();
         } catch (IllegalArgumentException e) {
-            System.out.println("IllegalArgumentException");
+            System.out.println(e);
         }
     }
 }
