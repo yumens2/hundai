@@ -69,4 +69,34 @@ class GameServiceTest {
         assertThat(numbers).hasSize(3);
     }
 
+    @DisplayName("[게임을 종료하는 경우] 게임을 종료할 건지 체크한다.")
+    @Test
+    void askForEndWithEnd() throws Exception {
+        //given
+        String input = "Y";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        //when
+        boolean isEnd = gameService.askForEnd();
+
+        //then
+        assertThat(isEnd).isTrue();
+    }
+
+    @DisplayName("[재시작하는 경우] 게임을 종료할 건지 체크한다.")
+    @Test
+    void askForEndWithRestart() throws Exception {
+        //given
+        String input = "N";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        //when
+        boolean isEnd = gameService.askForEnd();
+
+        //then
+        assertThat(isEnd).isFalse();
+    }
+
 }
