@@ -33,4 +33,13 @@ public class Computer {
         number = createBaseballNumber();
     }
 
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void changeNumber(String number){
+        this.number = number;
+    }
+
 }
