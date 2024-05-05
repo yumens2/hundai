@@ -16,6 +16,28 @@ public class Application {
         initialize();
     }
 
+    public void start() {
+        boolean restart;
+
+        do {
+            playGame();
+            restart = askForRestart();
+        } while (restart);
+    }
+
+    protected void playGame() {
+        int[] userInput;
+        boolean gameEnd;
+
+        do {
+            userInput = getUserInput();
+            compareAndPrintResult(userInput);
+            gameEnd = isGameEnd(userInput);
+        } while (!gameEnd);
+
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
+
     protected void initialize() {
         Random random = new Random();
         computerNumber = new int[DIGIT_COUNT];
@@ -75,6 +97,13 @@ public class Application {
         return Arrays.equals(userInput, computerNumber);
     }
 
+    protected boolean askForRestart() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. ");
+        int choice = scanner.nextInt();
+        return choice == 1;
+    }
+
     protected boolean contains(int[] array, int number) {
         for (int value : array) {
             if (value == number) {
@@ -86,6 +115,6 @@ public class Application {
 
     public static void main(String[] args) {
         Application game = new Application();
-        // game.start();
+        game.start();
     }
 }
