@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BaseballGame {
     private final Scanner scanner = new Scanner(System.in);
-    private final List<Integer> computerNumbers = new ArrayList<>();
+    final List<Integer> computerNumbers = new ArrayList<>();
 
     public void gamePlay() {
 
@@ -41,7 +41,7 @@ public class BaseballGame {
         }
     }
 
-    private boolean ballOrStrike(String input) {
+    boolean ballOrStrike(String input) {
         if (input.length() != 3) {
             throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
         }
