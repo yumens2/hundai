@@ -5,8 +5,9 @@ public class Game {
         int computer = Computer.makeRandom();
         System.out.println(computer);
         String h;
+        Scanner sc = new Scanner(System.in);
         do {
-            int user = UserInput.userInput();
+            int user = UserInput.userInput(sc);
             h = Hint.hint(computer, user);
             System.out.println(h);
         } while (!h.equals("3스트라이크"));
