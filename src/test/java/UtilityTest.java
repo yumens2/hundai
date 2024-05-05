@@ -33,4 +33,14 @@ class UtilityTest {
         Assertions.assertThat(Utility.checkStringLength("1234")).isFalse();
         Assertions.assertThat(Utility.checkStringLength("12 45")).isFalse();
     }
+
+    @Test
+    void testCheckStringDistinct() {
+        Assertions.assertThat(Utility.checkStringDistinct("123")).isTrue();
+        Assertions.assertThat(Utility.checkStringDistinct("abc")).isTrue();
+        Assertions.assertThat(Utility.checkStringDistinct("123456789")).isTrue();
+        Assertions.assertThat(Utility.checkStringDistinct("112")).isFalse();
+        Assertions.assertThat(Utility.checkStringDistinct("aaa")).isFalse();
+        Assertions.assertThat(Utility.checkStringDistinct("99")).isFalse();
+    }
 }
