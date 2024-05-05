@@ -14,7 +14,7 @@ public class Main {
 
     static void makeAttack(){
         while (true){
-            System.out.print("Input number: ");
+            System.out.print("숫자를 입력해 주세요 : ");
             String predict_Num = scan.nextLine();
             try {
                 makePredict(predict_Num);
