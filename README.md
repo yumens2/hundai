@@ -32,10 +32,11 @@
   
 ## Test 목록
 ### Computer Class Test
-- [ ] Strike 개수 반환 Test
-- [ ] Ball 개수 반환 Test
+- [x] Strike 개수 반환 Test
+- [x] Ball 개수 반환 Test
 #### Computer Number Test
-- [ ] Capacity가 0이하, 10이상의 유효하지 않은 값이 들어왔을 때 오류 던짐 Test
+- [x] Computer생성 시 다른 사이즈의 Random Array 주입 시 오류 던짐
+- [x] countStrike, countBall 매서드 호출 시 HumanValue 가 ComputerValue와 자리수 불일치 시 오류 던짐
 
 ## GameService
 - [ ] GameResult 반환 테스트
@@ -48,4 +49,4 @@
 
 ## Util
 - [ ] 유효하지 않은 값 입력 시 오류 던짐 테스트
-- [ ] 랜덤값 생성 테스
+- [ ] 랜덤값 생성 테스트
