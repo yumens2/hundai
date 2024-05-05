@@ -16,7 +16,7 @@ public class GameManager {
     public static GameManager instance = new GameManager();
     private Computer computer;
     boolean isRunning; //게임이 실행 되고 있는가
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     private GameManager() {
     }
