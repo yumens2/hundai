@@ -16,11 +16,10 @@ public class BaseballGame {
 
     private int strikes = 0;
     private int balls = 0;
-    private boolean isEnd = false;
 
 
     public void start() {
-        isEnd = false;
+        boolean isEnd = false;
         computerPlayer.generateNumbers();
 
         while (!isEnd) {
