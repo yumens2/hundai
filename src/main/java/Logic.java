@@ -22,6 +22,11 @@ public class Logic {
         this.setComputerNumber(computerNumber);
     }
 
+    /**
+     * Generates a random 3-digit number with no duplicate digits and no digit being 0. The
+     * generated number is stored in the computerNumber variable and its digits are stored in the
+     * computerDigits array.
+     */
     public void init() {
         while (true) {
             this.setComputerNumber((int) (Math.random() * 900) + 100);
