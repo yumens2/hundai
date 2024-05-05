@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class Application {
-    private final Computer computer;
     private final Player player;
+    private final Computer computer;
     private final Restart restart;
 
     public Application(Computer computer, Player player, Restart restart) {
