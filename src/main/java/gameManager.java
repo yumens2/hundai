@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class gameManager {
 
-    private static final Scanner scanner = new Scanner(System.in);
-
     public void startGame() {
         int[] randNum = generateRand();
 
@@ -24,15 +22,16 @@ public class gameManager {
     }
 
     private boolean gameMenu() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         int option = scanner.nextInt();
 
         if (!(option == 1 || option == 2)) {
             throw new IllegalArgumentException("1 혹은 2를 입력해야 합니다.");
-        } else if (option == 1) {
-            return true;
+        } else if (option == 2) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     private boolean computBallCount(int[] randNum, int[] userNum) {
@@ -78,6 +77,7 @@ public class gameManager {
     }
 
     private int[] getInput() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("숫자를 입력해 주세요 : ");
         String userInput = scanner.nextLine();
 
