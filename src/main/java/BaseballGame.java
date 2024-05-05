@@ -22,6 +22,7 @@ public class BaseballGame {
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("숫자를 입력해 주세요 : ");
                 String num = br.readLine();
+                valid_string(num);
                 b_s(com, num, judgement);
                 b_s_print(judgement);
                 start = check_restart(judgement);
@@ -108,6 +109,7 @@ public class BaseballGame {
         }
     }
 
+    //게임을 종료하는지 확인하는 함수
     public static int check_restart(int[] judgement) throws IOException{
         int ret = 0;
         if (judgement[1] == 3) {
@@ -117,6 +119,16 @@ public class BaseballGame {
             ret = Integer.parseInt(br.readLine());
         }
         return ret;
+    }
+
+    public static void valid_string(String num) throws IllegalArgumentException{
+        for(int i = 0; i < num.length(); i++) {
+            if(num.charAt(i) > 48 && num.charAt(i) < 58) {
+
+            } else {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
 
