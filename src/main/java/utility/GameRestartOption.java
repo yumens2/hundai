@@ -11,7 +11,7 @@ public class GameRestartOption {
 
     private static String getRestartNumber() throws IllegalArgumentException {
         String inputNumber = InputStringReceiver.getInputString();
-        RestartNumberValidator.isRestartNumberCorrect(inputNumber);
+        RestartNumberValidator.checkRestartNumberCorrect(inputNumber);
         return inputNumber;
     }
 }
