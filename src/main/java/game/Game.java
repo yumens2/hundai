@@ -1,5 +1,6 @@
 package game;
 
+import java.util.Objects;
 import utils.UserInputChecker;
 import view.View;
 
@@ -17,6 +18,10 @@ public class Game {
         System.out.println(answer);
     }
 
+    private boolean isCorrect(int nStrike) {
+        return nStrike == GameParameters.nDigit;
+    }
+
     private int[] evaluate(String userGuess) {
         int[] ballAndStrike = new int[2];
 
@@ -31,18 +36,28 @@ public class Game {
         return ballAndStrike;
     }
 
+    private boolean doNextGame() {
+        View.printCorrectAndGameOver();
+        String userChoice = View.getUserChoiceForNextGame();
+        UserInputChecker.isValidChoice(userChoice);
+
+        return Objects.equals(userChoice, GameParameters.nextGame);
+    }
+
     public void run() {
         String userGuess;
-        boolean correct = false;
-        while (true) {
+        boolean continueGame = true;
+        while (continueGame) {
             userGuess = View.getUserGuess();
-            try {
-                UserInputChecker.isValidGuess(userGuess);
-            } catch (IllegalArgumentException e) {
-                throw e;
-            }
+            UserInputChecker.isValidGuess(userGuess);
             int[] ballAndStrike = evaluate(userGuess);
-            View.printResult(ballAndStrike[0], ballAndStrike[1]);
+            int nBall = ballAndStrike[0];
+            int nStrike = ballAndStrike[1];
+            View.printResult(nBall, nStrike);
+
+            if (isCorrect(nStrike)) {
+                continueGame = doNextGame();
+            }
         }
     }
 
