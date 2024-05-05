@@ -25,7 +25,7 @@ public class Player {
 
     private int createRandomNumber() {
         Random random = new Random();
-        return random.nextInt();
+        return random.nextInt(10);
     }
 
     public BaseBallGameResult checkMatching(int[] guess) {
