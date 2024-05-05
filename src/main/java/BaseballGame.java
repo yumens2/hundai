@@ -10,39 +10,39 @@ public class BaseballGame {
         isEnd = false;
     }
 
-    public void game() {
+    public void game() throws IllegalArgumentException {
         init();
         System.out.println(GameMessageConstant.START_GAME);
         Scanner scanner = new Scanner(System.in);
-        String input;
+        String inputNumber;
         String hint;
         do {
             System.out.print(GameMessageConstant.INPUT_NUMBER);
-            input = scanner.next();
-            hint = getHint(input);
+            inputNumber = scanner.next();
+            hint = getHint(inputNumber);
             System.out.println(hint);
         } while (!isEnd);
         System.out.println(GameMessageConstant.GAME_CLEAR);
     }
 
-    public void run() {
+    public void run() throws IllegalArgumentException {
         Scanner scanner = new Scanner(System.in);
-        String input;
+        String inputCommand;
         while (true) {
             game();
             System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
-            input = scanner.next();
-            if (input.equals(String.valueOf(GameConstant.END_GAME_NUMBER))) {
+            inputCommand = scanner.next();
+            if (inputCommand.equals(String.valueOf(GameConstant.END_GAME_NUMBER))) {
                 break;
-            } else if (!input.equals(String.valueOf(GameConstant.RESTART_GAME_NUMBER))) {
+            } else if (!inputCommand.equals(String.valueOf(GameConstant.RESTART_GAME_NUMBER))) {
                 throw new IllegalArgumentException();
             }
         }
         System.out.println(GameMessageConstant.GAME_END);
     }
 
-    public String getHint(String input) {
-        BaseBallGameResult result = computer.checkMatching(input2IntArray(input));
+    private String getHint(String inputNumber) {
+        BaseBallGameResult result = computer.checkMatching(input2IntArray(inputNumber));
         checkEnd(result);
         return result2Hint(result);
     }
@@ -53,10 +53,10 @@ public class BaseballGame {
         }
     }
 
-    private int[] input2IntArray(String input) {
+    private int[] input2IntArray(String inputNumber) {
         int[] guess = new int[GameConstant.NUMBER_COUNT];
         for (int i = 0; i < GameConstant.NUMBER_COUNT; i++) {
-            guess[i] = Character.getNumericValue(input.charAt(i));
+            guess[i] = Character.getNumericValue(inputNumber.charAt(i));
         }
         return guess;
     }
