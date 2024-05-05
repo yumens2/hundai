@@ -2,7 +2,7 @@ import domain.BaseballCount;
 import domain.Computer;
 import domain.Player;
 import domain.Umpire;
-import utility.BaseballPrinter;
+import utility.ConsoleMessagePrinter;
 import utility.InputStringReceiver;
 import utility.PlayerNumberValidator;
 
@@ -27,7 +27,7 @@ public class BaseballGame {
     }
 
     private void setPlayerNumberWithInput() {
-        BaseballPrinter.printPlayerNumberInputMessage();
+        ConsoleMessagePrinter.printPlayerNumberInputMessage();
         String inputNumber = InputStringReceiver.getInputString();
         PlayerNumberValidator.isPlayerNumberCorrect(inputNumber);
         player.setPlayerNumber(inputNumber);
@@ -35,8 +35,8 @@ public class BaseballGame {
 
     private boolean isGameOver() {
         if (umpire.isPlayerWin()) {
-            BaseballPrinter.printGameOverMessage();
-            BaseballPrinter.printGameRestartInputMessage();
+            ConsoleMessagePrinter.printGameOverMessage();
+            ConsoleMessagePrinter.printGameRestartInputMessage();
             return true;
         }
         return false;
@@ -46,24 +46,24 @@ public class BaseballGame {
         printBallHint(baseballCount.getBallCount());
         printStrikeHint(baseballCount.getStrikeCount());
         printNothingHint(baseballCount.isNothingCount());
-        BaseballPrinter.printLineBreak();
+        ConsoleMessagePrinter.printLineBreak();
     }
 
     private void printBallHint(int ballCount) {
         if (ballCount > 0) {
-            BaseballPrinter.printBallCountHintMessage(ballCount);
+            ConsoleMessagePrinter.printBallCountHintMessage(ballCount);
         }
     }
 
     private void printStrikeHint(int strikeCount) {
         if (strikeCount > 0) {
-            BaseballPrinter.printStrikeCountHintMessage(strikeCount);
+            ConsoleMessagePrinter.printStrikeCountHintMessage(strikeCount);
         }
     }
 
     private void printNothingHint(boolean isNothing) {
         if (isNothing) {
-            BaseballPrinter.printNothingHintMessage();
+            ConsoleMessagePrinter.printNothingHintMessage();
         }
     }
 }
