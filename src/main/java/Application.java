@@ -45,6 +45,54 @@ public class Application{
         return numbers.subList(0, 3);
     }
 
+    // 사용자 입력 처리 구현
+
+    public List<Integer> getUserNumbers(Scanner scanner) {
+        String userInput = requestUserInput(scanner);
+        validateUserInput(userInput);
+        return parseInput(userInput);
+    }
+
+    public String requestUserInput(Scanner scanner) {
+        System.out.print("3자리 숫자를 입력해주세요: ");
+        return scanner.nextLine();
+    }
+
+    public void validateUserInput(String userInput) {
+        if (userInput.length() != 3) {
+            throw new IllegalArgumentException("입력은 3자리여야 합니다.");
+        }
+        if (!isNumeric(userInput)) {
+            throw new IllegalArgumentException("입력은 숫자여야 합니다.");
+        }
+
+        List<Integer> digits = parseInput(userInput);
+        if (containsDuplicate(digits)) {
+            throw new IllegalArgumentException("중복되지 않은 3자리 숫자를 입력하세요.");
+        }
+    }
+
+    public boolean isNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean containsDuplicate(List<Integer> digits) {
+        return digits.stream().distinct().count() != digits.size();
+    }
+
+    public List<Integer> parseInput(String input) {
+        List<Integer> numbers = new ArrayList<>();
+        for (char c : input.toCharArray()) {
+            numbers.add(Character.getNumericValue(c));
+        }
+        return numbers;
+    }
+
 
 
 }
