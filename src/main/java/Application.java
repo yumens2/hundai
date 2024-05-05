@@ -71,15 +71,46 @@ public class Application{
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             return scanner.nextLine().equals("1");
         }
+        public boolean gameIsFinished(List<Integer> computerNumbers, Scanner scanner) {
+            List<Integer> userNumbers = getUserNumbers(scanner);
+            Result result = compareNumbers(computerNumbers, userNumbers);
+            System.out.println(result);
+
+            if (result.strikes == 3) {
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                return true;
+            }
+
+            return false;
+        }
+        public List<Integer> generateRandomNumbers() {
+            List<Integer> numbers = new ArrayList<>();
+            for (int i = 1; i <= 9; i++) {
+                numbers.add(i);
+            }
+            Collections.shuffle(numbers);
+            return numbers.subList(0, 3);
+        }
+        public void playSingleGame(Scanner scanner) {
+            List<Integer> computerNumbers = generateRandomNumbers();
+            System.out.println("새 게임을 시작합니다.");
+
+            while (!gameIsFinished(computerNumbers, scanner)) {
+                // continue playing until baseballgame.GameTest.game is finished
+            }
+        }
+
+
+
+
+
+
+
+
+
 
 
 
 
 
     }
-
-
-
-
-
-}
