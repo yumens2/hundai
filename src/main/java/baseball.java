@@ -99,4 +99,14 @@ public class baseball {
         return computer;
     }
 
+    public static int strikeCheck(int[] player, int[] computer) {
+        int strikes = 0;
+        for (int i = 0; i < 3; i++) {
+            if (player[i] == computer[i]) {
+                strikes++;
+            }
+        }
+        return strikes;
+    }
+
 }
