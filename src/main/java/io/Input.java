@@ -22,4 +22,18 @@ public class Input {
 
         return guess;
     }
+
+    public static int getNewGame() {
+        int input;
+        do {
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
+            input = scanner.nextInt();
+            scanner.nextLine();
+            if (input != 1 && input != 2) {
+                throw new IllegalArgumentException("잘못된 입력입니다. 1 또는 2를 입력하세요.");
+            }
+        } while (input != 1 && input != 2);
+
+        return input;
+    }
 }
