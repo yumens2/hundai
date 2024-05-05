@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Application {
@@ -21,12 +22,13 @@ public class Application {
 
     public static int[] makeNum() {
         int num[] = new int[3];
-        num[0] = (int)(Math.random() * 10);
+        Random rnd = new Random();
+        num[0] = rnd.nextInt(9) + 1;
         do {
-            num[1] = (int)(Math.random() * 10);
+            num[1] = rnd.nextInt(9) + 1;
         } while(num[0] == num[1]);
         do {
-            num[2] = (int)(Math.random() * 10);
+            num[2] = rnd.nextInt(9) + 1;
         } while(num[0] == num[2] || num[1] == num[2]);
         return num;
     }
