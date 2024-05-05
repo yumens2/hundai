@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BaseBallGameServiceTest {
 
@@ -66,13 +67,21 @@ class BaseBallGameServiceTest {
     @Test
     @DisplayName("입력 유효성 테스트")
     void inputValidTest(){
+        assertThatThrownBy(()->baseBallGameService.checkNumberValid("agb"))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(()->baseBallGameService.checkNumberValid("122"))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(()->baseBallGameService.checkNumberValid("12"))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(()->baseBallGameService.checkNumberValid("120"))
+                .isInstanceOf(IllegalArgumentException.class);
+
         assertThat(baseBallGameService.checkNumberValid("123")).isTrue();
-        assertThat(baseBallGameService.checkNumberValid("312")).isTrue();
-        assertThat(baseBallGameService.checkNumberValid("agb")).isFalse();
-        assertThat(baseBallGameService.checkNumberValid("122")).isFalse();
-        assertThat(baseBallGameService.checkNumberValid("12")).isFalse();
-        assertThat(baseBallGameService.checkNumberValid("120")).isFalse();
     }
+
 
 
 }
