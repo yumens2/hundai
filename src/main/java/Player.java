@@ -24,7 +24,7 @@ public class Player {
                 }
                 isValid = true;
             } else {
-                System.out.println("잘못된 입력입니다. 1부터 9까지의 숫자를 중복 없이 3개 입력해주세요.");
+                throw new IllegalArgumentException("1에서 9 사이의 수를 입력해야 합니다.");
             }
         }
     }
