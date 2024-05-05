@@ -54,10 +54,9 @@ public class Application {
                 return false;
             }
 
-            for (int j = i + 1; j < number.length(); j++) {
-                if (number.charAt(j) == c) {
-                    return false;
-                }
+            long count = number.chars().filter(n -> n == c).count();
+            if (count > 1){
+                return false;
             }
         }
 
