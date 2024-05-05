@@ -1,15 +1,13 @@
-package Entity;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class User extends Player {
+public class User  {
     private List<Integer> numberList;
 
     public User() {
         numberList = new ArrayList<>();
-        playerStatus = PlayerStatus.PERSON;
     }
 
     public User setNumberList(List<Integer> numberList) {
