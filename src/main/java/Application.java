@@ -3,19 +3,20 @@ import java.util.Scanner;
 
 public class Application {
 
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        int qNum[];
+        int qNum[], pNum[];
         do {
-            boolean flag = true;
             qNum = makeNum();
-            while(compareNum(qNum, playerInput())){};
-        } while(restart());
+            do {
+                pNum = playerInput(input.nextLine());
+            } while(compareNum(qNum, pNum));
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        } while(restart(input.nextLine()));
     }
 
-    public static int[] playerInput() {
+    public static int[] playerInput(String str) {
         System.out.print("숫자를 입력해 주세요 : ");
-        Scanner input = new Scanner(System.in);
-        String str = input.nextLine();
 
         if(str.length() != 3)
             throw new IllegalArgumentException();
@@ -25,10 +26,10 @@ public class Application {
         if(str.charAt(0) == str.charAt(1) || str.charAt(0) == str.charAt(2) || str.charAt(1) == str.charAt(2))
             throw new IllegalArgumentException();
 
-        return convert(str);
+        return convertIntArray(str);
     }
 
-    public static int[] convert(String pNum) {
+    public static int[] convertIntArray(String pNum) {
         int num[] = new int[3];
         num[0] = pNum.charAt(0) - '0';
         num[1] = pNum.charAt(1) - '0';
@@ -79,13 +80,10 @@ public class Application {
         return true;
     }
 
-    public static boolean restart() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        Scanner input = new Scanner(System.in);
-        String readLine = input.nextLine();
-        if(readLine.equals("1")) {
+    public static boolean restart(String str) {
+        if(str.equals("1")) {
             return true;
-        } else if(readLine.equals("2")) {
+        } else if(str.equals("2")) {
             return false;
         } else {
             throw new IllegalArgumentException();
