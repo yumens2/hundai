@@ -32,19 +32,19 @@ class GameControllerTest {
         // Then
         Assertions.assertThat(user.getNumberList()).isEqualTo(expectedNumbers);
     }
-    //
-    // @Test
-    // void setComputerNumbers() {
-    //     // Given
-    //     Set<Integer> expectedNumbers = new LinkedHashSet<>();
-    //     expectedNumbers.add(1);
-    //     expectedNumbers.add(2);
-    //     expectedNumbers.add(3);
-    //
-    //     // When
-    //     gameController.setComputerNumbers();
-    //
-    //     // Then
-    //     Assertions.assertThat(computer.getNumberSet().size()).isEqualTo(expectedNumbers.size());
-    // }
+
+    @Test
+    void setComputerNumbers() {
+        // Given
+        Set<Integer> expectedNumbers = new LinkedHashSet<>();
+        expectedNumbers.add(1);
+        expectedNumbers.add(2);
+        expectedNumbers.add(3);
+
+        // When
+        gameController.setComputerNumbers();
+
+        // Then
+        Assertions.assertThat(computer.getNumberSet().size()).isEqualTo(expectedNumbers.size());
+    }
 }
