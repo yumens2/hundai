@@ -1,16 +1,30 @@
-// import org.assertj.core.api.Assertions;
-// import org.junit.jupiter.api.DisplayName;
-// import org.junit.jupiter.api.Test;
-// import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.fail;
 
-// public class wrongInputTest {
 
-//     @Test
-//     @DisplayName("wrong input test")
-//     public void wrongInput() {
-//         Assertions.assertThrows(RuntimeException.class, () -> {
-//             DoSomething.func();
-//         });
-//     }
+import org.junit.jupiter.api.BeforeEach;
 
-// }
+public class wrongInputTest {
+
+    play playing;
+
+    @BeforeEach
+    void setUp(){
+        playing = new play();
+    }
+
+
+    @Test
+    @DisplayName("wrong input test")
+    public void test() {
+        try {
+            String input = "1234";
+            playing.checkInput(input);
+        } catch (IllegalArgumentException e) {
+            return;
+        }		
+        fail("no exception!");
+    }
+
+}
