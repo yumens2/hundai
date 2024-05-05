@@ -18,7 +18,7 @@ class Re{
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             restart = scanner.nextInt();
             if (restart== 1 || restart== 2) {
-                re= true;
+                re= true;//제대로된 숫자(1또는 2)를 입력받으면 while문을 빠져나온다
             }
         }//1또는 2가 아닌 숫자가 입력되면 무한 반복
 
