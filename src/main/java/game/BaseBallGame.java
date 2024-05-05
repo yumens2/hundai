@@ -9,10 +9,11 @@ public class BaseBallGame {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
     private Computer computer;
+    private boolean exitFlag = false;
 
     public void gameStart() {
         initComputer();
-        while(true) {
+        while(!exitFlag) {
             List<Integer> playerNumbers = inputPlayerNumber();
             Hint hint = getHintFromComputer(playerNumbers);
             printHint(hint);
@@ -50,5 +51,10 @@ public class BaseBallGame {
     private void gameOver() {
         outputView.printEndMessage();
         GameMenu gameMenu = inputGameMenu();
+        if(gameMenu == GameMenu.RESTART) {
+            initComputer();
+        } else if(gameMenu == GameMenu.EXIT) {
+            exitFlag = true;
+        }
     }
 }
