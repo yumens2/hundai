@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -102,5 +103,14 @@ public class gameManagerTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertTrue(newGameManager.gameMenu());
+    }
+
+    @Test
+    public void gameMenuOption2Test() {
+        gameManager newGameManager = new gameManager();
+        String input = "2\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertFalse(newGameManager.gameMenu());
     }
 }
