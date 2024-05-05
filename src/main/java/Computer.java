@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Computer {
     private static final int GAME_NUM = GameNum.GAME_NUM.getGameNum();
-    private int[] comNum = new int[GAME_NUM + 1];
+    private int[] comNum = new int[GAME_NUM];
     public void createGameNumber(){
         List<Integer> tmp = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {
