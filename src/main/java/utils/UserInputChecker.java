@@ -6,11 +6,20 @@ import java.util.Objects;
 
 public class UserInputChecker {
 
-    public UserInputChecker() {
+    private static UserInputChecker userInputChecker = null;
+
+    private UserInputChecker() {
 
     }
 
-    public static void isValidGuess(String userGuess) throws IllegalArgumentException {
+    public static UserInputChecker getUserInputChecker() {
+        if (userInputChecker == null) {
+            userInputChecker = new UserInputChecker();
+        }
+        return userInputChecker;
+    }
+
+    public void isValidGuess(String userGuess) throws IllegalArgumentException {
         if (userGuess.length() != GameParameters.nDigit) {
             // return false;
             throw new IllegalArgumentException("자릿수를 확인하세요 input = " + userGuess);
@@ -26,7 +35,7 @@ public class UserInputChecker {
         //return true;
     }
 
-    public static void isValidChoice(String userChoice) {
+    public void isValidChoice(String userChoice) {
         if (Objects.equals(userChoice, GameParameters.nextGame)) {
             return;
         }

@@ -11,7 +11,7 @@ public class Game {
     private String answer = null;
 
     public Game() {
-        userInputChecker = new UserInputChecker();
+        userInputChecker = UserInputChecker.getUserInputChecker();
     }
 
     private void setAnswer() {
@@ -39,7 +39,7 @@ public class Game {
     private boolean doNextGame() {
         View.printCorrectAndGameOver();
         String userChoice = View.getUserChoiceForNextGame();
-        UserInputChecker.isValidChoice(userChoice);
+        userInputChecker.isValidChoice(userChoice);
 
         return Objects.equals(userChoice, GameParameters.nextGame);
     }
@@ -49,8 +49,9 @@ public class Game {
         boolean continueGame = true;
         while (continueGame) {
             setAnswer();
+            System.out.println(answer);
             userGuess = View.getUserGuess();
-            UserInputChecker.isValidGuess(userGuess);
+            userInputChecker.isValidGuess(userGuess);
             int[] ballAndStrike = evaluate(userGuess);
             int nBall = ballAndStrike[0];
             int nStrike = ballAndStrike[1];
