@@ -25,7 +25,7 @@ public class BaseballGame {
                     return;
                 }
             }
-            continuePlaying = false;
+            continuePlaying = askForNewGame();
         }
     }
 
@@ -84,6 +84,13 @@ public class BaseballGame {
 
             return false;
         }
+    }
+
+    private boolean askForNewGame() {
+
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입락하세요.");
+        String ans = scanner.nextLine();
+        return "1".equals(ans);
     }
 
 }
