@@ -11,6 +11,9 @@ public class RetryValidator implements Validator<String> {
 
     @Override
     public boolean isValid(String string) {
+        if (string == null) {
+            return false;
+        }
         if (string.length() != 1) {
             return false;
         }
