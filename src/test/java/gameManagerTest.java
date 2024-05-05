@@ -113,4 +113,13 @@ public class gameManagerTest {
 
         assertFalse(newGameManager.gameMenu());
     }
+
+    @Test
+    public void gameMenuInvalidOptionTest() {
+        gameManager newGameManager = new gameManager();
+        String input = "3\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, newGameManager::gameMenu);
+    }
 }
