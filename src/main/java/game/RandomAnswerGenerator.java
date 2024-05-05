@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RandomAnswerGenerator {
 
-    private List<Integer> digits = null;
+    private List<Integer> digits;
 
     public RandomAnswerGenerator() {
         digits = new ArrayList<>(9);
@@ -20,11 +20,11 @@ public class RandomAnswerGenerator {
      * @return 랜덤으로 생성된 정답
      */
     public String getAnswerAsString() {
-        StringBuilder answer = new StringBuilder();
+        String answer = "";
         for (int i = 0; i < GameParameters.nDigit; i++) {
             Collections.shuffle(digits);
             int d = digits.remove(digits.size() - 1);
-            answer.append(String.valueOf(d));
+            answer += d;
         }
         return answer.toString();
     }
