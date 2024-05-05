@@ -116,15 +116,22 @@ public class BaseBallMaker {
 		return false;
 	}
 
+	/**
+	 * 사용자의 입력값으로 생성된 vo가 옳바른 값을 가지고 있는 지 확인한다.
+	 * @param vo
+	 */
 	private void vertifyVo(final BaseBallVO vo){
 		if(findMatchNum(vo.getBall1(), vo.getBall2(),vo.getBall3())){
-			throw new IllegalArgumentException("user Input except");
+			throw new IllegalArgumentException("user same Input except");
 		}
 		if(findMatchNum(vo.getBall2(), vo.getBall1(),vo.getBall3())){
-			throw new IllegalArgumentException("user Input except");
+			throw new IllegalArgumentException("user same Input except");
 		}
 		if(findMatchNum(vo.getBall3(), vo.getBall2(),vo.getBall1())){
-			throw new IllegalArgumentException("user Input except");
+			throw new IllegalArgumentException("user same Input except");
+		}
+		if(vo.getBall1() == 0 || vo.getBall2() == 0 || vo.getBall3() == 0){
+			throw new IllegalArgumentException("user 0 input except");
 		}
 
 	}
