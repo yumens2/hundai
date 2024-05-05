@@ -4,7 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class gameManagerTest {
 
@@ -67,6 +71,28 @@ public class gameManagerTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         assertThrows(IllegalArgumentException.class, newGameManager::getInput);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 2, 3, '3개의 숫자를 모두 맞히셨습니다! 게임 종료'",
+        "4, 5, 6, '낫싱'",
+        "1, 5, 6, '1스트라이크'",
+        "4, 1, 2, '2볼'",
+        "1, 3, 5, '1볼 1스트라이크'",
+        "1, 2, 5, '2스트라이크'"
+    })
+    public void testComputeBallCount(int num1, int num2, int num3, String expectedOutput) {
+        gameManager newGameManager = new gameManager();
+        int[] randNum = {1, 2, 3};
+        int[] userNum = {num1, num2, num3};
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        newGameManager.computeBallCount(randNum, userNum);
+
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
 
 
