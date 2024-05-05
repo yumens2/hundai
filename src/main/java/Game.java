@@ -1,5 +1,6 @@
 import constant.GameConstant;
 import constant.GameMessageConstant;
+import data.GameResult;
 import java.util.Scanner;
 
 public class Game {

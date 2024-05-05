@@ -1,4 +1,5 @@
 import constant.GameConstant;
+import data.GameResult;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
