@@ -19,7 +19,7 @@ public class BaseballGame {
                 System.out.print("숫자를 입력해 주세요 : ");
                 try {
                     String input = scanner.nextLine();
-                    correctNumber = true;
+                    correctNumber = ballOrStrike(input);
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                     return;
@@ -40,4 +40,50 @@ public class BaseballGame {
             computerNumbers.add(numbers.get(i));
         }
     }
+
+    private boolean ballOrStrike(String input) {
+        if (input.length() != 3) {
+            throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
+        }
+
+        int strikes = 0, balls = 0;
+
+        for (int i = 0; i < 3; i++) {
+
+            int number = Character.getNumericValue(input.charAt(i));
+
+            if (number < 1 || number > 9) {
+                throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
+            }
+            if (number == computerNumbers.get(i)) {
+                strikes++;
+            } else if (computerNumbers.contains(number)) {
+                balls++;
+            }
+        }
+
+        if (strikes == 3) {
+            System.out.println("3스트라이크\n3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+
+        } else {
+
+            StringBuilder result = new StringBuilder();
+
+            if (balls > 0) {
+                result.append(balls).append("볼 ");
+            }
+            if (strikes > 0) {
+                result.append(strikes).append("스트라이크");
+            }
+            if (balls == 0 && strikes == 0) {
+                result.append("낫싱");
+            }
+
+            System.out.println(result);
+
+            return false;
+        }
+    }
+
 }
