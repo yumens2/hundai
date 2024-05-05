@@ -45,6 +45,18 @@ public class Application{
         if (containsDuplicate(digits)) {
             throw new IllegalArgumentException("중복되지 않은 3자리 숫자를 입력하세요.");
         }
+
+        public List<Integer> getUserNumbers(Scanner scanner) {
+            String userInput = requestUserInput(scanner);
+            validateUserInput(userInput);
+            return parseInput(userInput);
+        }
+        public String requestUserInput(Scanner scanner) {
+            System.out.print("3자리 숫자를 입력해주세요: ");
+            return scanner.nextLine();
+        }
+
+
     }
 
 
