@@ -10,7 +10,7 @@ public class Number {
         Random random = new Random();
 
         while (numbers.size() < 3) {
-            int randomNumber = random.nextInt(10) + 1;
+            int randomNumber = random.nextInt(9) + 1;
             numbers.add(randomNumber);
         }
 
@@ -20,7 +20,7 @@ public class Number {
             value += Math.pow(10, i) * iterator.next();
             i++;
         }
-        
+
         return Integer.toString(value);
     }
 }
