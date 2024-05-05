@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Input {
     public List<Integer> playerNumber(){
-        System.out.println("숫자를 입력해주세요");
+        System.out.print("숫자를 입력해주세요 : ");
         Scanner scanner = new Scanner(System.in);
         List<Integer> playerNum = new ArrayList<>();
         String input = scanner.next();
