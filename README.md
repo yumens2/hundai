@@ -1,7 +1,7 @@
 # java-baseball-precourse
 
 BaseballNumberGenerator
-- generate : 숫자 야구 번호를 생성한다.
+- generate : 중복 없이 숫자 야구 번호를 생성한다.
 
 GameControlService
 - start : 게임을 시작한다.
