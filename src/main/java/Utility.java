@@ -48,4 +48,13 @@ public class Utility {
         return tempSet.size() == userString.length();
     }
 
+    public static void checkStringDigit(String userString) {
+        for (int i = 0; i < userString.length(); i++) {
+            int temp = (int) userString.charAt(i) - (int) '0';
+            if (temp < 0 || temp > 9) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
 }
