@@ -14,12 +14,15 @@ public class Main {
 
     static void makeAttack(){
         while (true){
-            System.out.print("Input your number: ");
+            System.out.print("Input number: ");
             String predict_Num = scan.nextLine();
-            if (predict_Num.length() == 3){
+            try {
                 makePredict(predict_Num);
+                compareAnswer();
+            } catch (IllegalArgumentException e) {
+                System.out.println("Caught IllegalArgumentException: " + e.getMessage());
+                is_reGame = 2;
             }
-            compareAnswer();
             if (is_reGame != 0){
                 break;
             }
@@ -52,6 +55,9 @@ public class Main {
         printCompareResult(resultCount);
     }
     static void makePredict(String predict_Num){
+        if (predict_Num.length() != 3){
+            throw new IllegalArgumentException("input size must be 3");
+        }
         int int_predict_Num = Integer.parseInt(predict_Num);
         predictList[0] = int_predict_Num / 100;
         predictList[1] = (int_predict_Num % 100) / 10;
