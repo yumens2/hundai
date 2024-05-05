@@ -21,12 +21,12 @@ public class StandardValueChecker implements ValueChecker{
         }
 
         if (strike == 0 && ball == 0) {
-            return ProvidedMessage.NOTHING.toString();
+            return Message.NOTHING.toString();
         }else if (strike == 0){
-            return ball +" "+ ProvidedMessage.BALL.toString();
+            return ball +" "+ Message.BALL.toString();
         } else if (ball == 0) {
-            return strike +" "+ ProvidedMessage.STRIKE.toString();
+            return strike +" "+ Message.STRIKE.toString();
         }else
-            return strike +" "+ ProvidedMessage.STRIKE.toString() + " " + strike +" "+ ProvidedMessage.STRIKE.toString();
+            return strike +" "+ Message.STRIKE.toString() + " " + strike +" "+ Message.STRIKE.toString();
     }
 }
