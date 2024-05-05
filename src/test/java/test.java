@@ -48,6 +48,7 @@ public class test {
 //        return userNumArray;
     }
 
+//    @Description("플레이어가 입력한 숫자(현 배열)에서 중복된 문자가 있는지 판별")
     private boolean checkDuplicate(char[] charArray, char c) {
         int cnt = 0;
         for (char c1 : charArray) {
