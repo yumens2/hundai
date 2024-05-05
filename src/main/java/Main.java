@@ -9,7 +9,6 @@ public class Main {
     static void makeAttack(){
         System.out.print("Input your number: ");
         String predict_Num = scan.nextLine();
-        scan.nextLine();
         if (predict_Num.length() == 3){
             makePredict(predict_Num);
         }
@@ -35,13 +34,26 @@ public class Main {
                 resultCount[2] += 1;
             }
         }
+        printCompareResult(resultCount);
     }
-
     static void makePredict(String predict_Num){
         int int_predict_Num = Integer.parseInt(predict_Num);
         predictList[0] = int_predict_Num / 100;
         predictList[1] = (int_predict_Num % 100) / 10;
         predictList[2] = int_predict_Num % 10;
+    }
+
+    static void printCompareResult(int[] resultCount ){
+        if (resultCount[2] == 3){
+            System.out.print("nothing");
+        }
+        if (resultCount[0] != 0) {
+            System.out.print(resultCount[0]+"strike ");
+        }
+        if (resultCount[1] != 0) {
+            System.out.print(resultCount[1]+"ball ");
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
