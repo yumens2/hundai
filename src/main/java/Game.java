@@ -29,16 +29,14 @@ public class Game {
     public void run() throws IllegalArgumentException {
         Scanner scanner = new Scanner(System.in);
         String inputCommand;
-        while (true) {
+        do {
             game();
             System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
             inputCommand = scanner.next();
-            if (inputCommand.equals(String.valueOf(GameConstant.END_GAME_NUMBER))) {
-                break;
-            } else if (!inputCommand.equals(String.valueOf(GameConstant.RESTART_GAME_NUMBER))) {
+            if (Validation.checkEndCommand(inputCommand)) {
                 throw new IllegalArgumentException();
             }
-        }
+        } while (Integer.parseInt(inputCommand) != GameConstant.END_GAME_NUMBER);
         System.out.println(GameMessageConstant.GAME_END);
     }
 
