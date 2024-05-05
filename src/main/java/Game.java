@@ -1,5 +1,5 @@
 public class Game {
-    private static final int GAME_NUM = 3;
+    private static final int GAME_NUM = GameNum.GAME_NUM.getGameNum();
     private Computer computer;
     private User user;
     private Validator validator;
