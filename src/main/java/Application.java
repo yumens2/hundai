@@ -7,5 +7,11 @@ public class Application {
 
         int[] arr2= new int[3];
         rd.myint(arr2);
+
+        StrikeOrBall sb= new StrikeOrBall();
+
+        int st= sb.strike(arr1, arr2);
+        int ba= sb.ball(arr1, arr2);
+        ba= ba- st; //ball과 strike가 중복되지 않도록 계산
     }
 }
