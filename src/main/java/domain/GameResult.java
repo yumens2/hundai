@@ -3,7 +3,7 @@ package domain;
 public enum GameResult {
     NONE("낫싱"),
     STRIKE("스트라이크 %d개"),
-    BALL("볼 %d개");
+    BALL("볼 %d개 ");
 
     private final String message;
 

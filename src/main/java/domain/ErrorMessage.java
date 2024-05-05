@@ -2,8 +2,8 @@ package domain;
 
 public enum ErrorMessage {
     DUPLICATED_NUMBER("중복된 숫자가 있습니다."),
-    INVALID_LENGTH("3자리 숫자가 아닙니다."),
-    INVALID_NUMBER("1에서 9까지의 숫자가 아닙니다.");
+    INVALID_LENGTH("%d자리 숫자가 아닙니다."),
+    INVALID_NUMBER("%d에서 %d까지의 숫자가 아닙니다.");
 
     private final String message;
 
@@ -15,5 +15,11 @@ public enum ErrorMessage {
         return message;
     }
 
+    public String getMessage(int count) {
+        return String.format(this.message, count);
+    }
 
+    public String getMessage(int count1, int count2) {
+        return String.format(this.message, count1, count2);
+    }
 }
