@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ApplicationTest {
     @Test
     public void testRunGameOnce() {
-        Computer testComputer = new TestComputer();
         Player testPlayer = new TestPlayer();
+        Computer testComputer = new TestComputer();
         Restart testRestart = new TestRestart();
 
         Application app = new Application(testComputer, testPlayer, testRestart);
