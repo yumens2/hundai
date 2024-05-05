@@ -67,4 +67,19 @@ public class baseball {
         }
     }
 
+    public static boolean checkInputValidity(int[] player) {
+        return player.length == 3 && checkForDuplicates(player);
+    }
+
+    public static boolean checkForDuplicates(int[] player) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : player) {
+            if (set.contains(num)) {
+                return false;
+            }
+            set.add(num);
+        }
+        return true;
+    }
+
 }
