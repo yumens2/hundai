@@ -28,6 +28,9 @@
 
 * void displayGameEnd()
   * 게임 종료 메시지를 출력하는 메서드
+* boolean checkRestartGame()
+  * 게임 종료 후 재시작 여부를 물어보고 그에 대한 입력을 받아 boolean 타입으로 반환하는 메서드
+
 
 
 
