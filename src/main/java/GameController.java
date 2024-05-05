@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.Scanner;
+import java.util.List;
 
 public class GameController {
     private Computer computer;
@@ -33,7 +33,7 @@ public class GameController {
                 System.out.println("게임을 종료합니다.");
                 return false;
             default:
-                throw new IllegalArgumentException("1 또는 2를 입력해야 합니다.");
+                throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
         }
     }
 
@@ -45,8 +45,9 @@ public class GameController {
             List<Integer> playerNumbers = player.getNumber();
             result = compare.compareNumbers(computerNumbers, playerNumbers);
             System.out.println(result);
-        } while (!"3 스트라이크".equals(result));
+        } while (!"3스트라이크".equals(result));
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
+
 }
 
