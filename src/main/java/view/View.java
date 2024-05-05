@@ -1,6 +1,5 @@
 package view;
 
-import java.io.PrintStream;
 import java.util.Scanner;
 
 public class View {
@@ -13,6 +12,7 @@ public class View {
 
     /**
      * 유저에게 응답을 입력받는 프롬프트를 출력한다
+     *
      * @return 유저가 입력한 응답
      */
     public static String getUserGuess() {
@@ -24,7 +24,8 @@ public class View {
 
     /**
      * 볼과 스트라이크의 개수를 출력한다
-     * @param nBall 볼의 개수
+     *
+     * @param nBall   볼의 개수
      * @param nStrike 스트라이크의 개수
      */
     public static void printResult(int nBall, int nStrike) {
@@ -51,6 +52,7 @@ public class View {
 
     /**
      * 게임 종료 시 유저의 선택을 입력받는다 (새게임 또는 게임종료)
+     *
      * @return 유저의 선택
      */
     public static String getUserChoiceForNextGame() {

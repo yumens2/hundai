@@ -1,6 +1,5 @@
 package utils;
 
-import game.Game;
 import game.GameParameters;
 import java.util.Objects;
 
