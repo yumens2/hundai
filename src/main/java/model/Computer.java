@@ -6,7 +6,7 @@ public class Computer {
     private int[] numbers;
 
     public Computer() {
-        //TODO
+        numbers = NumberUtil.generateRandomNumber();
     }
 
     public int[] getNumber() {
