@@ -82,7 +82,7 @@ public class gameManagerTest {
         "1, 3, 5, '1볼 1스트라이크'",
         "1, 2, 5, '2스트라이크'"
     })
-    public void testComputeBallCount(int num1, int num2, int num3, String expectedOutput) {
+    public void computeBallCountTest(int num1, int num2, int num3, String expectedOutput) {
         gameManager newGameManager = new gameManager();
         int[] randNum = {1, 2, 3};
         int[] userNum = {num1, num2, num3};
