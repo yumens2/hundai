@@ -3,7 +3,6 @@ package util;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -34,7 +33,7 @@ public class NumberUtilTest {
         assertThat(numbers).doesNotHaveDuplicates();
     }
 
-    @DisplayName("splitNumber invalid input test")
+    @DisplayName("parseStringToNumbers invalid input test")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings =  {
@@ -48,16 +47,16 @@ public class NumberUtilTest {
         "a",
         "abcd"
     })
-    void splitNumberInvalidInputTest(String input) throws Exception {
+    void parseStringToNumbersInvalidInputTest(String input) throws Exception {
         //given
 
         //when & then
         assertThrows(IllegalArgumentException.class, () -> {
-            NumberUtil.splitNumber(input);
+            NumberUtil.parseStringToNumbers(input);
         });
     }
 
-    @DisplayName("splitNumber feature test")
+    @DisplayName("parseStringToNumbers feature test")
     @ParameterizedTest
     @ValueSource(strings = {
         "123",
@@ -66,11 +65,11 @@ public class NumberUtilTest {
         "541",
         "000"
     })
-    void splitNumberFeatureTest(String input) throws Exception {
+    void parseStringToNumbersFeatureTest(String input) throws Exception {
         //given
 
         //when
-        int[] result = NumberUtil.splitNumber(input);
+        int[] result = NumberUtil.parseStringToNumbers(input);
 
         int firstDigit = Character.getNumericValue(input.charAt(0));
         int secondDigit = Character.getNumericValue(input.charAt(1));

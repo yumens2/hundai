@@ -23,7 +23,7 @@ public class NumberUtil {
         return numbers;
     }
 
-    public static int[] splitNumber(String numberString) {
+    public static int[] parseStringToNumbers(String numberString) {
         // 입력값의 길이가 3인지 확인
         if(numberString == null || numberString.length() != 3) {
             throw new IllegalArgumentException("Input Value Error");

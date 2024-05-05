@@ -64,12 +64,10 @@
 숫자에 관한 도움을 주는 static 메서드를 모은 클래스
 * static int[] generateRandomNumber()
   * 컴퓨터가 랜덤한 3개의 숫자를 생성하는 메서드
-
-* static int[] splitNumber(String)
-  - 길이가 3인 문자열을 각각의 정수로 쪼개 저장하는 메서드
-
-* static boolean isValidNumber(int[])
-  - 길이가 3인 `int[]`가 주어지고, 주어진 값이 모두 서로 다른 수인지 검증하는 메서드
+* static int[] parseStringToNumbers(String)
+  - 입력된 문자열이 유효한 지 검증하고 각각의 정수로 분리해 저장하는 메서드
+* static boolean isDistinctNumbers(int[])
+  - 크기가 3인 `int[]`가 주어지고, 주어진 값이 모두 서로 다른 수인지 검증하는 메서드
 
 
 
