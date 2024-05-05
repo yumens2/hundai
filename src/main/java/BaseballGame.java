@@ -64,6 +64,35 @@ public class BaseballGame {
         return true;
     }
 
+    //프로그램이 재시작되었는지 판별하는 함수, 재시작되었다면 새로운 문자열을 반환하고 그렇지 않으면 기존 문자열을 반환
+    public static String check_start(int start, String com) {
+        String new_com = "";
+        //start가 1이면 retry를 했다는 뜻이므로 랜덤 난수를 다시 받아와야 함.
+        if (start == 1) {
+            Random random = new Random(); // 랜덤 객체 생성
+            new_com = Integer.toString(
+                111 + random.nextInt(8) * 100 + random.nextInt(8) * 10 + random.nextInt(
+                    8));
+            return new_com;
+        } else {
+            return com;
+        }
+    }
+
+    //ball인지 strike인지 판별하는 함수
+    public static void b_s(String com, String num, int[] judgement) {
+        int com_length = com.length();
+        for (int i = 0; i < com_length; i++) {
+            for (int j = 0; j < com_length; j++) {
+                if (com.charAt(i) == num.charAt(j) && i == j) {
+                    judgement[1]++;
+                } else if (com.charAt(i) == num.charAt(j) && i != j) {
+                    judgement[0]++;
+                }
+            }
+        }
+    }
+
 
 
 
