@@ -14,7 +14,7 @@ public class DefaultInputValueValidationStrategy implements InputValueValidation
             throw new IllegalArgumentException("입력값은 1에서 9까지의 서로 다른 숫자여야 합니다.");
         }
         int[] numbers = value.chars().map(Character::getNumericValue).toArray();
-        if(numbers[0] == numbers[1] || numbers[1] == numbers[2] || numbers[2] != numbers[0]) {
+        if(numbers[0] == numbers[1] || numbers[1] == numbers[2] || numbers[2] == numbers[0]) {
             throw new IllegalArgumentException("입력값은 1에서 9까지의 서로 다른 숫자여야 합니다.");
         }
     }
