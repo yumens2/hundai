@@ -1,12 +1,22 @@
+import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Application {
 
     static int[] arr = {0, 0, 0};
+    static int[] digits;
 
     public static void main(String[] args) {
 
         makeNumber();
 
+        Scanner scan = new Scanner(System.in);
+        System.out.print("숫자를 입력해주세요:");
+        int input = scan.nextInt();
+        System.out.println(input);
+        digits = Stream.of(String.valueOf(input).split(""))
+            .mapToInt(Integer::parseInt)
+            .toArray(); //입력한 숫자를 분리해서 digits 배열에 넣기
 
     }
 
