@@ -1,8 +1,18 @@
 package com.mini.numbaseball.controller;
 
+import com.mini.numbaseball.model.GameModel;
+import com.mini.numbaseball.view.GameView;
+
 public class GameController {
 
+    private GameModel gameModel;
+    private GameView gameView;
     private boolean isReplay = false;
+
+    public GameController(GameModel gameModel, GameView gameView) {
+        this.gameModel = gameModel;
+        this.gameView = gameView;
+    }
 
     public int validateInput(String userInput) {
         int input;
@@ -48,6 +58,42 @@ public class GameController {
             return false;
         } else {
             throw new IllegalArgumentException("입력값이 1 또는 2가 아닙니다.");
+        }
+    }
+
+    public void play() {
+        gameModel.initAnswer();
+        while (true) {
+            try {
+                playGuess();
+            } catch (IllegalArgumentException e) {
+                throw e;
+            }
+
+            if (!gameModel.getIsCorrect()) {
+                continue;
+            }
+
+            if (isReplay) {
+                gameModel.initAnswer();
+            } else {
+                break;
+            }
+        }
+    }
+
+    public void playGuess() {
+        try {
+            int userGuess = validateInput(gameView.getUserInput());
+            String result = gameModel.createResult(userGuess, gameModel.getAnswer());
+            gameView.displayResult(result);
+
+            if (gameModel.getIsCorrect()) {
+                isReplay = validateIsReplay(gameView.getIsReplay());
+            }
+
+        } catch (IllegalArgumentException e) {
+            throw e;
         }
     }
 
