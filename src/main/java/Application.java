@@ -93,6 +93,38 @@ public class Application{
         return numbers;
     }
 
+    //게임 로직 구현
+
+    public boolean gameIsFinished(List<Integer> computerNumbers, Scanner scanner) {
+        List<Integer> userNumbers = getUserNumbers(scanner);
+        Result result = compareNumbers(computerNumbers, userNumbers);
+        System.out.println(result);
+
+        if (result.strikes == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public Result compareNumbers(List<Integer> computerNumbers, List<Integer> userNumbers) {
+        int strikes = 0;
+        int balls = 0;
+
+        for (int i = 0; i < 3; i++) {
+            if (userNumbers.get(i).equals(computerNumbers.get(i))) {
+
+                strikes++;
+            } else if (computerNumbers.contains(userNumbers.get(i))) {
+                balls++;
+            }
+        }
+
+        return new Result(strikes, balls);
+    }
+
 
 
 }
