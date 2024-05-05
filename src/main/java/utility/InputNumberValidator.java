@@ -2,28 +2,28 @@ package utility;
 
 public class InputNumberValidator {
 
-    protected static void isStringLengthCorrect(String string, int stringLength) {
+    protected static void checkStringLengthCorrect(String string, int stringLength) {
         if (string.length() != stringLength) {
-            throw new IllegalArgumentException();
+            raiseIllegalArgumentException();
         }
     }
 
-    protected static void isStringNumeric(String string) throws IllegalArgumentException {
+    protected static void checkStringNumeric(String string) throws IllegalArgumentException {
         for (int i = 0; i < string.length(); i++) {
-            isCharacterNumeric(string.charAt(i));
+            checkCharacterNumeric(string.charAt(i));
         }
     }
 
-    private static void isCharacterNumeric(char singleCharacter) {
+    private static void checkCharacterNumeric(char singleCharacter) {
         if (!Character.isDigit(singleCharacter) || singleCharacter == '0') {
-            throw new IllegalArgumentException();
+            raiseIllegalArgumentException();
         }
     }
 
-    protected static void isDifferentDigitNumber(String number) {
+    protected static void checkDifferentDigitNumber(String number) {
         for (int i = 0; i < number.length(); i++) {
             if (getDigitCount(number, number.charAt(i)) != 1) {
-                throw new IllegalArgumentException();
+                raiseIllegalArgumentException();
             }
         }
     }
@@ -32,5 +32,9 @@ public class InputNumberValidator {
         return Math.toIntExact(number.chars()
                 .filter((ch) -> (ch == digit))
                 .count());
+    }
+
+    private static void raiseIllegalArgumentException() {
+        throw new IllegalArgumentException("잘못된 입력입니다.");
     }
 }
