@@ -18,9 +18,9 @@ public class BaseballSystem {
 
     private static void startOneGameSet() {
         int[] computerNums = new ComputerNumGenerator().NUMS;
-        int[] userNums = new UserNumGenerator().NUMS;
         boolean gameClear;
         do {
+            int[] userNums = new UserNumGenerator().NUMS;
             NumberCompare set = new NumberCompare(userNums, computerNums);
             new OutputView(set).printGameResult();
             gameClear = set.isMaxStrike();
