@@ -38,6 +38,17 @@ class BaseballGameServiceTest {
     }
 
     @Test
+    @DisplayName("재시작 입력이 1 또는 2가 아닌 문자일 경우 IllegalArgumentException이 발생한다.")
+    public void inValidRestartCode2() {
+        String invalidInput = "a";
+
+        InvocationTargetException ex = assertThrows(
+            InvocationTargetException.class,
+            () -> validateRestartInput.invoke(baseballGameService, invalidInput));
+        assertInstanceOf(IllegalArgumentException.class, ex.getCause());
+    }
+
+    @Test
     @DisplayName("재시작 입력이 1 또는 2인 경우 IllegalArgumentException이 발생하지 않는다.")
     public void validRestartCode() {
         String validInput = "1";
