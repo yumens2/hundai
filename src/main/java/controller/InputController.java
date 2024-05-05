@@ -5,15 +5,15 @@ import java.util.*;
 public class InputController {
     public ArrayList<Integer> generateUserNum() {
         ArrayList<Integer> userNumber = new ArrayList<>();
-        // Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("숫자를 입력하세요: ");
         for (int i = 0; i < 3; i++) {
-            // if (scanner.hasNextInt()) {
-            //     userNumber.add(scanner.nextInt());
-            // } else {
-            //     scanner.next();
-            //     i = 0;
-            // }
+            if (scanner.hasNextInt()) {
+                userNumber.add(scanner.nextInt());
+            } else {
+                scanner.next();
+                i = 0;
+            }
         }
         return userNumber;
     }
