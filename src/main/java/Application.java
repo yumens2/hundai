@@ -51,6 +51,34 @@ public class Application {
         return userInput;
     }
 
+    protected void compareAndPrintResult(int[] userInput) {
+        int strikes = 0;
+        int balls = 0;
+
+        for (int i = 0; i < DIGIT_COUNT; i++) {
+            if (userInput[i] == computerNumber[i]) {
+                strikes++;
+            } else if (contains(computerNumber, userInput[i])) {
+                balls++;
+            }
+        }
+
+        if (strikes == 0 && balls == 0) {
+            System.out.print("낫싱\n");
+        } else {
+            System.out.print(strikes + "스트라이크 " + balls + "볼\n");
+        }
+    }
+
+    protected boolean contains(int[] array, int number) {
+        for (int value : array) {
+            if (value == number) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         Application game = new Application();
         // game.start();
