@@ -116,7 +116,7 @@ public class BaseBallMaker {
 		return false;
 	}
 
-	private void vertiryVo(final BaseBallVO vo){
+	private void vertifyVo(final BaseBallVO vo){
 		if(findMatchNum(vo.getBall1(), vo.getBall2(),vo.getBall3())){
 			throw new IllegalArgumentException("user Input except");
 		}

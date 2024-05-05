@@ -39,6 +39,9 @@ public class BaseBallAnsVO {
 		if(strikeCount>0){
 			sd.append(strikeCount).append("스트라이크");
 		}
+		if(sd.isEmpty()){
+			sd.append("낫싱");
+		}
 		return sd.toString();
 	}
 }

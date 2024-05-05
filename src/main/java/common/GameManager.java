@@ -12,6 +12,8 @@ public class GameManager {
 
     private Scanner sc;
 
+    private boolean endGame = false;
+
     public GameManager(){
         ans = new BaseBallAnsVO(false,0,0);
         vo = new BaseBallVO(0,0,0);
@@ -20,11 +22,20 @@ public class GameManager {
     }
 
     public boolean isEnd(){
-        return ans.isEnd();
+        return endGame;
     }
 
     public void run(){
 
+        userInput();
+
+        System.out.println(ans.toString());
+
+        if(ans.isEnd()){
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+
+            userEndorRestart();
+        }
 
     }
 
@@ -40,6 +51,22 @@ public class GameManager {
         vo.reset(toInts[0],toInts[1],toInts[2]);
 
         ans = bm.playBall(vo);
+    }
+
+    private void userEndorRestart(){
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String snum = sc.next();
+        int num = convertInt(snum);
+        if(num == 1){
+            bm.make();
+            return;
+        }
+        if(num == 2){
+            endGame = true;
+            sc.close();
+            return;
+        }
+        throw new IllegalArgumentException("end error");
     }
 
     private void checkUserInput(String s){
