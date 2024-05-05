@@ -22,11 +22,11 @@ public class GameView {
         System.out.println(result);
     }
 
-    public void displayException(IllegalArgumentException e){
+    public void displayException(IllegalArgumentException e) {
         System.out.println(e.toString());
     }
 
-    public void displayEnd(){
+    public void displayEnd() {
         System.out.println("프로그램을 종료합니다.");
     }
 }

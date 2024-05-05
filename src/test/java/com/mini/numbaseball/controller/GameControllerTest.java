@@ -3,16 +3,23 @@ package com.mini.numbaseball.controller;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+
+import com.mini.numbaseball.model.GameModel;
+import com.mini.numbaseball.view.GameView;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class GameControllerTest {
 
+    GameModel gameModel = new GameModel();
+    GameView gameView = new GameView();
+
+
     @Test
     @DisplayName("사용자 답 입력값 유효성 검사")
     void validateInputTest() {
-        GameController gameController = new GameController();
+        GameController gameController = new GameController(gameModel, gameView);
 
         assertThat(123).isEqualTo(gameController.validateInput("123"));
 
@@ -35,8 +42,8 @@ class GameControllerTest {
 
     @Test
     @DisplayName("재시작 여부 입력값 유효성 검사")
-    void validateIsReplayTest(){
-        GameController gameController = new GameController();
+    void validateIsReplayTest() {
+        GameController gameController = new GameController(gameModel, gameView);
 
         assertThat(true).isEqualTo(gameController.validateIsReplay("1"));
 
