@@ -41,8 +41,8 @@
 * void startGame()
   * 게임을 시작하고 주 게임 루프를 실행
 
-* void processUserNumber
-  * 사용자의 숫자에 대한 처리를 하고 결과를 반환(실직적인 게임 진행)
+* void runGuessLoop(User, Computer)
+  * 사용자의 숫자에 대한 처리(입력 반복)를 하고 결과를 반환(실직적인 게임 진행)
 
 
 
