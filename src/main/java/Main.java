@@ -9,7 +9,7 @@ public class Main {
 
         boolean continueGame = true;
 
-        while(continueGame){
+        while (continueGame) {
 
             List<Integer> computer = numMaker.makeRandNum();
             continueGame = playing.playGame(computer);
