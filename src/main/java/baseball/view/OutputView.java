@@ -18,33 +18,19 @@ public class OutputView {
     }
 
     public void printGameResult() {
-        printOnlyBall();
-        printOnlyStrike();
-        printBallAndStrike();
-        printNothing();
+        String madeResult = makeResult();
+        System.out.println(madeResult);
     }
 
-    private void printOnlyBall() {
+    public String makeResult(){
         if (BALL_COUNT != 0 && STRIKE_COUNT == 0) {
-            System.out.println(BALL_COUNT + "볼");
-        }
-    }
-
-    private void printOnlyStrike() {
-        if (BALL_COUNT == 0 && STRIKE_COUNT != 0) {
-            System.out.println(STRIKE_COUNT + "스트라이크");
-        }
-    }
-
-    private void printBallAndStrike() {
-        if (BALL_COUNT != 0 && STRIKE_COUNT != 0) {
-            System.out.println(BALL_COUNT + "볼 " + STRIKE_COUNT + "스트라이크");
-        }
-    }
-
-    private void printNothing() {
-        if (BALL_COUNT == 0 && STRIKE_COUNT == 0) {
-            System.out.println("낫싱");
+            return BALL_COUNT + "볼";
+        } else if (BALL_COUNT == 0 && STRIKE_COUNT != 0) {
+            return STRIKE_COUNT + "스트라이크";
+        } else if (BALL_COUNT != 0 && STRIKE_COUNT != 0) {
+            return BALL_COUNT + "볼 " + STRIKE_COUNT + "스트라이크";
+        } else {
+            return "낫싱";
         }
     }
 }
