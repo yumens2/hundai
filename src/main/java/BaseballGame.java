@@ -23,6 +23,20 @@ public class BaseballGame {
             String hint = getHint(input);
             System.out.println(hint);
         } while (!isEnd);
+        System.out.println(GameMessageConstant.GAME_CLEAR);
+    }
+
+    public void run() {
+        while (true) {
+            game();
+            System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
+            Scanner scanner = new Scanner(System.in);
+            int input = scanner.nextInt();
+            if (input == GameConstant.END_GAME_NUMBER) {
+                break;
+            }
+        }
+        System.out.println(GameMessageConstant.GAME_END);
     }
 
     public String getHint(String input) {
