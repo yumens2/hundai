@@ -26,8 +26,6 @@ public class Utility {
     }
 
     public static String getUserString() {
-        System.out.print("숫자를 입력해 주세요 : ");
-
         Scanner sc = new Scanner(System.in);
         String userString = sc.nextLine();
 
