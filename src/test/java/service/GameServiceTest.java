@@ -73,12 +73,12 @@ class GameServiceTest {
     @Test
     void askForEndWithEnd() throws Exception {
         //given
-        String input = "Y";
+        String input = "1";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         //when
-        boolean isEnd = gameService.askForEnd();
+        boolean isEnd = gameService.askForRestart();
 
         //then
         assertThat(isEnd).isTrue();
@@ -88,12 +88,12 @@ class GameServiceTest {
     @Test
     void askForEndWithRestart() throws Exception {
         //given
-        String input = "N";
+        String input = "2";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         //when
-        boolean isEnd = gameService.askForEnd();
+        boolean isEnd = gameService.askForRestart();
 
         //then
         assertThat(isEnd).isFalse();

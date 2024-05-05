@@ -12,14 +12,14 @@ public class GameService {
     private int[] answer = RandomUtil.getRandomNumbers();
 
     public void startGame() {
-        boolean isDone = false;
+        boolean isRunning = true;
 
-        while (!isDone) {
+        while (isRunning) {
             int[] numbers = inputThreeDigits();
 
             if (judgeService.checkAnswer(numbers, answer)) {
-                System.out.println("축하합니다. 정답을 맞히셨습니다!");
-                isDone = askForEnd();
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                isRunning = askForRestart();
             }
         }
     }
@@ -33,7 +33,7 @@ public class GameService {
         int num;
 
         try {
-            System.out.print("세 자리 수를 입력하세요: ");
+            System.out.print("숫자를 입력해 주세요 : ");
             Scanner sc = new Scanner(System.in);
             num = sc.nextInt();
         } catch (Exception e) {
@@ -68,19 +68,19 @@ public class GameService {
      *
      * @return 게임 종료 선택 시 true, 아니면 false
      */
-    public boolean askForEnd() {
+    public boolean askForRestart() {
         while (true) {
-            System.out.print("게임을 종료할까요? (Y/N): ");
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             Scanner sc = new Scanner(System.in);
-            String s = sc.next();
+            int n = sc.nextInt();
 
-            if (s.equalsIgnoreCase("Y")) {
+            if (n == 1) {
                 answer = RandomUtil.getRandomNumbers();
                 return true;
-            } else if (s.equalsIgnoreCase("N")) {
+            } else if (n == 2) {
                 return false;
             } else {
-                System.out.println("Y 또는 N만 입력할 수 있습니다.");
+                System.out.println("1 또는 2만 입력할 수 있습니다.");
             }
         }
     }
