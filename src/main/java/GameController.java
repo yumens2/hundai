@@ -33,7 +33,7 @@ public class GameController {
                 System.out.println("게임을 종료합니다.");
                 return false;
             default:
-                throw new IllegalArgumentException("1 또는 2를 입력해야 합니다.");
+                throw new IllegalArgumentException("1 또는 2를 입력해주세요.");
         }
     }
 
