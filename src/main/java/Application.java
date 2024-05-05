@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
@@ -68,6 +69,10 @@ public class Application {
         } else {
             System.out.print(strikes + "스트라이크 " + balls + "볼\n");
         }
+    }
+
+    protected boolean isGameEnd(int[] userInput) {
+        return Arrays.equals(userInput, computerNumber);
     }
 
     protected boolean contains(int[] array, int number) {
