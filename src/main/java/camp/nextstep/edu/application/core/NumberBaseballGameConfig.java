@@ -12,21 +12,15 @@ public class NumberBaseballGameConfig {
     private static final DefenseResultMatcher defenseResultMatcher =
             new DefenseResultMatcherImpl();
 
-    private static final NumberBaseballGame numberBaseballGame =
-            new NumberBaseballGame(
-                    inputValueValidationStrategy,
-                    randomNumberGenerator,
-                    defenseResultMatcher
-            );
-
-    private static final InputListener inputListener =
-            new DefaultBaseballGameInputListener(numberBaseballGame);
-
-    public NumberBaseballGame numberBaseballGame() {
-        return numberBaseballGame;
+    public NumberBaseballGame createNumberBaseballGame() {
+        return new NumberBaseballGame(
+                inputValueValidationStrategy,
+                randomNumberGenerator,
+                defenseResultMatcher
+        );
     }
 
-    public InputListener inputListener() {
-        return inputListener;
+    public InputListener createInputListener(NumberBaseballGame numberBaseballGame) {
+        return new DefaultBaseballGameInputListener(numberBaseballGame);
     }
 }

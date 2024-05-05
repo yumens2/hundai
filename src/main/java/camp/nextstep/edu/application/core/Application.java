@@ -8,10 +8,10 @@ public class Application {
     private static final NumberBaseballGameConfig config = new NumberBaseballGameConfig();
 
     public static void main(String[] args) {
-        NumberBaseballGame game = config.numberBaseballGame();
+        NumberBaseballGame game = config.createNumberBaseballGame();
         game.run();
 
-        dispatcher.addListener(config.inputListener());
+        dispatcher.addListener(config.createInputListener(game));
         dispatcher.run();
     }
 }
