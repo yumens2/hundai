@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class GameViewTest {
 
@@ -49,5 +51,37 @@ class GameViewTest {
             input3 + System.lineSeparator();
         assertEquals(expectedOutput, outputContent.toString());
 
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2"})
+    @DisplayName("checkRestartGame test")
+    void checkRestartGameTest(String expectedInput) throws Exception {
+        //given
+        InputStream testInput = new ByteArrayInputStream(expectedInput.getBytes());
+        GameView gameView = new GameView(testInput);
+
+        //when
+        boolean result = gameView.checkRestartGame();
+
+        //then
+        if(expectedInput.equals("1")) {
+            assertTrue(result);
+        } else {
+            assertFalse(result);
+        }
+    }
+    @Test
+    @DisplayName("checkRestartGame invalid input test")
+    void checkRestartGameInvalidInputTest() throws Exception {
+        //given
+        String expectedInput = "3";
+        InputStream testInput = new ByteArrayInputStream(expectedInput.getBytes());
+        GameView gameView = new GameView(testInput);
+
+        //when & then
+        assertThrows(IllegalArgumentException.class, () -> {
+            gameView.checkRestartGame();
+        });
     }
 }
