@@ -43,6 +43,18 @@ public class gameManager {
         return false;
     }
 
+    private int countBalls(int[] randNum, int[] userNum) {
+        int balls = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i != j && randNum[i] == userNum[j]) {
+                    balls++;
+                }
+            }
+        }
+        return balls;
+    }
+
     private int[] getInput() {
         System.out.println("숫자를 입력해 주세요 : ");
         String userInput = scanner.nextLine();
