@@ -12,16 +12,17 @@ public class IO {
         System.out.print("숫자를 입력해 주세요 : ");
     }
 
-    public static void outResult(int ball, int strike) {
-        if (ball != 0) {
-            System.out.printf("%d볼 ", ball);
+    public static void outResult(int ballCnt, int strikeCnt) {
+        if (ballCnt != 0) {
+            System.out.printf("%d볼 ", ballCnt);
         }
-        if (strike != 0) {
-            System.out.printf("%d스트라이크", strike);
+        if (strikeCnt != 0) {
+            System.out.printf("%d스트라이크", strikeCnt);
         }
-        if (ball == 0 && strike == 0) {
-            System.out.println("낫싱");
+        if (ballCnt == 0 && strikeCnt == 0) {
+            System.out.print("낫싱");
         }
+        System.out.println();
     }
 
     public static void outEnd() {
