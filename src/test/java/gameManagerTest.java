@@ -59,5 +59,15 @@ public class gameManagerTest {
         assertThrows(IllegalArgumentException.class, newGameManager::getInput);
     }
 
+    @Test
+    public void invalidDigitsInputTest() {
+        gameManager newGameManager = new gameManager();
+
+        String input = "1a3\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        assertThrows(IllegalArgumentException.class, newGameManager::getInput);
+    }
+
 
 }
