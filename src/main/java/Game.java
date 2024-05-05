@@ -4,7 +4,7 @@ public class Game {
         while (once()) {
             IO.outEnd();
             String input = IO.in();
-            if (!Validation.isValidEnd(input)) {
+            if (!Validation.isValidEnd(input) || input.equals("2")) {
                 break;
             }
         }
