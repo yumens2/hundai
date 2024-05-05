@@ -19,9 +19,9 @@ public class GameService {
      *
      * @return 세 자리 수
      */
-    private int[] inputThreeDigits() {
+    public int[] inputThreeDigits() {
         Scanner sc = new Scanner(System.in);
-        int num = 9999;
+        int num;
 
         try {
             num = sc.nextInt();
@@ -39,7 +39,7 @@ public class GameService {
      * @param num 세 자리 정수
      * @return 각 자리 수를 요소로 담은 배열 (123 -> [1, 2, 3])
      */
-    private int[] intToArrayInt(int num) {
+    public int[] intToArrayInt(int num) {
         int[] numbers = new int[3];
         int i = 0;
 
