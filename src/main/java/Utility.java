@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Utility {
@@ -35,6 +36,16 @@ public class Utility {
 
     public static boolean checkStringLength(String userString) {
         return userString.length() == 3;
+    }
+
+    public static boolean checkStringDistinct(String userString) {
+        HashSet<Character> tempSet = new HashSet<>();
+
+        for (int i = 0; i < userString.length(); i++) {
+            tempSet.add(userString.charAt(i));
+        }
+
+        return tempSet.size() == userString.length();
     }
 
 }
