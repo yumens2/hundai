@@ -23,12 +23,14 @@ public class BaseballGame {
                 System.out.print("숫자를 입력해 주세요 : ");
                 String num = br.readLine();
                 b_s(com, num, judgement);
-                start = check_exit(judgement);
+                b_s_print(judgement);
+                start = check_restart(judgement);
+
                 judgement[0] = 0;
                 judgement[1] = 0;
 
             }
-        } catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException ex) { //예외처리 다시!!!!!!!
             System.out.println("종료");
             start = 2;
         }
@@ -94,8 +96,7 @@ public class BaseballGame {
     }
 
     //몇 볼 몇 스트라이크인지 출력하고 만약 3스트라이크라면 종료에 대한 사용자의 입력을 받음
-    public static int check_exit(int[] judgement) throws IOException {
-        int ret = 0;
+    public static void b_s_print(int[] judgement) throws IOException {
         if (judgement[0] == 0 && judgement[1] == 0) {
             System.out.println("낫싱");
         } else if (judgement[0] == 0) {
@@ -105,10 +106,11 @@ public class BaseballGame {
         } else if (judgement[1] < 3) {
             System.out.println(judgement[0] + "볼 " + judgement[1] + "스트라이크");
         }
+    }
 
+    public static int check_restart(int[] judgement) throws IOException{
+        int ret = 0;
         if (judgement[1] == 3) {
-            judgement[0] = 0;
-            judgement[1] = 0;
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -116,8 +118,6 @@ public class BaseballGame {
         }
         return ret;
     }
-
-
 
 
 }
