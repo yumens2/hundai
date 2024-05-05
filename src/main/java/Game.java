@@ -22,7 +22,9 @@ public class Game {
             try {
                 guess = View.guessView();
             } catch (InputMismatchException e) {
-                throw new InputMismatchException();
+                throw new IllegalArgumentException("숫자를 입력해야합니다.");
+            } catch (Exception e) {
+                throw new IllegalArgumentException();
             }
 
             Validator.validateGuess(guess);
@@ -31,7 +33,14 @@ public class Game {
             View.hintView(resultDto);
         }
 
-        int input = View.successView();
+        int input;
+        try {
+            input = View.successView();
+        } catch (InputMismatchException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
         Validator.validateReGame(input);
 
         return input == 1;
