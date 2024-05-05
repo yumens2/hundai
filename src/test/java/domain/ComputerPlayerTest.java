@@ -36,4 +36,19 @@ class ComputerPlayerTest {
         //then
         assertFalse(isInvalid);
     }
+
+    @Test
+    @DisplayName("컴퓨터가 생성한 숫자는 중복되지 않는다.")
+    public void validateComputerNumberDuplication() {
+        //given
+        computerPlayer.generateNumbers();
+
+        //when
+        boolean isDuplicated = computerPlayer.getNumbers().stream()
+            .distinct()
+            .count() != NUMBER_SIZE;
+
+        //then
+        assertFalse(isDuplicated);
+    }
 }
