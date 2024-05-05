@@ -1,6 +1,7 @@
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public class Computer {
     private List<Integer> numbers;
