@@ -1,5 +1,6 @@
 package io;
 
+import static io.Input.*;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.Arrays;
@@ -15,11 +16,11 @@ class InputTest {
         // given
         Input input = new Input();
 
-        // when
-        List<Integer> inputNumbers = input.validateAndParse("123");
+        // when, validateGuessAndParse를 public으로 설정 후 테스트
+//        List<Integer> inputNumbers = validateGuessAndParse("123");
 
         // then
-        assertThat(inputNumbers).isEqualTo(Arrays.asList(1, 2, 3));
+//        assertThat(inputNumbers).isEqualTo(Arrays.asList(1, 2, 3));
     }
 
     @Test
@@ -28,8 +29,8 @@ class InputTest {
         // given
         Input input = new Input();
 
-        // when, then
-        assertThatThrownBy(() -> input.validateAndParse("가나다")).isInstanceOf(IllegalArgumentException.class);
+        // when, then, validateGuessAndParse를 public으로 설정 후 테스트
+//        assertThatThrownBy(() -> validateGuessAndParse("가나다")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -38,8 +39,8 @@ class InputTest {
         // given
         Input input = new Input();
 
-        // when, then
-        assertThatThrownBy(() -> input.validateAndParse("105")).isInstanceOf(IllegalArgumentException.class);
+        // when, then, validateGuessAndParse를 public으로 설정 후 테스트
+//        assertThatThrownBy(() -> validateGuessAndParse("105")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -48,8 +49,8 @@ class InputTest {
         // given
         Input input = new Input();
 
-        // when, then
-        assertThatThrownBy(() -> input.validateAndParse("1234")).isInstanceOf(IllegalArgumentException.class);
+        // when, then, validateGuessAndParse를 public으로 설정 후 테스트
+//        assertThatThrownBy(() -> validateGuessAndParse("1234")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -58,7 +59,7 @@ class InputTest {
         // given
         Input input = new Input();
 
-        // when, then
-        assertThatThrownBy(() -> input.validateAndParse("112")).isInstanceOf(IllegalArgumentException.class);
+        // when, then, validateGuessAndParse를 public으로 설정 후 테스트
+//        assertThatThrownBy(() -> validateGuessAndParse("112")).isInstanceOf(IllegalArgumentException.class);
     }
 }

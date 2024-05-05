@@ -13,21 +13,17 @@ public class Input {
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<String> RESTART_OPTION = Arrays.asList("1", "2");
 
-    public String input() {
+    public List<Integer> inputGuess() {
         System.out.print(INPUT_PROMPT);
-        return scanner.nextLine();
+        return validateGuessAndParse(scanner.nextLine());
     }
 
-    public int restart() {
+    public int inputRestartOption() {
         System.out.println(RESTART_PROMPT);
-        String inputString = scanner.nextLine();
-        if (!RESTART_OPTION.contains(inputString)) {
-            throw new IllegalArgumentException();
-        }
-        return Integer.parseInt(inputString);
+        return validateRestartOptionAndParse(scanner.nextLine());
     }
 
-    public List<Integer> validateAndParse(String inputString) {
+    private static List<Integer> validateGuessAndParse(String inputString) {
         List<Integer> inputNumbers = isNumber(inputString);
         if (hasLengthOf(inputNumbers) && doesNotContainZero(inputNumbers) && isDistinct(inputNumbers)) {
             return inputNumbers;
@@ -35,6 +31,13 @@ public class Input {
         else {
             throw new IllegalArgumentException();
         }
+    }
+
+    private static int validateRestartOptionAndParse(String inputString) {
+        if (!RESTART_OPTION.contains(inputString)) {
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(inputString);
     }
 
     private static List<Integer> isNumber(String inputString) {

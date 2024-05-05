@@ -1,7 +1,5 @@
 package io;
 
-import static controller.BaseBallGame.MAX_COUNT;
-
 import model.Hint;
 
 public class Output {

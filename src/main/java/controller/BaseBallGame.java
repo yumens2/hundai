@@ -21,13 +21,12 @@ public class BaseBallGame {
         do {
             List<Integer> answer = generator.generate();
             playEachRound(answer);
-        } while (input.restart() == 1);
+        } while (input.inputRestartOption() == 1);
     }
 
     private void playEachRound(List<Integer> answer) {
         while (true) {
-            String inputString = input.input();
-            List<Integer> inputNumbers = input.validateAndParse(inputString);
+            List<Integer> inputNumbers = input.inputGuess();
 
             ballStrike(answer, inputNumbers);
             printResult(hint);
