@@ -13,9 +13,7 @@ public class GameView {
     }
 
     public String getUserInput() throws IOException {
-        String inputNumber = null;
         System.out.print("숫자를 입력해 주세요 : ");
-        inputNumber = reader.readLine();
-        return inputNumber;
+        return reader.readLine();
     }
 }
