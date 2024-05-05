@@ -39,21 +39,21 @@ public class BaseBallGameService {
         }
     }
 
-    public Boolean checkNumberValid(String number){
+    public boolean checkNumberValid(String number){
         if (number.length() != 3) {
-            return false;
+            throw new IllegalArgumentException("잘못된 입력입니다. 애플리케이션을 종료합니다.");
         }
 
         for (int i = 0; i < number.length(); i++) {
             char c = number.charAt(i);
 
             if (!Character.isDigit(c) || c == '0') {
-                return false;
+                throw new IllegalArgumentException("잘못된 입력입니다. 애플리케이션을 종료합니다.");
             }
 
             long count = number.chars().filter(n -> n == c).count();
             if (count > 1){
-                return false;
+                throw new IllegalArgumentException("잘못된 입력입니다. 애플리케이션을 종료합니다.");
             }
         }
 
