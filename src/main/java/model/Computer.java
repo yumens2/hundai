@@ -9,7 +9,7 @@ public class Computer {
         numbers = NumberUtil.generateRandomNumber();
     }
 
-    public int[] getNumber() {
+    public int[] getNumbers() {
         return numbers;
     }
 }

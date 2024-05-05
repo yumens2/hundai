@@ -4,14 +4,14 @@
 
 ### 1. model 패키지
 #### User 클래스
-* int[] getNumber()
+* int[] getNumbers()
   * 게임 플레이어가 입력한 문자열 숫자를 쪼개 `int[]`에 저장하여 반환하는 메서드
 
 #### Computer 클래스
 * Computer()
   * 컴퓨터의 서로 다른 임의의 3개의 숫자를 생성하여 `int[] number`에 저장하는 생성자 메서드
 
-* int[] getNumber()
+* int[] getNumbers()
   * 생성자를 통해 생성된 랜덤 숫자 반환
 
 

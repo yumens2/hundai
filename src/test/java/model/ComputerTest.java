@@ -2,7 +2,6 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +11,7 @@ public class ComputerTest {
     void computerConstructorTest() throws Exception {
         //given
         Computer computer = new Computer();
-        int[] numbers = computer.getNumber();
+        int[] numbers = computer.getNumbers();
 
         //when & then(배열 길이 테스트)
         assertThat(numbers).hasSize(3);
