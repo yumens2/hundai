@@ -9,7 +9,7 @@ public class Numbers {
 
     @Override
     public String toString() {
-        return "Numbers(" + number[0] + ", " + number[1] + ", " + number[2] + ")";
+        return String.valueOf(number[0]) + number[1] + number[2];
     }
 
     @Override
