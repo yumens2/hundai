@@ -28,7 +28,10 @@ public class Hint {
         } else {
             String hint = "";
             if(ball > 0) {
-                hint += ball + BALL + SPACE;
+                hint += ball + BALL;
+            }
+            if(ball > 0 && strike > 0) {
+                hint += SPACE;
             }
             if(strike > 0) {
                 hint += strike + STRIKE;
