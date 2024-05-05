@@ -42,4 +42,17 @@ public class valid_string_test {
         }
     }
 
+    @Test
+    public void invalid_input_test3() {
+        // 예외가 발생되어야하는 case
+        String invalidInput = "1111";
+        try {
+            BaseballGame.valid_string(invalidInput);
+            // 예외가 발생하지 않으면 테스트 실패
+            fail("예외가 발생해야 한다.");
+        } catch (IllegalArgumentException e) {
+            // 예외가 발생하면 테스트 통과
+        }
+    }
+
 }
