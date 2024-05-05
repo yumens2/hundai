@@ -1,10 +1,13 @@
+package utility;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import utility.RandomNumberGenerator;
 
 class RandomNumberGeneratorTest {
 
     @Test
+    @DisplayName("생성된 숫자 형식 확인 테스트")
     void getRandomNumber() {
         String randomNumber = RandomNumberGenerator.getRandomNumber();
         org.assertj.core.api.Assertions.assertThat(randomNumber.length()).isEqualTo(3);
