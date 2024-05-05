@@ -26,31 +26,57 @@ class UtilityTest {
 
     @Test
     void testCheckStringLength() {
-        Assertions.assertThatCode(() -> Utility.checkStringLength("123")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringLength("abc")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringLength("000")).doesNotThrowAnyException();
-        Assertions.assertThatThrownBy(() -> Utility.checkStringLength("")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringLength("11111")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringLength("zbcda")).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatCode(() -> Utility.checkStringLength("123"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringLength("abc"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringLength("000"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatThrownBy(() -> Utility.checkStringLength(""))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringLength("11111"))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringLength("zbcda"))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void testCheckStringDistinct() {
-        Assertions.assertThatCode(() -> Utility.checkStringDistinct("123")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringDistinct("123456789")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringDistinct("abc")).doesNotThrowAnyException();
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("111")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("12345678910")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("aa")).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatCode(() -> Utility.checkStringDistinct("123"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringDistinct("123456789"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringDistinct("abc"))
+            .doesNotThrowAnyException();
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("111"))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("12345678910"))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDistinct("aa"))
+            .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void testCheckStringDigit() {
         Assertions.assertThatCode(() -> Utility.checkStringDigit("123")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringDigit("123456789101112")).doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringDigit("123456789101112"))
+            .doesNotThrowAnyException();
         Assertions.assertThatCode(() -> Utility.checkStringDigit("")).doesNotThrowAnyException();
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("1k3")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("abc")).isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("111111111a")).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("1k3"))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("abc"))
+            .isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("111111111a"))
+            .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void testStringToIntArray() {
+        int[] temp1 = {1, 2, 3};
+        Assertions.assertThat(Utility.stringToIntArray("123")).isEqualTo(temp1);
+        int[] temp2 = {5, 4, 3};
+        Assertions.assertThat(Utility.stringToIntArray("543")).isEqualTo(temp2);
+        int[] temp3 = {2, 4, 6};
+        Assertions.assertThat(Utility.stringToIntArray("246")).isEqualTo(temp3);
     }
 }
