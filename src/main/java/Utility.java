@@ -32,4 +32,9 @@ public class Utility {
 
         return userString;
     }
+
+    public static boolean checkStringLength(String userString) {
+        return userString.length() == 3;
+    }
+
 }
