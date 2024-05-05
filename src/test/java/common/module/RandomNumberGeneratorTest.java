@@ -9,10 +9,11 @@ import org.junit.jupiter.api.Test;
 
 class RandomNumberGeneratorTest {
 
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
     @Test
     @DisplayName("주어진 범위 내에서 랜덤한 숫자를 생성한다.")
     public void generateRandomNumberInRange() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         int number = randomNumberGenerator.generateRandomNumberInRange(MIN_NUMBER, MAX_NUMBER);
         assertTrue(number >= MIN_NUMBER && number <= MAX_NUMBER);
     }
