@@ -20,7 +20,7 @@ public class InputValidator {
         checkDuplicateNumber(number);
     }
 
-    public void validateGameMenu(String menuCode) {
+    public void validateGameMenuCode(String menuCode) {
         checkValidCode(menuCode);
     }
 

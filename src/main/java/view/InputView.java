@@ -20,7 +20,7 @@ public class InputView {
     public String inputGameMenu() {
         System.out.println(INPUT_RESTART_OR_NOT_MESSAGE);
         String menuCode = scanner.nextLine();
-        inputValidator.validateGameMenu(menuCode);
+        inputValidator.validateGameMenuCode(menuCode);
         return menuCode;
     }
 }
