@@ -116,4 +116,18 @@ public class Utility {
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         }
     }
+
+    public static boolean checkKeepGoing(String userString, int strike) {
+        if (strike != 3) {
+            return true;
+        } else {
+            if (userString.equals("1")) {
+                return true;
+            } else if (userString.equals("2")) {
+                return false;
+            } else {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 }
