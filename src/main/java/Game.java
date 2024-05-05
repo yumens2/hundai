@@ -3,6 +3,7 @@ public class Game {
     private Computer computer;
     private User user;
     private Validator validator;
+    private CheckNum checkNum;
 
     public Game(Computer computer, User user, Validator validator) {
         this.computer = computer;
