@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-public class BaseBallMakeTest {
+public class BaseballMakerTest {
     @DisplayName("야구게임 생성 사이즈 테스트")
     @Test
     void baseballMakeTest(){
