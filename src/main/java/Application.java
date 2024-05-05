@@ -16,7 +16,7 @@ public class Application {
         }
     }
     private static void validateGameType(int gameType){
-        if(gameType == GAME_RESTART || gameType == GAME_END){
+        if(gameType != GAME_RESTART && gameType != GAME_END){
             throw new IllegalArgumentException("게임 타입(게임 새로시작 : 1, 게임 종료 : 2)이 올바르지 않습니다.");
         }
     }
