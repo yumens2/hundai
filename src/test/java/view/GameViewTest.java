@@ -44,7 +44,9 @@ class GameViewTest {
         gameView.displayResult(input3);
 
         //then
-        String expectedOutput = input1 + "\n" + input2 + "\n" + input3 + "\n";
+        String expectedOutput = input1 + System.lineSeparator() +
+            input2 + System.lineSeparator() +
+            input3 + System.lineSeparator();
         assertEquals(expectedOutput, outputContent.toString());
 
     }

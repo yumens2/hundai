@@ -16,4 +16,8 @@ public class GameView {
         System.out.print("숫자를 입력해 주세요 : ");
         return reader.readLine();
     }
+
+    public void displayResult(String feedback) {
+        System.out.println(feedback);
+    }
 }
