@@ -48,6 +48,15 @@ public class gameManager {
         return userDigits;
     }
 
+    private boolean isValidDigits(int[] numDigits) {
+        for (int i = 0; i < 3; i++) {
+            if (numDigits[i] < 1 || numDigits[i] > 9) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private boolean isUniqueDigits(int[] numDigits) {
         for (int i = 0; i < 3; i++) {
             for (int j = i + 1; j < 3; j++) {
