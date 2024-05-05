@@ -7,15 +7,15 @@ import view.View;
 public class Game {
 
     private static UserInputChecker userInputChecker = null;
-    private RandomAnswerGenerator randomAnswerGenerator = null;
 
     private String answer = null;
 
     public Game() {
         userInputChecker = new UserInputChecker();
-        randomAnswerGenerator = new RandomAnswerGenerator();
-        answer = randomAnswerGenerator.getAnswerAsString();
-        System.out.println(answer);
+    }
+
+    private void setAnswer() {
+        answer = (new RandomAnswerGenerator()).getAnswerAsString();
     }
 
     private boolean isCorrect(int nStrike) {
@@ -48,6 +48,7 @@ public class Game {
         String userGuess;
         boolean continueGame = true;
         while (continueGame) {
+            setAnswer();
             userGuess = View.getUserGuess();
             UserInputChecker.isValidGuess(userGuess);
             int[] ballAndStrike = evaluate(userGuess);
