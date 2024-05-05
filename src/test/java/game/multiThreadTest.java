@@ -44,7 +44,7 @@ public class multiThreadTest {
         var executorService = Executors.newFixedThreadPool(1000);
         // When
         IntStream.range(0, 10000).forEach((index) -> executorService.submit(() -> {
-            Computer computer = Computer.of();
+            Computer computer = Computer.getInstance();
             computerMap.put(computer.toString(), computer);
         }));
 
@@ -63,7 +63,7 @@ public class multiThreadTest {
 
         // When
         IntStream.range(0, 10000).forEach((index) -> executorService.submit(() -> {
-            Result result = Result.of();
+            Result result = Result.getInstance();
             baseballGameResultMap.put(result.toString(), result);
         }));
 

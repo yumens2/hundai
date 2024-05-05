@@ -13,7 +13,7 @@ public class BaseballGameService {
     private final Result result;
     private final Computer computer;
 
-    public static BaseballGameService of(Computer computer, BaseballGame baseballGame,
+    public static BaseballGameService getInstance(Computer computer, BaseballGame baseballGame,
         Result result) {
         if (baseballGameService == null) {
             baseballGameService = new BaseballGameService(computer, baseballGame, result);

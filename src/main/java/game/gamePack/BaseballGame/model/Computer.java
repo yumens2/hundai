@@ -30,7 +30,7 @@ public class Computer {
         private static final Computer computer = new Computer();
     }
 
-    public static Computer of() {
+    public static Computer getInstance() {
         return ComputerHolder.computer;
     }
 

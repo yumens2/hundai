@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class ResultTest {
 
-    Result result = Result.of();
+    Result result = Result.getInstance();
 
     @Test
     @DisplayName("getOutCome 테스트")

@@ -31,7 +31,7 @@ public class BaseballGame {
         private static final BaseballGame baseballGame = new BaseballGame();
     }
 
-    public static BaseballGame of() {
+    public static BaseballGame getInstance() {
         return BaseballGameHolder.baseballGame;
     }
 

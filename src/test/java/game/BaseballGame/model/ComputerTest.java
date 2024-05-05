@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class ComputerTest {
 
-    Computer computer = Computer.of();
+    Computer computer = Computer.getInstance();
 
     @Test
     @DisplayName("랜덤 숫자 사이즈 테스트")

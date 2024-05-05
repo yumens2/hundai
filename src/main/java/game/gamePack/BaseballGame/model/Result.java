@@ -27,7 +27,7 @@ public class Result {
         private static final Result result = new Result();
     }
 
-    public static Result of() {
+    public static Result getInstance() {
         return ResultHolder.result;
     }
 
