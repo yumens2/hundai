@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public class BaseballGame {
+public class Game {
 
     Player computer;
     boolean isEnd;
@@ -46,18 +46,18 @@ public class BaseballGame {
     }
 
     private String getHint(String inputNumber) {
-        BaseBallGameResult result = computer.checkMatching(input2IntArray(inputNumber));
+        GameResult result = computer.checkMatching(input2IntArray(inputNumber));
         checkEnd(result);
         return result2Hint(result);
     }
 
     private void checkInput(String inputNumber) throws IllegalArgumentException {
-        if (!checkTreeDigitNumber(inputNumber) || !checkDuplicateNumber(inputNumber)) {
+        if (!checkThreeDigitNumber(inputNumber) || !checkDuplicateNumber(inputNumber)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private boolean checkTreeDigitNumber(String inputNumber) {
+    private boolean checkThreeDigitNumber(String inputNumber) {
         String TREE_DIGIT_REGEX = "^[0-9]{3}$";
         return Pattern.compile(TREE_DIGIT_REGEX).matcher(inputNumber).matches();
     }
@@ -70,7 +70,7 @@ public class BaseballGame {
         return chars.size() == GameConstant.NUMBER_COUNT;
     }
 
-    private void checkEnd(BaseBallGameResult result) {
+    private void checkEnd(GameResult result) {
         if (result.strike() == GameConstant.NUMBER_COUNT) {
             isEnd = true;
         }
@@ -84,7 +84,7 @@ public class BaseballGame {
         return guess;
     }
 
-    private String result2Hint(BaseBallGameResult result) {
+    private String result2Hint(GameResult result) {
         if (result.ball() == 0 && result.strike() == 0) {
             return GameMessageConstant.NOTHING;
         }

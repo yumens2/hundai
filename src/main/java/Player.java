@@ -28,10 +28,10 @@ public class Player {
         return random.nextInt(10);
     }
 
-    public BaseBallGameResult checkMatching(int[] guess) {
+    public GameResult checkMatching(int[] guess) {
         int ball = checkBall(guess);
         int strike = checkStrike(guess);
-        return new BaseBallGameResult(ball, strike);
+        return new GameResult(ball, strike);
     }
 
     private int checkBall(int[] guess) {
