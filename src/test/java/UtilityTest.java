@@ -43,4 +43,14 @@ class UtilityTest {
         Assertions.assertThat(Utility.checkStringDistinct("aaa")).isFalse();
         Assertions.assertThat(Utility.checkStringDistinct("99")).isFalse();
     }
+
+    @Test
+    void testCheckStringDigit() {
+        Assertions.assertThatCode(() -> Utility.checkStringDigit("123")).doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringDigit("123456789101112")).doesNotThrowAnyException();
+        Assertions.assertThatCode(() -> Utility.checkStringDigit("")).doesNotThrowAnyException();
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("1k3")).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("abc")).isInstanceOf(IllegalArgumentException.class);
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("111111111a")).isInstanceOf(IllegalArgumentException.class);
+    }
 }
