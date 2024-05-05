@@ -132,4 +132,18 @@ public class baseball {
         }
         return balls;
     }
+
+    public static String resultPrint(int strikes, int balls) {
+        if (strikes == 3) {
+            return "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+        } else if (strikes > 0 || balls > 0) {
+            return strikes + " 스트라이크 " + balls + " 볼";
+        } else if (strikes > 0 && balls == 0) {
+            return strikes + " 스트라이크 ";
+        } else if (strikes == 0 && balls > 0) {
+            return balls + " 볼";
+        } else {
+            return "낫싱";
+        }
+    }
 }
