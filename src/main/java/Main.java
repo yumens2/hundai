@@ -2,24 +2,39 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
-    static int[] ansList = new int[10];
+    static int is_reGame;
+    static int[] ansList;
     static int[] predictList = new int[3];
     public static Scanner scan = new Scanner(System.in);
 
+    static void initList(){
+        ansList = new int[10];
+        is_reGame = 0;
+    }
+
     static void makeAttack(){
-        System.out.print("Input your number: ");
-        String predict_Num = scan.nextLine();
-        if (predict_Num.length() == 3){
-            makePredict(predict_Num);
+        while (true){
+            System.out.print("Input your number: ");
+            String predict_Num = scan.nextLine();
+            if (predict_Num.length() == 3){
+                makePredict(predict_Num);
+            }
+            compareAnswer();
+            if (is_reGame != 0){
+                break;
+            }
         }
-        compareAnswer();
     }
 
     static void makeAns(){
         Random random = new Random();
-        for (int order = 1 ; order < 4 ; order++){
+        int order = 1;
+        while (order < 4){
             int randomNumber = random.nextInt(10);
-            ansList[randomNumber] = order;
+            if (ansList[randomNumber] == 0){
+                ansList[randomNumber] = order;
+                order ++;
+            }
         }
     }
 
@@ -54,12 +69,21 @@ public class Main {
             System.out.print(resultCount[1]+"ball ");
         }
         System.out.println();
+        if (resultCount[0] == 3){
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            is_reGame = scan.nextInt();
+            scan.nextLine();
+        }
     }
 
     public static void main(String[] args) {
-        makeAns();
-        while (true) {
+        while (true){
+            initList();
+            makeAns();
             makeAttack();
+            if (is_reGame == 2){
+                break;
+            }
         }
     }
 }
