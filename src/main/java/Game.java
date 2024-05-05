@@ -29,21 +29,23 @@ public class Game {
         System.out.println(GameMessageConstant.START_GAME);
         Scanner scanner = new Scanner(System.in);
         String inputNumber;
-        String hint;
+        GameResult result;
+        Hint hint;
         do {
             System.out.print(GameMessageConstant.INPUT_NUMBER);
             inputNumber = scanner.next();
             checkInputNumber(inputNumber);
-            hint = getHint(inputNumber);
-            System.out.println(hint);
+            result = getResult(inputNumber);
+            hint = new Hint(result);
+            System.out.println(hint.getHint());
         } while (!isEnd);
         System.out.println(GameMessageConstant.GAME_CLEAR);
     }
 
-    private String getHint(String inputNumber) {
+    private GameResult getResult(String inputNumber) {
         GameResult result = computer.checkMatching(input2IntArray(inputNumber));
         checkEnd(result);
-        return result2Hint(result);
+        return result;
     }
 
     private void checkInputNumber(String inputNumber) throws IllegalArgumentException {
@@ -67,30 +69,4 @@ public class Game {
         return guess;
     }
 
-    private String result2Hint(GameResult result) {
-        if (result.ball() == 0 && result.strike() == 0) {
-            return GameMessageConstant.NOTHING;
-        }
-        if (result.ball() == 0) {
-            return strike2String(result.strike());
-        }
-        if (result.strike() == 0) {
-            return ball2String(result.ball());
-        }
-        return ball2String(result.ball()) + " " + strike2String(result.strike());
-    }
-
-    private String ball2String(int ball) {
-        if (ball > 0) {
-            return String.format("%d%s", ball, GameMessageConstant.BALL);
-        }
-        return "";
-    }
-
-    private String strike2String(int strike) {
-        if (strike > 0) {
-            return String.format("%d%s", strike, GameMessageConstant.STRIKE);
-        }
-        return "";
-    }
 }
