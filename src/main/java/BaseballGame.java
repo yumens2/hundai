@@ -6,11 +6,18 @@ public class BaseballGame {
         boolean isContinue = true;
 
         while (isContinue){
-            playGame();
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            int c = scanner.nextInt();
-            if (c != 1){
+            try {
+                playGame();
+            } catch (IllegalArgumentException e){
+                System.out.println("잘못된 입력입니다. 프로그램 종료합니다.");
                 isContinue = false;
+            }
+            if (isContinue) {
+                System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+                int c = scanner.nextInt();
+                if (c != 1) {
+                    isContinue = false;
+                }
             }
         }
         scanner.close();
@@ -21,17 +28,21 @@ public class BaseballGame {
 
         System.out.println("숫자를 입력해 주세요 : ");
         while (true) {
-            int[] guess = getGuess(scanner);
+            int[] guess;
+            try {
+                guess = getGuess(scanner);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException();
+            }
             int[] result = checkResult(gameNumber, guess);
-            if (result[0] == 3){
+            if (result[0] == 3) {
                 System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
                 break;
             } else {
                 printResult(result);
-                System.out.println("숫자 입력: ");
+                System.out.println("숫자를 입력해 주세요 : ");
             }
         }
-        scanner.close();
    }
    public static int[] generateGameNumber(){
         int[] num = new int[3];
@@ -54,6 +65,9 @@ public class BaseballGame {
    public static int[] getGuess(Scanner scanner){
         int[] guess = new int[3];
         int inp = scanner.nextInt();
+        if (inp < 100 || inp > 999) {
+            throw new IllegalArgumentException();
+       }
 
         guess[0] = inp / 100;
         guess[1] = (inp % 100) / 10;
