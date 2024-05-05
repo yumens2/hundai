@@ -40,6 +40,18 @@ class InputValidatorTest {
                 () -> InputValidator.validateHumanValues(input));
         assertEquals(e.getMessage(), "Input Type이 [1-9] 사이의 숫자가 아닙니다.");
     }
+
+    @Test
+    @DisplayName("humnInput에 중복된 값이 포함되어 있을 경우 테스트")
+    void humanInputWithDuplicatedNumberTest(){
+        //given
+        String input = "131";
+
+        //Then
+        Exception e = assertThrows(IllegalArgumentException.class,
+                () -> InputValidator.validateHumanValues(input));
+        assertEquals(e.getMessage(), "Input 값 중 중복값이 존재합니다.");
+    }
     @Test
     @DisplayName("gameType 유효값 입력 테스트")
     void gameTypeWithValidInputTest() {
@@ -49,6 +61,7 @@ class InputValidatorTest {
         //Then
         assertDoesNotThrow(() -> InputValidator.validateGameType(input));
     }
+
     @Test
     @DisplayName("gameType 숫자형이 아닐 경우 테스트")
     void validateGameType() {
