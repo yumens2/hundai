@@ -1,13 +1,12 @@
-package Entity;
+package model;
 
 import java.util.*;
 
-public class Computer extends Player {
+public class Computer {
     private Set<Integer> numberSet;
 
     public Computer() {
         numberSet = new LinkedHashSet<>();
-        playerStatus = PlayerStatus.COMPUTER;
     }
 
     public Computer setNumberSet(Set<Integer> numberSet) {
