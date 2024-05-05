@@ -23,6 +23,18 @@ public class gameManager {
         }
     }
 
+    private boolean gameMenu() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        int option = scanner.nextInt();
+
+        if (!(option == 1 || option == 2)) {
+            throw new IllegalArgumentException("1 혹은 2를 입력해야 합니다.");
+        } else if (option == 1) {
+            return true;
+        }
+        return false;
+    }
+
     private boolean computBallCount(int[] randNum, int[] userNum) {
         int strikes = countStrikes(randNum, userNum);
         int balls = countBalls(randNum, userNum);
