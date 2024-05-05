@@ -20,6 +20,7 @@ public class BaseballGame {
             int[] userInput = getUserInput();
             System.out.println(Arrays.toString(targetNumbers));
             System.out.println(Arrays.toString(userInput));
+            validateUserInput(userInput);
             int[] comparedResult = compareNumbers(targetNumbers, userInput);
             System.out.println(getResultMessage(comparedResult));
             if (isGameEnded(comparedResult)) {
@@ -46,10 +47,6 @@ public class BaseballGame {
         Scanner scanner = new Scanner(System.in);
         System.out.print("세 자리 숫자를 입력하세요: ");
         String input = scanner.nextLine();
-
-        // 만약 중복되는 문자가 있다면
-        // 세 자리가 아니라면
-        // 숫자가 아니라면
 
         String[] inputArray = input.split("");
         int[] intArray = new int[inputArray.length];
@@ -126,6 +123,25 @@ public class BaseballGame {
             } else {
                 System.out.println("2입력");
                 return false;
+            }
+        }
+    }
+
+    public static void validateUserInput(int[] userInput) {
+        // 세 자리가 아니라면 종료
+        if (userInput.length != 3) {
+            throw new IllegalArgumentException("입력이 세자리가 아닙니다.");
+        }
+
+        // 만약 중복되는 문자가 있다면 종료
+        int[] recordArray = new int[10];
+        for (int i = 0; i < 3; i++) {
+            int input = userInput[i];
+            recordArray[input] = recordArray[input] + 1;
+        }
+        for (int j = 0; j < recordArray.length; j++) {
+            if (recordArray[j] > 1) {
+                throw new IllegalArgumentException("세자리 수 중에서 중복되는 수는 없습니다.");
             }
         }
     }
