@@ -19,4 +19,21 @@ public class baseball {
         System.out.println("프로그램 종료!");
         scanner.close();
     }
+
+    public static void playGame(Scanner scanner) {
+        int[] player;
+        int[] computer = generateComputerNumbers();
+        int strikes, balls;
+
+        do {
+            player = getPlayerInput(scanner);
+
+            strikes = strikeCheck(player, computer);
+            balls = ballCheck(player, computer);
+
+            String resultMessage = resultPrint(strikes, balls);
+            System.out.println(resultMessage);
+
+        } while (strikes != 3);
+    }
 }
