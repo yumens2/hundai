@@ -24,23 +24,29 @@ public class Number{
         Scanner sc=new Scanner(System.in);
         String S=sc.next();
         if(S.length()!= 3) {
+            FLAG=false;
             throw new Exception("IllegalArgumentException");
         }
         else {
             if(!isNumeric(S)) {
+                FLAG=false;
                 throw new Exception("IllegalArgumentException");
             }
-            int TEMP=Integer.parseInt(S);
-            isNumOk(TEMP);
+            else {
+                int TEMP = Integer.parseInt(S);
+                isNumOk(TEMP);
+            }
         }
     }
     private static boolean isNumeric(String str){
         return str != null && str.matches("[0-9.]+");
     }
     public void isNumOk(int NUM) throws Exception{
-        if(NUM<0||NUM>999)
+        if(NUM<0||NUM>999){
+            FLAG=false;
             throw new Exception("IllegalArgumentException");
-        MY_NUM=NUM;
+        }
+        else MY_NUM=NUM;
     }
     public void compareNum(){
         if(!FLAG)
@@ -82,7 +88,9 @@ public class Number{
         boolean FLAG_NUM1=true;
         while(FLAG_NUM1){
             getNum();
+            if(!FLAG) break;
             compareNum();
+            if(!FLAG) break;
             if(STRIKE==3) {
                 finishedGame();
                 return;
