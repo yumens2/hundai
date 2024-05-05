@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RandomBall implements Random{
+public class RandomBall {
 
-    @Override
     public int makeRandomBall() {
         List<Integer> numbers = new ArrayList<>();
 
