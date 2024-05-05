@@ -17,6 +17,7 @@ public class RandomAnswerGenerator {
 
     /**
      * 1~9까지 다른 숫자 3개로 이루어진정답을 생성한다.
+     *
      * @return 랜덤으로 생성된 정답
      */
     public String getAnswerAsString() {
