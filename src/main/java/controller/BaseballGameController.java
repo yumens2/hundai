@@ -16,14 +16,29 @@ public class BaseballGameController {
     private final OutputView outputView = new OutputView();
 
     public void progress() {
-        // generate random number
-        List<Integer> answerNum = generateRandomNumber.getRandomNumberList();
-        // input & validation
-        List<Integer> inputNum = input.input();
-        // check Answer
-        Hint hint = answerChecker.checkAnswer(answerNum, inputNum);
-        // print console
-        outputView.printResult(hint);
+        boolean isFinish = false;
+        do {
+            List<Integer> answerNum = generateRandomNumber.getRandomNumberList();
+
+            oneGame(answerNum);
+
+            isFinish = input.isReplay();
+
+        } while (isFinish);
+    }
+
+    private void oneGame(List<Integer> answerNum) {
+        while (true) {
+            // feat: input & validation
+            List<Integer> inputNum = input.input();
+            // feat: checkAnswer
+            Hint hint = answerChecker.checkAnswer(answerNum, inputNum);
+            // feat: print Console
+            outputView.printResult(hint);
+            if (answerChecker.isFinished(hint)) {
+                break;
+            }
+        }
     }
 
 }

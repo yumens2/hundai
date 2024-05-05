@@ -2,6 +2,8 @@ package model;
 
 import java.util.List;
 
+import static model.GenerateRandomNumber.DIGIT;
+
 /**
  *  correct -> Ask replay
  *  incorrect -> call Hint class
@@ -21,6 +23,10 @@ public class AnswerChecker {
             }
         }
         return hint;
+    }
+
+        public boolean isFinished (Hint hint) {
+        return hint.getStrike() == DIGIT;
     }
 
 }

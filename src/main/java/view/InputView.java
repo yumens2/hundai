@@ -79,4 +79,24 @@ public class InputView {
         return intList;
     }
 
+    /**
+     * 게임 다시 할건지 사용자로 부터 답을 받는 메소드
+     * @return true/false
+     */
+    public boolean isReplay() {
+        String inputValue = scanner.nextLine();
+
+        if (!isValidateInt(inputValue)) {
+            throw new IllegalArgumentException(INPUT_ERROR_INT);
+        }
+        int isReplay = Integer.parseInt(inputValue);
+        if (isReplay == 1) {
+            return true;
+        } else if (isReplay == 2) {
+            return false;
+        } else {
+            throw new IllegalArgumentException(INPUT_ERROR_BOUND);
+        }
+    }
+
 }
