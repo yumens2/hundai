@@ -69,6 +69,15 @@ public class Number{
             }
         }
     }
+    public void printWhat(){
+        if(BALL==0&&STRIKE==0)
+            System.out.println("낫싱");
+        else if(BALL==0&&STRIKE>0)
+            System.out.println(STRIKE+"스트라이크");
+        else if(BALL>0&&STRIKE==0)
+            System.out.println(BALL+"볼");
+        else System.out.println(BALL+"볼 "+STRIKE+"스트라이크");
+    }
     public void chkEquality() throws Exception {
         boolean FLAG_NUM1=true;
         while(FLAG_NUM1){
