@@ -1,7 +1,7 @@
+import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import java.io.ByteArrayInputStream;
 
 public class RestartTest {
     @Test
