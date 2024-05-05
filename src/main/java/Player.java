@@ -22,17 +22,17 @@ public class Player {
         // 입력값을 공백을 기준으로 분리
         String[] parts = input.split(" ");
         if (parts.length != 3) {
-            throw new IllegalArgumentException("입력은 정확히 세 개의 숫자여야 합니다.");
+            throw new IllegalArgumentException("입력은 정확히 세 개 여야 합니다.");
         }
 
         Set<String> uniqueDigits = new HashSet<>();
         for (String part : parts) {
-            if (Integer.parseInt(part) < 1 || Integer.parseInt(part) > 9) {
-                throw new IllegalArgumentException("1에서 9 사이의 숫자를 입력해야 합니다");
-            }
             // 숫자가 아닌 값을 포함하는지 검사
             if (!part.matches("\\d")) {
                 throw new IllegalArgumentException("입력은 숫자만 포함해야 합니다");
+            }
+            if (Integer.parseInt(part) < 1 || Integer.parseInt(part) > 9) {
+                throw new IllegalArgumentException("1에서 9 사이의 숫자를 입력해야 합니다");
             }
             // 중복된 숫자가 있는지 검사
             if (!uniqueDigits.add(part)) {
