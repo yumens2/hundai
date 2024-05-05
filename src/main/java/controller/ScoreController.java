@@ -45,28 +45,28 @@ public class ScoreController {
         }
     }
     //
-    // protected String convertScoreListToString(ArrayList<BallCountStatus> score) {
-    //     if (score.isEmpty()) {
-    //         return NO_SCORE;
-    //     } else {
-    //         long ballNumber = getScoreCount(score, BallCountStatus.Ball);
-    //         long strikeNumber = getScoreCount(score, BallCountStatus.Strike);
-    //         ballNumber -= strikeNumber;
-    //         String ballResult = (ballNumber) + "볼";
-    //         String strikeResult = strikeNumber + "스트라이크";
-    //         StringBuilder result = new StringBuilder();
-    //         if (ballNumber > 0) {
-    //             result.append(ballResult);
-    //         }
-    //         if (strikeNumber > 0) {
-    //             if (ballNumber > 0) result.append(" ");
-    //             result.append(strikeResult);
-    //         }
-    //         return result.toString();
-    //     }
-    // }
-    //
-    // private long getScoreCount(ArrayList<BallCountStatus> score, BallCountStatus status) {
-    //     return score.stream().filter(x -> x == status).count();
-    // }
+    protected String convertScoreListToString(ArrayList<BallCountStatus> score) {
+        if (score.isEmpty()) {
+            return NO_SCORE;
+        } else {
+            long ballNumber = getScoreCount(score, BallCountStatus.Ball);
+            long strikeNumber = getScoreCount(score, BallCountStatus.Strike);
+            ballNumber -= strikeNumber;
+            String ballResult = (ballNumber) + "볼";
+            String strikeResult = strikeNumber + "스트라이크";
+            StringBuilder result = new StringBuilder();
+            if (ballNumber > 0) {
+                result.append(ballResult);
+            }
+            if (strikeNumber > 0) {
+                if (ballNumber > 0) result.append(" ");
+                result.append(strikeResult);
+            }
+            return result.toString();
+        }
+    }
+
+    private long getScoreCount(ArrayList<BallCountStatus> score, BallCountStatus status) {
+        return score.stream().filter(x -> x == status).count();
+    }
 }
