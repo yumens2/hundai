@@ -2,13 +2,8 @@ package domain;
 
 public class BaseballGame {
 
-    private final Player computerPlayer;
-    private final Player humanPlayer;
-
-    public BaseballGame(Player computerPlayer, Player humanPlayer) {
-        this.computerPlayer = computerPlayer;
-        this.humanPlayer = humanPlayer;
-    }
+    private final Player computerPlayer = new ComputerPlayer();
+    private final Player humanPlayer = new HumanPlayer();
 
     public void start() {
         System.out.println("Game Start!");
