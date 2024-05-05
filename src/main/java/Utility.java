@@ -34,18 +34,22 @@ public class Utility {
         return userString;
     }
 
-    public static boolean checkStringLength(String userString) {
-        return userString.length() == 3;
+    public static void checkStringLength(String userString) {
+        if (userString.length() != 3) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    public static boolean checkStringDistinct(String userString) {
+    public static void checkStringDistinct(String userString) {
         HashSet<Character> tempSet = new HashSet<>();
 
         for (int i = 0; i < userString.length(); i++) {
             tempSet.add(userString.charAt(i));
         }
 
-        return tempSet.size() == userString.length();
+        if (tempSet.size() != userString.length()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static void checkStringDigit(String userString) {
