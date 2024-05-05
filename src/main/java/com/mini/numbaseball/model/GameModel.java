@@ -13,6 +13,8 @@ public class GameModel {
 
     public void initAnswer() {
         List<Integer> numbers = new ArrayList<>();
+        isCorrect = false;
+
         for (int i = 1; i < 10; i++) {
             numbers.add(i);
         }
@@ -70,7 +72,7 @@ public class GameModel {
 
         if (strike > 0) {
             stringBuilder.append(strike).append("스트라이크 ");
-            if(strike==3){
+            if (strike == 3) {
                 isCorrect = true;
             }
         }
