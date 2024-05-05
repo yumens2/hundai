@@ -22,7 +22,7 @@ public class Umpire {
         return baseballCount;
     }
 
-    public boolean isPlayerWin() {
+    public boolean isPlayerWon() {
         return baseballCount.getStrikeCount() == MAX_STRIKE_COUNT;
     }
 }
