@@ -16,7 +16,7 @@ public class BaseballGameController {
     private final OutputView outputView = new OutputView();
 
     public void progress() {
-        boolean isFinish = false;
+        boolean isFinish;
         do {
             List<Integer> answerNum = generateRandomNumber.getRandomNumberList();
 
