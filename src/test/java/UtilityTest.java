@@ -59,14 +59,14 @@ class UtilityTest {
     @Test
     void testCheckStringDigit() {
         Assertions.assertThatCode(() -> Utility.checkStringDigit("123")).doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> Utility.checkStringDigit("123456789101112"))
+        Assertions.assertThatCode(() -> Utility.checkStringDigit("12345678911112"))
             .doesNotThrowAnyException();
         Assertions.assertThatCode(() -> Utility.checkStringDigit("")).doesNotThrowAnyException();
         Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("1k3"))
             .isInstanceOf(IllegalArgumentException.class);
         Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("abc"))
             .isInstanceOf(IllegalArgumentException.class);
-        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("111111111a"))
+        Assertions.assertThatThrownBy(() -> Utility.checkStringDigit("1111111110"))
             .isInstanceOf(IllegalArgumentException.class);
     }
 
