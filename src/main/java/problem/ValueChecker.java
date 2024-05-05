@@ -1,6 +1,6 @@
-package src.main.java.problem;
+package problem;
 
 public interface ValueChecker {
 
-    public abstract String determineTheValue(String inputValue);
+    public abstract int determineTheValue(String inputValue);
 }

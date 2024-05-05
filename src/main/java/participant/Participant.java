@@ -1,4 +1,4 @@
-package src.main.java.participant;
+package participant;
 
 public interface Participant {
     public String inputValue();

@@ -1,4 +1,4 @@
-package src.main.java.problem;
+package problem;
 
 public class StandardValueChecker implements ValueChecker{
     private final String problemValue;
@@ -8,9 +8,11 @@ public class StandardValueChecker implements ValueChecker{
     }
 
     @Override
-    public String determineTheValue(String inputValue) {
+    public int determineTheValue(String inputValue) {
         int strike = 0;
         int ball = 0;
+
+        String str ="";
 
         for (int i = 0; i < 3; i++) {
             if (this.problemValue.charAt(i) == inputValue.charAt(i)) {
@@ -21,12 +23,19 @@ public class StandardValueChecker implements ValueChecker{
         }
 
         if (strike == 0 && ball == 0) {
-            return Message.NOTHING.toString();
+            str = Message.NOTHING.toString();
         }else if (strike == 0){
-            return ball +" "+ Message.BALL.toString();
+            str = ball +" "+ Message.BALL.toString();
         } else if (ball == 0) {
-            return strike +" "+ Message.STRIKE.toString();
+            str = strike +" "+ Message.STRIKE.toString();
         }else
-            return strike +" "+ Message.STRIKE.toString() + " " + strike +" "+ Message.STRIKE.toString();
+            str = strike +" "+ Message.STRIKE.toString() + " " + ball +" "+ Message.BALL.toString();
+
+        System.out.println(str);
+
+        if (strike == 3) {
+            return 1;
+        }
+        return 0;
     }
 }

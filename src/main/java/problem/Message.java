@@ -1,4 +1,4 @@
-package src.main.java.problem;
+package problem;
 
 public enum Message {
     STRIKE, BALL, NOTHING
