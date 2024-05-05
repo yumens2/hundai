@@ -109,4 +109,17 @@ public class baseball {
         return strikes;
     }
 
+    public static int ballCheck(int[] player, int[] computer) {
+        int balls = 0;
+        boolean[] checked = new boolean[3];
+
+        for (int i = 0; i < 3; i++) {
+            if (player[i] != computer[i]) {
+                balls += countBallsWithoutDuplicates(player[i], computer, checked);
+            }
+        }
+        return balls;
+    }
+
+
 }
