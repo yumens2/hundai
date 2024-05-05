@@ -1,7 +1,7 @@
+package game;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-import game.NumberGenerator;
-import game.RandomNumberGenerator;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
