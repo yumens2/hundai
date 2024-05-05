@@ -23,4 +23,14 @@ class UtilityTest {
             }
         }
     }
+
+    @Test
+    void testCheckStringLength() {
+        Assertions.assertThat(Utility.checkStringLength("123")).isTrue();
+        Assertions.assertThat(Utility.checkStringLength("12")).isFalse();
+        Assertions.assertThat(Utility.checkStringLength("1")).isFalse();
+        Assertions.assertThat(Utility.checkStringLength("")).isFalse();
+        Assertions.assertThat(Utility.checkStringLength("1234")).isFalse();
+        Assertions.assertThat(Utility.checkStringLength("12 45")).isFalse();
+    }
 }
