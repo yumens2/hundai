@@ -39,14 +39,8 @@
 - [x] countStrike, countBall 매서드 호출 시 HumanValue 가 ComputerValue와 자리수 불일치 시 오류 던짐
 
 ## GameService
-- [ ] GameResult 반환 테스트
-
-## View
-- [ ] 입력 테스트
-  - [ ] humanValue 입력시 List형식의 숫자 반환 테스트
-  - [ ] GameType 입력시 int형 숫자 반환 테스트
-- [ ] 출력 테스트
+- [x] GameResult 반환 테스트
 
 ## Util
-- [ ] 유효하지 않은 값 입력 시 오류 던짐 테스트
-- [ ] 랜덤값 생성 테스트
+- [x] 유효하지 않은 값 입력 시 오류 던짐 테스트
+- [x] 랜덤값 생성 테스트
