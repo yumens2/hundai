@@ -1,8 +1,8 @@
+import java.io.ByteArrayInputStream;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import java.io.ByteArrayInputStream;
-import java.util.List;
 
 public class PlayerTest {
     @Test
