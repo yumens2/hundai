@@ -1,7 +1,4 @@
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.regex.Pattern;
 
 public class Game {
 
@@ -22,7 +19,7 @@ public class Game {
         do {
             System.out.print(GameMessageConstant.INPUT_NUMBER);
             inputNumber = scanner.next();
-            checkInput(inputNumber);
+            checkInputNumber(inputNumber);
             hint = getHint(inputNumber);
             System.out.println(hint);
         } while (!isEnd);
@@ -51,23 +48,11 @@ public class Game {
         return result2Hint(result);
     }
 
-    private void checkInput(String inputNumber) throws IllegalArgumentException {
-        if (!checkThreeDigitNumber(inputNumber) || !checkDuplicateNumber(inputNumber)) {
+    private void checkInputNumber(String inputNumber) throws IllegalArgumentException {
+        if (!Validation.checkThreeDigitNumber(inputNumber) || !Validation.checkDuplicateNumber(
+                inputNumber)) {
             throw new IllegalArgumentException();
         }
-    }
-
-    private boolean checkThreeDigitNumber(String inputNumber) {
-        String TREE_DIGIT_REGEX = "^[0-9]{3}$";
-        return Pattern.compile(TREE_DIGIT_REGEX).matcher(inputNumber).matches();
-    }
-
-    private boolean checkDuplicateNumber(String inputNumber) {
-        Set<Character> chars = new HashSet<>();
-        for (char c : inputNumber.toCharArray()) {
-            chars.add(c);
-        }
-        return chars.size() == GameConstant.NUMBER_COUNT;
     }
 
     private void checkEnd(GameResult result) {
