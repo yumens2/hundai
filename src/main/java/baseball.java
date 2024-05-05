@@ -36,4 +36,24 @@ public class baseball {
 
         } while (strikes != 3);
     }
+
+    public static int[] getPlayerInput(Scanner scanner) {
+        int[] player;
+        int[] computer = generateComputerNumbers();
+        int strikes, balls;
+
+        do {
+            System.out.println("숫자를 입력해 주세요 : ");
+            String input = scanner.next();
+            player = convertInputToArray(input);
+
+            if (!checkInputValidity(player)) {
+                System.out.println("서로 다른 세 자리 숫자를 입력하세요.");
+                System.exit(0); // 프로그램 종료
+            }
+
+        } while (!checkInputValidity(player));
+
+        return player;
+    }
 }
