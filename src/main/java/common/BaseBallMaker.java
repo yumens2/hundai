@@ -11,7 +11,7 @@ public class BaseBallMaker {
 	private final BaseBallVO randVO;
 	private final Random random;
 
-	BaseBallMaker(){
+	public BaseBallMaker(){
 		random = new Random();
 		randVO = new BaseBallVO(0,0,0);
 		make(); //객체 생성 시 make 하지 않고 쓸 수 있으므로 약간의 overhead를 가지고 사용
@@ -60,6 +60,9 @@ public class BaseBallMaker {
 	 * @return 야구게임 진행결과
 	 */
 	public BaseBallAnsVO playBall(final BaseBallVO vo){
+
+		vertifyVo(vo);
+
 		boolean isEnd = calEnd(vo);
 		int ballCount = calBallCount(vo);
 		int strikeCount = calStrikeCount(vo);
@@ -111,5 +114,18 @@ public class BaseBallMaker {
 			}
 		}
 		return false;
+	}
+
+	private void vertiryVo(final BaseBallVO vo){
+		if(findMatchNum(vo.getBall1(), vo.getBall2(),vo.getBall3())){
+			throw new IllegalArgumentException("user Input except");
+		}
+		if(findMatchNum(vo.getBall2(), vo.getBall1(),vo.getBall3())){
+			throw new IllegalArgumentException("user Input except");
+		}
+		if(findMatchNum(vo.getBall3(), vo.getBall2(),vo.getBall1())){
+			throw new IllegalArgumentException("user Input except");
+		}
+
 	}
 }
