@@ -5,43 +5,68 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/*
-객체 지향 5대 원칙 SOLID
-SRP(Single Responsibility Principle): 단일 책임 원칙
-OCP(Open Closed Principle): 개방 폐쇄 원칙
-LSP(Liskov Substitution Principle): 리스코프 치환 원칙
-ISP(Interface Segregation Principle): 인터페이스 분리 원칙
-DIP(Dependency Inversion Principle): 의존 역전 원칙
- */
-
-
 public class MajorLeague {
 
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static void playBaseBall() throws IOException {
+    static boolean playBaseBall() throws IOException {
 
-        PlayBall play = new PlayBall();
+        AutomaticBallStrikeSystem ABS = new AutomaticBallStrikeSystem();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         RandomBall random = new RandomBall();
         ValidBall validBall = new ValidBall();
-
-
         int number = random.makeRandomBall();
+        System.out.println(number);
 
         while (true) {
 
             System.out.println("숫자를 입력해 주세요 :");
-            Integer answer = Integer.parseInt(br.readLine());
-            validBall.valid(answer);
+            Integer answer = getUserInput();
+            validBall.validate(answer);
 
-            List<Integer> result = play.baseBall(number, answer);
+            Result result = ABS.determine(number, answer);
 
-            int ballCount = result.get(0);
-            int strikeCount = result.get(1);
+            int ballCount = result.getBallCount();
+            int strikeCount = result.getStrikeCount();
+            referee(ballCount, strikeCount);
+            break;
+        }
+        return false;
+    }
 
-            if ((ballCount==0)&&(strikeCount==0)) {System.out.println("낫싱");}
-            else {System.out.println("결과: " + ballCount + "볼, " + strikeCount + "스트라이크");}
-
-            if (strikeCount == 3) {System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료"); break;}
+    private static void referee(int ballCount, int strikeCount) throws IOException {
+        if ((ballCount == 0) && (strikeCount == 0)) {
+            System.out.println("낫싱");
+        } else if ((ballCount != 0) && (strikeCount != 0)) {
+            System.out.println("결과: " + ballCount + "볼, " + strikeCount + "스트라이크");
+        }
+        else if (strikeCount == 3) {
+            decideGameEnd();
         }
     }
+
+    private static boolean decideGameEnd() throws IOException {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+
+        Integer answer = getUserInput();
+        if (answer.equals(1)) {
+            MajorLeague.playBaseBall();
+        } else if (answer.equals(2)) {
+            return false;
+        }
+        handleInvalidInput();
+        return decideGameEnd();
+    }
+
+
+    private static Integer getUserInput() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Integer answer = Integer.parseInt(br.readLine());
+        return answer;
+    }
+
+
+    private static void handleInvalidInput() {
+        System.out.println("잘못된 입력입니다. 다시 시도하세요.");
+    }
+
 }
