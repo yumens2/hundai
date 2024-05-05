@@ -6,6 +6,9 @@ public class Application {
         while(!endFlag){
 
             GenerateTargetNumber generateTargetNumber = new GenerateTargetNumber();
+
+            for(int i=0;i<3;i++) System.out.println(generateTargetNumber.getTargetNumbers()[i]);
+
             int strike = 0;
 
             while(strike!=3){

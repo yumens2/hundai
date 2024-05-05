@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlayerInput {
 
@@ -22,8 +24,17 @@ public class PlayerInput {
     }
 
     public void validateInput(String input) {
-        if (input.length() != 3 || input.contains("0")) {
-            throw new IllegalArgumentException("입력한 값은 세 자리 정수가 아니거나 0을 포함하고 있습니다.");
+        // 중복된 숫자를 확인하기 위한 HashSet 생성
+        Set<Character> digitSet = new HashSet<>();
+
+        // 입력 문자열을 하나씩 순회하면서 HashSet에 넣음
+        for (char digit : input.toCharArray()) {
+            digitSet.add(digit);
+        }
+
+        // 중복된 숫자가 있는지 확인
+        if (input.length() != 3 || input.contains("0") || digitSet.size() != 3) {
+            throw new IllegalArgumentException("입력한 값은 세 자리 정수가 아니거나 0을 포함하거나 중복된 숫자가 있습니다.");
         }
     }
 

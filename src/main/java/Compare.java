@@ -3,14 +3,15 @@ public class Compare {
     private int strikes=0;
     private int balls=0;
 
-
     public void compare(int[] targetNumbers, int[] playerInput){
 
         for (int i = 0; i < 3; i++) {
             if (targetNumbers[i] == playerInput[i]) {
                 this.strikes++;
-            } else if (containsNumber(targetNumbers, playerInput[i])) {
-                this.balls++;
+            } else  { //if (containsNumber(targetNumbers, playerInput[i]))
+                if (containsNumber(targetNumbers, playerInput[i])){
+                    this.balls++;
+                }
             }
         }
 
