@@ -1,10 +1,13 @@
+import common.GameManager;
+
 public class Application {
 
 	public static void main (String[] args) {
+		GameManager gm= new GameManager();
 
-		BaseBallMaker baseBallMaker = new BaseBallMaker();
-		GameManager gameManager = new GameManager();
-
+		while(!gm.isEnd()){
+			gm.run();
+		}
 
 	}
 }
