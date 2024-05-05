@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class gameManagerTest {
 
     @Test
-    public void 난수길이테스트() {
+    public void randNumLengthTest() {
         gameManager newGameManager = new gameManager();
         int[] generatedRandNum = newGameManager.generateRand();
 
@@ -16,7 +16,7 @@ public class gameManagerTest {
     }
 
     @Test
-    public void 난수범위테스트() {
+    public void randNumRangeTest() {
         gameManager newGameManager = new gameManager();
         int[] generatedRandNum = newGameManager.generateRand();
 
@@ -26,7 +26,7 @@ public class gameManagerTest {
     }
 
     @Test
-    public void 유효입력테스트() {
+    public void validInputTest() {
         gameManager newGameManager = new gameManager();
 
         String input = "123\n";
@@ -37,6 +37,5 @@ public class gameManagerTest {
 
         assertArrayEquals(expected, actual);
     }
-
 
 }
