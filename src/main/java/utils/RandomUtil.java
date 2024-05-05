@@ -29,10 +29,10 @@ public class RandomUtil {
      * @return 중복되지 않는 숫자
      */
     private static int generateUniqueNumber(int[] numbers, int idx) {
-        int num = random.nextInt(10);
+        int num = random.nextInt(9) + 1;
 
         while (!isUnique(num, numbers, idx)) {
-            num = random.nextInt(10);
+            num = random.nextInt(9) + 1;
         }
 
         return num;

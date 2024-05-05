@@ -20,7 +20,7 @@ class RandomUtilTest {
 
             // 각 배열의 요소 정수 값이 0~9인지 검사
             for (int randomNumber : randomNumbers) {
-                assertThat(randomNumber).isBetween(0, 9);
+                assertThat(randomNumber).isBetween(1, 9);
             }
 
             // 중복 검사
