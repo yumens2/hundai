@@ -1,10 +1,10 @@
-import domain.BaseballGame;
+import application.BaseballGameService;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        BaseballGame baseballGame = new BaseballGame();
-        baseballGame.start();
+        BaseballGameService baseballGameService = new BaseballGameService();
+        baseballGameService.run();
     }
+
 }
