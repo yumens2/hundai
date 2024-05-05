@@ -4,6 +4,7 @@ public class Compare {
     public static String getFeedback(List<Integer> computer, List<Integer> player) {
         int strikes = 0;
         int balls = 0;
+        
         for (int i = 0; i < 3; i++) {
             if (computer.get(i).equals(player.get(i))) {
                 strikes++;
