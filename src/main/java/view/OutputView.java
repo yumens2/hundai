@@ -2,7 +2,7 @@ package view;
 
 import model.Hint;
 
-import static view.InputView.DIGIT;
+import static model.GenerateRandomNumber.DIGIT;
 
 public class OutputView {
 
