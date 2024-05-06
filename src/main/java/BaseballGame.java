@@ -123,13 +123,14 @@ public class BaseballGame {
     }
 
     //게임을 종료후 재시작하는지 확인하는 함수
-    public static int check_restart(int[] judgement) throws IOException {
+    public static int check_restart(int[] judgement) throws IOException, IllegalArgumentException {
         int ret = 0;
         if (judgement[1] == 3) {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             ret = Integer.parseInt(br.readLine());
+            oneortwo(ret);
         }
         return ret;
     }
@@ -148,5 +149,11 @@ public class BaseballGame {
             }
         }
 
+    }
+
+    public static void oneortwo(int start) throws IllegalArgumentException {
+        if (!(start >= 1 && start <= 2)) {
+            throw new IllegalArgumentException();
+        }
     }
 }
