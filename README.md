@@ -17,4 +17,4 @@
 
 ## 개발 규칙 및 스타일 가이드
 - **코드 스타일**: Google Java Style Guide을 기반으로 하되, 들여쓰기는 4 spaces를 사용
-- **커밋 메시지**: AngularJS Git Commit Message Conventions을 기
+- **커밋 메시지**: AngularJS Git Commit Message Conventions을 기반으로 함
