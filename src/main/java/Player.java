@@ -7,10 +7,14 @@ public class Player {
         Scanner sc= new Scanner(System.in);
         try {
             int inputInt = sc.nextInt();
+            int length = (int)(Math.log10(inputInt)+1);
+            if (length !=3){
+                throw new IllegalArgumentException();
+            }
             return inputInt;
         }
         catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException();
         }
     }
 
