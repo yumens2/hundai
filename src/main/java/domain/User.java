@@ -8,7 +8,11 @@ import java.util.Scanner;
 
 public class User {
 
-    @Description("플레이어가 겹치지 않는 3개의 숫자를 입력해 순서대로 배열에 저장")
+    /**
+     * 플레이어가 겹치지 않는 3개의 숫자를 입력해 순서대로 배열에 저장
+     * 내부적으로 유효한 값이 입력되었는지 검사
+     * @return 플레이어가 입력한 숫자들이 담긴 배열
+     */
     public static ArrayList<Integer> inputNumArray() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("숫자를 입력해 주세요 : ");

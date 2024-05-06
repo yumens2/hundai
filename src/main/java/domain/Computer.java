@@ -7,7 +7,10 @@ import java.util.Random;
 
 public class Computer {
 
-    @Description("컴퓨터가 랜덤으로 겹치지 않는 3개의 숫자를 뽑아 순서대로 배열에 저장")
+    /**
+     * 컴퓨터가 랜덤으로 겹치지 않는 3개의 숫자를 뽑아 순서대로 배열에 저장
+     * @return 컴퓨터가 입력한 숫자들이 담긴 배열
+     */
     public static ArrayList<Integer> makeRandNumArray() {
         ArrayList<Integer> numArray = new ArrayList<>();
         while (numArray.size() < 3) {
