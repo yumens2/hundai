@@ -1,12 +1,31 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class NumberBaseballGame {
 
     private final List<Integer> computerNumbers;
+    private boolean gameWon = false;
 
     public NumberBaseballGame(List<Integer> computerNumbers) {
         this.computerNumbers = computerNumbers;
+    }
+
+    public void play() {
+        Scanner scanner = new Scanner(System.in);
+        while (!gameWon) {
+            System.out.print("숫자를 입력해 주세요: ");
+            try {
+                String input = scanner.nextLine();
+                List<Integer> userNumbers = parseInput(input);
+
+                String result = checkNumbers(userNumbers);
+                System.out.println(result);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid input. Application will terminate.");
+                break;
+            }
+        }
     }
 
     private List<Integer> parseInput(String input) throws IllegalArgumentException {
@@ -30,6 +49,8 @@ public class NumberBaseballGame {
             if (userNumber == computerNumbers.get(i)) strikes++;
             else if (computerNumbers.contains(userNumber)) balls++;
         }
+
+        if(strikes == 3) gameWon = true;
 
         if (strikes == 0 && balls == 0) return "낫싱";
         else if(strikes == 0) return balls + " 볼";
