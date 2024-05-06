@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class View {
@@ -32,6 +33,11 @@ public class View {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         int num = Integer.parseInt(sc.nextLine());
         return num;
+    }
+
+    public static void resetScanner(InputStream inputStream) {
+        sc.close();
+        sc = new Scanner(inputStream);
     }
 
 }

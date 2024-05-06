@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +20,8 @@ class ViewTest {
 
     @Test
     void guessView() {
-        InputStream in = new ByteArrayInputStream("123".getBytes());
-        System.setIn(in);
+        InputStream in = new ByteArrayInputStream("123\n".getBytes());
+        View.resetScanner(in);
 
         int num1 = View.guessView();
 
@@ -65,8 +66,8 @@ class ViewTest {
 
     @Test
     void successView() {
-        InputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
+        InputStream in = new ByteArrayInputStream("1\n".getBytes());
+        View.resetScanner(in);
 
         int num1 = View.guessView();
 
