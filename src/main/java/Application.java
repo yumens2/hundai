@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Set;
 
-public class GameController {
+public class Application {
     private NumberGenerator numberGenerator = new NumberGenerator();
     private InputHandler inputHandler = new InputHandler();
     private InputValidator inputValidator = new InputValidator();
@@ -62,7 +62,7 @@ public class GameController {
     }
 
     public static void main(String[] args) {
-        GameController game = new GameController();
+        Application game = new Application();
         game.startGame();
     }
 }
