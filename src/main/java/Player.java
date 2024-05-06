@@ -9,14 +9,13 @@ public class Player {
         try {
             String inputInt = sc.next();
 
-            if (inputInt.length() !=3){
+            if (inputInt.length() != 3){
                 throw new IllegalArgumentException();
             }
 
             return makeListInt(inputInt);
 
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
     }
@@ -25,7 +24,8 @@ public class Player {
         List<Integer> inputIntList = new ArrayList<>();
 
         for(int i = 0; i<3;i++){
-            int a = inputInt.charAt(i);
+            int a = Integer.parseInt(Character.toString(inputInt.charAt(i)));
+
             if (checkRange(a)) {
                 inputIntList.add(a);
             }
