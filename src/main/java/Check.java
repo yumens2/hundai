@@ -14,10 +14,11 @@ public class Check {
         }
 
         if (strike == 3) {
-            System.out.println("정답!");
-            return true;
-        } else {
             System.out.println(strike + "스트라이크 " + ball + "볼");
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        } else {System.out.println(strike + "스트라이크 " + ball + "볼");
+
             return false;
         }
     }
