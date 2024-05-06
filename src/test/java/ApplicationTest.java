@@ -46,9 +46,11 @@ class ApplicationTest {
         ByteArrayInputStream testIn = new ByteArrayInputStream(invalidInput.getBytes());
         System.setIn(testIn);
 
-        IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, application::start);
+        application.start();
 
-        assertThat(illegalArgumentException.getMessage()).isEqualTo("잘못된 입력입니다. 애플리케이션을 종료합니다.");
+        assertTrue(testOut.toString().contains("잘못된 입력입니다. 애플리케이션을 종료합니다."));
+        assertTrue(testOut.toString().contains("안녕히 가세요."));
+
     }
 
     @Test
@@ -59,9 +61,9 @@ class ApplicationTest {
         ByteArrayInputStream testIn = new ByteArrayInputStream(invalidInput.getBytes());
         System.setIn(testIn);
 
-        IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, application::start);
-
-        assertThat(illegalArgumentException.getMessage()).isEqualTo("입력이 1과 2가 아닙니다. 애플리케이션을 종료합니다.");
+        application.start();
+        assertTrue(testOut.toString().contains("입력이 1과 2가 아닙니다. 애플리케이션을 종료합니다."));
+        assertTrue(testOut.toString().contains("안녕히 가세요."));
     }
 
     @Test
@@ -76,7 +78,7 @@ class ApplicationTest {
 
         assertTrue(testOut.toString().contains("3개의 숫자를 모두 맞히셨습니다! 게임 종료"));
         assertTrue(testOut.toString().contains("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."));
-        assertTrue(testOut.toString().contains("안녕히 가세요"));
+        assertTrue(testOut.toString().contains("안녕히 가세요."));
     }
 
 }
