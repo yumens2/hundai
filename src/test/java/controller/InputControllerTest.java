@@ -35,4 +35,14 @@ class InputControllerTest {
         Set<Integer> result = inputController.generateComputerNum();
         assertThat(result.size()).isEqualTo(3);
     }
+
+    @Test
+    void testInputNumberGreaterThan9() {
+        String input = "10 2 1";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        ArrayList<Integer> result = inputController.generateUserNum();
+
+        assertThat(result.size()).isEqualTo(0);
+    }
 }
