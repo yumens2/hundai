@@ -15,8 +15,8 @@ public class resultCalculation {
     public static int countBall(int[] gameNumber, int[] userNumber) {
         int ballCount = 0;
         for (int i = 0; i < 3; i++) {
-            for(int j=0; j<3; j++){
-                if (gameNumber[i] == userNumber[i]) {
+            for (int j = 0; j < 3; j++) {
+                if (gameNumber[i] == userNumber[j] && i != j) {
                     ballCount++;
                 }
             }
