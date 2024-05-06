@@ -31,7 +31,6 @@ public class NumberBaseballGame {
 
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String option = scanner.nextLine();
-        scanner.close();
         return option.trim().equals("1");
     }
 
@@ -60,8 +59,8 @@ public class NumberBaseballGame {
         if(strikes == 3) gameWon = true;
 
         if (strikes == 0 && balls == 0) return "낫싱";
-        else if(strikes == 0) return balls + " 볼";
+        else if(strikes == 0) return balls + "볼";
         else if(balls == 0) return strikes + "스트라이크";
-        else return balls + " 볼 " + strikes + "스트라이크";
+        else return balls + "볼 " + strikes + "스트라이크";
     }
 }
