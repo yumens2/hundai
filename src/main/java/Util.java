@@ -14,8 +14,11 @@ public class Util { //
         answer[2] = gameAnswer%10;
 
         int strike; //스트라이크의 갯수를 담는 변수
+        int ball; //볼의 갯수를 담는 변수
 
         strike = countStrike(input, answer);
+        ball = countBall(input,answer);
+        ball = ball - strike; // 볼의 갯수는 앞에서 구한 볼의 갯수에서strike를 빼줘야 함.
     }
 
     public int countStrike(int[] input, int[] answer){ //strike의 갯수를 구하는 함수
@@ -28,4 +31,12 @@ public class Util { //
         return cnt;
     }
 
+    public int countBall(int[] input, int[] answer){ //ball의 갯수를 구하는 함수
+        int cnt = 0;
+        for(int i = 0; i< input.length; i++){
+            if(input[i]==answer[0] || input[i] == answer[1] || input[i] == answer[2])
+                cnt++;
+        }
+        return cnt;
+    }
 }
