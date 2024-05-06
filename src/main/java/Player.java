@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Player {
     public List<Integer> getNum(){
-        System.out.println("숫자를 입력해 주세요 : ");
+        System.out.print("숫자를 입력해 주세요 : ");
         Scanner sc= new Scanner(System.in);
         try {
             String inputInt = sc.nextLine();
