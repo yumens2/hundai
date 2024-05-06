@@ -37,4 +37,5 @@ public class Input {
 
         return numbers;
     }
+
 }
