@@ -2,12 +2,14 @@ package global.config;
 
 import game.gamePack.BaseballGame.BaseballGamePack;
 import game.gamePack.GamePack;
+import global.controller.GameController;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GamePackConfig {
 
     private static final List<GamePack> gamePacks = new ArrayList<>();
+    private static final GameController gameController = GameController.getInstance();
 
     /**
      * 생성 제한
@@ -34,6 +36,10 @@ public class GamePackConfig {
             gamePackConfig.initGamePacks();
         }
         return gamePacks;
+    }
+
+    public static GameController getGameController() {
+        return gameController;
     }
 
 

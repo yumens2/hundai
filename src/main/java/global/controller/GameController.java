@@ -10,7 +10,20 @@ import java.util.List;
 public class GameController {
 
     private static final int END = 0;
-    List<GamePack> gamePackList = GamePackConfig.getGamePacks();
+    private List<GamePack> gamePackList = GamePackConfig.getGamePacks();
+
+    private GameController() {
+    }
+
+    private static class GameControllerHolder {
+
+        private static final GameController gameController = new GameController();
+    }
+
+    public static GameController getInstance() {
+        return GameControllerHolder.gameController;
+    }
+
 
     public void playGame() {
         OutputView.printGameOpenMessage();
