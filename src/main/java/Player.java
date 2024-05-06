@@ -13,7 +13,11 @@ public class Player {
                 throw new IllegalArgumentException();
             }
 
-            return makeListInt(inputInt);
+            if ((inputInt.charAt(0) != inputInt.charAt(1)) && (inputInt.charAt(0) != inputInt.charAt(2)) && (inputInt.charAt(2) != inputInt.charAt(1))){
+                return makeListInt(inputInt);
+            } else {
+                throw new IllegalArgumentException();
+            }
 
         } catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
