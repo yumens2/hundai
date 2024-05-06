@@ -13,7 +13,7 @@ public class Computer {
 
     }
 
-    public int[] compare(List<Integer> a, List<Integer> b) {
+    public boolean compare(List<Integer> a, List<Integer> b) {
         int strikeNum = 0;
         int ballNum = 0;
         for (int i = 0; i < 3; i++) {
@@ -22,7 +22,25 @@ public class Computer {
                 ballNum += isBall(a.get(i), b.get(i), i, j);
             }
         }
-        return new int[]{strikeNum, ballNum};
+        if (strikeNum ==3){
+            System.out.println("3스트라이크");
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return true;
+        } else if(strikeNum !=0 && ballNum !=0){
+            System.out.printf("%d볼 %d스트라이크",ballNum,strikeNum);
+            return false;
+        } else if(strikeNum ==0 && ballNum !=0){
+            System.out.printf("%d볼",ballNum);
+            return false;
+        } else if(strikeNum !=0 && ballNum ==0){
+            System.out.printf("%d스트라이크",strikeNum);
+            return false;
+        } else if(strikeNum ==0 && ballNum ==0){
+            System.out.printf("낫싱");
+            return false;
+        } else{
+            return false; // 이부분 수정 필요
+        }
     }
 
     public int isStrike(int aNum, int bNum, int aIdx, int bIdx) {
