@@ -27,5 +27,10 @@ public class Baseball {
                 continue;
             }//그렇지 않은 경우는 답을 맞추기 위해서 다시 시도
         }
+        //답을 맞추고 게임이 종료된 시점
+        GameAgain game = new GameAgain();
+        boolean again =  game.gameAgain();
+
+        return again;
     }
 }

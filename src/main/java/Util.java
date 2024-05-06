@@ -10,7 +10,7 @@ public class Util { //
 
         int[] answer = new int[3]; //볼과 스트라이크 계산을 위해 gameAnswer을 크기가 3인 배열에 대입.
         answer[0] = gameAnswer / 100;
-        answer[1] = gameAnswer / 10 - gameAnswer * 10;
+        answer[1] = gameAnswer / 10 - answer[0] * 10;
         answer[2] = gameAnswer % 10;
 
         int strike; //스트라이크의 갯수를 담는 변수
@@ -19,6 +19,7 @@ public class Util { //
         strike = countStrike(input, answer);
         ball = countBall(input, answer);
         ball = ball - strike; // 볼의 갯수는 앞에서 구한 볼의 갯수에서strike를 빼줘야 함.
+
         if (strike + ball == 0) { //볼과 스트라이크의 갯수가0인 경우에는 낫싱
             System.out.println("낫싱");
             return false;
@@ -27,12 +28,13 @@ public class Util { //
                 case 0:
                     break;
                 default: //볼이 있는 경우 볼 출력
-                    System.out.print(ball + "볼");
+                    System.out.print(ball + "볼 ");
                     break;
 
             }
             switch (strike) {
                 case 0:
+                    System.out.println();
                     return false;
                 case 1:
                 case 2:
@@ -47,6 +49,7 @@ public class Util { //
 
     public int countStrike(int[] input, int[] answer){ //strike의 갯수를 구하는 함수
         int cnt = 0;
+
         for(int i = 0; i< input.length; i++){
             if(input[i]==answer[i])
                 cnt++;
