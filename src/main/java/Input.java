@@ -28,7 +28,7 @@ public class Input {
         arr[1] =Character.getNumericValue(str.charAt(1));
         arr[2] =Character.getNumericValue(str.charAt(2));
 
-        if (arr[0]== 0 || arr[1] == 0 || arr[2] ==0) //입력값중에 0이 있는 경우는 비정상
+        if (arr[0]== 0 || arr[1] == 0 || arr[2] ==0) //입력값중에 0이 있는 경우는 정상이 아님.
             return false;
 
         if (arr[0] != arr[1] && arr[0] != arr[2] && arr[1] != arr[2]) //세 숫자가 모두 다른 경우는 정상
