@@ -15,6 +15,10 @@ public class InputController {
                 i = 0;
             }
         }
+        if(userNumber.stream().anyMatch(x->x>10)){
+            System.out.println("한자리 수만 입력할 수 있습니다. 다시 입력해주세요");
+            userNumber.clear();
+        }
         return userNumber;
     }
 

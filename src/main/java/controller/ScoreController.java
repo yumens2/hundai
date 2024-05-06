@@ -12,6 +12,7 @@ public class ScoreController {
     private static final String NO_SCORE = "낫싱";
 
     public String calculateScore(User user, Computer computer) {
+        if (user.getNumberList().isEmpty()) return "";
         ArrayList<BallCountStatus> ballCount = new ArrayList<>();
 
         compareScoreStrike(ballCount, user, computer);
