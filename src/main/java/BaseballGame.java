@@ -9,7 +9,6 @@ public class BaseballGame {
         int start = 0;
 
         String com = random_number();
-        int com_length = com.length();
 
         try {
             while (start != 2) {
@@ -18,7 +17,7 @@ public class BaseballGame {
                 //start 초기화
                 start = 0;
 
-                System.out.println(com); //주석처리하기
+                //System.out.println(com); 랜덤으로 생성된 난수 확인
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 System.out.print("숫자를 입력해 주세요 : ");
@@ -34,7 +33,6 @@ public class BaseballGame {
             }
         } catch (IllegalArgumentException ex) {
             System.out.println("종료");
-            start = 2;
         }
 
     }
@@ -76,7 +74,7 @@ public class BaseballGame {
         return true;
     }
 
-    //프로그램이 재시작되었는지 판별하는 함수, 재시작되었다면 새로운 문자열을 반환하고 그렇지 않으면 기존 문자열을 반환
+    //프로그램이 최초 시작인지 재시작인지 판별하는 함수, 재시작되었다면 새로운 문자열을 반환하고 그렇지 않으면 기존 문자열을 반환
     public static String check_start(int start, String com) {
         String new_com = "";
         //start가 1이면 retry를 했다는 뜻이므로 랜덤 난수를 다시 받아와야 함.
@@ -111,20 +109,20 @@ public class BaseballGame {
     }
 
 
-    //몇 볼 몇 스트라이크인지 출력하고 만약 3스트라이크라면 종료에 대한 사용자의 입력을 받음
+    //몇 볼 몇 스트라이크인지 출력
     public static void b_s_print(int[] judgement) throws IOException {
         if (judgement[0] == 0 && judgement[1] == 0) {
-            System.out.println("낫싱");
+            System.out.println("낫싱\n");
         } else if (judgement[0] == 0) {
             System.out.println(judgement[1] + "스트라이크");
         } else if (judgement[1] == 0) {
-            System.out.println(judgement[0] + "볼 ");
+            System.out.println(judgement[0] + "볼");
         } else if (judgement[1] < 3) {
             System.out.println(judgement[0] + "볼 " + judgement[1] + "스트라이크");
         }
     }
 
-    //게임을 종료하는지 확인하는 함수
+    //게임을 종료후 재시작하는지 확인하는 함수
     public static int check_restart(int[] judgement) throws IOException {
         int ret = 0;
         if (judgement[1] == 3) {
@@ -136,6 +134,7 @@ public class BaseballGame {
         return ret;
     }
 
+    //사용자가 입력한 수가 유효한 수인지 확인하는 함수
     public static void valid_string(String num) throws IllegalArgumentException {
         if(num.length() > 3) {
             throw new IllegalArgumentException();
