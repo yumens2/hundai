@@ -1,12 +1,11 @@
 import constant.GameConstant;
 import data.GameResult;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class Player {
 
-    private final int[] answer = new int[GameConstant.NUMBER_COUNT];
+    private int[] answer = new int[GameConstant.NUMBER_COUNT];
     Set<Integer> numbers = new HashSet<>();
 
     public Player() {
@@ -14,20 +13,10 @@ public class Player {
     }
 
     private void createRandomAnswer() {
-        numbers.clear();
-        while (numbers.size() < GameConstant.NUMBER_COUNT) {
-            int number = createRandomNumber();
-            numbers.add(number);
+        answer = RandomNumberGenerator.generate(GameConstant.NUMBER_COUNT);
+        for (int i = 0; i < GameConstant.NUMBER_COUNT; i++) {
+            numbers.add(answer[i]);
         }
-        int index = 0;
-        for (int number : numbers) {
-            answer[index++] = number;
-        }
-    }
-
-    private int createRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(10);
     }
 
     public GameResult checkMatching(int[] guess) {
