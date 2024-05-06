@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RandomAnswerGenerator {
+public class RandomAnswerGenerator implements AnswerGenerator {
 
     private List<Integer> digits;
 
