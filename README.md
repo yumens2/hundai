@@ -5,3 +5,4 @@
 4. 사용자가 숫자를 맞출 때까지 계속해서 게임을 진행하는 기능 추가 (NumberBaseballGame의 play)
 5. play 함수에서 게임승리 메시지와 게임을 다시 시작할 지에 대한 기능을 추가, + scanner close
 6. 전체 게임 flow를 담당하는 Application class 생성
+7. 게임을 재시작할 때 scanner가 닫혀서 재입력이 안되는 경우, 출력 조금 수정
