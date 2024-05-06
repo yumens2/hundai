@@ -1,8 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Util { //
-    public boolean process(int userInput, int gameAnswer) {
+public class Util {
+    public boolean process(int userInput, int gameAnswer) { //입력값과 답을 비교하여 결과를 출력하는 함수
         int[] input = new int[3]; //볼과 스트라이크 계산을 위해 userInput을 크기가 3인 배열에 대입.
         input[0] = userInput / 100;
         input[1] = userInput / 10 - input[0] * 10;
@@ -18,7 +18,7 @@ public class Util { //
 
         strike = countStrike(input, answer);
         ball = countBall(input, answer);
-        ball = ball - strike; // 볼의 갯수는 앞에서 구한 볼의 갯수에서strike를 빼줘야 함.
+        ball = ball - strike; // 볼의 갯수는 앞에서 구한 볼의 갯수에서 strike를 빼줘야 함.
 
         if (strike + ball == 0) { //볼과 스트라이크의 갯수가0인 경우에는 낫싱
             System.out.println("낫싱");
