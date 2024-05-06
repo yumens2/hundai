@@ -24,7 +24,7 @@ public class OneGameProgress {
             }
 
         }catch (IllegalArgumentException e){
-            throw e;
+            throw new IllegalArgumentException();
         }
 
 

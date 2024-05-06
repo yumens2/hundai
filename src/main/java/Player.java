@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +7,7 @@ public class Player {
         System.out.print("숫자를 입력해 주세요 : ");
         Scanner sc= new Scanner(System.in);
         try {
-            String inputInt = sc.nextLine();
+            String inputInt = sc.next();
 
             if (inputInt.length() !=3){
                 throw new IllegalArgumentException();
