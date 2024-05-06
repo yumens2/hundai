@@ -2,13 +2,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Util {
-    public int getInput() { //사용자의 입력을 받는 함수
+    public int getInput() throws IllegalArgumentException{ //사용자의 입력을 받는 함수
         System.out.println("숫자를 입력해 주세요");
         int input;
         Scanner scan = new Scanner(System.in);
-        input = scan.nextInt();
+
+        try { //사용자의 입력이 올바르지 않으면 IllegalArgumentException을 던짐
+            input = scan.nextInt();
+        }catch(Exception e){
+            throw new IllegalArgumentException("잘못된 값을 입력하였습니다");
+        }
         return input;
     }
+
 
     public int generateAnswer(){ // 숫자 3자리를 만들어내는 함수
         Random random =new Random();
@@ -37,4 +43,5 @@ public class Util {
         String str = ""+Answer[0]+Answer[1]+Answer[2]; //
         return Integer.parseInt(str);
     }
+
 }
