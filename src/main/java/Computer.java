@@ -23,7 +23,7 @@ public class Computer {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 strikeNum += isStrike(a.get(i), b.get(j), i, j);
-                ballNum += isBall(a.get(i), b.get(i), i, j);
+                ballNum += isBall(a.get(i), b.get(j), i, j);
             }
         }
         if (strikeNum ==3){
