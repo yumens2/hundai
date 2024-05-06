@@ -5,8 +5,14 @@ public class InputNumber {
         boolean isDuplicate = false;
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("숫자를 입력해주세요 : ");
+            System.out.print("숫자를 입력해주세요 : ");
             String input = scanner.next();
+
+            // 입력된 숫자가 세 자리가 아닌 경우 IllegalArgumentException 발생
+            if (input.length() != 3) {
+                throw new IllegalArgumentException("세 자리 숫자를 입력해주세요.");
+            }
+
             for (int i = 0; i < inputArr.length; i++) {
                 inputArr[i] = Character.getNumericValue(input.charAt(i));
                 for (int j = 0; j < i; j++) {
