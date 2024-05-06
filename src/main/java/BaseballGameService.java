@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class BaseballGameService {
-    public static void main(String[] args) {
+    public void start() {
         boolean restart = true;
         while(restart){
             ScoreCounting scoreCounting = new ScoreCounting();
