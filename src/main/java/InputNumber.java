@@ -13,18 +13,21 @@ public class InputNumber {
                 throw new IllegalArgumentException("세 자리 숫자를 입력해주세요.");
             }
 
+            // 중복 체크를 위한 배열
+            boolean[] digitExists = new boolean[10];
+            isDuplicate = false;
+
             for (int i = 0; i < inputArr.length; i++) {
                 inputArr[i] = Character.getNumericValue(input.charAt(i));
-                for (int j = 0; j < i; j++) {
-                    if (inputArr[j] == inputArr[i]) {
-                        System.out.println("중복된 값을 입력했습니다.");
-                        isDuplicate = true;
-                        break;
-                    }
-                }
-                if (isDuplicate) {
-                    isDuplicate = false;
+                int digit = inputArr[i];
+
+                // 중복된 숫자인지 확인
+                if (digitExists[digit]) {
+                    System.out.println("중복된 값을 입력했습니다.");
+                    isDuplicate = true;
                     break;
+                } else {
+                    digitExists[digit] = true;
                 }
             }
             if (!isDuplicate) {
