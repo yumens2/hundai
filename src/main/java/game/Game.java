@@ -14,13 +14,6 @@ public class Game {
         evaluator = new Evaluator();
     }
 
-    /**
-     * 상대방(컴퓨터)가 예상한 숫자(정답)을 설정한다.
-     */
-    private void setAnswer() {
-        String answer = (new RandomAnswerGenerator()).getAnswerAsString();
-        evaluator.setAnswer(answer);
-    }
 
     /**
      * 다음 판을 진행할 지, 게임을 종료할 지 결정한다
@@ -58,8 +51,7 @@ public class Game {
     public void run() {
         boolean continueGame = true;
         while (continueGame) {
-            setAnswer();
-            System.out.println(evaluator.getAnswer());
+            evaluator.setAnswer(new RandomAnswerGenerator());
             runSingleGame();
             continueGame = doNextGame();
         }

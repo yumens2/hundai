@@ -15,8 +15,11 @@ public class Evaluator {
         return answer;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    /**
+     * 상대방(컴퓨터)가 예상한 숫자(정답)을 설정한다.
+     */
+    public void setAnswer(AnswerGenerator answerGenerator) {
+        answer = answerGenerator.getAnswerAsString();
     }
 
     public int getNBall() {
@@ -41,9 +44,10 @@ public class Evaluator {
      *
      * @param userGuess 유저의 응답
      */
-    public void evaluate(String userGuess) {
+    public int[] evaluate(String userGuess) {
         nBall = 0;
         nStrike = 0;
+        int[] ballAndStrike = new int[2];
         for (int i = 0; i < GameParameters.nDigit; i++) {
             int idx = answer.indexOf(userGuess.charAt(i));
             if (idx == i) {
@@ -52,5 +56,8 @@ public class Evaluator {
                 nBall++;
             }
         }
+        ballAndStrike[0] = nBall;
+        ballAndStrike[1] = nStrike;
+        return ballAndStrike;
     }
 }
