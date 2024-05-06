@@ -23,8 +23,9 @@ public class Baseball {
             if (result){ //답을 맞춘 경우에는 현재 게임 종료
                 break;
             }
-            else
-                continue; //그렇지 않은 경우는 답을 맞추기 위해서 다시 시도
+            else {
+                continue;
+            }//그렇지 않은 경우는 답을 맞추기 위해서 다시 시도
         }
     }
 }
