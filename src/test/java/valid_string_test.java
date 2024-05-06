@@ -9,7 +9,7 @@ public class valid_string_test {
         // 유효한 문자열을 사용하여 메서드 호출
         String validInput = "123";
         try {
-            BaseballGame.valid_string(validInput);
+            Application.valid_string(validInput);
             // 예외가 발생하지 않으면 테스트 통과
         } catch (IllegalArgumentException e) {
             // 예외가 발생하면 테스트 실패
@@ -22,7 +22,7 @@ public class valid_string_test {
         // 예외가 발생되어야하는 case
         String invalidInput = "ska2819";
         try {
-            BaseballGame.valid_string(invalidInput);
+            Application.valid_string(invalidInput);
             // 예외가 발생하지 않으면 테스트 실패
             fail("예외가 발생해야 한다.");
         } catch (IllegalArgumentException e) {
@@ -35,7 +35,7 @@ public class valid_string_test {
         // 예외가 발생되어야하는 case
         String invalidInput = "83a";
         try {
-            BaseballGame.valid_string(invalidInput);
+            Application.valid_string(invalidInput);
             // 예외가 발생하지 않으면 테스트 실패
             fail("예외가 발생해야 한다.");
         } catch (IllegalArgumentException e) {
@@ -48,7 +48,7 @@ public class valid_string_test {
         // 예외가 발생되어야하는 case
         String invalidInput = "1111";
         try {
-            BaseballGame.valid_string(invalidInput);
+            Application.valid_string(invalidInput);
             // 예외가 발생하지 않으면 테스트 실패
             fail("예외가 발생해야 한다.");
         } catch (IllegalArgumentException e) {

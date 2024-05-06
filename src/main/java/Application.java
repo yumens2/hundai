@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BaseballGame {
+public class Application {
 
     public static void main(String[] args) throws IOException {
         //0. 스트라이크, 볼을 저장할 int형 배열, 시작과 종료를 나타낼 int

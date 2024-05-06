@@ -1,7 +1,5 @@
-import static java.lang.System.in;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.InputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 import java.io.*;
@@ -22,7 +20,7 @@ public class check_restart_test {
         int[] judgement = {0, 3}; // 예상되는 판정 결과
 
         // 메서드 호출
-        int result = BaseballGame.check_restart(judgement);
+        int result = Application.check_restart(judgement);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
@@ -52,7 +50,7 @@ public class check_restart_test {
         int[] judgement = {0, 3}; // 예상되는 판정 결과
 
         // 메서드 호출
-        int result = BaseballGame.check_restart(judgement);
+        int result = Application.check_restart(judgement);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";

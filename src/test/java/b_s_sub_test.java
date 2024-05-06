@@ -9,9 +9,9 @@ public class b_s_sub_test {
         int[] judgement = {0, 0};
         String com = "123";
         String num = "321";
-        BaseballGame.b_s_sub(0, com, num, judgement);
-        BaseballGame.b_s_sub(1, com, num, judgement);
-        BaseballGame.b_s_sub(2, com, num, judgement);
+        Application.b_s_sub(0, com, num, judgement);
+        Application.b_s_sub(1, com, num, judgement);
+        Application.b_s_sub(2, com, num, judgement);
 
         //최종 결과
         assertEquals(2, judgement[0]); // 예상 결과: 2볼
@@ -25,9 +25,9 @@ public class b_s_sub_test {
         int[] judgement = {0, 0};
         String com = "946";
         String num = "321";
-        BaseballGame.b_s_sub(0, com, num, judgement);
-        BaseballGame.b_s_sub(1, com, num, judgement);
-        BaseballGame.b_s_sub(2, com, num, judgement);
+        Application.b_s_sub(0, com, num, judgement);
+        Application.b_s_sub(1, com, num, judgement);
+        Application.b_s_sub(2, com, num, judgement);
 
         //최종 결과
         assertEquals(0, judgement[0]); // 예상 결과: 0볼

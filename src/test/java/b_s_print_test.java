@@ -18,7 +18,7 @@ public class b_s_print_test {
         int[] judgement = {2, 1};
 
         // 메서드 호출
-        BaseballGame.b_s_print(judgement);
+        Application.b_s_print(judgement);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput = "2볼 1스트라이크"; // 예상되는 출력 메시지
@@ -37,7 +37,7 @@ public class b_s_print_test {
         int[] judgement2 = {0, 3};
 
         // 메서드 호출
-        BaseballGame.b_s_print(judgement2);
+        Application.b_s_print(judgement2);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput2 = "3스트라이크"; // 예상되는 출력 메시지
@@ -58,7 +58,7 @@ public class b_s_print_test {
         int[] judgement = {0, 3};
 
         // 메서드 호출
-        BaseballGame.b_s_print(judgement);
+        Application.b_s_print(judgement);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput = "3스트라이크"; // 예상되는 출력 메시지
@@ -79,7 +79,7 @@ public class b_s_print_test {
         int[] judgement = {0, 0};
 
         // 메서드 호출
-        BaseballGame.b_s_print(judgement);
+        Application.b_s_print(judgement);
 
         // 표준 출력에서 캡처한 내용을 문자열로 변환하여 확인
         String expectedOutput = "낫싱"; // 예상되는 출력 메시지
