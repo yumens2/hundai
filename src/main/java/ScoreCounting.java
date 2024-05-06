@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class ScoreCounting {
-    public static boolean count(List<Integer> randInputs, List<Integer> userInputs){
+    public boolean count(List<Integer> randInputs, List<Integer> userInputs){
         String result = "";
         int strike = 0;
         int ball = 0;

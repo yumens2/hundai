@@ -2,11 +2,17 @@ import java.util.List;
 
 public class BaseballGameService {
     public static void main(String[] args) {
-        List<Integer> randNums = RandomIntGenerate.init();
-        List<Integer> userInputs;
-        do {
-            userInputs = UserInput.getInput();
-        }while (!ScoreCounting.count(randNums, userInputs));
+        boolean restart = true;
+        while(restart){
+            ScoreCounting scoreCounting = new ScoreCounting();
+            List<Integer> randNums = RandomIntGenerate.init();
+            List<Integer> userInputs;
+            do {
+                userInputs = UserInput.getInput();
+            } while (!scoreCounting.count(randNums, userInputs));
 
+            GameManager manager = new GameManager();
+            restart = manager.restart();
+        }
     }
 }
