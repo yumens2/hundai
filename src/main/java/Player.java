@@ -1,8 +1,10 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Player {
-    public String getNum(){
+    public List<Integer> getNum(){
         System.out.println("숫자를 입력해 주세요 : ");
         Scanner sc= new Scanner(System.in);
         try {
@@ -12,23 +14,32 @@ public class Player {
                 throw new IllegalArgumentException();
             }
 
-            int a = inputInt.charAt(0);
-            int b = inputInt.charAt(1);
-            int c = inputInt.charAt(2);
+            return makeListInt(inputInt);
 
-            if (checkRange(a) & checkRange(b) & checkRange(c)) {
-                return inputInt;
-            } else {
-                throw new IllegalArgumentException();
-            }
         }
         catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
     }
 
+    public List<Integer> makeListInt(String inputInt){
+        List<Integer> inputIntList = new ArrayList<>();
+
+        for(int i = 0; i<3;i++){
+            int a = inputInt.charAt(i);
+            if (checkRange(a)) {
+                inputIntList.add(a);
+            }
+        }
+        return inputIntList;
+    }
+
     public boolean checkRange(int i){
-        return (i >=0) & (i <9) ;
+        if ((i >=0) & (i <9)) {
+            return true;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
