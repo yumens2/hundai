@@ -16,13 +16,19 @@ public class Player {
             int b = inputInt.charAt(1);
             int c = inputInt.charAt(2);
 
-
-
-            return inputInt;
+            if (checkRange(a) & checkRange(b) & checkRange(c)) {
+                return inputInt;
+            } else {
+                throw new IllegalArgumentException();
+            }
         }
         catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
+    }
+
+    public boolean checkRange(int i){
+        return (i >=0) & (i <9) ;
     }
 
 }
