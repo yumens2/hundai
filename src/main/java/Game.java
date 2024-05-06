@@ -15,7 +15,7 @@ public class Game {
             game();
             System.out.println(GameMessageConstant.GAME_RESTART_QUESTION);
             inputCommand = scanner.next();
-            if (Validation.checkEndCommand(inputCommand)) {
+            if (!Validation.checkEndCommand(inputCommand)) {
                 throw new IllegalArgumentException();
             }
         } while (Integer.parseInt(inputCommand) != GameConstant.END_GAME_NUMBER);
