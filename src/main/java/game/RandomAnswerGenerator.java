@@ -16,7 +16,7 @@ public class RandomAnswerGenerator {
     }
 
     /**
-     * 1~9까지 다른 숫자 3개로 이루어진정답을 생성한다.
+     * 1~9까지 다른 숫자 3개로 이루어진 정답을 생성한다.
      *
      * @return 랜덤으로 생성된 정답
      */
@@ -27,6 +27,6 @@ public class RandomAnswerGenerator {
             int d = digits.remove(digits.size() - 1);
             answer += d;
         }
-        return answer.toString();
+        return answer;
     }
 }
