@@ -6,8 +6,11 @@ public class Computer {
     public List<Integer> setComNum() {
         Random r = new Random();
         List<Integer> comNum = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            comNum.add(r.nextInt(1, 9));
+        while (comNum.size() < 3) {
+            int RandomInt= r.nextInt(1, 9);
+            if (!comNum.contains(RandomInt)) {
+                comNum.add(RandomInt);
+            }
         }
         return comNum;
 
@@ -16,6 +19,7 @@ public class Computer {
     public boolean compare(List<Integer> a, List<Integer> b) {
         int strikeNum = 0;
         int ballNum = 0;
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 strikeNum += isStrike(a.get(i), b.get(j), i, j);
