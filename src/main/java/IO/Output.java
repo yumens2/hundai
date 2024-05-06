@@ -1,7 +1,7 @@
 package IO;
 
 public class Output {
-    private static void printGrameResult(int strike, int ball) {
+    public static void printGameResult(int strike, int ball) {
         if (strike == 0 && ball == 0) {
             System.out.println("아웃");
         } else {
