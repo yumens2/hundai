@@ -1,5 +1,6 @@
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.*;
 
@@ -48,7 +49,7 @@ public class test {
 //        return userNumArray;
     }
 
-//    @Description("플레이어가 입력한 숫자(현 배열)에서 중복된 문자가 있는지 판별")
+    @Description("플레이어가 입력한 숫자(현 배열)에서 중복된 문자가 있는지 판별")
     private boolean checkDuplicate(char[] charArray, char c) {
         int cnt = 0;
         for (char c1 : charArray) {
@@ -64,27 +65,10 @@ public class test {
         ArrayList<Integer> userNumArray = new ArrayList<>(List.of(1, 2, 3));
         ArrayList<Integer> randNumArray = new ArrayList<>(List.of(2, 1, 3));
 
-        int strike = 0;
-        int ball = 0;
-        // 1. 스트라이크 개수 계산
-        strike = countStrike(userNumArray, randNumArray);
-        // 2. 볼 개수 계산
-        ball = countBall(userNumArray, randNumArray);
-        // 3. 같은 수가 전혀 없으면 낫싱이란 힌트 제공
-        if(strike == 0 && ball == 0){
-            System.out.println("nothing");
-        }
-        // 같은 수 있는 경우 결과 제시
-        else{
-            System.out.println(strike + " strike " + ball + " ball");
-        }
-
-        if (strike == 3) { // 올 스트라이크
-            System.out.println("You have guessed all 3 numbers correctly! Game finish!.");
-//            return true;
-        }else{ // 올 스트라이크가 아닌 경우
-//            return false;
-        }
+        // 1. 스트라이크 개수 정상 확인
+        assertThat(countStrike(userNumArray, randNumArray)).isEqualTo(1) ;
+        // 2. 볼 개수 정상 확인
+        assertThat(countBall(userNumArray, randNumArray)).isEqualTo(2) ;
     }
 
     @Description("볼 개수 계산")
@@ -108,4 +92,5 @@ public class test {
         }
         return strikeCnt;
     }
+
 }
