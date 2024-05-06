@@ -3,10 +3,11 @@ package io;
 import java.util.Scanner;
 
 public class Input {
-    private static Scanner scanner = new Scanner(System.in);
+    // private static Scanner scanner = new Scanner(System.in);
 
     public static int[] getInput() {
-        System.out.print("숫자를 입력해 주세요 : ");
+        Scanner scanner = new Scanner(System.in);
+         System.out.print("숫자를 입력해 주세요 : ");
         String input = scanner.nextLine();
 
         // 입력된 문자열 확인하여 exception 발생시킬지 결정
@@ -25,9 +26,19 @@ public class Input {
 
     public static int getNewGame() {
         int input;
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요: ");
             input = scanner.nextInt();
+            // String line = scanner.nextLine();
+            // try {
+            //     input = Integer.parseInt(line);
+            //     if (input != 1 && input != 2) {
+            //         throw new IllegalArgumentException();
+            //     }
+            // } catch (IllegalArgumentException e) {
+            //     throw new IllegalArgumentException("잘못된 입력입니다. 1 또는 2를 입력하세요.");
+            // }
             scanner.nextLine();
             if (input != 1 && input != 2) {
                 throw new IllegalArgumentException("잘못된 입력입니다. 1 또는 2를 입력하세요.");
