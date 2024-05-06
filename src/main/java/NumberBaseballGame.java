@@ -11,7 +11,7 @@ public class NumberBaseballGame {
         this.computerNumbers = computerNumbers;
     }
 
-    public void play() {
+    public boolean play() {
         Scanner scanner = new Scanner(System.in);
         while (!gameWon) {
             System.out.print("숫자를 입력해 주세요: ");
@@ -28,6 +28,10 @@ public class NumberBaseballGame {
         }
 
         if(gameWon) System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String option = scanner.nextLine();
+        return option.trim().equals("1");
     }
 
     private List<Integer> parseInput(String input) throws IllegalArgumentException {
