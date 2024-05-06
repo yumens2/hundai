@@ -21,8 +21,8 @@ public class Application {
     }
 
     private boolean inputValidCheck(String clientNumber) {
-            gameService.checkNumberValid(clientNumber);
-            return true;
+        gameService.checkNumberValid(clientNumber);
+        return true;
     }
 
     private void printGameInfo(int strike, int ball) {
