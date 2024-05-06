@@ -136,7 +136,7 @@ public class BaseballGame {
 
     //사용자가 입력한 수가 유효한 수인지 확인하는 함수
     public static void valid_string(String num) throws IllegalArgumentException {
-        if(num.length() > 3) {
+        if (num.length() > 3) {
             throw new IllegalArgumentException();
         }
 

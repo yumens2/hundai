@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 
 public class b_s_print_test {
+
     @Test
     public void testCheckExit() throws IOException {
         //1차 테스트
@@ -45,6 +46,7 @@ public class b_s_print_test {
 
 
     }
+
     @Test
     public void testCheckExit2() throws IOException {
         //2차 테스트

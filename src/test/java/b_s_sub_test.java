@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class b_s_sub_test {
+
     @Test
     public void testBSSUBTest() {
         int[] judgement = {0, 0};
@@ -18,6 +19,7 @@ public class b_s_sub_test {
 
 
     }
+
     @Test
     public void testBSSUBTest2() {
         int[] judgement = {0, 0};

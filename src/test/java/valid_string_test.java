@@ -3,6 +3,7 @@ import static org.assertj.core.api.Fail.fail;
 import org.junit.jupiter.api.Test;
 
 public class valid_string_test {
+
     @Test
     public void valid_input_test() {
         // 유효한 문자열을 사용하여 메서드 호출
