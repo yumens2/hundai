@@ -27,13 +27,13 @@ public class Computer {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             return true;
         } else if(strikeNum !=0 && ballNum !=0){
-            System.out.printf("%d볼 %d스트라이크/n",ballNum,strikeNum);
+            System.out.printf("%d볼 %d스트라이크\n",ballNum,strikeNum);
             return false;
         } else if(strikeNum ==0 & ballNum !=0){
-            System.out.printf("%d볼/n",ballNum);
+            System.out.printf("%d볼\n",ballNum);
             return false;
         } else if(strikeNum !=0 & ballNum ==0){
-            System.out.printf("%d스트라이크/n",strikeNum);
+            System.out.printf("%d스트라이크\n",strikeNum);
             return false;
         } else if(strikeNum ==0 & ballNum ==0){
             System.out.println("낫싱");
