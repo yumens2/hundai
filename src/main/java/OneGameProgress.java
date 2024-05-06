@@ -1,7 +1,13 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class OneGameProgress {
-
+    public void oneGame(List<Integer> comNum,Player player,Computer computer){
+        boolean isStrike= false;
+        while (!isStrike) {
+            isStrike= computer.compare(comNum, player.getNum());
+        }
+    }
 
 
     public boolean gameRestart(){
