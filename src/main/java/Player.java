@@ -41,7 +41,6 @@ public class Player {
             }
 
             if (strike == 3) {
-                sc.close();  // 스캐너 자원 정리
                 return;
             }
         }

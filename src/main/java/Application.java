@@ -8,7 +8,6 @@ public class Application {
             while (opt == 1) {
                 // 난수 생성
                 String answer = Computer.makeRandomNumber();
-                System.out.println(answer);
 
                 // 게임 실행
                 Player.playBaseballGame(answer);
