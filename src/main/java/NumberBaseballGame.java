@@ -34,15 +34,14 @@ public class NumberBaseballGame {
         return option.trim().equals("1");
     }
 
-    private List<Integer> parseInput(String input) throws IllegalArgumentException {
-        String[] tokens = input.split("\\s+");
-        if (tokens.length != 3) throw new IllegalArgumentException("Exactly three numbers are required.");
+    public List<Integer> parseInput(String input) throws IllegalArgumentException {
+        if (input.length() != 3) throw new IllegalArgumentException("Exactly three digits are required.");
 
         List<Integer> userNumbers = new ArrayList<>();
-        for (String token : tokens) {
-            int number = Integer.parseInt(token);
-            if (number < 1 || number > 9) throw new IllegalArgumentException("Numbers must be between 1 and 9.");
-            if (userNumbers.contains(number)) throw new IllegalArgumentException("Duplicate numbers are not allowed.");
+        for (int i = 0; i < 3; i++) {
+            int number = Character.getNumericValue(input.charAt(i));
+            if (number < 1 || number > 9) throw new IllegalArgumentException("Digits must be between 1 and 9.");
+            if (userNumbers.contains(number)) throw new IllegalArgumentException("Duplicate digits are not allowed.");
             userNumbers.add(number);
         }
         return userNumbers;

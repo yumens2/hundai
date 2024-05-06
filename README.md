@@ -6,3 +6,4 @@
 5. play 함수에서 게임승리 메시지와 게임을 다시 시작할 지에 대한 기능을 추가, + scanner close
 6. 전체 게임 flow를 담당하는 Application class 생성
 7. 게임을 재시작할 때 scanner가 닫혀서 재입력이 안되는 경우, 출력 조금 수정
+8. 입력 받는 부분 ParseInput 버그 수정 -> 안띄우고 입력받도록 수정
