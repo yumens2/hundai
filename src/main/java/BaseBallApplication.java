@@ -7,7 +7,7 @@ public class BaseBallApplication {
 
     public static void main(String[] args) throws IOException {
         do {
-            if (!MajorLeague.playBaseBall()) {
+            if (!MajorLeague.playBaseball()) {
                 break;
             }
         } while (true);
