@@ -3,7 +3,6 @@ package baseball;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import org.assertj.core.util.VisibleForTesting;
 
 public class BaseballGame {
 
@@ -69,7 +68,6 @@ public class BaseballGame {
             }
         }
     }
-    @VisibleForTesting
     protected void inputToIntArr(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
@@ -82,7 +80,6 @@ public class BaseballGame {
             }
         }
     }
-    @VisibleForTesting
     protected boolean isIllegalArgument(String str) {
         try {
             if (str.length() != 3) { //인풋의 길이는 3이여야 함
@@ -122,7 +119,7 @@ public class BaseballGame {
         }
         return false;
     }
-    @VisibleForTesting
+
     protected void countStkAndBall(Map<String, Integer> map, int[] computerThreeNum, int[] userThreeNum) {
         int strike = 0;
         int ball = 0;
@@ -137,7 +134,6 @@ public class BaseballGame {
         map.put("스트라이크", strike);
         map.put("볼", ball);
     }
-    @VisibleForTesting
     protected void printSBmap(Map<String, Integer> map) {
         if (map.get("스트라이크") == 0) {
             if (map.get("볼") == 0) {
@@ -153,7 +149,6 @@ public class BaseballGame {
             }
         }
     }
-    @VisibleForTesting
     protected boolean isEndGame(Scanner input) {
         boolean endGame = false;
         int cmd;
@@ -175,7 +170,6 @@ public class BaseballGame {
         }
         return endGame;
     }
-    @VisibleForTesting
     protected int[] getComputerThreeNum() {
         return computerThreeNum;
     }
