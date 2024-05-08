@@ -2,7 +2,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayInputStream;
 
-class baseballGameTest {
+class ApplicationTest {
+
     @Test
     void testPlayGameWithInvalidInput() {
         ByteArrayInputStream in = new ByteArrayInputStream("9999\n".getBytes());
@@ -11,4 +12,6 @@ class baseballGameTest {
         GameController gameController = new GameController();
         assertThrows(IllegalArgumentException.class, gameController::playGame);
     }
+
+
 }
