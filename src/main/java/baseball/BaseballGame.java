@@ -30,29 +30,24 @@ public class BaseballGame {
 
             System.out.print("숫자를 입력해 주세요 : ");
 
-            try {
-                String s = input.next();
 
-                if (isIllegalArgument(s)) { //잘못된 수를 입력할 경우
-                    throw new IllegalArgumentException(); //예외 던지기
-                }
+            String s = input.next();
 
-                inputToIntArr(userThreeNum, s); //인풋을 하나씩 잘라서 각각을 int 배열로 변경
-                countStkAndBall(stkAndBall, computerThreeNum, userThreeNum);
-                //컴퓨터의 랜덤 수, 유저의 수를 비교해서 스트라이크, 볼 개수를 기록함
+            if (isIllegalArgument(s)) { //잘못된 수를 입력할 경우
+                throw new IllegalArgumentException(); //예외 던지기
+            }
 
-                if (stkAndBall.get("스트라이크") == 3) { //3 스트라이크 라면
-                    System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-                    System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-                    endGame = isEndGame(input);
+            inputToIntArr(userThreeNum, s); //인풋을 하나씩 잘라서 각각을 int 배열로 변경
+            countStkAndBall(stkAndBall, computerThreeNum, userThreeNum);
+            //컴퓨터의 랜덤 수, 유저의 수를 비교해서 스트라이크, 볼 개수를 기록함
 
-                } else { // 3스트라이크가 아니라면
-                    printSBmap(stkAndBall); //몇 볼, 몇 스트라이크 인지 출력
-                }
+            if (stkAndBall.get("스트라이크") == 3) { //3 스트라이크 라면
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+                endGame = isEndGame(input);
 
-            } catch (IllegalArgumentException e) {
-                System.out.println("잘못된 수를 입력하였습니다.");
-                break;
+            } else { // 3스트라이크가 아니라면
+                printSBmap(stkAndBall); //몇 볼, 몇 스트라이크 인지 출력
             }
         }
     }
@@ -68,6 +63,7 @@ public class BaseballGame {
             }
         }
     }
+
     protected void inputToIntArr(int[] userThreeNum, String s) {
         userThreeNum[0] = Integer.parseInt(String.valueOf(s.charAt(0)));
 
@@ -80,27 +76,23 @@ public class BaseballGame {
             }
         }
     }
+
     protected boolean isIllegalArgument(String str) {
-        try {
-            if (str.length() != 3) { //인풋의 길이는 3이여야 함
+        if (str.length() != 3) { //인풋의 길이는 3이여야 함
+            return true;
+        }
+
+        char[] userInput = new char[3];
+
+        for (int i = 0; i < 3; i++) { //각각의 숫자는 1~9까지여야 함
+            if (str.charAt(i) < '1' || str.charAt(i) > '9') {
+                return true;
+            } else if (i != 0 && haveSameElement(userInput, str.charAt(i), i)) { //각각의 숫자는 달라야함
                 return true;
             }
-
-            char[] userInput = new char[3];
-
-            for (int i = 0; i < 3; i++) { //각각의 숫자는 1~9까지여야 함
-                if (str.charAt(i) < '1' || str.charAt(i) > '9') {
-                    return true;
-                }
-                else if(i != 0 && haveSameElement(userInput, str.charAt(i), i)) { //각각의 숫자는 달라야함
-                    return true;
-                }
-                userInput[i] = str.charAt(i);
-            }
-            return false;
-        } catch (RuntimeException e) {
-            throw new IllegalArgumentException();
+            userInput[i] = str.charAt(i);
         }
+        return false;
     }
 
     private boolean haveSameElement(int[] threeNum, int num, int index) {
@@ -111,6 +103,7 @@ public class BaseballGame {
         }
         return false;
     }
+
     private boolean haveSameElement(char[] threeNumChar, char ch, int index) {
         for (int i = 0; i < index; i++) {
             if (threeNumChar[i] == ch) {
@@ -134,6 +127,7 @@ public class BaseballGame {
         map.put("스트라이크", strike);
         map.put("볼", ball);
     }
+
     protected void printSBmap(Map<String, Integer> map) {
         if (map.get("스트라이크") == 0) {
             if (map.get("볼") == 0) {
@@ -149,11 +143,12 @@ public class BaseballGame {
             }
         }
     }
+
     protected boolean isEndGame(Scanner input) {
         boolean endGame = false;
         int cmd;
 
-        try{
+        try {
             cmd = input.nextInt();
             input.nextLine();
         } catch (Exception e) {
@@ -165,11 +160,12 @@ public class BaseballGame {
         }
         if (cmd == RE_GAME) { //1이면 새로 시작하기 위해 랜덤으로 다시 뽑음
             setRandomThreeNum(computerThreeNum);
-        } else if(cmd == EXIT) { // 2면 끝내기
+        } else if (cmd == EXIT) { // 2면 끝내기
             endGame = true;
         }
         return endGame;
     }
+
     protected int[] getComputerThreeNum() {
         return computerThreeNum;
     }
