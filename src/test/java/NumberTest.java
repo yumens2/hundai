@@ -119,3 +119,4 @@ public class NumberTest {
         assertThat(number.STRIKE).isEqualTo(1);
     }
 }
+
