@@ -22,23 +22,50 @@ public class Application {
         }
     }
 
+//    private static boolean playSingleGameSession() {
+//        computer.generateComputerNumbers();
+//        boolean gameWon = false;
+//        while (!gameWon) {
+//            String input = controller.getUserInput();
+//            if (validator.isValidInput(input)) {
+//                gameWon = evaluateGuess(input);
+//            }
+//        }
+//        return controller.promptForRestart();
+//    }
+//
+//    private static boolean evaluateGuess(String input) {
+//        int strikes = gameLogic.countStrikes(input, computer.getComputerNumbers());
+//        int balls = gameLogic.countBalls(input, computer.getComputerNumbers());
+//        boolean gameWon = strikes == 3;
+//        gameStatus.printResult(balls, strikes, gameWon);
+//        return gameWon;
+//    }
     private static boolean playSingleGameSession() {
         computer.generateComputerNumbers();
-        boolean gameWon = false;
-        while (!gameWon) {
-            String input = controller.getUserInput();
-            if (validator.isValidInput(input)) {
-                gameWon = evaluateGuess(input);
+        while (true) {
+            if (evaluateGuess()) {
+                break;
             }
         }
         return controller.promptForRestart();
     }
 
-    private static boolean evaluateGuess(String input) {
+    private static boolean evaluateGuess() {
+        String input = getUserInput();
         int strikes = gameLogic.countStrikes(input, computer.getComputerNumbers());
-        int balls = gameLogic.countBalls(input, computer.getComputerNumbers(), strikes);
+        int balls = gameLogic.countBalls(input, computer.getComputerNumbers());
         boolean gameWon = strikes == 3;
         gameStatus.printResult(balls, strikes, gameWon);
         return gameWon;
     }
+
+    private static String getUserInput() {
+        String input;
+        do {
+            input = controller.getUserInput();
+        } while (!validator.isValidInput(input));
+        return input;
+    }
+
 }
