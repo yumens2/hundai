@@ -14,7 +14,7 @@ public class GameLogic {
         return strikes;
     }
 
-    public int countBalls(String input, List<Integer> computerNumbers, int strikes) {
+    public int countBalls(String input, List<Integer> computerNumbers) {
         int balls = 0;
         for (int i = 0; i < 3; i++) {
             int digit = Character.getNumericValue(input.charAt(i));
