@@ -1,5 +1,6 @@
 # java-baseball-precourse
 
+
 ## 기능 구현 과정 (commit 순서별 정렬)
 
 * createRandomNumbers 메소드에 1~9까지의 랜덤 숫자 생성 기능 구현
