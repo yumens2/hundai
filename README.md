@@ -1,2 +1,2 @@
 # java-baseball-precourse
-## git push test
+## Project Init : spring boot, spring security
